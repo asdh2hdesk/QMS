@@ -1,0 +1,3216 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* quality
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-06 06:45+0000\n"
+"PO-Revision-Date: 2025-06-06 06:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__work_type
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__work_type
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__work_type
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__work_type
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "4M Type"
+msgstr " 4M Type (4 मीटर प्रकार)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_kanban
+msgid "<strong>Issue:</strong>"
+msgstr "<strong>Issue:</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_kanban
+msgid "<strong>Process:</strong>"
+msgstr "<strong>Process:</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_kanban
+msgid "<strong>Responsible:</strong>"
+msgstr "<strong>Responsible:</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "<strong>Risk Analysis</strong>"
+msgstr "<strong>Risk Analysis</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_kanban
+msgid "<strong>Target:</strong>"
+msgstr "<strong>Target:</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_kanban
+msgid "<strong>Type:</strong>"
+msgstr "<strong>Type:</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Ability to Detect"
+msgstr " Ability to Detect (पता लगाने की क्षमता)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_production_analysis__achievement_rate
+msgid "Achievement Rate (%)"
+msgstr " Achievement Rate (%) (उपलब्धि दर (%))"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_needaction
+msgid "Action Needed"
+msgstr " Action Needed (कार्रवाई आवश्यक)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__action_plan
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Action Plan"
+msgstr " Action Plan (कार्य योजना)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Action Priority"
+msgstr " Action Priority (क्रिया प्राथमिकता)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__action_required
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Action Required"
+msgstr " Action Required (कार्रवाई आवश्यक है)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__action_taken
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__action_taken
+msgid "Action Taken (with pointer to evidence)"
+msgstr ""
+" Action Taken (with pointer to evidence) (कार्रवाई की गई (साक्ष्य के लिए "
+"सूचक के साथ))"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__active
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__active
+msgid "Active"
+msgstr " Active (सक्रिय)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_ids
+msgid "Activities"
+msgstr " Activities (गतिविधियाँ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr " Activity Exception Decoration (गतिविधि अपवाद सजावट)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_state
+msgid "Activity State"
+msgstr " Activity State (गतिविधि अवस्था)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_type_icon
+msgid "Activity Type Icon"
+msgstr " Activity Type Icon (गतिविधि प्रकार आइकन)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__actual_efficiency
+msgid "Actual Efficiency (%)"
+msgstr " Actual Efficiency (%) (वास्तविक दक्षता (%))"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_production_analysis__actual_production
+msgid "Actual Production"
+msgstr " Actual Production (वास्तविक उत्पादन)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_sub_operations_lines_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_form
+msgid "Additional Information"
+msgstr " Additional Information (अतिरिक्त जानकारी)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_line_form
+msgid "Additional comments"
+msgstr " Additional comments (अतिरिक्त टिप्पणियां)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Apply CAPA"
+msgstr " Apply CAPA (CAPA लागू करें)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__approval_date
+#: model:ir.model.fields,field_description:quality.field_non_conformance__deviation_approved_date
+msgid "Approval Date"
+msgstr " Approval Date (अनुमोदन तिथि)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__approver
+msgid "Approved By"
+msgstr " Approved By (के द्वारा अनुमोदित)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__iatf_members_ids
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__iatf_members_ids
+#: model:ir.model.fields,field_description:quality.field_non_conformance__iatf_members_ids
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__iatf_members_ids
+#: model:ir.model.fields,field_description:quality.field_process_report__iatf_members_ids
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Approvers"
+msgstr " Approvers (अनुमोदन)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__04
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__04
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__04
+msgid "April"
+msgstr " April (अप्रैल)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__assigned_to
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__assigned_to
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Assigned To"
+msgstr " Assigned To (को सौंपना)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_kanban
+msgid "Assigned to:"
+msgstr " Assigned to: (को सौंपना:)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_attachment_count
+msgid "Attachment Count"
+msgstr " Attachment Count (अनुलग्नक गणना)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint__attachment_ids
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__attachment_ids
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__attachment_ids
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Attachments"
+msgstr " Attachments (संलग्नक)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__08
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__08
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__08
+msgid "August"
+msgstr " August (अगस्त)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__in_process_inspection_report_line__observation_status__auto_filled
+msgid "Auto Filled"
+msgstr " Auto Filled (ऑटो भरा हुआ)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+msgid "Basic Information"
+msgstr " Basic Information (मूल जानकारी)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__batch_quantity
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__batch_quantity
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__batch_quantity
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__batch_quantity
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__batch_quantity
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__batch_quantity
+msgid "Batch Quantity"
+msgstr " Batch Quantity (बैच मात्रा)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__process_report__confidentiality_level__business
+msgid "Business"
+msgstr " Business (व्यापार)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__state__capa
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "CAPA Applied"
+msgstr " CAPA Applied (सीएपीए एप्लाइड)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__capa_closing_date
+msgid "CAPA Closing Date"
+msgstr " CAPA Closing Date (सीएपीए समापन तिथि)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__capa_complaint_id
+msgid "CAPA Complaint"
+msgstr " CAPA Complaint (कैपा शिकायत)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "CONTINUOUS IMPROVEMENT"
+msgstr " CONTINUOUS IMPROVEMENT (निरंतर सुधार)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document__calibration
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document_id__calibration_sheet
+msgid "Calibration"
+msgstr " Calibration (कैलिब्रेशन)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Cancel"
+msgstr " Cancel (रद्द करना)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__cause_type
+msgid "Cause Type"
+msgstr " Cause Type (कारण)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__symbol
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__symbol
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__symbol
+#: model:ir.model.fields,field_description:quality.field_process_operations__special_product_characteristics
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__special_characteristics
+msgid "Class"
+msgstr " Class (कक्षा)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Close"
+msgstr " Close (बंद करना)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Close NCR"
+msgstr " Close NCR (NCR को बंद करें)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__state__closed
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__closed
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Closed"
+msgstr " Closed (बंद किया हुआ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__color
+msgid "Color"
+msgstr " Color (रंग)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__company_id
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__company_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__company_id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__company_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__company_id
+#: model:ir.model.fields,field_description:quality.field_process_report__company_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__company_id
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Company"
+msgstr " Company (कंपनी)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__company_name
+msgid "Company Name"
+msgstr " Company Name (कंपनी का नाम)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__category_id
+msgid "Complaint Category"
+msgstr " Complaint Category (शिकायत श्रेणी)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__complaint_description
+msgid "Complaint Description"
+msgstr " Complaint Description (शिकायत विवरण)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Complaint Details"
+msgstr " Complaint Details (शिकायत विवरण)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__rework_completed
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__status__completed
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__status__completed
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__status__completed
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Completed"
+msgstr " Completed (पुरा होना।)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__completion_date
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__completion_date
+msgid "Completion Date"
+msgstr " Completion Date (पूरा करने की तिथि)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__concession
+msgid "Concession"
+msgstr " Concession (छूट)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__process_report__confidentiality_level__confidential
+msgid "Confidential"
+msgstr " Confidential (गोपनीय)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__confidentiality_level
+msgid "Confidentiality Level"
+msgstr " Confidentiality Level (गोपनीयता स्तर)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__scrap_confirmed_by
+msgid "Confirmed By"
+msgstr " Confirmed By (पक्का करना)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_customer_complaint_capa_wizard
+msgid "Create CAPA Complaint"
+msgstr " Create CAPA Complaint (CAPA शिकायत बनाएँ)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Create Customer Complaint for CAPA"
+msgstr " Create Customer Complaint for CAPA (CAPA के लिए ग्राहक शिकायत बनाएँ)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_qms_rejection_handling
+msgid "Create a new rejection record"
+msgstr " Create a new rejection record (एक नया अस्वीकृति रिकॉर्ड बनाएं)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_process_report
+msgid "Create and manage process reports."
+msgstr ""
+" Create and manage process reports. (प्रक्रिया रिपोर्ट बनाएं और प्रबंधित "
+"करें।)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_non_conformance
+msgid "Create your first Non-Conformance Report"
+msgstr ""
+" Create your first Non-Conformance Report (अपनी पहली गैर-अनुरूपता रिपोर्ट "
+"बनाएं)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_production_analysis
+msgid "Create your first Production Analysis record!"
+msgstr ""
+" Create your first Production Analysis record! (अपना पहला उत्पादन विश्लेषण "
+"रिकॉर्ड बनाएं!)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__create_uid
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__create_uid
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__create_uid
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__create_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__create_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__create_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__create_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__create_uid
+#: model:ir.model.fields,field_description:quality.field_non_conformance__create_uid
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__create_uid
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__create_uid
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__create_uid
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__create_uid
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__create_uid
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__create_uid
+#: model:ir.model.fields,field_description:quality.field_process_operations__create_uid
+#: model:ir.model.fields,field_description:quality.field_process_report__create_uid
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__create_uid
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__create_uid
+#: model:ir.model.fields,field_description:quality.field_production_analysis__create_uid
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__create_uid
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__create_uid
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__create_uid
+msgid "Created by"
+msgstr " Created by (के द्वारा बनाई गई)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__create_date
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__create_date
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__create_date
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__create_date
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__create_date
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__create_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__create_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__create_date
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__create_date
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__create_date
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__create_date
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__create_date
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__create_date
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__create_date
+#: model:ir.model.fields,field_description:quality.field_non_conformance__create_date
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__create_date
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__create_date
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__create_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__create_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__create_date
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__create_date
+#: model:ir.model.fields,field_description:quality.field_process_operations__create_date
+#: model:ir.model.fields,field_description:quality.field_process_report__create_date
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__create_date
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__create_date
+#: model:ir.model.fields,field_description:quality.field_production_analysis__create_date
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__create_date
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__create_date
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__create_date
+msgid "Created on"
+msgstr " Created on (पर बनाया)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__severity__critical
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__severity__critical
+msgid "Critical"
+msgstr " Critical (गंभीर)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Critical Severity"
+msgstr " Critical Severity (महत्वपूर्ण गंभीरता)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__currency_id
+msgid "Currency"
+msgstr " Currency (मुद्रा)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__current_detection_control
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__current_detection_control
+msgid "Current Detection Control of FC or FM"
+msgstr ""
+" Current Detection Control of FC or FM (एफसी या एफएम का वर्तमान पता लगाने का"
+" नियंत्रण)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__current_prevention_control
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__current_prevention_control
+msgid "Current Prevention Control of FC"
+msgstr " Current Prevention Control of FC (एफसी का वर्तमान रोकथाम नियंत्रण)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Custom Form"
+msgstr " Custom Form (कस्टम फॉर्म)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_type__customer
+msgid "Customer"
+msgstr " Customer (ग्राहक)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_customer_complaint
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document__complaint
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document_id__customer_complaint_handling
+msgid "Customer Complaint"
+msgstr " Customer Complaint (ग्राहक शिकायत)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_customer_complaint_capa_wizard
+msgid "Customer Complaint CAPA Wizard"
+msgstr " Customer Complaint CAPA Wizard (ग्राहक शिकायत CAPA विज़ार्ड)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fe_customer_end
+#: model:ir.model.fields,field_description:quality.field_process_operations__fe_customer_end
+msgid "Customer End"
+msgstr " Customer End (ग्राहक अंत)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__customer_impact
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Customer Impact"
+msgstr " Customer Impact (ग्राहक प्रभाव)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__customer_impact
+msgid "Customer Impact?"
+msgstr " Customer Impact? (ग्राहक प्रभाव?)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Customer Information"
+msgstr " Customer Information (ग्राहक सूचना)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Customer NCR"
+msgstr " Customer NCR (ग्राहक एनसीआर)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__customer_name
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__partner_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__partner_id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__partner_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__partner_id
+#: model:ir.model.fields,field_description:quality.field_process_report__partner_id
+msgid "Customer Name"
+msgstr " Customer Name (ग्राहक नाम)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__cus_part_name
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__customer_part_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__cus_part_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__customer_part_name
+#: model:ir.model.fields,field_description:quality.field_non_conformance__cus_part_name
+#: model:ir.model.fields,field_description:quality.field_non_conformance__customer_part_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__cus_part_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__customer_part_name
+#: model:ir.model.fields,field_description:quality.field_process_report__cus_part_name
+#: model:ir.model.fields,field_description:quality.field_process_report__customer_part_name
+msgid "Customer Part name"
+msgstr " Customer Part name (ग्राहक भाग का नाम)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__cus_part_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__cus_part_no
+#: model:ir.model.fields,field_description:quality.field_non_conformance__cus_part_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__cus_part_no
+#: model:ir.model.fields,field_description:quality.field_process_report__cus_part_no
+msgid "Customer Part num"
+msgstr " Customer Part num (ग्राहक भाग संख्या)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__cus_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__cus_id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__cus_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__cus_id
+#: model:ir.model.fields,field_description:quality.field_process_report__cus_id
+msgid "Customer name"
+msgstr " Customer name (ग्राहक नाम)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_pfmea_dashboard_board
+msgid "Dashboard Board"
+msgstr " Dashboard Board (डैशबोर्ड बोर्ड)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__date
+msgid "Date"
+msgstr " Date (तारीख)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_non_conformance__capa_closing_date
+msgid "Date when the associated CAPA was completed"
+msgstr ""
+" Date when the associated CAPA was completed (दिनांक जब संबंधित CAPA पूरा हो"
+" गया था)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_kanban
+msgid "Date:"
+msgstr " Date: (तारीख:)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__days_to_resolution
+msgid "Days to Resolution"
+msgstr " Days to Resolution (संकल्प के दिन)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__12
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__12
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__12
+msgid "December"
+msgstr " December (दिसंबर)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__defect_description
+msgid "Defect Description"
+msgstr " Defect Description (दोष विवरण)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__defect_snapshot
+msgid "Defect Snapshot"
+msgstr " Defect Snapshot (दोषपूर्ण स्नैपशॉट)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__defect_source
+msgid "Defect Source"
+msgstr " Defect Source (दोष स्रोत)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__defective_parts
+msgid "Defective Parts"
+msgstr " Defective Parts (दोषपूर्ण भाग)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__defective_qty
+msgid "Defective Quantity"
+msgstr " Defective Quantity (दोषपूर्ण मात्रा)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_category__delivery
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_sub_category__delivery
+msgid "Delivery"
+msgstr " Delivery (वितरण)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__department
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Department"
+msgstr " Department (विभाग)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Describe the customer complaint in detail..."
+msgstr ""
+" Describe the customer complaint in detail... (ग्राहक की शिकायत का विस्तार "
+"से वर्णन करें ...)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Description"
+msgstr " Description (विवरण)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Detection"
+msgstr " Detection (खोज)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__detection
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__detection
+msgid "Detection (D) of FC/FM"
+msgstr " Detection (D) of FC/FM (एफसी/एफएम का पता लगाना (डी))"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__detection_action
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__detection_action
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__detection_action
+msgid "Detection Action"
+msgstr " Detection Action (पता लगाने की क्रिया)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__detection_date
+msgid "Detection Date"
+msgstr " Detection Date (पता लगाने की तारीख)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__detection_level
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__detection_level
+msgid "Detection Level"
+msgstr " Detection Level (पता लगाने का स्तर)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_process_sub_operations_lines__detection
+#: model:ir.model.fields,help:quality.field_process_sub_operations_lines__detection_level
+#: model:ir.model.fields,help:quality.field_process_suggestions__detection
+#: model:ir.model.fields,help:quality.field_process_suggestions__detection_level
+msgid "Detection rating from 1-10"
+msgstr " Detection rating from 1-10 (1-10 से पता लगाने की रेटिंग)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Deviation"
+msgstr " Deviation (विचलन)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__deviation_approver
+msgid "Deviation Approved By"
+msgstr " Deviation Approved By (द्वारा अनुमोदित विचलन)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__deviation_document_filename
+msgid "Deviation Document Filename"
+msgstr " Deviation Document Filename (विचलन दस्तावेज़ फ़ाइल नाम)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__deviation_justification
+msgid "Deviation Justification"
+msgstr " Deviation Justification (विचलन औचित्य)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__deviation_document
+msgid "Deviation Report (PDF)"
+msgstr " Deviation Report (PDF) (विचलन रिपोर्ट)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__dimension_des
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__dimension_des
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__dimension_des
+msgid "Dimension Description"
+msgstr " Dimension Description (आयाम विवरण)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__status__discarded
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__status__discarded
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__status__discarded
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Discarded"
+msgstr " Discarded (बाहर किया हुआ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__display_name
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__display_name
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__display_name
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__display_name
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__display_name
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__display_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__display_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__display_name
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__display_name
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__display_name
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__display_name
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__display_name
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__display_name
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__display_name
+#: model:ir.model.fields,field_description:quality.field_non_conformance__display_name
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__display_name
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__display_name
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__display_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__display_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__display_name
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__display_name
+#: model:ir.model.fields,field_description:quality.field_process_operations__display_name
+#: model:ir.model.fields,field_description:quality.field_process_report__display_name
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__display_name
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__display_name
+#: model:ir.model.fields,field_description:quality.field_production_analysis__display_name
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__display_name
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__display_name
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__display_name
+msgid "Display Name"
+msgstr " Display Name (प्रदर्शित होने वाला नाम)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Disposition"
+msgstr " Disposition (स्वभाव)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__disposition
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__disposition
+msgid "Disposition Decision"
+msgstr " Disposition Decision (स्वभाव का निर्णय)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__doc_type
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__doc_type
+#: model:ir.model.fields,field_description:quality.field_non_conformance__doc_type
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__doc_type
+#: model:ir.model.fields,field_description:quality.field_process_report__doc_type
+msgid "Doc Type"
+msgstr " Doc Type (डॉक्टर प्रकार)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__in_process_inspection_report_line__observation_status__draft
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__state__draft
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__draft
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Draft"
+msgstr " Draft (मसौदा)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__drawing_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__drawing_no
+#: model:ir.model.fields,field_description:quality.field_non_conformance__drawing_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__drawing_no
+#: model:ir.model.fields,field_description:quality.field_process_report__drawing_no
+msgid "Drawing No."
+msgstr " Drawing No. (ड्राइंग नंबर।)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_product_product__drg_no
+#: model:ir.model.fields,field_description:quality.field_product_template__drg_no
+msgid "Drawing Number"
+msgstr " Drawing Number (ड्राइंग संख्या)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__drawing_rev_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__drawing_rev_date
+#: model:ir.model.fields,field_description:quality.field_non_conformance__drawing_rev_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__drawing_rev_date
+#: model:ir.model.fields,field_description:quality.field_process_report__drawing_rev_date
+msgid "Drawing Rev. Date"
+msgstr " Drawing Rev. Date (ड्राइंग रेव। दिनांक)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__drawing_rev_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__drawing_rev_no
+#: model:ir.model.fields,field_description:quality.field_non_conformance__drawing_rev_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__drawing_rev_no
+#: model:ir.model.fields,field_description:quality.field_process_report__drawing_rev_no
+msgid "Drawing. Rev. No."
+msgstr " Drawing. Rev. No. (चित्रकला।रेव। सं।)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__is_editable
+msgid "Editable"
+msgstr " Editable (संपादन योग्य)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Effects"
+msgstr " Effects (प्रभाव)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__efficiency_gap
+msgid "Efficiency Gap (%)"
+msgstr " Efficiency Gap (%) (दक्षता अंतर (%))"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__ele_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__ele_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__ele_no
+msgid "Element No."
+msgstr " Element No. (तत्व सं।)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__customer_email
+msgid "Email"
+msgstr " Email (ईमेल)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fe_end_user
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fpi_end_user
+#: model:ir.model.fields,field_description:quality.field_process_operations__fe_end_user
+#: model:ir.model.fields,field_description:quality.field_process_operations__fpi_end_user
+msgid "End User"
+msgstr " End User (अंतिम उपयोगकर्ता)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__work_type__environment
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__work_type__environment
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__work_type__environment
+#: model:ir.model.fields.selection,name:quality.selection__top_ap_pfmea__work_type__environment
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Environment"
+msgstr " Environment (पर्यावरण)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__environment_line_ids
+#: model:ir.model.fields,field_description:quality.field_process_operations__environment_line_ids
+msgid "Environment Lines"
+msgstr " Environment Lines (पर्यावरणीय रेखाएँ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__environment_pro_id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__environment_pro_id
+msgid "Environment Process Reference"
+msgstr " Environment Process Reference (पर्यावरण प्रक्रिया संदर्भ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__cost
+msgid "Estimated Cost of Non-Conformance"
+msgstr " Estimated Cost of Non-Conformance (गैर-अनुरूपता की अनुमानित लागत)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Evaluate"
+msgstr " Evaluate (मूल्यांकन करना)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__state__evaluated
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Evaluated"
+msgstr " Evaluated (का मूल्यांकन)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_type__external
+msgid "External"
+msgstr " External (बाहरी)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "External NCR"
+msgstr " External NCR (बाह्य एनसीआर)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__fmea_ap
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__fmea_ap
+msgid "FMEA AP"
+msgstr " FMEA AP (एफएमईए एपी)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__fmea_ap_sort
+msgid "FMEA AP Sort Priority"
+msgstr " FMEA AP Sort Priority (FMEA AP सॉर्ट प्राथमिकता)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__failure_causes
+msgid "Failure Cause"
+msgstr " Failure Cause (असफलता)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__failure_causes
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__failure_causes
+msgid "Failure Causes (FC)"
+msgstr " Failure Causes (FC) (विफलता का कारण (एफसी))"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Failure Effects"
+msgstr " Failure Effects (असफलता प्रभाव)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__failure_mode
+msgid "Failure Mode"
+msgstr " Failure Mode (असफलता विधा)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__failure_mode
+#: model:ir.model.fields,field_description:quality.field_process_operations__failure_mode
+msgid "Failure Mode (FM)"
+msgstr " Failure Mode (FM) (विफलता मोड (एफएम))"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__02
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__02
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__02
+msgid "February"
+msgstr " February (फ़रवरी)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__filter_code
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__filter_code
+msgid "Filter Code (Optional)"
+msgstr " Filter Code (Optional) (फ़िल्टर कोड)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__financial_impact
+msgid "Financial Impact"
+msgstr " Financial Impact (वित्तीय प्रभाव)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_follower_ids
+msgid "Followers"
+msgstr " Followers (समर्थक)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_partner_ids
+msgid "Followers (Partners)"
+msgstr " Followers (Partners) (अनुयायी (भागीदार))"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr " Font awesome icon e.g. fa-tasks (फ़ॉन्ट भयानक आइकन उदा।एफए-टास्क)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_operations__func_of_process_step
+msgid "Function of Process Step"
+msgstr " Function of Process Step (प्रक्रिया चरण का कार्य)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__func_of_process_step
+msgid "Function of Process Step and Process Characteristics"
+msgstr ""
+" Function of Process Step and Process Characteristics (प्रक्रिया चरण और "
+"प्रक्रिया विशेषताओं का कार्य)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__function_of_process_work_element
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__function_of_process_work_element
+msgid "Function of Process Work Element and Process Characteristics"
+msgstr ""
+" Function of Process Work Element and Process Characteristics (प्रक्रिया "
+"कार्य तत्व और प्रक्रिया विशेषताओं का कार्य)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__func_of_product_step
+msgid "Function of Product Step and Process Characteristics"
+msgstr ""
+" Function of Product Step and Process Characteristics (उत्पाद चरण और "
+"प्रक्रिया विशेषताओं का कार्य)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document__grn
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document_id__grn_management
+msgid "GRN"
+msgstr " GRN (गिनती)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__generate_xls_file
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__generate_xls_file
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__generate_xls_file
+#: model:ir.model.fields,field_description:quality.field_process_report__generate_xls_file
+msgid "Generated File"
+msgstr " Generated File (उत्पन्न संचिका)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Group By"
+msgstr " Group By (द्वारा समूह बनाएं)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__has_message
+msgid "Has Message"
+msgstr " Has Message (संदेश है)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__severity__high
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__severity__high
+msgid "High"
+msgstr " High (उच्च)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "High Severity"
+msgstr " High Severity (उच्च गंभीरता)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__hca
+#: model:ir.model.fields,field_description:quality.field_process_operations__hca
+msgid "History/Change Authorization"
+msgstr " History/Change Authorization (इतिहास/परिवर्तन प्राधिकरण)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__cause_type__human_error
+msgid "Human Error"
+msgstr " Human Error (मानव त्रुटि)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__id
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__id
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__id
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__id
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__id
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__id
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__id
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__id
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__id
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__id
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__id
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__id
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__id
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__id
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__id
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__id
+#: model:ir.model.fields,field_description:quality.field_process_operations__id
+#: model:ir.model.fields,field_description:quality.field_process_report__id
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__id
+#: model:ir.model.fields,field_description:quality.field_production_analysis__id
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__id
+msgid "ID"
+msgstr " ID (पहचान)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_exception_icon
+msgid "Icon"
+msgstr " Icon (आइकन)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+" Icon to indicate an exception activity. (एक अपवाद गतिविधि को इंगित करने के "
+"लिए आइकन।)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+" If checked, new messages require your attention. (यदि जाँच की जाती है, तो "
+"नए संदेशों को आपके ध्यान की आवश्यकता होती है।)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__message_has_error
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+" If checked, some messages have a delivery error. (यदि जाँच की जाती है, तो "
+"कुछ संदेशों में डिलीवरी त्रुटि होती है।)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_in_coming_report
+#: model:ir.ui.menu,name:quality.menu_in_coming_inspection
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+msgid "In Coming Inspection Report"
+msgstr " In Coming Inspection Report (आने वाले निरीक्षण रिपोर्ट में)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_in_coming_report_lines
+msgid "In Coming Inspection Report Lines"
+msgstr ""
+" In Coming Inspection Report Lines (आने वाले निरीक्षण रिपोर्ट लाइनों में)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fe_in_plant
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fpi_in_plant
+#: model:ir.model.fields,field_description:quality.field_process_operations__fe_in_plant
+#: model:ir.model.fields,field_description:quality.field_process_operations__fpi_in_plant
+msgid "In Plant"
+msgstr " In Plant (संयंत्र में)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_in_process_report
+#: model:ir.ui.menu,name:quality.menu_in_process_inspection
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+msgid "In Process Inspection Report"
+msgstr " In Process Inspection Report (प्रक्रिया निरीक्षण रिपोर्ट में)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_in_process_report_lines
+msgid "In Process Inspection Report Lines"
+msgstr ""
+" In Process Inspection Report Lines (प्रक्रिया निरीक्षण रिपोर्ट लाइनों में)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_in_process_operations
+msgid "In Process Operations"
+msgstr " In Process Operations (प्रक्रिया संचालन में)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__status__in_progress
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__status__in_progress
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__status__in_progress
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__in_progress
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "In Progress"
+msgstr " In Progress (प्रगति पर है)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Initial Risk Action Priority"
+msgstr " Initial Risk Action Priority (प्रारंभिक जोखिम कार्रवाई प्राथमिकता)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Initiator"
+msgstr " Initiator (सर्जक)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__inspected_by
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__inspected_by
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__inspected_by
+msgid "Inspected By"
+msgstr " Inspected By (द्वारा निरीक्षण किया गया)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_operation_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+msgid "Inspection Details"
+msgstr " Inspection Details (निरीक्षण विवरण)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__inspection_frequency
+msgid "Inspection Frequency"
+msgstr " Inspection Frequency (निरीक्षण आवृत्ति)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__inspection_line_id
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__inspection_line_id
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__inspection_line_id
+msgid "Inspection Line"
+msgstr " Inspection Line (निरीक्षण लाइन)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_line_form
+msgid "Inspection Line Detail"
+msgstr " Inspection Line Detail (निरीक्षण लाइन विवरण)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__line_ids
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__line_ids
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__line_ids
+msgid "Inspection Lines"
+msgstr " Inspection Lines (निरीक्षण रेखाएँ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__inspection_method
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__inspection_method
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__inspection_method
+msgid "Inspection Method"
+msgstr " Inspection Method (निरीक्षण पद्धति)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_inspection_observation
+#: model:ir.model,name:quality.model_inspection_observation
+msgid "Inspection Observations"
+msgstr " Inspection Observations (निरीक्षण अवलोकन)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__inspection_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__inspection_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__inspection_id
+msgid "Inspection Report"
+msgstr " Inspection Report (निरीक्षण रिपोर्ट)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.inspection_menu
+msgid "Inspection Reports"
+msgstr " Inspection Reports (निरीक्षण रिपोर्ट)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_type__internal
+msgid "Internal"
+msgstr " Internal (आंतरिक)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Internal NCR"
+msgstr " Internal NCR (आंतरिक एनसीआर)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_is_follower
+msgid "Is Follower"
+msgstr " Is Follower (अनुयायी है)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__is_overdue
+msgid "Is Overdue"
+msgstr " Is Overdue (अतिदेय है)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__issue
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__issue
+#: model:ir.model.fields,field_description:quality.field_process_operations__issue
+msgid "Issue #"
+msgstr " Issue # (मुद्दा #)"
+
+#. module: quality
+#: model:ir.model.constraint,message:quality.constraint_process_operations_unique_issue_process_step
+msgid "Issue number must be unique for a given Process Step!"
+msgstr ""
+" Issue number must be unique for a given Process Step! (अंक संख्या किसी दिए "
+"गए प्रक्रिया चरण के लिए अद्वितीय होनी चाहिए!)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__01
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__01
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__01
+msgid "January"
+msgstr " January (जनवरी)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__07
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__07
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__07
+msgid "July"
+msgstr " July (जुलाई)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__06
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__06
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__06
+msgid "June"
+msgstr " June (जून)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__justification
+msgid "Justification"
+msgstr " Justification (औचित्य)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__name
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__name
+msgid "Label"
+msgstr " Label (लेबल)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard____last_update
+#: model:ir.model.fields,field_description:quality.field_dashboard_report____last_update
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler____last_update
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report____last_update
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line____last_update
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation____last_update
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report____last_update
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line____last_update
+#: model:ir.model.fields,field_description:quality.field_in_process_operations____last_update
+#: model:ir.model.fields,field_description:quality.field_inspection_observation____last_update
+#: model:ir.model.fields,field_description:quality.field_ncr_repair____last_update
+#: model:ir.model.fields,field_description:quality.field_ncr_rework____last_update
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap____last_update
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is____last_update
+#: model:ir.model.fields,field_description:quality.field_non_conformance____last_update
+#: model:ir.model.fields,field_description:quality.field_oee_analysis____last_update
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions____last_update
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis____last_update
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report____last_update
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line____last_update
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation____last_update
+#: model:ir.model.fields,field_description:quality.field_process_operations____last_update
+#: model:ir.model.fields,field_description:quality.field_process_report____last_update
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines____last_update
+#: model:ir.model.fields,field_description:quality.field_process_suggestions____last_update
+#: model:ir.model.fields,field_description:quality.field_production_analysis____last_update
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling____last_update
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea____last_update
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler____last_update
+msgid "Last Modified on"
+msgstr " Last Modified on (अंतिम रूप से संशोधित)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__write_uid
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__write_uid
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__write_uid
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__write_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__write_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__write_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__write_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__write_uid
+#: model:ir.model.fields,field_description:quality.field_non_conformance__write_uid
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__write_uid
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__write_uid
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__write_uid
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__write_uid
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__write_uid
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__write_uid
+#: model:ir.model.fields,field_description:quality.field_process_operations__write_uid
+#: model:ir.model.fields,field_description:quality.field_process_report__write_uid
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__write_uid
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__write_uid
+#: model:ir.model.fields,field_description:quality.field_production_analysis__write_uid
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__write_uid
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__write_uid
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__write_uid
+msgid "Last Updated by"
+msgstr " Last Updated by (द्वारा अंतिम अद्यतन किया गया)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__write_date
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__write_date
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__write_date
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__write_date
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__write_date
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__write_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__write_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__write_date
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__write_date
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__write_date
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__write_date
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__write_date
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__write_date
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__write_date
+#: model:ir.model.fields,field_description:quality.field_non_conformance__write_date
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__write_date
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__write_date
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__write_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__write_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__write_date
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__write_date
+#: model:ir.model.fields,field_description:quality.field_process_operations__write_date
+#: model:ir.model.fields,field_description:quality.field_process_report__write_date
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__write_date
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__write_date
+#: model:ir.model.fields,field_description:quality.field_production_analysis__write_date
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__write_date
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__write_date
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__write_date
+msgid "Last Updated on"
+msgstr " Last Updated on (अंतिम बार अद्यतन किया गया)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__link
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__link
+#: model:ir.model.fields,field_description:quality.field_non_conformance__link
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__link
+#: model:ir.model.fields,field_description:quality.field_process_report__link
+msgid "Link"
+msgstr " Link (जोड़ना)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__severity__low
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__severity__low
+msgid "Low"
+msgstr " Low (कम)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Low Severity"
+msgstr " Low Severity (कम गंभीरता)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__lower_limit
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__lower_limit
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__lower_limit
+msgid "Lower Limit"
+msgstr " Lower Limit (निचली सीमा)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document__msa
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document_id__msa_sheet
+msgid "MSA"
+msgstr " MSA (एमएसए)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__machine_id
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__work_type__machine
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__work_type__machine
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__work_type__machine
+#: model:ir.model.fields.selection,name:quality.selection__top_ap_pfmea__work_type__machine
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Machine"
+msgstr " Machine (मशीन)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__cause_type__machine_failure
+msgid "Machine Failure"
+msgstr " Machine Failure (मशीन असफलता)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__machine_line_ids
+#: model:ir.model.fields,field_description:quality.field_process_operations__machine_line_ids
+msgid "Machine Lines"
+msgstr " Machine Lines (मशीन लाइन्स)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__machine_pro_id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__machine_pro_id
+msgid "Machine Process Reference"
+msgstr " Machine Process Reference (मशीन प्रक्रिया संदर्भ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_main_attachment_id
+msgid "Main Attachment"
+msgstr " Main Attachment (मुख्य अनुलग्नक)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__work_type__man
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__work_type__man
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__work_type__man
+#: model:ir.model.fields.selection,name:quality.selection__top_ap_pfmea__work_type__man
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Man"
+msgstr " Man (आदमी)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__man_line_ids
+#: model:ir.model.fields,field_description:quality.field_process_operations__man_line_ids
+msgid "Man Lines"
+msgstr " Man Lines (आदमी की रेखाएँ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__man_pro_id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__man_pro_id
+msgid "Man Process Reference"
+msgstr " Man Process Reference (मनुष्य प्रक्रिया संदर्भ)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__in_process_inspection_report_line__observation_status__manually_edited
+msgid "Manually Edited"
+msgstr " Manually Edited (मैन्युअल रूप से संपादित)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__03
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__03
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__03
+msgid "March"
+msgstr " March (मार्च)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__work_type__material
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__work_type__material
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__work_type__material
+#: model:ir.model.fields.selection,name:quality.selection__top_ap_pfmea__work_type__material
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Material"
+msgstr " Material (सामग्री)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__cause_type__material_defect
+msgid "Material Defect"
+msgstr " Material Defect (सामग्री दोष)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__material_line_ids
+#: model:ir.model.fields,field_description:quality.field_process_operations__material_line_ids
+msgid "Material Lines"
+msgstr " Material Lines (भौतिक रेखाएँ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__material_pro_id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__material_pro_id
+msgid "Material Process Reference"
+msgstr " Material Process Reference (सामग्री प्रक्रिया संदर्भ)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__05
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__05
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__05
+msgid "May"
+msgstr " May (मई)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__severity__medium
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__severity__medium
+msgid "Medium"
+msgstr " Medium (मध्यम)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Medium Severity"
+msgstr " Medium Severity (मध्यम गंभीरता)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__member_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__member_name
+#: model:ir.model.fields,field_description:quality.field_non_conformance__member_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__member_name
+#: model:ir.model.fields,field_description:quality.field_process_report__member_name
+msgid "Member Name"
+msgstr " Member Name (सदस्य नाम)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_has_error
+msgid "Message Delivery error"
+msgstr " Message Delivery error (संदेश वितरण त्रुटि)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_ids
+msgid "Messages"
+msgstr " Messages (संदेशों)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__work_type__method
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__work_type__method
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__work_type__method
+#: model:ir.model.fields.selection,name:quality.selection__top_ap_pfmea__work_type__method
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Method"
+msgstr " Method (तरीका)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__method_line_ids
+#: model:ir.model.fields,field_description:quality.field_process_operations__method_line_ids
+msgid "Method Lines"
+msgstr " Method Lines (विधि रेखाएँ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__method_pro_id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__method_pro_id
+msgid "Method Process Reference"
+msgstr " Method Process Reference (विधि प्रक्रिया संदर्भ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__dimension_spec
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__dimension_spec
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__dimension_spec
+msgid "Method Product Spec./ Tolerance"
+msgstr " Method Product Spec./ Tolerance (विधि उत्पाद कल्पना ।/ सहिष्णुता)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__myp
+msgid "Model/Year/Platform"
+msgstr " Model/Year/Platform (मॉडल/वर्ष/मंच)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__month
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__month
+#: model:ir.model.fields,field_description:quality.field_production_analysis__month
+#: model:ir.model.fields,field_description:quality.field_production_analysis__name
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_search
+msgid "Month"
+msgstr " Month (महीना)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_production_analysis
+msgid "Monthly Production Analysis"
+msgstr " Monthly Production Analysis (मासिक उत्पादन विश्लेषण)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__quarantine
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Move to Quarantine"
+msgstr " Move to Quarantine (क्वारंटाइन में भेजें)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__scrap
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Move to Scrap"
+msgstr " Move to Scrap (स्क्रैप पर जाएं)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr " My Activity Deadline (मेरी गतिविधि की समय सीमा)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__non_conformance_id
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__non_conformance_id
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__non_conformance_id
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__non_conformance_id
+msgid "NCR"
+msgstr " NCR (एनसीआर)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__name
+msgid "NCR Number"
+msgstr " NCR Number (एनसीआर नंबर)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_ncr_repair
+msgid "NCR Repair Details"
+msgstr " NCR Repair Details (एनसीआर मरम्मत विवरण)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_ncr_rework
+msgid "NCR Rework Details"
+msgstr " NCR Rework Details (Ncr rework विवरण)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_ncr_scrap
+msgid "NCR Scrap Details"
+msgstr " NCR Scrap Details (एनसीआर स्क्रैप विवरण)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "NCR Type"
+msgstr " NCR Type (एनसीआर प्रकार)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_ncr_useas_is
+msgid "NCR Use-As-Is Details"
+msgstr " NCR Use-As-Is Details (एनसीआर उपयोग-जैसा-विवरण है)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_flow_class__name
+msgid "Name"
+msgstr " Name (नाम)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__process_item
+msgid "Name of Process"
+msgstr " Name of Process (प्रक्रिया का नाम)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr " Next Activity Calendar Event (अगली गतिविधि कैलेंडर घटना)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr " Next Activity Deadline (अगली गतिविधि की समय सीमा)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_summary
+msgid "Next Activity Summary"
+msgstr " Next Activity Summary (अगली गतिविधि सारांश)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_type_id
+msgid "Next Activity Type"
+msgstr " Next Activity Type (अगली गतिविधि प्रकार)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_non_conformance
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__non_conformance_id
+msgid "Non Conformance"
+msgstr " Non Conformance (अनन्य अनुरूपता)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__non_conformance_category
+msgid "Non Conformance Category"
+msgstr " Non Conformance Category (गैर -अनुरूपता श्रेणी)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__non_conformance_sub_category
+msgid "Non Conformance Sub Category"
+msgstr " Non Conformance Sub Category (गैर -अनुरूपता उप श्रेणी)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__non_conformance_type
+msgid "Non Conformance Type"
+msgstr " Non Conformance Type (गैर -अनुरूपता प्रकार)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__non_conformity_ids
+msgid "Non Conformity"
+msgstr " Non Conformity (अनन्य अनुरूपता)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__non_conformity_count
+msgid "Non Conformity Count"
+msgstr " Non Conformity Count (गैर -अनुरूपता गणना)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_quality_non_conformance
+msgid "Non-Conformance"
+msgstr " Non-Conformance (अव्यवस्था)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_graph
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_pivot
+msgid "Non-Conformance Analysis"
+msgstr " Non-Conformance Analysis (गैर-अनुरूपता विश्लेषण)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_calendar
+msgid "Non-Conformance Calendar"
+msgstr " Non-Conformance Calendar (गैर-अनुरूपता कैलेंडर)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Non-Conformance Details"
+msgstr " Non-Conformance Details (गैर-अनुरूपता विवरण)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Non-Conformance Information"
+msgstr " Non-Conformance Information (गैर-अनुरूपता सूचना)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document__ncr
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document_id__non_conformance
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Non-Conformance Report"
+msgstr " Non-Conformance Report (गैर-अनुरूपता रिपोर्ट)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_non_conformance
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_tree
+msgid "Non-Conformance Reports"
+msgstr " Non-Conformance Reports (गैर-अनुरूपता रिपोर्ट)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__not_ok_quantity
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__not_ok_quantity
+msgid "Not OK Quantity After Rework"
+msgstr " Not OK Quantity After Rework (Rework के बाद ठीक मात्रा नहीं)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__notes
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Notes"
+msgstr " Notes (नोट)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__11
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__11
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__11
+msgid "November"
+msgstr " November (नवंबर)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_needaction_counter
+msgid "Number of Actions"
+msgstr " Number of Actions (कार्यों की संख्या)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__parts_to_be_checked
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__parts_to_be_checked
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__parts_to_be_checked
+msgid "Number of Parts to be Checked"
+msgstr " Number of Parts to be Checked (चेक किए जाने वाले भागों की संख्या)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_has_error_counter
+msgid "Number of errors"
+msgstr " Number of errors (त्रुटियों की संख्या)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+" Number of messages requiring action (कार्रवाई की आवश्यकता वाले संदेशों की "
+"संख्या)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+" Number of messages with delivery error (वितरण त्रुटि के साथ संदेशों की "
+"संख्या)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_oee_analysis
+msgid "OEE (Overall Equipment Effectiveness) Analysis"
+msgstr ""
+" OEE (Overall Equipment Effectiveness) Analysis (ओईई (समग्र उपकरण "
+"प्रभावशीलता) विश्लेषण)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_oee_analysis
+#: model:ir.ui.menu,name:quality.menu_oee_analysis
+msgid "OEE Analysis"
+msgstr " OEE Analysis (ओईई विश्लेषण)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_oee_analysis_graph
+msgid "OEE Comparison"
+msgstr " OEE Comparison (Oee तुलना)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_oee_root
+msgid "OEE Reports"
+msgstr " OEE Reports (OEE रिपोर्ट)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__observation_value
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__observation_value
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__observation_value
+msgid "Observation"
+msgstr " Observation (अवलोकन)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__observation_number
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__observation_number
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__observation_number
+msgid "Observation No."
+msgstr " Observation No. (अवलोकन सं।)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__observation_status
+msgid "Observation Status"
+msgstr " Observation Status (अवलोकन स्थिति)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__observations
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__observations
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__observations
+msgid "Observations"
+msgstr " Observations (टिप्पणियों)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Occurrence"
+msgstr " Occurrence (घटना)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__occurrence
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__occurrence
+msgid "Occurrence (O) of FC"
+msgstr " Occurrence (O) of FC (एफसी की घटना (ओ))"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__occurrence_level
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__occurrence_level
+msgid "Occurrence Level"
+msgstr " Occurrence Level (घटना स्तर)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_process_sub_operations_lines__occurrence
+#: model:ir.model.fields,help:quality.field_process_sub_operations_lines__occurrence_level
+#: model:ir.model.fields,help:quality.field_process_suggestions__occurrence
+#: model:ir.model.fields,help:quality.field_process_suggestions__occurrence_level
+msgid "Occurrence rating from 1-10"
+msgstr " Occurrence rating from 1-10 (1-10 से घटना रेटिंग)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__10
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__10
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__10
+msgid "October"
+msgstr " October (अक्टूबर)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__ok_quantity_after
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__ok_quantity_after
+msgid "Ok Quantity After Rework"
+msgstr " Ok Quantity After Rework (Rework के बाद ठीक मात्रा)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__op_ids
+msgid "Operation Lines"
+msgstr " Operation Lines (संचालन रेखाएँ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__op_name
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__op_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__op_name
+msgid "Operation Name"
+msgstr " Operation Name (संचालन नाम)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__op_no
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__op_no
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__operation_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__op_no
+msgid "Operation No."
+msgstr " Operation No. (संचालन सं।)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__report_ids
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_operation_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Operations"
+msgstr " Operations (संचालन)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_process_operations
+msgid "Operations of in process inspection"
+msgstr " Operations of in process inspection (प्रक्रिया निरीक्षण संचालन)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Operator"
+msgstr " Operator (संचालक)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__operator
+msgid "Operator / Responsible Person"
+msgstr " Operator / Responsible Person (प्रचालक / जिम्मेदार व्यक्ति)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_sub_operations_lines_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_form
+msgid "Optimization"
+msgstr " Optimization (अनुकूलन)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_opt_ap_graph
+msgid "Optimization AP"
+msgstr " Optimization AP (अनुकूलन एपी)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__pfmea_ap
+#: model_terms:ir.ui.view,arch_db:quality.board_top_ap_pfmea_form
+#: model_terms:ir.ui.view,arch_db:quality.view_top_ap_pfmea_opt_graph
+msgid "Optimization Action Priority"
+msgstr " Optimization Action Priority (अनुकूलन क्रिया प्राथमिकता)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Optimized Action Priority"
+msgstr " Optimized Action Priority (अनुकूलित कार्रवाई प्राथमिकता)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_category__other
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_sub_category__other
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__other
+msgid "Other"
+msgstr " Other (अन्य)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Overdue"
+msgstr " Overdue (अतिदेय)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__pfmea_aid_no
+msgid "PFMEA AID Number"
+msgstr " PFMEA AID Number (PFMEA सहायता संख्या)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__pfmea_ap
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__pfmea_ap
+msgid "PFMEA AP"
+msgstr " PFMEA AP (पीएफएमईए एपी)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_pivot
+msgid "PFMEA Analysis"
+msgstr " PFMEA Analysis (पीएफएमईए विश्लेषण)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_dashboard_report
+#: model:ir.model,name:quality.model_dashboard_report
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+#: model_terms:ir.ui.view,arch_db:quality.dashboard_report_tree
+msgid "PFMEA Dashboard"
+msgstr " PFMEA Dashboard (पीएफएमईए डैशबोर्ड)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_board_pfmea_dashboard
+msgid "PFMEA Dashboard Board"
+msgstr " PFMEA Dashboard Board (पीएफएमईए डैशबोर्ड बोर्ड)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_form
+msgid "PFMEA Dashboard Item"
+msgstr " PFMEA Dashboard Item (Pfmea डैशबोर्ड आइटम)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_dashboard_report_scheduler
+msgid "PFMEA Dashboard Scheduler"
+msgstr " PFMEA Dashboard Scheduler (PFMEA डैशबोर्ड अनुसूचक)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "PFMEA Dashboard Search"
+msgstr " PFMEA Dashboard Search (Pfmea डैशबोर्ड खोज)"
+
+#. module: quality
+#: model:ir.actions.server,name:quality.ir_cron_refresh_pfmea_dashboard_ir_actions_server
+#: model:ir.cron,cron_name:quality.ir_cron_refresh_pfmea_dashboard
+msgid "PFMEA Dashboard: Auto Refresh"
+msgstr " PFMEA Dashboard: Auto Refresh (PFMEA डैशबोर्ड: ऑटो रिफ्रेश)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__pfmea_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__pfmea_id
+msgid "PFMEA Report"
+msgstr " PFMEA Report (PFMEA रिपोर्ट)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__pfmea_revision_date
+msgid "PFMEA Revision Date"
+msgstr " PFMEA Revision Date (PFMEA संशोधन तिथि)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__pfmea_start_date
+msgid "PFMEA Start Date"
+msgstr " PFMEA Start Date (PFMEA स्टार्ट डेट)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_graph
+msgid "PFMEA Status"
+msgstr " PFMEA Status (PFMEA स्थिति)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "PFMEA Status Overview"
+msgstr " PFMEA Status Overview (PFMEA स्थिति अवलोकन)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_pfmea_suggestions
+#: model:ir.ui.menu,name:quality.menu_pfmea_suggestions
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_tree
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_form
+msgid "PFMEA Suggestions"
+msgstr " PFMEA Suggestions (PFMEA सुझाव)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.process_fmea_menu
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "PFMEA-VDA-AIAG"
+msgstr " PFMEA-VDA-AIAG (पीएफएमईए-वीडीए-एआईएजी)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_process_report
+msgid "PFMEA-VDA_AIAG"
+msgstr " PFMEA-VDA_AIAG (Pfmea-vda_aiag)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_ppm_analysis
+msgid "PPM (Parts Per Million) Analysis"
+msgstr ""
+" PPM (Parts Per Million) Analysis (पीपीएम (प्रति मिलियन भाग) विश्लेषण)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_ppm_analysis
+#: model:ir.ui.menu,name:quality.menu_ppm_analysis
+msgid "PPM Analysis"
+msgstr " PPM Analysis (पीपीएम विश्लेषण)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__ppm_level
+msgid "PPM Level"
+msgstr " PPM Level (पीपीएम स्तर)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_ppm_analysis_graph
+msgid "PPM Level Over Time"
+msgstr " PPM Level Over Time (समय के साथ पीपीएम स्तर)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__page_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__page_no
+msgid "Page No."
+msgstr " Page No. (पृष्ठ सं।)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__part_id
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__part_id
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__part_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__part_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__part_id
+#: model:ir.model.fields,field_description:quality.field_process_report__part_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__part_id
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Part"
+msgstr " Part (भाग)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__part_description
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__part_description
+#: model:ir.model.fields,field_description:quality.field_non_conformance__part_description
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__part_description
+#: model:ir.model.fields,field_description:quality.field_process_report__part_description
+msgid "Part Description"
+msgstr " Part Description (भाग का विवरण)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__part_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__part_name
+#: model:ir.model.fields,field_description:quality.field_non_conformance__part_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__part_name
+#: model:ir.model.fields,field_description:quality.field_process_report__part_name
+msgid "Part Name"
+msgstr " Part Name (नाम का हिस्सा)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__part_number
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__part_number
+#: model:ir.model.fields,field_description:quality.field_non_conformance__part_id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__part_number
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__part_number
+#: model:ir.model.fields,field_description:quality.field_process_report__part_number
+msgid "Part Number"
+msgstr " Part Number (भाग संख्या)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_pfmea_suggestions
+msgid "Pfmea Suggestions"
+msgstr " Pfmea Suggestions (PFMEA सुझाव)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__customer_phone
+msgid "Phone"
+msgstr " Phone (फ़ोन)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__planned_efficiency
+msgid "Planned Efficiency (%)"
+msgstr " Planned Efficiency (%) (नियोजित दक्षता (%))"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_production_analysis__planned_production
+msgid "Planned Production"
+msgstr " Planned Production (नियोजित उत्पादन)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_graph
+msgid "Planned vs Actual Production"
+msgstr " Planned vs Actual Production (नियोजित बनाम वास्तविक उत्पादन)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__plant_location
+msgid "Plant Location"
+msgstr " Plant Location (संयंत्र स्थान)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_pre_inspection_observation
+msgid "Pre Dispatch Inspection Observations"
+msgstr " Pre Dispatch Inspection Observations (पूर्व प्रेषण निरीक्षण अवलोकन)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_pre_dispatch_report
+#: model:ir.ui.menu,name:quality.menu_pre_dispatch_inspection
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+msgid "Pre Dispatch Inspection Report"
+msgstr " Pre Dispatch Inspection Report (पूर्व प्रेषण निरीक्षण रिपोर्ट)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_pre_dispatch_report_lines
+msgid "Pre Dispatch Inspection Report Lines"
+msgstr ""
+" Pre Dispatch Inspection Report Lines (पूर्व प्रेषण निरीक्षण रिपोर्ट लाइनें)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Prediction of Failure Cause Occurring"
+msgstr ""
+" Prediction of Failure Cause Occurring (विफलता की भविष्यवाणी होने की "
+"भविष्यवाणी)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__prevention_action
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__prevention_action
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__prevention_action
+msgid "Prevention Action"
+msgstr " Prevention Action (रोकथाम कार्रवाई)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Print Report"
+msgstr " Print Report (रिपोर्ट प्रिंट करें)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__problem_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__problem_id
+msgid "Problem ID"
+msgstr " Problem ID (समस्या आईडी)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+msgid "Process Details"
+msgstr " Process Details (प्रक्रिया विवरण)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_process_report
+#: model:ir.ui.menu,name:quality.menu_process_report_main
+msgid "Process Failure Mode and Effect Analysis"
+msgstr ""
+" Process Failure Mode and Effect Analysis (प्रक्रिया विफलता मोड और प्रभाव "
+"विश्लेषण)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_process_flow_class
+msgid "Process Flow Class"
+msgstr " Process Flow Class (प्रक्रिया प्रवाह वर्ग)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__cause_type__process_issue
+msgid "Process Issue"
+msgstr " Process Issue (प्रक्रम मुद्दे)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fpi_process_item
+#: model:ir.model.fields,field_description:quality.field_process_operations__fpi_process_item
+msgid "Process Item"
+msgstr " Process Item (प्रक्रिया आइटम)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Process Item - Function - Failure"
+msgstr ""
+" Process Item - Function - Failure (प्रक्रिया आइटम - फ़ंक्शन - विफलता)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+msgid "Process Item Function"
+msgstr " Process Item Function (प्रक्रम आइटम फ़ंक्शन)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__process_line_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__process_line_id
+msgid "Process Line"
+msgstr " Process Line (प्रक्रम लाइन)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__process_operation_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__process_operation_id
+msgid "Process Operation"
+msgstr " Process Operation (प्रक्रम संचालन)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_process_operations
+#: model:ir.model,name:quality.model_process_operations
+msgid "Process Operations"
+msgstr " Process Operations (प्रक्रिया संचालन)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_operations__operations_id
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Process Report"
+msgstr " Process Report (प्रक्रिया रिपोर्ट)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_process_report
+msgid "Process Reports"
+msgstr " Process Reports (प्रक्रिया रिपोर्ट)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__process_responsibility
+msgid "Process Responsibility"
+msgstr " Process Responsibility (प्रक्रिया जिम्मेदारी)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__process_step_name
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__process_step
+#: model:ir.model.fields,field_description:quality.field_process_operations__process_step
+#: model:ir.model.fields,field_description:quality.field_process_operations__process_step_name
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__process_step_name
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+msgid "Process Step"
+msgstr " Process Step (प्रक्रिया चरण)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Process Step - Function - Failure"
+msgstr " Process Step - Function - Failure (प्रक्रिया चरण - कार्य - विफलता)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_operations__process_item
+msgid "Process Step Station No. and Name of Process Step"
+msgstr ""
+" Process Step Station No. and Name of Process Step (प्रोसेस स्टेप स्टेशन "
+"नंबर और प्रोसेस स्टेप का नाम)"
+
+#. module: quality
+#: model:ir.model.constraint,message:quality.constraint_pfmea_suggestions_process_step_issue_uniq
+msgid "Process Step and Issue combination must be unique!"
+msgstr ""
+" Process Step and Issue combination must be unique! (प्रोसेस स्टेप और इश्यू "
+"कॉम्बिनेशन अद्वितीय होना चाहिए!)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_process_sub_operations_lines
+msgid "Process Sub Operations Lines"
+msgstr " Process Sub Operations Lines (प्रक्रिया उप संचालन रेखाएँ)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_process_suggestions
+#: model:ir.model,name:quality.model_process_suggestions
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_tree
+msgid "Process Suggestions"
+msgstr " Process Suggestions (प्रक्रिया सुझाव)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__process_work_element
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__process_work_element
+msgid "Process Work Element"
+msgstr " Process Work Element (प्रक्रिया कार्य तत्व)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_sub_operations_lines_form
+msgid "Process Work Element - Function - Failure"
+msgstr ""
+" Process Work Element - Function - Failure (प्रक्रिया कार्य तत्व - कार्य - "
+"विफलता)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_form
+msgid "Process Work Element - Function -Failure"
+msgstr ""
+" Process Work Element - Function -Failure (प्रक्रिया कार्य तत्व - फ़ंक्शन "
+"-फ़िल्योर)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_product_template
+msgid "Product"
+msgstr " Product (उत्पाद)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_operations__func_of_product_step
+msgid "Product Characteristics"
+msgstr " Product Characteristics (उत्पाद विशेषताएँ)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_production_analysis
+#: model:ir.ui.menu,name:quality.menu_production_analysis_root
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_form
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_search
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_tree
+msgid "Production Analysis"
+msgstr " Production Analysis (उत्पादन विश्लेषण)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_production_analysis
+msgid "Production Overview"
+msgstr " Production Overview (उत्पादन अवलोकन)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__project_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__project_id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__project_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__project_id
+#: model:ir.model.fields,field_description:quality.field_process_report__project_id
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Project Name"
+msgstr " Project Name (प्रोजेक्ट नाम)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__process_report__confidentiality_level__proprietary
+msgid "Proprietary"
+msgstr " Proprietary (संपदा)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_qms_rejection_handling
+msgid "QMS Rejection Handling"
+msgstr " QMS Rejection Handling (क्यूएमएस अस्वीकृति हैंडलिंग)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_category__quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_sub_category__quality
+msgid "Quality"
+msgstr " Quality (गुणवत्ता)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_quality_management
+msgid "Quality Management"
+msgstr " Quality Management (गुणवत्ता प्रबंधन)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_ppm_root
+msgid "Quality Metrics"
+msgstr " Quality Metrics (गुणवत्ता मेट्रिक्स)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__quantity_affected
+msgid "Quantity Affected"
+msgstr " Quantity Affected (प्रभावित मात्रा)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__quarantine_location
+msgid "Quarantine Location"
+msgstr " Quarantine Location (संगरोध स्थान)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__quarantined
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Quarantined"
+msgstr " Quarantined (क्वारंटाइन किए गए)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Recommended Action for AP Items"
+msgstr " Recommended Action for AP Items (एपी आइटम के लिए अनुशंसित कार्रवाई)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__name
+msgid "Reference"
+msgstr " Reference (संदर्भ)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Refresh"
+msgstr " Refresh (ताज़ा करना)"
+
+#. module: quality
+#: model:ir.actions.server,name:quality.action_refresh_dashboard
+msgid "Refresh PFMEA Dashboard"
+msgstr " Refresh PFMEA Dashboard (PFMEA डैशबोर्ड को ताज़ा करें)"
+
+#. module: quality
+#: model:ir.actions.server,name:quality.action_refresh_top_ap
+msgid "Refresh Top AP Data"
+msgstr " Refresh Top AP Data (शीर्ष एपी डेटा को ताज़ा करें)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__rejected_by
+msgid "Rejected By"
+msgstr " Rejected By (द्वारा अस्वीकार कर दिया)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_qms_rejection_handling
+msgid "Rejection Analysis"
+msgstr " Rejection Analysis (अस्वीकृति विश्लेषण)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__rejection_date
+msgid "Rejection Date"
+msgstr " Rejection Date (अस्वीकृति तिथि)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Rejection Details"
+msgstr " Rejection Details (अस्वीकृति विवरण)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_qms_rejection_handling
+#: model:ir.ui.menu,name:quality.menu_qms_rejection_handling_root
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_calendar
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_tree
+msgid "Rejection Handling"
+msgstr " Rejection Handling (अस्वीकृति संभालना)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__rejection_reason
+msgid "Rejection Reason"
+msgstr " Rejection Reason (अस्वीकृति कारण)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint__non_conformance_id
+msgid "Related NCR"
+msgstr " Related NCR (संबंधित एनसीआर)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__remarks
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__remarks
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__remarks
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__remarks
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__remarks
+msgid "Remarks"
+msgstr " Remarks (टिप्पणी)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__disposition__repair
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__repair
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Repair"
+msgstr " Repair (मरम्मत)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__repair_date
+msgid "Repair Date"
+msgstr " Repair Date (मरम्मत की तारीख)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__repair_details
+#: model:ir.model.fields,field_description:quality.field_non_conformance__repair_ids
+msgid "Repair Details"
+msgstr " Repair Details (मरम्मत विवरण)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+msgid "Report of In Coming inspection"
+msgstr " Report of In Coming inspection (आने वाले निरीक्षण की रिपोर्ट)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+msgid "Report of In process inspection"
+msgstr " Report of In process inspection (प्रक्रिया निरीक्षण की रिपोर्ट)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_coming_inspection_report
+msgid "Report of Incoming Inspection"
+msgstr " Report of Incoming Inspection (आने वाले निरीक्षण की रिपोर्ट)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_coming_inspection_report_line
+msgid "Report of Incoming Inspection Line"
+msgstr ""
+" Report of Incoming Inspection Line (आने वाली निरीक्षण लाइन की रिपोर्ट)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+msgid "Report of Pre Dispatch inspection"
+msgstr " Report of Pre Dispatch inspection (पूर्व प्रेषण निरीक्षण की रिपोर्ट)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_process_inspection_report
+msgid "Report of in process inspection"
+msgstr " Report of in process inspection (प्रक्रिया निरीक्षण की रिपोर्ट)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_process_inspection_report_line
+msgid "Report of in process inspection line"
+msgstr ""
+" Report of in process inspection line (प्रक्रिया निरीक्षण लाइन की रिपोर्ट)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_pre_dispatch_inspection_report
+msgid "Report of pre dispatch inspection"
+msgstr " Report of pre dispatch inspection (पूर्व प्रेषण निरीक्षण की रिपोर्ट)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_pre_dispatch_inspection_report_line
+msgid "Report of pre dispatch inspection line"
+msgstr ""
+" Report of pre dispatch inspection line (पूर्व प्रेषण निरीक्षण लाइन की "
+"रिपोर्ट)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Reset to Draft"
+msgstr " Reset to Draft (मसौदा तैयार करना)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__resolution_date
+msgid "Resolution Date"
+msgstr " Resolution Date (संकल्प तिथि)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Resolve"
+msgstr " Resolve (संकल्प)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__resolved
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Resolved"
+msgstr " Resolved (हल किया)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Responsible"
+msgstr " Responsible (जिम्मेदार)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__department_id
+msgid "Responsible Department"
+msgstr " Responsible Department (उत्तरदायी विभाग)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__responsible_person_name
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__responsible_person
+msgid "Responsible Person"
+msgstr " Responsible Person (जिम्मेदार व्यक्ति)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__responsible_person_name
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__responsible_person_name
+msgid "Responsible Person Name"
+msgstr " Responsible Person Name (जिम्मेदार व्यक्ति का नाम)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_user_id
+msgid "Responsible User"
+msgstr " Responsible User (जिम्मेदार उपयोगकर्ता)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__return_to_supplier
+msgid "Return to Supplier"
+msgstr " Return to Supplier (आपूर्तिकर्ता पर लौटें)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__return_supplier_details
+msgid "Return to Supplier Details"
+msgstr " Return to Supplier Details (आपूर्तिकर्ता विवरण पर लौटें)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__rev_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__rev_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__rev_date
+msgid "Rev. Date"
+msgstr " Rev. Date (रेव। तिथि)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__rev_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__rev_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__rev_no
+msgid "Rev. No."
+msgstr " Rev. No. (रेव। सं।)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__revision_history_ids
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__revision_history_ids
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__revision_history_ids
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+msgid "Revision History"
+msgstr " Revision History (संशोधन इतिहास)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__disposition__rework
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__rework
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Rework"
+msgstr " Rework (फिर से काम करना)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__rework_action
+msgid "Rework Action"
+msgstr " Rework Action (फिर से काम करना)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__rework_deadline
+msgid "Rework Deadline"
+msgstr " Rework Deadline (फिर से काम करने की समय सीमा)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__rework_ids
+msgid "Rework Details"
+msgstr " Rework Details (फिर से काम करना)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__rework_instructions
+msgid "Rework Instructions"
+msgstr " Rework Instructions (पुनर्खरीद निर्देश)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_my_custom_view
+#: model:ir.ui.menu,name:quality.menu_my_custom_menu
+#: model_terms:ir.ui.view,arch_db:quality.view_process_sub_operations_lines_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_form
+msgid "Risk Analysis"
+msgstr " Risk Analysis (संकट विश्लेषण)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_risk_ap_graph
+msgid "Risk Analysis AP"
+msgstr " Risk Analysis AP (जोखिम विश्लेषण एपी)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__fmea_ap
+#: model_terms:ir.ui.view,arch_db:quality.board_top_ap_pfmea_form
+#: model_terms:ir.ui.view,arch_db:quality.view_top_ap_pfmea_risk_graph
+msgid "Risk Analysis Action Priority"
+msgstr " Risk Analysis Action Priority (जोखिम विश्लेषण कार्रवाई प्राथमिकता)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr " SMS Delivery error (एसएमएस वितरण त्रुटि)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__disposition__scrap
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Scrap"
+msgstr " Scrap (कतरन)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__scrap_date
+msgid "Scrap Date"
+msgstr " Scrap Date (स्क्रैप तिथि)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__scrap_ids
+msgid "Scrap Details"
+msgstr " Scrap Details (स्क्रैप विवरण)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__reason
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__scrap_reason
+msgid "Scrap Reason"
+msgstr " Scrap Reason (स्क्रैप कारण)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__scrapped
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Scrapped"
+msgstr " Scrapped (खत्म कर दिया)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__scrap_quantity
+msgid "Scrapped Quantity"
+msgstr " Scrapped Quantity (बिखरे हुए मात्रा)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Search Non-Conformances"
+msgstr " Search Non-Conformances (गैर-अनुरूपता खोजें)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Search Rejection Handling"
+msgstr " Search Rejection Handling (खोज अस्वीकृति हैंडलिंग)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__09
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__09
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__09
+msgid "September"
+msgstr " September (सितम्बर)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__sequence
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__sequence
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__sequence
+msgid "Sequence"
+msgstr " Sequence (अनुक्रम)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_category__service
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_sub_category__service
+msgid "Service"
+msgstr " Service (सेवा)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Severity"
+msgstr " Severity (गंभीरता)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__severity
+#: model:ir.model.fields,field_description:quality.field_process_operations__severity
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__severity
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__severity
+msgid "Severity (S) of FE"
+msgstr " Severity (S) of FE (Fe की गंभीरता (ओं))"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__severity
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__severity_level
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__severity_level
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__severity
+msgid "Severity Level"
+msgstr " Severity Level (गंभीरता स्तर)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_process_sub_operations_lines__severity_level
+#: model:ir.model.fields,help:quality.field_process_suggestions__severity_level
+msgid "Severity rating from 1-10"
+msgstr " Severity rating from 1-10 (1-10 से गंभीरता रेटिंग)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__shift
+#: model:ir.model.fields,field_description:quality.field_non_conformance__shift
+msgid "Shift"
+msgstr " Shift (बदलाव)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fpi_ship_to_plant
+#: model:ir.model.fields,field_description:quality.field_process_operations__fpi_ship_to_plant
+msgid "Ship to Plant"
+msgstr " Ship to Plant (रोपण करने के लिए जहाज)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__show_buttons
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__show_buttons
+#: model:ir.model.fields,field_description:quality.field_non_conformance__show_buttons
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__show_buttons
+#: model:ir.model.fields,field_description:quality.field_process_report__show_buttons
+msgid "Show Buttons"
+msgstr " Show Buttons (बटन दिखाएं)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__source_document
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Source Document"
+msgstr " Source Document (स्रोत दस्तावेज़)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__source_document_id
+msgid "Source Document Reference"
+msgstr " Source Document Reference (स्रोत दस्तावेज़ संदर्भ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__special_characteristics
+msgid "Special Characteristics"
+msgstr " Special Characteristics (विशेष विशेषताओं)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__special_product_characteristics
+msgid "Special Product Characteristics"
+msgstr " Special Product Characteristics (विशेष उत्पाद विशेषताओं)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__sr_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__sr_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__sr_no
+msgid "Sr. No./Balloon No"
+msgstr " Sr. No./Balloon No (सीनियर नं।)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "State"
+msgstr " State (राज्य)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__station_no
+#: model:ir.model.fields,field_description:quality.field_process_operations__station_no
+msgid "Station No."
+msgstr " Station No. (स्टेशन सं।)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__status
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__final_status
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__state
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__final_status
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__state
+#: model:ir.model.fields,field_description:quality.field_non_conformance__final_status
+#: model:ir.model.fields,field_description:quality.field_non_conformance__state
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__final_status
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__state
+#: model:ir.model.fields,field_description:quality.field_process_report__final_status
+#: model:ir.model.fields,field_description:quality.field_process_report__state
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__status
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__status
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__state
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Status"
+msgstr " Status (स्थिति)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+" Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities. (गतिविधियों के आधार पर स्थिति\n"
+"अतिदेय: नियत तारीख पहले ही पारित हो चुकी है\n"
+"आज: गतिविधि की तारीख आज है\n"
+"नियोजित: भविष्य की गतिविधियाँ।)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Status by Process"
+msgstr " Status by Process (प्रक्रिया द्वारा स्थिति)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Submit Complaint"
+msgstr " Submit Complaint (शिकायत प्रस्तुत करें)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_type__supplier
+msgid "Supplier"
+msgstr " Supplier (देने वाला)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Supplier NCR"
+msgstr " Supplier NCR (आपूर्तिकर्ता एनसीआर)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__suspected_qty
+msgid "Suspected Quantity"
+msgstr " Suspected Quantity (संदिग्ध मात्रा)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_flow_class__symbol
+msgid "Symbol"
+msgstr " Symbol (प्रतीक)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__target_completion_date
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__target_completion_date
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__target_completion_date
+msgid "Target Completion Date"
+msgstr " Target Completion Date (लक्ष्य समापन तिथि)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_calendar
+msgid "Target Completion Dates"
+msgstr " Target Completion Dates (लक्ष्य पूर्णता तिथि)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Target Date"
+msgstr " Target Date (नियोजित तारीख)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__technician
+msgid "Technician"
+msgstr " Technician (तकनीशियन)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_search
+msgid "This Year"
+msgstr " This Year (इस साल)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__time_date_inspection
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__time_date_inspection
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__time_date_inspection
+msgid "Time & Date of Inspection"
+msgstr " Time & Date of Inspection (समय और निरीक्षण की तारीख)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_top_ap_pfmea_pivot
+msgid "Top AP Analysis"
+msgstr " Top AP Analysis (शीर्ष एपी विश्लेषण)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_board_top_ap_pfmea
+#: model_terms:ir.ui.view,arch_db:quality.board_top_ap_pfmea_form
+msgid "Top AP Dashboard"
+msgstr " Top AP Dashboard (शीर्ष एपी डैशबोर्ड)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_top_ap_pfmea_form
+msgid "Top AP Items"
+msgstr " Top AP Items (शीर्ष एपी आइटम)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_top_ap_pfmea
+#: model:ir.model,name:quality.model_top_ap_pfmea
+#: model_terms:ir.ui.view,arch_db:quality.top_ap_pfmea_tree
+msgid "Top AP for PFMEA"
+msgstr " Top AP for PFMEA (PFMEA के लिए शीर्ष एपी)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_top_ap_pfmea_form
+msgid "Top AP for PFMEA Item"
+msgstr " Top AP for PFMEA Item (PFMEA आइटम के लिए शीर्ष एपी)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_top_ap_pfmea_scheduler
+msgid "Top AP for PFMEA Scheduler"
+msgstr " Top AP for PFMEA Scheduler (PFMEA शेड्यूलर के लिए शीर्ष एपी)"
+
+#. module: quality
+#: model:ir.actions.server,name:quality.ir_cron_refresh_top_ap_ir_actions_server
+#: model:ir.cron,cron_name:quality.ir_cron_refresh_top_ap
+msgid "Top AP for PFMEA: Auto Refresh"
+msgstr " Top AP for PFMEA: Auto Refresh (PFMEA के लिए शीर्ष एपी: ऑटो रिफ्रेश)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Top Optimized AP Items"
+msgstr " Top Optimized AP Items (शीर्ष अनुकूलित एपी आइटम)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_tree
+msgid "Total Affected"
+msgstr " Total Affected (कुल प्रभावित)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__total_parts
+msgid "Total Parts Produced"
+msgstr " Total Parts Produced (उत्पादित कुल भाग)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_production_analysis
+msgid "Track and compare your planned vs actual production figures."
+msgstr ""
+" Track and compare your planned vs actual production figures. (अपने नियोजित "
+"बनाम वास्तविक उत्पादन आंकड़ों को ट्रैक और तुलना करें।)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_non_conformance
+msgid "Track and manage non-conformities in your quality management system."
+msgstr ""
+" Track and manage non-conformities in your quality management system. (अपने "
+"गुणवत्ता प्रबंधन प्रणाली में गैर-अनुरूपताओं को ट्रैक और प्रबंधित करें।)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_qms_rejection_handling
+msgid ""
+"Track and manage rejection cases from various sources\n"
+"                like GRN, Calibration, MSA, Customer Complaints, and NCRs."
+msgstr ""
+" Track and manage rejection cases from various sources\n"
+"                like GRN, Calibration, MSA, Customer Complaints, and NCRs. (विभिन्न स्रोतों से अस्वीकृति मामलों को ट्रैक और प्रबंधित करें\n"
+"जीआरएन, अंशांकन, एमएसए, ग्राहक शिकायतें और एनसीआर की तरह।)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.tracking_sheet_menu
+msgid "Tracking Sheet"
+msgstr " Tracking Sheet (ट्रैकिंग शीट)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+" Type of the exception activity on record. (रिकॉर्ड पर अपवाद गतिविधि का "
+"प्रकार।)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__status__under_consideration
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__status__under_consideration
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__status__under_consideration
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Under Consideration"
+msgstr " Under Consideration (विचाराधीन)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__under_review
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Under Review"
+msgstr " Under Review (समीक्षा के अंतर्गत)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__uom_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__uom_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__uom_id
+msgid "Unit of Measure"
+msgstr " Unit of Measure (माप की इकाई)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__status__untouched
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__status__untouched
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__status__untouched
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Untouched"
+msgstr " Untouched (अछूता)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Upcoming Target Dates"
+msgstr " Upcoming Target Dates (आगामी लक्ष्य तिथियां)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_line_form
+msgid "Update Observations"
+msgstr " Update Observations (अद्यतन अवलोकन)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__attachment
+msgid "Upload Image/Doc"
+msgstr " Upload Image/Doc (छवि/डॉक्टर अपलोड करें)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__upper_limit
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__upper_limit
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__upper_limit
+msgid "Upper Limit"
+msgstr " Upper Limit (ऊपरी सीमा)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__disposition__use_as_is
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__use_as_is
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Use As-Is"
+msgstr " Use As-Is (उपयोग करें)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__useas_is_ids
+msgid "Use-As-Is Details"
+msgstr " Use-As-Is Details (उपयोग-जैसा-विवरण है)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__user_has_access_to_approve
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__user_has_access_to_approve
+#: model:ir.model.fields,field_description:quality.field_non_conformance__user_has_access_to_approve
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__user_has_access_to_approve
+#: model:ir.model.fields,field_description:quality.field_process_report__user_has_access_to_approve
+msgid "User Has Access"
+msgstr " User Has Access (उपयोगकर्ता की पहुंच है)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__verification_date
+msgid "Verification Date"
+msgstr " Verification Date (सत्यापन की तारीख)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__verified_by
+msgid "Verified By"
+msgstr " Verified By (द्वारा सत्यापित करना)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__website_message_ids
+msgid "Website Messages"
+msgstr " Website Messages (वेबसाइट संदेश)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__website_message_ids
+msgid "Website communication history"
+msgstr " Website communication history (वेबसाइट संचार इतिहास)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__year
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__year
+#: model:ir.model.fields,field_description:quality.field_production_analysis__year
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_search
+msgid "Year"
+msgstr " Year (वर्ष)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "e.g. Compressor Shaft"
+msgstr " e.g. Compressor Shaft (उदा।कंप्रेसर शाफ्ट)"

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree View for DG Set Procedure -->
+        <record id="view_dg_set_procedure_tree" model="ir.ui.view">
+            <field name="name">dg.set.procedure.tree</field>
+            <field name="model">dg.set.procedure</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="issue_no"/>
+                    <field name="issue_date"/>
+                    <field name="rev_no"/>
+                    <field name="rev_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for DG Set Procedure -->
+        <record id="view_dg_set_procedure_form" model="ir.ui.view">
+            <field name="name">dg.set.procedure.form</field>
+            <field name="model">dg.set.procedure</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div style="font-size:24px; text-align:center; border: 2px solid #4492bd; margin-bottom: 10px; padding: 10px; border-radius: 10px;">
+                            <h1 style="color:#4492bd;">Operational Control Procedure for Operation and Maintenance of D.G. Set</h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="issue_no"/>
+                                <field name="issue_date"/>
+                                <field name="rev_no"/>
+                                <field name="rev_date"/>
+                            </group>
+                            <group>
+                                <field name="purpose"/>
+                                <field name="scope"/>
+                                <field name="responsibilities"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Instructions">
+                                <field name="instruction_ids" nolabel="1" context="{'default_category': 'instruction'}">
+                                    <tree editable="bottom" create="1" delete="1">
+                                        <field name="sequence" readonly="1"/>
+                                        <field name="category" invisible="1" readonly="1" force_save="1"/>
+                                        <field name="instruction"/>
+                                        <field name="photos" widget="many2many_binary"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Change Over from DG to MSEB Supply">
+                                <field name="change_over_ids" nolabel="1" context="{'default_category': 'change_over'}">
+                                    <tree editable="bottom" create="1" delete="1">
+                                        <field name="sequence" readonly="1"/>
+                                        <field name="category" invisible="1" readonly="1" force_save="1"/>
+                                        <field name="instruction"/>
+                                        <field name="photos" widget="many2many_binary"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Impact in Case of Deviation">
+                                <field name="impact_deviation_ids" nolabel="1" context="{'default_category': 'impact_deviation'}">
+                                    <tree editable="bottom" create="1" delete="1">
+                                        <field name="sequence" readonly="1"/>
+                                        <field name="category" invisible="1" readonly="1" force_save="1"/>
+                                        <field name="instruction"/>
+                                        <field name="photos" widget="many2many_binary"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Corrective Action in Case of Deviation">
+                                <field name="corrective_action_ids" nolabel="1" context="{'default_category': 'corrective_action'}">
+                                    <tree editable="bottom" create="1" delete="1">
+                                        <field name="sequence" readonly="1"/>
+                                        <field name="category" invisible="1" readonly="1" force_save="1"/>
+                                        <field name="instruction"/>
+                                        <field name="photos" widget="many2many_binary"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Cross Reference">
+                                <field name="cross_reference_ids" nolabel="1" context="{'default_category': 'cross_reference'}">
+                                    <tree editable="bottom" create="1" delete="1">
+                                        <field name="sequence" readonly="1"/>
+                                        <field name="category" invisible="1" readonly="1" force_save="1"/>
+                                        <field name="instruction"/>
+                                        <field name="photos" widget="many2many_binary"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Key Characteristics to be Monitored">
+                                <field name="key_characteristic_ids" nolabel="1" context="{'default_category': 'key_characteristic'}">
+                                    <tree editable="bottom" create="1" delete="1">
+                                        <field name="sequence" readonly="1"/>
+                                        <field name="category" invisible="1" readonly="1" force_save="1"/>
+                                        <field name="instruction"/>
+                                        <field name="photos" widget="many2many_binary"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action to Open List View -->
+        <record id="action_dg_set_procedure" model="ir.actions.act_window">
+            <field name="name">DG Set Procedures</field>
+            <field name="res_model">dg.set.procedure</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No procedures found. Create a new DG Set procedure record.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu Item -->
+        <menuitem id="menu_dg_set_procedure_root"
+                  name="DG Set Procedures"
+                  parent="menu_ohs_root"
+                  action="action_dg_set_procedure"
+                  sequence="9"/>
+    </data>
+</odoo>

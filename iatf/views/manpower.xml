@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_manpower_tracking_form" model="ir.ui.view">
+        <field name="name">manpower.tracking.form</field>
+        <field name="model">manpower.tracking</field>
+        <field name="arch" type="xml">
+            <form string="Manpower Tracking">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="date"/>
+                    </group>
+                    <group string="Manpower">
+                        <field name="total_employees"/>
+                        <field name="white_collar"/>
+                        <field name="blue_collar"/>
+                        <field name="contract_based"/>
+                    </group>
+                    <group string="Equipment Costs">
+                        <field name="equipment_cost"/>
+                        <field name="gauge_cost"/>
+                        <field name="tool_cost"/>
+                        <field name="total_equipment_cost" readonly="1"/>
+                    </group>
+                    <group string="Incidents">
+                        <field name="quality_incident_cost"/>
+                        <field name="safety_incident_cost"/>
+                        <field name="total_incident_cost" readonly="1"/>
+                    </group>
+                    <group string="Carbon Footprint">
+                        <field name="carbon_footprint"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_manpower_tracking_tree" model="ir.ui.view">
+        <field name="name">manpower.tracking.tree</field>
+        <field name="model">manpower.tracking</field>
+        <field name="arch" type="xml">
+            <tree string="Manpower Tracking">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="total_employees"/>
+                <field name="total_equipment_cost"/>
+                <field name="total_incident_cost"/>
+                <field name="carbon_footprint"/>
+            </tree>
+        </field>
+    </record>
+    <record id="sequence_manpower_tracking" model="ir.sequence">
+        <field name="name">Manpower Tracking Sequence</field>
+        <field name="code">manpower.tracking</field>
+        <field name="prefix">MT/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <!-- Action -->
+    <record id="action_manpower_tracking" model="ir.actions.act_window">
+        <field name="name">Manpower Tracking</field>
+        <field name="res_model">manpower.tracking</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+     <menuitem id="menu_manpower_tracking" name="Tracking" parent="iatf.iatf_menu_engg"  action="action_manpower_tracking" sequence="50"/>
+
+</odoo>

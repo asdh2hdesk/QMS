@@ -1,0 +1,102 @@
+<odoo>
+    <!-- Form View for Vehicle Inspection Sheet (Parent) -->
+    <record id="view_vehicle_inspection_sheet_form" model="ir.ui.view">
+        <field name="name">vehicle.inspection.sheet.form</field>
+        <field name="model">vehicle.inspection.sheet</field>
+        <field name="arch" type="xml">
+            <form string="Vehicle Inspection Sheet">
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            Vehicle Inspection Monitoring
+                        </h1>
+                    </div>
+                    <br/>
+
+                        <!-- You can add fields like name, date, inspector if needed -->
+                        <field name="inspection_line_ids">
+                            <tree editable="bottom">
+                                <field name="sl_no"/>
+                                <field name="category_of_vehicle"/>
+                                <field name="vehicle_no"/>
+                                <field name="vehicle_belongs_to"/>
+                                <field name="rc_status"/>
+                                <field name="insurance_status"/>
+                                <field name="emission_status"/>
+                                <field name="emission_valid_upto"/>
+                                <field name="license_status"/>
+                                <field name="license_valid_upto"/>
+                                <field name="checked_by"/>
+                                <field name="verified_by"/>
+                                <field name="reviewed_by"/>
+                            </tree>
+                        </field>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View for Vehicle Inspection Sheet -->
+    <record id="view_vehicle_inspection_sheet_tree" model="ir.ui.view">
+        <field name="name">vehicle.inspection.sheet.tree</field>
+        <field name="model">vehicle.inspection.sheet</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Optional: Form View for Vehicle Inspection Line -->
+    <record id="view_vehicle_inspection_register_form" model="ir.ui.view">
+        <field name="name">vehicle.inspection.register.form</field>
+        <field name="model">vehicle.inspection.register</field>
+        <field name="arch" type="xml">
+            <form string="Vehicle Inspection Entry">
+                <sheet>
+                    <group>
+                        <field name="sl_no"/>
+                        <field name="category_of_vehicle"/>
+                        <field name="vehicle_no"/>
+                        <field name="vehicle_belongs_to"/>
+                        <field name="rc_status"/>
+                        <field name="insurance_status"/>
+                        <field name="emission_status"/>
+                        <field name="emission_valid_upto"/>
+                        <field name="license_status"/>
+                        <field name="license_valid_upto"/>
+                        <field name="checked_by"/>
+                        <field name="verified_by"/>
+                        <field name="reviewed_by"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Optional: Tree View for Vehicle Inspection Line -->
+    <record id="view_vehicle_inspection_register_tree" model="ir.ui.view">
+        <field name="name">vehicle.inspection.register.tree</field>
+        <field name="model">vehicle.inspection.register</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sl_no"/>
+                <field name="vehicle_no"/>
+                <field name="rc_status"/>
+                <field name="insurance_status"/>
+                <field name="license_status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_vehicle_inspection_sheet" model="ir.actions.act_window">
+        <field name="name">Inspection Register PUC and Driving License</field>
+        <field name="res_model">vehicle.inspection.sheet</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Items -->
+    <menuitem id="menu_vehicle_inspection_sheet" name="Inspection Register PUC and Driving License" parent="menu_ohs_root" action="action_vehicle_inspection_sheet" sequence="3"/>
+</odoo>

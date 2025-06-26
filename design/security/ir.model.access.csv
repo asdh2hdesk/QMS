@@ -1,0 +1,5 @@
+ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+design.access_dfmea_line_item,access_dfmea_line_item,design.model_dfmea_line_item,base.group_user,1,1,1,1
+design.access_dfmea_item,access_dfmea_item,design.model_dfmea_item,base.group_user,1,1,1,1
+design.access_dfa_record,access_dfa_record,design.model_dfa_record,base.group_user,1,1,1,1
+design.access_dfa_item,access_dfa_item,design.model_dfa_item,base.group_user,1,1,1,1

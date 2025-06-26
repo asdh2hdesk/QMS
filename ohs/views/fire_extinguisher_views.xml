@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree View for Fire Extinguisher Checklist -->
+        <record id="view_fire_extinguisher_tree" model="ir.ui.view">
+            <field name="name">fire.extinguisher.checklist.tree</field>
+            <field name="model">fire.extinguisher.checklist</field>
+            <field name="arch" type="xml">
+                <tree>
+
+                    <field name="date"/>
+                    <field name="company"/>
+                    <field name="prepared_by"/>
+                    <field name="approved_by"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for Fire Extinguisher Checklist -->
+        <record id="view_fire_extinguisher_form" model="ir.ui.view">
+            <field name="name">fire.extinguisher.checklist.form</field>
+            <field name="model">fire.extinguisher.checklist</field>
+            <field name="arch" type="xml">
+                <form>
+
+                    <sheet>
+                        <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            Fire Extinguisher Checklist
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                        <group>
+                            <field name="date"/>
+                            <field name="company"/>
+                            <field name="prepared_by"/>
+                            <field name="approved_by"/>
+                        </group>
+                        <notebook>
+                            <page string="Checkpoints">
+                                <field name="checklist_details_ids">
+                                    <tree editable="bottom">
+                                        <field name="sl_no"/>
+                                        <field name="location"/>
+                                        <field name="code"/>
+                                        <field name="type"/>
+                                        <field name="capacity"/>
+                                        <field name="last_date" string="Refilled Date"/>
+                                        <field name="due_date" string="Refill Due Date"/>
+                                        <field name="location_note" widget="boolean" />
+                                        <field name="condition_note" widget="boolean"/>
+                                        <field name="air_pressure_note" widget="boolean"/>
+                                        <field name="weight"/>
+                                        <field name="seal_note" widget="boolean"/>
+                                    </tree>
+                                </field>
+
+                            </page>
+                            <page string="Summary">
+                                <field name="summary_ids">
+                                    <tree editable="bottom">
+                                        <field name="sl_no"/>
+                                        <field name="extinguisher_type"/>
+                                        <field name="quantity"/>
+                                        <field name="remarks"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action to Open List View -->
+        <record id="action_fire_extinguisher_checklist" model="ir.actions.act_window">
+            <field name="name">Master list of fire extinguishers</field>
+            <field name="res_model">fire.extinguisher.checklist</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No checklists found. Create a new fire extinguisher checklist.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu Item -->
+        <menuitem id="menu_fire_extinguisher_root"
+                  name="Master list of fire extinguishers"
+                    parent="menu_ohs_root"
+                  action="action_fire_extinguisher_checklist"
+                  sequence="5"/>
+
+        <!-- Optional: Report Action (Placeholder) -->
+        <record id="action_print_report" model="ir.actions.report">
+            <field name="name">Fire Extinguisher Checklist Report</field>
+            <field name="model">fire.extinguisher.checklist</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">fire_extinguisher.report_checklist</field>
+            <field name="report_file">fire_extinguisher.report_checklist</field>
+        </record>
+    </data>
+</odoo>

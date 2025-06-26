@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Process Suggestion Form View -->
+    <record id="view_process_suggestion_form" model="ir.ui.view">
+        <field name="name">process.suggestion.form</field>
+        <field name="model">process.suggestion</field>
+        <field name="arch" type="xml">
+            <form string="Process Suggestion">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="category_id"/>
+                        <field name="process_type"/>
+                    </group>
+                    <notebook>
+                        <page string="Operations">
+                            <field name="operation_line_ids">
+                                <tree >
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="operation"/>
+                                    <field name="operation_description"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Process Suggestion Tree View -->
+    <record id="view_process_suggestion_tree" model="ir.ui.view">
+        <field name="name">process.suggestion.tree</field>
+        <field name="model">process.suggestion</field>
+        <field name="arch" type="xml">
+            <tree string="Process Suggestions">
+                <field name="name"/>
+                <field name="category_id"/>
+                <field name="process_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Process Suggestion Operation Form View -->
+    <record id="view_process_suggestion_operation_form" model="ir.ui.view">
+        <field name="name">process.suggestion.operation.form</field>
+        <field name="model">process.suggestion.operation</field>
+        <field name="arch" type="xml">
+            <form string="Operation">
+                <sheet>
+                    <group>
+                        <field name="suggestion_id"/>
+                        <field name="sequence"/>
+                        <field name="operation"/>
+                        <field name="operation_description"/>
+                    </group>
+                    <notebook>
+                        <page string="Elements">
+                            <field name="element_line_ids">
+                                <tree >
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="element_description"/>
+                                    <field name="cycle_time"/>
+                                    <field name="boq"/>
+                                    <field name="rev_no"/>
+                                    <field name="l_mm"/>
+                                    <field name="w_mm"/>
+                                    <field name="t_mm"/>
+                                    <field name="component_weight"/>
+                                    <field name="manpower"/>
+                                    <field name="equipment_fixture_ids" widget="many2many_tags"/>
+                                    <field name="tool_ids" widget="many2many_tags"/>
+                                    <field name="pokayoke_ids" widget="many2many_tags"/>
+                                    <field name="traceability_system_ids" widget="many2many_tags"/>
+                                    <field name="special_characteristics"/>
+                                    <field name="Child_part"/>
+                                    <field name="Child_sub"/>
+                                    <field name="crane"/>
+                                    <field name="customize"/>
+                                    <field name="utility"/>
+
+
+
+                                    <field name="product_kpc_id"/>
+                                    <field name="process_kcc_id"/>
+                                    <field name="remarks"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Action for Process Suggestions -->
+    <record id="action_process_suggestion" model="ir.actions.act_window">
+        <field name="name">Process Suggestions</field>
+        <field name="res_model">process.suggestion</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu for Process Suggestions -->
+    <menuitem id="menu_process_suggestion"
+              name="Process Suggestions"
+              parent="iatf_menu_engg"
+              action="action_process_suggestion"
+              sequence="-1"/>
+</odoo>
+

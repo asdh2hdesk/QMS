@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_product_template_form_inherit" model="ir.ui.view">
+    <field name="name">product.template.form.inherit</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_only_form_view"/>
+    <field name="arch" type="xml">
+        <!-- Add fields after 'drg_no' if it exists -->
+        <xpath expr="//field[@name='default_code']" position="after">
+            <field name="drg_revision_no"/>
+            <field name="drg_revision_date"/>
+        </xpath>
+
+        <!-- Add new Customer Information tab -->
+        <xpath expr="//notebook" position="inside">
+            <page string="Customer Information">
+                <group>
+                    <field name="customer_id"/>
+                    <field name="customer_part_name"/>
+                    <field name="customer_part_no"/>
+                </group>
+            </page>
+        </xpath>
+    </field>
+</record>
+    <record id="customer_part_creation_tree_view" model="ir.ui.view">
+        <field name="name">customer.part.creation.tree</field>
+        <field name="model">customer.part.creation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="partner_id" optional="show"/>
+                <field name="part_no" optional="show"/>
+                <field name="date_creation" optional="show"/>
+                <field name="state" widget="badge" optional="show"
+                       decoration-warning="state in ('hr_approve', 'design', 'engineering', 'manufacturing', 'quality', 'top')"
+                       decoration-success="state == 'final_approved'" decoration-info="state == 'draft'"/>
+                <field name="sequence" optional="hide"/>
+                <field name="part_desc" optional="hide"/>
+                <field name="no_of_cust" optional="hide"/>
+                <field name="cust_part_no" optional="hide"/>
+                <field name="cust_part_desc" optional="hide"/>
+                <field name="customer_drawing_upload" optional="hide"/>
+                <field name="category" optional="hide"/>
+                <field name="drawing_upload_internal" optional="hide"/>
+                <field name="date_of_modification" optional="hide"/>
+                <field name="revision_no" optional="hide"/>
+                <field name="revision_desc" optional="hide"/>
+                <field name="modification_by" optional="hide"/>
+                <field name="modification_approved_by" optional="hide"/>
+                <field name="date_of_modification_approved" optional="hide"/>
+                <field name="previous_revision" optional="hide"/>
+                <field name="previous_revision_drawings" optional="hide"/>
+                <field name="hr" optional="hide"/>
+                <field name="design_eng" optional="hide"/>
+                <field name="manf_eng" optional="hide"/>
+                <field name="production" optional="hide"/>
+                <field name="quality" optional="hide"/>
+                <field name="top_management_id" optional="hide"/>
+                <!--                <field name="part_development_id" optional="hide"/>-->
+            </tree>
+        </field>
+    </record>
+    <record id="customer_part_creation_form_view" model="ir.ui.view">
+        <field name="name">customer.part.creation.form</field>
+        <field name="model">customer.part.creation</field>
+        <field name="arch" type="xml">
+            <form string="Customer Part Creation">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    <button name="generate_excel_report" string="Download Report" type="object"
+                            class="btn btn-primary"/>
+                    <button name='send_for_approval' string='Confirm' type='object' class='oe_highlight'
+                            attrs="{'invisible' : [('state', '=', 'confirm')]}"/>
+                    <button name='approve_document' string='APPROVE' type='object' class='btn btn-success'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='revise_document' string='REVISE' type='object' class='btn btn-info'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='reject_document' string='REJECT' type='object' class='btn btn-danger'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                </header>
+                <sheet>
+                    <!-- Copy from here to  -->
+                    <widget name="web_ribbon" title="Approved" bg_color="bg-success"
+                            attrs="{'invisible':[('final_status', '!=', 'approved')]}"/>
+                    <widget name="web_ribbon" title="Rejected" bg_color="bg-danger"
+                            attrs="{'invisible':[('final_status', '!=', 'rejected')]}"/>
+                    <widget name="web_ribbon" title="Revision Required" bg_color="bg-info"
+                            attrs="{'invisible':[('final_status', '!=', 'revision')]}"/>
+                    <widget name="web_ribbon" title="In progress" bg_color="bg-warning"
+                            attrs="{'invisible':[('final_status', '!=', 'pending')]}"/>
+                    <widget name="web_ribbon" title="Draft" bg_color="bg-info"
+                            attrs="{'invisible':[('final_status', '!=', 'draft')]}"/>
+                    <div class="oe_title">
+                        <label for="project_id" string="Project Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <!-- Copy till here  -->
+                    <!-- <header>
+                        <button name="button_send_approval" string="Send Approval" type="object" states="draft"
+                                class="btn-primary"/>
+                        <button name="button_hr_approval" string="HR Approval" type="object" states="hr_approve"
+                                class="btn-primary"/>
+                        <button name="button_design" string="Design" type="object" states="design" class="btn-primary"/>
+                        <button name="button_engineering" string="Engineering" type="object" states="engineering"
+                                class="btn-primary"/>
+                        <button name="button_manufacturing" string="Manufacturing" type="object" states="manufacturing"
+                                class="btn-primary"/>
+                        <button name="button_quality_test_done" string="Quality Test" type="object" states="quality"
+                                class="btn-primary"/>
+                        <button name="button_top_managment_final_approved" string="TOP Management" type="object"
+                                states="top" class="btn-primary"/>
+                        <button name="generate_excel_report" string="Print Report" type="object"
+                                 class="btn-primary"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,hr_approve,design,engineering,manufacturing,quality,top,final_approved"/>
+                    </header> -->
+                    <separator string="Part/Customer Information "/>
+
+                    <group>
+                        <field name="user_has_access_to_approve" invisible="1"/><!-- Copy this too  -->
+                        <field name="final_status" invisible="1"/><!-- Copy this too  -->
+                        <field name="part_no"/>
+<!--                        <field name="language_id"/>-->
+                        <field name="part_desc"/>
+                        <field name="drawing_upload_internal"/>
+                        <field name="category"/>
+                        <field name="cust_part_no"/>
+                        <field name="cust_part_desc"/>
+                        <field name="customer_drawing_upload"/>
+                    </group>
+                    <!--                        commemt from here-->
+                    <!--                        <group>-->
+                    <!--                            <field name="no_of_cust"/>-->
+                    <!--                            <field name="partner_id"/>-->
+                    <!--                            <field name="create_uid"/>-->
+                    <!--                            <field name="create_date"/>-->
+                    <!--&lt;!&ndash;                            <field name="document_name" readonly='1'/>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            <field name="approve_department_ids" readonly='1' widget='many2many_tags'/>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            <field name="manager_ids" readonly='1' widget='many2many_tags'/>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            <field name="approve_by_department_ids" readonly='1' widget='many2many_tags'/>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            <field name="approvaed_manager_ids" readonly='1' widget='many2many_tags'/>&ndash;&gt;-->
+
+                    <!--                            <field name="hr_approval_date" readonly='1'-->
+                    <!--                                   attrs="{'invisible' : [('hr_approval_date', '=', False)]}"/>-->
+                    <!--                            <field name="design_approval_date" readonly='1'-->
+                    <!--                                   attrs="{'invisible' : [('design_approval_date', '=', False)]}"/>-->
+                    <!--                            <field name="eng_approval_date" readonly='1'-->
+                    <!--                                   attrs="{'invisible' : [('eng_approval_date', '=', False)]}"/>-->
+                    <!--                            <field name="manu_approval_date" readonly='1'-->
+                    <!--                                   attrs="{'invisible' : [('manu_approval_date', '=', False)]}"/>-->
+                    <!--                            <field name="sale_approval_date" readonly='1'-->
+                    <!--                                   attrs="{'invisible' : [('sale_approval_date', '=', False)]}"/>-->
+                    <!--                            <field name="qc_approval_date" readonly='1'-->
+                    <!--                                   attrs="{'invisible' : [('qc_approval_date', '=', False)]}"/>-->
+                    <!--                            <field name="main_approval_date" readonly='1'-->
+                    <!--                                   attrs="{'invisible' : [('main_approval_date', '=', False)]}"/>-->
+                    <!--                            <field name="mark_approval_date" readonly='1'-->
+                    <!--                                   attrs="{'invisible' : [('mark_approval_date', '=', False)]}"/>-->
+                    <!--                            <field name="pm_approval_date" readonly='1'-->
+                    <!--                                   attrs="{'invisible' : [('pm_approval_date', '=', False)]}"/>-->
+                    <!--                            <field name="maneg_approval_date" readonly='1'-->
+                    <!--                                   attrs="{'invisible' : [('maneg_approval_date', '=', False)]}"/>-->
+                    <!--                        </group>-->
+                    <separator string="Revisions &amp; Modifications"/>
+                    <group>
+                        <field name="date_creation" invisible="1"/>
+                        <field name="revision_no" invisible="1"/>
+                        <field name="revision_desc" invisible="1"/>
+                        <field name="date_of_modification" invisible="1"/>
+                        <field name="modification_by" invisible="1"/>
+                        <field name="modification_approved_by" invisible="1"/>
+                        <field name="date_of_modification_approved" invisible="1"/>
+                        <field name="previous_revision" invisible="1"/>
+                        <field name="previous_revision_drawings" invisible="1"/>
+                    </group>
+                    <group string="Initiator">
+                        <group>
+                            <field name="create_uid"/>
+                        </group>
+                        <group>
+                            <field name="create_date"/>
+                        </group>
+                    </group>
+                    <separator string="Approvers"/>
+                    <field name="iatf_members_ids" widget="many2many_tree"
+                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                           string="Approvers">
+                        <tree>
+                            <field name="approver_id"/>
+                            <field name="department_id"/>
+                            <field name="comment"/>
+                            <field name="date_approved_rejected"/>
+                            <field name="approval_status" widget="badge"
+                                   decoration-danger="approval_status == 'rejected'"
+                                   decoration-info="approval_status == 'revision'"
+                                   decoration-success="approval_status == 'approved'"/>
+                        </tree>
+                    </field>
+                    <!-- copy till here -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_customer_part_creation_view" model="ir.actions.act_window">
+        <field name="name">Customer Part Creation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">customer.part.creation</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Customer Part Creation" id="customer_part_creation_menu" parent="iatf_menu_engg"
+              action="action_customer_part_creation_view" sequence="2"/>
+</odoo>

@@ -1,0 +1,193 @@
+<odoo>
+    <!-- Define the view for risk analysis -->
+    <record id="view_risk_analysis" model="ir.ui.view">
+        <field name="name">process.report.view</field>
+        <field name="model">process.report</field>
+        <field name="arch" type="xml">
+            <form string="Custom Form" create="false" edit="false">
+                <header>
+                    <button name="refresh" string="Refresh" states="*" invisible="1"/>
+                </header>
+                <sheet>
+                    <group>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h1 class="text-primary" style="font-size: 24px;">
+                                        <strong>Risk Analysis</strong>
+                                    </h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card" style="width:400%">
+
+                                        <div class="card-body">
+                                            <table class="table table-bordered table-striped" style="">
+                                                <thead>
+                                                    <tr style="background-color: #007bff; color: white;">
+                                                        <th style="padding: 8px; width:20%">Effects</th>
+                                                        <th style="padding: 8px; width:15%">Severity</th>
+                                                        <th style="padding: 8px; width:20%">Prediction of Failure Cause Occurring</th>
+                                                        <th style="padding: 8px; width:15%">Occurrence</th>
+                                                        <th style="padding: 8px; width:20%">Ability to Detect</th>
+                                                        <th style="padding: 8px; width:15%">Detection</th>
+                                                        <th style="padding: 8px; width:10%">Action Priority</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+
+                                                    <t t-foreach="[ 
+                            {'e':'Product or Plant Effect Very High','severity': '9-10', 'o' : 'Very High', 'occurrence': '8-10', 'd' : ' Low - Very Low', 'detection': '7-10', 'priority': 'H'},
+                            {'e':'Product or Plant Effect Very High','severity': '9-10', 'o' : 'Very High', 'occurrence': '8-10', 'd' : 'Moderate', 'detection': '5-6', 'priority': 'H'},
+                            {'e':'Product or Plant Effect Very High','severity': '9-10', 'o' : 'Very High', 'occurrence': '8-10', 'd' : 'High', 'detection': '2-3', 'priority': 'H'},
+                            {'e':'Product or Plant Effect Very High','severity': '9-10', 'o' : 'Very High', 'occurrence': '8-10', 'd' : 'Very High', 'detection': '1', 'priority': 'H'},
+
+                            {'e':'Product or Plant Effect Very High','severity': '9-10', 'o' : 'High', 'occurrence': '6-7', 'd' : ' Low - Very Low', 'detection': '7-10', 'priority': 'H'},
+                            {'e':'Product or Plant Effect Very High','severity': '9-10', 'o' : 'High', 'occurrence': '6-7', 'd' : 'Moderate', 'detection': '5-6', 'priority': 'H'},
+                            {'e':'Product or Plant Effect Very High','severity': '9-10', 'o' : 'High', 'occurrence': '6-7', 'd' : 'High', 'detection': '2-3', 'priority': 'H'},
+                            {'e':'Product or Plant Effect Very High','severity': '9-10', 'o' : 'High', 'occurrence': '6-7', 'd' : 'Very High', 'detection': '1', 'priority': 'H'},
+
+                            {'e':'Product or Plant Effect Very High','severity': '9-10','o' : 'Moderate', 'occurrence': '4-5', 'd' : ' Low - Very Low', 'detection': '7-10', 'priority': 'H'},
+                            {'e':'Product or Plant Effect Very High','severity': '9-10','o' : 'Moderate', 'occurrence': '4-5', 'd' : 'Moderate', 'detection': '5-6', 'priority': 'H'},
+                            {'e':'Product or Plant Effect Very High','severity': '9-10','o' : 'Moderate', 'occurrence': '4-5', 'd' : 'High', 'detection': '2-3', 'priority': 'H'},
+                            {'e':'Product or Plant Effect Very High','severity': '9-10','o' : 'Moderate', 'occurrence': '4-5', 'd' : 'Very High', 'detection': '1', 'priority': 'M'},
+
+                            {'e':'Product or Plant Effect Very High','severity': '9-10', 'o' : 'Low', 'occurrence': '2-3', 'd' : ' Low - Very Low', 'detection': '7-10', 'priority': 'H'},
+                            {'e':'Product or Plant Effect Very High','severity': '9-10', 'o' : 'Low', 'occurrence': '2-3', 'd' : 'Moderate', 'detection': '5-6', 'priority': 'M'},
+                            {'e':'Product or Plant Effect Very High','severity': '9-10', 'o' : 'Low', 'occurrence': '2-3', 'd' : 'High', 'detection': '2-3', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Very High','severity': '9-10', 'o' : 'Low', 'occurrence': '2-3', 'd' : 'Very High', 'detection': '1', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Very High','severity': '9-10', 'o' : ' Very Low', 'occurrence': '1', 'd' : 'Very High - Very Low','detection': '1-10', 'priority': 'L'},
+
+                            {'e':'Product or Plant Effect High','severity': '7-8', 'o' : 'Very High', 'occurrence': '8-10', 'd' : ' Low - Very Low', 'detection': '7-10', 'priority': 'H'},
+                            {'e':'Product or Plant Effect High','severity': '7-8', 'o' : 'Very High', 'occurrence': '8-10', 'd' : 'Moderate', 'detection': '5-6', 'priority': 'H'},
+                            {'e':'Product or Plant Effect High','severity': '7-8', 'o' : 'Very High', 'occurrence': '8-10', 'd' : 'High', 'detection': '2-3', 'priority': 'H'},
+                            {'e':'Product or Plant Effect High','severity': '7-8', 'o' : 'Very High', 'occurrence': '8-10', 'd' : 'Very High', 'detection': '1', 'priority': 'H'},
+
+                            {'e':'Product or Plant Effect High','severity': '7-8', 'o' : 'High', 'occurrence': '6-7', 'd' : ' Low - Very Low', 'detection': '7-10', 'priority': 'H'},
+                            {'e':'Product or Plant Effect High','severity': '7-8', 'o' : 'High', 'occurrence': '6-7', 'd' : 'Moderate', 'detection': '5-6', 'priority': 'H'},
+                            {'e':'Product or Plant Effect High','severity': '7-8', 'o' : 'High', 'occurrence': '6-7', 'd' : 'High', 'detection': '2-3', 'priority': 'H'},
+                            {'e':'Product or Plant Effect High','severity': '7-8', 'o' : 'High', 'occurrence': '6-7', 'd' : 'Very High', 'detection': '1', 'priority': 'M'},
+
+                            {'e':'Product or Plant Effect High','severity': '7-8','o' : 'Moderate', 'occurrence': '4-5', 'd' : ' Low - Very Low', 'detection': '7-10', 'priority': 'H'},
+                            {'e':'Product or Plant Effect High','severity': '7-8','o' : 'Moderate', 'occurrence': '4-5', 'd' : 'Moderate', 'detection': '5-6', 'priority': 'M'},
+                            {'e':'Product or Plant Effect High','severity': '7-8','o' : 'Moderate', 'occurrence': '4-5', 'd' : 'High', 'detection': '2-3', 'priority': 'M'},
+                            {'e':'Product or Plant Effect High','severity': '7-8','o' : 'Moderate', 'occurrence': '4-5', 'd' : 'Very High', 'detection': '1', 'priority': 'M'},
+
+                            {'e':'Product or Plant Effect High','severity': '7-8', 'o' : 'Low', 'occurrence': '2-3', 'd' : ' Low - Very Low', 'detection': '7-10', 'priority': 'M'},
+                            {'e':'Product or Plant Effect High','severity': '7-8', 'o' : 'Low', 'occurrence': '2-3', 'd' : 'Moderate', 'detection': '5-6', 'priority': 'M'},
+                            {'e':'Product or Plant Effect High','severity': '7-8', 'o' : 'Low', 'occurrence': '2-3', 'd' : 'High', 'detection': '2-3', 'priority': 'L'},
+                            {'e':'Product or Plant Effect High','severity': '7-8', 'o' : 'Low', 'occurrence': '2-3', 'd' : 'Very High', 'detection': '1', 'priority': 'L'},
+                            {'e':'Product or Plant Effect High','severity': '7-8', 'o' : ' Very Low', 'occurrence': '1','d' : 'Very High - Very Low', 'detection': '1-10', 'priority': 'L'},
+
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6', 'o' : 'Very High', 'occurrence': '8-10', 'd' : ' Low - Very Low', 'detection': '7-10', 'priority': 'H'},
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6', 'o' : 'Very High', 'occurrence': '8-10', 'd' : 'Moderate', 'detection': '5-6', 'priority': 'H'},
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6', 'o' : 'Very High', 'occurrence': '8-10', 'd' : 'High', 'detection': '2-3', 'priority': 'M'},
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6', 'o' : 'Very High', 'occurrence': '8-10', 'd' : 'Very High', 'detection': '1', 'priority': 'M'},
+
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6', 'o' : 'High', 'occurrence': '6-7', 'd' : ' Low - Very Low', 'detection': '7-10', 'priority': 'M'},
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6', 'o' : 'High', 'occurrence': '6-7', 'd' : 'Moderate', 'detection': '5-6', 'priority': 'M'},
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6', 'o' : 'High', 'occurrence': '6-7', 'd' : 'High', 'detection': '2-3', 'priority': 'M'},
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6', 'o' : 'High', 'occurrence': '6-7', 'd' : 'Very High', 'detection': '1', 'priority': 'L'},
+
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6','o' : 'Moderate', 'occurrence': '4-5', 'd' : ' Low - Very Low', 'detection': '7-10', 'priority': 'M'},
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6','o' : 'Moderate', 'occurrence': '4-5', 'd' : 'Moderate', 'detection': '5-6', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6','o' : 'Moderate', 'occurrence': '4-5', 'd' : 'High', 'detection': '2-3', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6','o' : 'Moderate', 'occurrence': '4-5', 'd' : 'Very High', 'detection': '1', 'priority': 'L'},
+
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6', 'o' : 'Low', 'occurrence': '2-3', 'd' : ' Low - Very Low', 'detection': '7-10', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6', 'o' : 'Low', 'occurrence': '2-3', 'd' : 'Moderate', 'detection': '5-6', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6', 'o' : 'Low', 'occurrence': '2-3', 'd' : 'High', 'detection': '2-3', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6', 'o' : 'Low', 'occurrence': '2-3', 'd' : 'Very High', 'detection': '1', 'priority': 'L'},
+
+                            {'e':'Product or Plant Effect Moderate','severity': '4-6', 'o' : ' Very Low', 'occurrence': '1','d' : 'Very High - Very Low', 'detection': '1-10', 'priority': 'L'},
+
+                            {'e':'Product or Plant Effect Low','severity': '2-3', 'o' : 'Very High', 'occurrence': '8-10', 'd' : ' Low - Very Low', 'detection': '7-10', 'priority': 'M'},
+                            {'e':'Product or Plant Effect Low','severity': '2-3', 'o' : 'Very High', 'occurrence': '8-10', 'd' : 'Moderate', 'detection': '5-6', 'priority': 'M'},
+                            {'e':'Product or Plant Effect Low','severity': '2-3', 'o' : 'Very High', 'occurrence': '8-10', 'd' : 'High', 'detection': '2-3', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Low','severity': '2-3', 'o' : 'Very High', 'occurrence': '8-10', 'd' : 'Very High', 'detection': '1', 'priority': 'L'},
+
+                            {'e':'Product or Plant Effect Low','severity': '2-3', 'o' : 'High', 'occurrence': '6-7', 'd' : ' Low - Very Low', 'detection': '7-10', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Low','severity': '2-3', 'o' : 'High', 'occurrence': '6-7', 'd' : 'Moderate', 'detection': '5-6', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Low','severity': '2-3', 'o' : 'High', 'occurrence': '6-7', 'd' : 'High', 'detection': '2-3', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Low','severity': '2-3', 'o' : 'High', 'occurrence': '6-7', 'd' : 'Very High', 'detection': '1', 'priority': 'L'},
+
+                            {'e':'Product or Plant Effect Low','severity': '2-3','o' : 'Moderate', 'occurrence': '4-5', 'd' : ' Low - Very Low', 'detection': '7-10', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Low','severity': '2-3','o' : 'Moderate', 'occurrence': '4-5', 'd' : 'Moderate', 'detection': '5-6', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Low','severity': '2-3','o' : 'Moderate', 'occurrence': '4-5', 'd' : 'High', 'detection': '2-3', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Low','severity': '2-3','o' : 'Moderate', 'occurrence': '4-5', 'd' : 'Very High', 'detection': '1', 'priority': 'L'},
+
+                            {'e':'Product or Plant Effect Low','severity': '2-3', 'o' : 'Low', 'occurrence': '2-3', 'd' : ' Low - Very Low', 'detection': '7-10', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Low','severity': '2-3', 'o' : 'Low', 'occurrence': '2-3', 'd' : 'Moderate', 'detection': '5-6', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Low','severity': '2-3', 'o' : 'Low', 'occurrence': '2-3', 'd' : 'High', 'detection': '2-3', 'priority': 'L'},
+                            {'e':'Product or Plant Effect Low','severity': '2-3', 'o' : 'Low', 'occurrence': '2-3', 'd' : 'Very High', 'detection': '1', 'priority': 'L'},
+
+                            {'e':'Product or Plant Effect Very Low','severity': '1', 'o' : 'Very Low - Very High', 'occurrence': '1-10', 'd' : 'Very High - Very Low', 'detection': '1-10', 'priority': 'L'}
+                                 ]" t-as="row">
+                                                        <tr>
+                                                            <td style="padding: 8px;">
+                                                                <t t-esc="row['e']"/>
+                                                            </td>
+                                                            <td style="padding: 8px;">
+                                                                <t t-esc="row['severity']"/>
+                                                            </td>
+                                                            <td style="padding: 8px;">
+                                                                <t t-esc="row['o']"/>
+                                                            </td>
+                                                            <td style="padding: 8px;">
+                                                                <t t-esc="row['occurrence']"/>
+                                                            </td>
+                                                            <td style="padding: 8px;">
+                                                                <t t-esc="row['d']"/>
+                                                            </td>
+                                                            <td style="padding: 8px;">
+                                                                <t t-esc="row['detection']"/>
+                                                            </td>
+                                                            <td style="padding: 8px;">
+                                                                <t t-esc="row['priority']"/>
+                                                            </td>
+                                                        </tr>
+                                                    </t>
+                                                </tbody>
+                                            </table>
+
+
+
+
+
+                                        </div>
+
+
+
+                                    </div>
+
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <!-- Displaying custom HTML content with a static table -->
+
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Define the action for custom view -->
+    <record id="action_my_custom_view" model="ir.actions.act_window">
+        <field name="name">Risk Analysis</field>
+        <field name="res_model">process.report</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_risk_analysis" />
+    </record>
+
+    <!-- Define the menu item for the custom view -->
+    <menuitem id="menu_my_custom_menu" name="Risk Analysis" parent="process_fmea_menu" action="action_my_custom_view" sequence="3" />
+
+
+</odoo>

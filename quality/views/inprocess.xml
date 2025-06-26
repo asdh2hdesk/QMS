@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- In-Process Inspection Report Tree -->
+    <record id="inprocess_inspection_report_tree" model="ir.ui.view">
+        <field name="name">in.process.inspection.report.tree</field>
+        <field name="model">in.process.inspection.report</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="state == 'draft'"
+                  decoration-success="state == 'confirm'">
+                <field name="partner_id"/>
+                <field name="part_name"/>
+                <field name="part_number"/>
+                <field name="drawing_no"/>
+                <field name="state" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+    <!-- In-Process Inspection Report Form -->
+    <record id="inprocess_inspection_report_form" model="ir.ui.view">
+        <field name="name">in.process.inspection.report.form</field>
+        <field name="model">in.process.inspection.report</field>
+        <field name="arch" type="xml">
+            <form string="Report of In process inspection">
+                <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    <button name="generate_xls_report" type="object" string="Print Report" class="oe_highlight"
+                            icon="fa-print"/>
+                </header>
+                <sheet>
+                    <div class="oe_title text-center mb-5">
+                        <h1>In Process Inspection Report</h1>
+                    </div>
+                    <div class="oe_title">
+                        <label for="project_id" string="Project Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
+                            <field name="part_id"/>
+                            <field name="part_name"/>
+                            <field name="part_number"/>
+                            <field name="drawing_no"/>
+                            <field name="batch_quantity"/>
+                            <!--                            <field name="page_no" />-->
+                        </group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="date"/>
+                            <field name="rev_no"/>
+                            <field name="rev_date"/>
+                            <field name="parts_to_be_checked"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Inspection Details">
+
+                            <field name="line_ids">
+                                <tree>
+                                    <field name="op_no"/>
+                                    <field name="op_name"/>
+                                    <field name="symbol"/>
+
+
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                    <group string="Initiator">
+                        <group>
+                            <field name="create_uid"/>
+                        </group>
+                        <group>
+                            <field name="create_date"/>
+                        </group>
+                    </group>
+                    <separator string="Approvers"/>
+                    <field name="iatf_members_ids" widget="many2many_tree"
+                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                           string="Approvers">
+                        <tree>
+                            <field name="approver_id"/>
+                            <field name="department_id"/>
+                            <field name="comment"/>
+                            <field name="date_approved_rejected"/>
+                            <field name="approval_status" widget="badge"
+                                   decoration-danger="approval_status == 'rejected'"
+                                   decoration-info="approval_status == 'revision'"
+                                   decoration-success="approval_status == 'approved'"/>
+                        </tree>
+                    </field>
+                    <separator string="Revision History"/>
+                    <field name="revision_history_ids" widget="many2many_tree"
+                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1">
+                        <tree>
+                            <field name="rev_no"/>
+                            <field name="rev_date"/>
+                            <field name="revised_by"/>
+                            <field name="revision_details"/>
+                        </tree>
+                    </field>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- In-Process operations Form -->
+    <record id="inprocess_operation_form" model="ir.ui.view">
+        <field name="name">in.process.operations.form</field>
+        <field name="model">in.process.operations</field>
+        <field name="arch" type="xml">
+            <form string="Operations">
+
+                <sheet>
+
+                    <group>
+
+                        <field name="op_no"/>
+                        <field name="op_name"/>
+                        <field name="symbol"/>
+                    </group>
+                    <notebook>
+                        <page string="Inspection Details">
+
+                            <field name="op_ids">
+                                <tree>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="sr_no" readonly="1"/>
+                                    <field name="ele_no"/>
+
+                                    <field name="dimension_des"/>
+
+                                    <field name="lower_limit" invisible="1"/>
+                                    <field name="upper_limit" invisible="1"/>
+                                    <field name="uom_id" invisible="1"/>
+                                    <field name="dimension_spec"/>
+                                    <field name="inspection_method"/>
+                                    <field name="inspection_frequency"/>
+                                    <field name="shift"/>
+
+
+                                    <field name="inspected_by"/>
+
+
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- In-Process Inspection Line Tree -->
+    <record id="inprocess_inspection_operation_tree" model="ir.ui.view">
+        <field name="name">in.process.operations.tree</field>
+        <field name="model">in.process.operations</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="op_no"/>
+                <field name="op_name"/>
+                <field name="symbol"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- In-Process Inspection Line Tree -->
+    <record id="inprocess_inspection_report_line_tree" model="ir.ui.view">
+        <field name="name">in.process.inspection.report.line.tree</field>
+        <field name="model">in.process.inspection.report.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="dimension_des"/>
+                <field name="dimension_spec"/>
+                <field name="inspection_method"/>
+                <field name="inspection_frequency"/>
+                <field name="inspected_by"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- In-Process Inspection Line Form -->
+    <record id="inprocess_inspection_report_line_form" model="ir.ui.view">
+        <field name="name">in.process.inspection.report.line.form</field>
+        <field name="model">in.process.inspection.report.line</field>
+        <field name="arch" type="xml">
+            <form string="Inspection Line Detail">
+                <sheet>
+
+
+                    <group string="Process Details">
+                        <group>
+                            <field name="sequence" invisible="1"/>
+                            <field name="sr_no"/>
+                            <field name="ele_no"/>
+
+
+                            <field name="dimension_des"/>
+                            <field name="lower_limit"/>
+                            <field name="upper_limit"/>
+                            <field name="uom_id"/>
+                            <field name="dimension_spec" readonly="1"/>
+                            <field name="shift"/>
+
+
+                        </group>
+                        <group>
+
+                            <field name="inspection_method"/>
+                            <field name="inspection_frequency"/>
+
+                            <field name="inspected_by"/>
+
+                            <field name="batch_quantity"/>
+                        </group>
+                    </group>
+                    <button name="action_button" string="Update Observations"
+                            type="object" class="oe_highlight"
+                            attrs="{'invisible': ['|', ('inspection_frequency', '=', False), ('batch_quantity', '=', 0)]}"/>
+                    <group>
+                        <field name="observations">
+                            <tree editable="bottom">
+                                <field name="observation_number"/>
+                                <field name="observation_value"/>
+                                <field name="time_date_inspection"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group string="Additional comments">
+                        <field name="remarks"/>
+                    </group>
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for In-Process Inspection Report -->
+    <record id="action_in_process_report" model="ir.actions.act_window">
+        <field name="name">In Process Inspection Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">in.process.inspection.report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Action for In-Process Inspection Report -->
+    <record id="action_in_process_operations" model="ir.actions.act_window">
+        <field name="name">In Process Operations</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">in.process.operations</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Action for In-Process Inspection Report Lines -->
+    <record id="action_in_process_report_lines" model="ir.actions.act_window">
+        <field name="name">In Process Inspection Report Lines</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">in.process.inspection.report.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Items -->
+    <menuitem id="menu_in_process_inspection" parent="inspection_menu" name="In Process Inspection Report"
+              action="action_in_process_report" sequence="10"/>
+</odoo>

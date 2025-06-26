@@ -1,0 +1,167 @@
+<odoo>
+    <!-- Work Instruction Tree View -->
+    <record id="view_calibration_work_instruction_tree" model="ir.ui.view">
+        <field name="name">calibration.work.instruction.tree</field>
+        <field name="model">calibration.work.instruction</field>
+        <field name="arch" type="xml">
+            <tree string="Work Instructions">
+                <field name="document_no"/>
+                <field name="name"/>
+                <field name="subject"/>
+                <field name="revision_no"/>
+                <field name="effective_date"/>
+                <field name="prepared_by"/>
+                <field name="reviewed_by"/>
+                <field name="approved_by"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Work Instruction Form View -->
+    <record id="view_calibration_work_instruction_form" model="ir.ui.view">
+        <field name="name">calibration.work.instruction.form</field>
+        <field name="model">calibration.work.instruction</field>
+        <field name="arch" type="xml">
+            <form string="Work Instruction">
+                <header>
+                    <button name="download_work_instruction" string="Download Report" type="object"
+                            class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Work Instruction Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="document_no"/>
+                            <field name="revision_no"/>
+                            <field name="effective_date"/>
+                            <field name="page_info"/>
+                        </group>
+                        <group>
+                            <field name="department"/>
+                            <field name="subject" placeholder="e.g. CALIBRATION OF SURFACE ROUGHNESS TESTER"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Details">
+                            <group>
+                                <field name="scope" placeholder="e.g. CALIBRATION OF SURFACE ROUGHNESS TESTER"/>
+                                <field name="range_lc" placeholder="e.g. AS APPLICABLE"/>
+                                <field name="reference_standard" placeholder="e.g. NIL"/>
+                                <field name="master_equipment" placeholder="e.g. SURFACE ROUGHNESS SPECIMEN"/>
+                            </group>
+                        </page>
+                        <page string="Check Points">
+                            <field name="check_point_ids" context="{'default_step_type': 'check_point'}">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="step_type" invisible="1"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Calibration Procedure">
+                            <field name="procedure_ids" context="{'default_step_type': 'procedure'}">
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="step_type" invisible="1"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Applicable Equipment">
+                            <group>
+                                <field name="equipment_category_ids" widget="many2many_tags"/>
+                                <field name="equipment_ids" widget="many2many_tags"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    <group string="Approvals">
+                        <group>
+                            <field name="prepared_by"/>
+                        </group>
+                        <group>
+                            <field name="reviewed_by"/>
+                            <field name="approved_by"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Work Instruction Search View -->
+    <record id="view_calibration_work_instruction_search" model="ir.ui.view">
+        <field name="name">calibration.work.instruction.search</field>
+        <field name="model">calibration.work.instruction</field>
+        <field name="arch" type="xml">
+            <search string="Search Work Instructions">
+                <field name="name"/>
+                <field name="document_no"/>
+                <field name="subject"/>
+                <field name="equipment_ids"/>
+                <field name="equipment_category_ids"/>
+                <filter string="My Work Instructions" name="my_instructions" domain="[('prepared_by', '=', uid)]"/>
+                <filter string="Inactive" name="inactive" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Prepared By" name="prepared_by" context="{'group_by': 'prepared_by'}"/>
+                    <filter string="Effective Date" name="effective_date" context="{'group_by': 'effective_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Work Instruction Action -->
+    <record id="action_calibration_work_instruction" model="ir.actions.act_window">
+        <field name="name">Work Instructions</field>
+        <field name="res_model">calibration.work.instruction</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_calibration_work_instruction_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new calibration work instruction
+            </p>
+            <p>
+                Work instructions provide step-by-step guidance for performing
+                calibration procedures on specific equipment or categories.
+            </p>
+        </field>
+    </record>
+
+    <!-- Modify Calibration Schedule Form -->
+<!--    <record id="view_calibration_schedule_form_inherit" model="ir.ui.view">-->
+<!--        <field name="name">calibration.schedule.form.inherit.work.instruction</field>-->
+<!--        <field name="model">calibration.schedule</field>-->
+<!--        <field name="inherit_id" ref="calibration_schedule.view_calibration_schedule_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//sheet" position="inside">-->
+<!--                <group>-->
+<!--                    <button name="get_work_instruction" string="Work Instruction" type="object" class="oe_highlight"/>-->
+<!--                </group>-->
+<!--            </xpath>-->
+<!--            <xpath expr="//field[@name='prepared_by']" position="after">-->
+<!--                <field name="work_instruction_id"/>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <!-- Menu Item for Work Instructions -->
+    <menuitem id="menu_calibration_schedule_main"
+              name="Calibration"
+              sequence="10"/>
+
+    <!-- Work Instructions Menu under Calibration -->
+    <menuitem id="menu_calibration_work_instruction"
+              name="Work Instructions"
+              parent="menu_calibration_schedule_main"
+              action="action_calibration_work_instruction"
+              sequence="30"/>
+</odoo>

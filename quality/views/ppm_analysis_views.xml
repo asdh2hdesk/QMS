@@ -1,0 +1,62 @@
+<!-- views/ppm_analysis_views.xml -->
+<odoo>
+  <!-- Tree View -->
+  <record id="view_ppm_analysis_tree" model="ir.ui.view">
+    <field name="name">ppm.analysis.tree</field>
+    <field name="model">ppm.analysis</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="year"/>
+        <field name="month"/>
+        <field name="total_parts"/>
+        <field name="defective_parts"/>
+        <field name="ppm_level"/>
+      </tree>
+    </field>
+  </record>
+
+  <!-- Form View -->
+  <record id="view_ppm_analysis_form" model="ir.ui.view">
+    <field name="name">ppm.analysis.form</field>
+    <field name="model">ppm.analysis</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="month"/>
+            <field name="year"/>
+          </group>
+          <group>
+            <field name="total_parts"/>
+            <field name="defective_parts"/>
+            <field name="ppm_level" readonly="1"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!-- Graph View -->
+  <record id="view_ppm_analysis_graph" model="ir.ui.view">
+    <field name="name">ppm.analysis.graph</field>
+    <field name="model">ppm.analysis</field>
+    <field name="arch" type="xml">
+      <graph string="PPM Level Over Time" type="bar">
+        <field name="name" type="row"/>
+        <field name="ppm_level"/>
+      </graph>
+    </field>
+  </record>
+
+  <!-- Action -->
+  <record id="action_ppm_analysis" model="ir.actions.act_window">
+    <field name="name">PPM Analysis</field>
+    <field name="res_model">ppm.analysis</field>
+    <field name="view_mode">tree,form,graph</field>
+  </record>
+
+  <!-- Menu -->
+  <menuitem id="menu_ppm_root" name="Quality Metrics" parent="iatf.iatf_menu_quality"/>
+  <menuitem id="menu_ppm_analysis" name="PPM Analysis" parent="menu_ppm_root" action="action_ppm_analysis"/>
+</odoo>

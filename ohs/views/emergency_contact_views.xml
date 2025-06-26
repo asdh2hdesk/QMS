@@ -1,0 +1,48 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="view_emergency_contact_tree" model="ir.ui.view">
+        <field name="name">emergency.contact.tree</field>
+        <field name="model">emergency.contact</field>
+        <field name="arch" type="xml">
+            <tree string="Emergency Contacts">
+                <field name="department_id"/>
+                <field name="location_id"/>
+                <field name="contact"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_emergency_contact_form" model="ir.ui.view">
+        <field name="name">emergency.contact.form</field>
+        <field name="model">emergency.contact</field>
+        <field name="arch" type="xml">
+            <form string="Emergency Contact">
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            EMERGENCY CONTACT NUMBER
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <group>
+                        <field name="department_id"/>
+                        <field name="location_id"/>
+                        <field name="contact"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_emergency_contact" model="ir.actions.act_window">
+        <field name="name">Emergency Contacts</field>
+        <field name="res_model">emergency.contact</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Items -->
+    <menuitem id="menu_emergency_contact_main" name="Emergency Contacts" parent="menu_ohs_root" action="action_emergency_contact"/>
+</odoo>

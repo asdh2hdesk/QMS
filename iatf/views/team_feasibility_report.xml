@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!-- Define form view for Feasibility Commitment Report -->
+        <record id="view_feasibility_commitment_form" model="ir.ui.view">
+            <field name="name">feasibility.commitment.form</field>
+            <field name="model">feasibility.commitment</field>
+            <field name="arch" type="xml">
+                <form string="Feasibility Commitment Report">
+                    <header>
+                        <button name="generate_excel_report" string="Download Report" type="object"
+                                class="btn- btn-primary"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                        <button name='send_for_approval' string='Confirm' type='object' class='oe_highlight'
+                                attrs="{'invisible' : [('state', '=', 'confirm')]}"/>
+                        <button name='approve_document' string='APPROVE' type='object' class='btn btn-success'
+                                attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                        <button name='revise_document' string='REVISE' type='object' class='btn btn-info'
+                                attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                        <button name='reject_document' string='REJECT' type='object' class='btn btn-danger'
+                                attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    </header>
+                    <sheet>
+                        <!-- Copy from here to  -->
+                        <widget name="web_ribbon" title="Approved" bg_color="bg-success"
+                                attrs="{'invisible':[('final_status', '!=', 'approved')]}"/>
+                        <widget name="web_ribbon" title="Rejected" bg_color="bg-danger"
+                                attrs="{'invisible':[('final_status', '!=', 'rejected')]}"/>
+                        <widget name="web_ribbon" title="Revision Required" bg_color="bg-info"
+                                attrs="{'invisible':[('final_status', '!=', 'revision')]}"/>
+                        <widget name="web_ribbon" title="In progress" bg_color="bg-warning"
+                                attrs="{'invisible':[('final_status', '!=', 'pending')]}"/>
+                        <widget name="web_ribbon" title="Draft" bg_color="bg-info"
+                                attrs="{'invisible':[('final_status', '!=', 'draft')]}"/>
+                        <div class="oe_title">
+                            <div>
+                                <h1 class="text-center">Team Feasibility</h1>
+                            </div>
+                            <label for="project_id" string="Project Name"/>
+                            <h1>
+                                <div class="d-flex">
+                                    <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
+                                </div>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="user_has_access_to_approve" invisible="1"/><!-- Copy this too  -->
+                                <field name="final_status" invisible="1"/><!-- Copy this too  -->
+                                <field name="format_id"/>
+                                <field name="cust_id"/>
+                                <field name="part_num"/>
+                                <field name="part_id"/>
+                                <field name="rfq_no"/>
+                            </group>
+                            <group>
+                                <field name="date"/>
+                                <field name="revision_date"/>
+                                <field name="revision_number"/>
+                                <field name="company_id"/>
+                            </group>
+
+                        </group>
+                        <!-- Add One2many field to display considerations -->
+                        <separator string="Considerations"/>
+                        <field name="feasibility_considerations_ids">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="is_yes"/>
+                                <field name="description"/>
+                            </tree>
+                        </field>
+                        <!-- Add One2many field to display conclusion -->
+
+                        <separator string="Conclusion"/>
+                        <field name="feasibility" widget="radio"/>
+                        <separator string="QUALITY ASSURANCE – SUPPLIER"/>
+                        <field name="quality_assurance"/>
+
+                        <separator string="FEASIBILITY REVIEW"/>
+                        <field name="feasibility_review"/>
+
+                        <!-- Add One2many field to display Review -->
+                        <separator string="Review"/>
+                        <field name="feasibility_review_item_ids" widget="one2many_list">
+                            <tree editable="bottom">
+                                <field name="item"/>
+                                <field name="remarks"/>
+                                <field name="is_feasibility"/>
+                                <field name="actions_from_customer"
+                                       attrs="{'required': [('is_feasibility','=', True)]}"/>
+                            </tree>
+                        </field>
+                        <!-- Add One2many field to display Sign Off -->
+                        <!--                        <separator string="Sign Off"/>-->
+                        <!--                        <field name="feasibility_sign_off_ids" widget="one2many_list">-->
+                        <!--                            <tree editable="bottom">-->
+                        <!--                                <field name="sign_off_team_member"/>-->
+                        <!--                                <field name="sign_off_title"/>-->
+                        <!--                                <field name="sign_off_date"/>-->
+                        <!--                            </tree>-->
+                        <!--                        </field>-->
+                        <!--                        &lt;!&ndash; footer &ndash;&gt;-->
+                        <!--                        <group>-->
+                        <!--                            &lt;!&ndash; <field name="signature"/> &ndash;&gt;-->
+                        <!--                            <field name="title"/>-->
+                        <!--                            <field name="signature_date"/>-->
+                        <!--                        </group>-->
+                        <group string="Initiator">
+                            <group>
+                                <field name="create_uid"/>
+                            </group>
+                            <group>
+                                <field name="create_date"/>
+                            </group>
+                        </group>
+                        <separator string="Approvers"/>
+                        <field name="iatf_members_ids" widget="many2many_tree"
+                               options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                               string="Approvers">
+                            <tree>
+                                <field name="approver_id"/>
+                                <field name="department_id"/>
+                                <field name="comment"/>
+                                <field name="date_approved_rejected"/>
+                                <field name="approval_status" widget="badge"
+                                       decoration-danger="approval_status == 'rejected'"
+                                       decoration-info="approval_status == 'revision'"
+                                       decoration-success="approval_status == 'approved'"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Define list view for Feasibility Commitment Report -->
+        <record id="view_feasibility_commitment_tree" model="ir.ui.view">
+            <field name="name">feasibility.commitment.tree</field>
+            <field name="model">feasibility.commitment</field>
+            <field name="arch" type="xml">
+                <tree string="Feasibility Commitment Reports">
+                    <field name="cust_id"/>
+                    <!--&lt;!&ndash;                    <field name="document_name" readonly='1'/>&ndash;&gt;                               comment this too -->
+                    <field name="date"/>
+                    <field name="part_num"/>
+                    <field name="part_id"/>
+                    <field name="revision_date"/>
+                    <field name="revision_number"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_feasibility_commitment_window" model="ir.actions.act_window">
+            <field name="name">Feasibility Commitment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">feasibility.commitment</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Team Feasibility" id="feasibility_commitment_menu" parent="iatf_menu_marketing"
+                  action="action_feasibility_commitment_window" sequence="2"/>
+
+    </data>
+</odoo>

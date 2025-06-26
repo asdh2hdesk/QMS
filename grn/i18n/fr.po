@@ -1,0 +1,3203 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* grn
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-05 10:41+0000\n"
+"PO-Revision-Date: 2025-06-05 10:41+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grn
+#: model:mail.template,body_html:grn.email_template_grn_recheck
+msgid ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #17a2b8;\">GRN Sent for Recheck</h2>\n"
+"\n"
+"                <p>Dear Quality Team,</p>\n"
+"\n"
+"                <p>A GRN has been sent for rechecking. Please perform a thorough re-inspection.</p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #17a2b8;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Supplier:</strong>\n"
+"                        ${object.supplier_name.name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Product:</strong>\n"
+"                        ${object.grn_product}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Status:</strong>\n"
+"                        <span style=\"color: #17a2b8;\">${dict(object._fields['status'].selection).get(object.status)}\n"
+"                        </span>\n"
+"                    </p>\n"
+"\n"
+"                    % if object.approval_history_ids and object.approval_history_ids[0].description:\n"
+"                    <p>\n"
+"                        <strong>Recheck Notes:</strong>\n"
+"                        ${object.approval_history_ids[0].description}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>Please prioritize this recheck and update the status accordingly.</p>\n"
+"\n"
+"                <p>Regards,\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #17a2b8;\">GRN Sent for Recheck</h2>\n"
+"\n"
+"                <p>Dear Quality Team,</p>\n"
+"\n"
+"                <p>A GRN has been sent for rechecking. Please perform a thorough re-inspection.</p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #17a2b8;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Supplier:</strong>\n"
+"                        ${object.supplier_name.name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Product:</strong>\n"
+"                        ${object.grn_product}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Status:</strong>\n"
+"                        <span style=\"color: #17a2b8;\">${dict(object._fields['status'].selection).get(object.status)}\n"
+"                        </span>\n"
+"                    </p>\n"
+"\n"
+"                    % if object.approval_history_ids and object.approval_history_ids[0].description:\n"
+"                    <p>\n"
+"                        <strong>Recheck Notes:</strong>\n"
+"                        ${object.approval_history_ids[0].description}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>Please prioritize this recheck and update the status accordingly.</p>\n"
+"\n"
+"                <p>Regards,\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+
+#. module: grn
+#: model:mail.template,body_html:grn.email_template_grn_accepted_recheck
+msgid ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #28a745;\">GRN Accepted After Recheck</h2>\n"
+"\n"
+"                <p>Dear ${object.supplier_name.name},</p>\n"
+"\n"
+"                <p>We are pleased to inform you that your GRN has been accepted after rechecking the materials.</p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #28a745;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Product:</strong>\n"
+"                        ${object.grn_product}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Invoice No:</strong>\n"
+"                        ${object.invoice_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Store Location:</strong>\n"
+"                        ${object.store_location}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Status:</strong>\n"
+"                        <span style=\"color: #28a745;\">${dict(object._fields['status'].selection).get(object.status)}\n"
+"                        </span>\n"
+"                    </p>\n"
+"\n"
+"                    % if object.approval_history_ids and object.approval_history_ids[0].description:\n"
+"                    <p>\n"
+"                        <strong>Approval Notes:</strong>\n"
+"                        ${object.approval_history_ids[0].description}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>The materials have been moved to the store location and are now ready for use.</p>\n"
+"\n"
+"                <p>Thank you for your quality service and cooperation.</p>\n"
+"\n"
+"                <p>Regards,\n"
+"                    <br>\n"
+"                    ${user.company_id.name}\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #28a745;\">GRN Accepted After Recheck</h2>\n"
+"\n"
+"                <p>Dear ${object.supplier_name.name},</p>\n"
+"\n"
+"                <p>We are pleased to inform you that your GRN has been accepted after rechecking the materials.</p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #28a745;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Product:</strong>\n"
+"                        ${object.grn_product}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Invoice No:</strong>\n"
+"                        ${object.invoice_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Store Location:</strong>\n"
+"                        ${object.store_location}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Status:</strong>\n"
+"                        <span style=\"color: #28a745;\">${dict(object._fields['status'].selection).get(object.status)}\n"
+"                        </span>\n"
+"                    </p>\n"
+"\n"
+"                    % if object.approval_history_ids and object.approval_history_ids[0].description:\n"
+"                    <p>\n"
+"                        <strong>Approval Notes:</strong>\n"
+"                        ${object.approval_history_ids[0].description}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>The materials have been moved to the store location and are now ready for use.</p>\n"
+"\n"
+"                <p>Thank you for your quality service and cooperation.</p>\n"
+"\n"
+"                <p>Regards,\n"
+"                    <br>\n"
+"                    ${user.company_id.name}\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+
+#. module: grn
+#: model:mail.template,body_html:grn.email_template_grn_accepted
+msgid ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #28a745;\">GRN Accepted</h2>\n"
+"\n"
+"                <p>Dear ${object.supplier_name.name},</p>\n"
+"\n"
+"                <p>We are pleased to inform you that your GRN has been accepted and the materials have met our quality\n"
+"                    standards.\n"
+"                </p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #28a745;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Product:</strong>\n"
+"                        ${object.grn_product}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Invoice No:</strong>\n"
+"                        ${object.invoice_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Store Location:</strong>\n"
+"                        ${object.store_location}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Status:</strong>\n"
+"                        <span style=\"color: #28a745;\">${dict(object._fields['status'].selection).get(object.status)}\n"
+"                        </span>\n"
+"                    </p>\n"
+"\n"
+"                    % if object.approval_history_ids and object.approval_history_ids[0].description:\n"
+"                    <p>\n"
+"                        <strong>Approval Notes:</strong>\n"
+"                        ${object.approval_history_ids[0].description}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>The materials have been moved to the store location and are ready for use.</p>\n"
+"\n"
+"                <p>Thank you for your quality service.</p>\n"
+"\n"
+"                <p>Regards,\n"
+"                    <br>\n"
+"                    ${user.company_id.name}\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #28a745;\">GRN Accepted</h2>\n"
+"\n"
+"                <p>Dear ${object.supplier_name.name},</p>\n"
+"\n"
+"                <p>We are pleased to inform you that your GRN has been accepted and the materials have met our quality\n"
+"                    standards.\n"
+"                </p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #28a745;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Product:</strong>\n"
+"                        ${object.grn_product}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Invoice No:</strong>\n"
+"                        ${object.invoice_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Store Location:</strong>\n"
+"                        ${object.store_location}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Status:</strong>\n"
+"                        <span style=\"color: #28a745;\">${dict(object._fields['status'].selection).get(object.status)}\n"
+"                        </span>\n"
+"                    </p>\n"
+"\n"
+"                    % if object.approval_history_ids and object.approval_history_ids[0].description:\n"
+"                    <p>\n"
+"                        <strong>Approval Notes:</strong>\n"
+"                        ${object.approval_history_ids[0].description}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>The materials have been moved to the store location and are ready for use.</p>\n"
+"\n"
+"                <p>Thank you for your quality service.</p>\n"
+"\n"
+"                <p>Regards,\n"
+"                    <br>\n"
+"                    ${user.company_id.name}\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+
+#. module: grn
+#: model:mail.template,body_html:grn.email_template_grn_to_cft
+msgid ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #4c4c4c;\">GRN Status Update for CFT Team</h2>\n"
+"\n"
+"                <p>Dear CFT Team,</p>\n"
+"\n"
+"                <p>This is a notification about a GRN status change that may require your attention:</p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #875A7B;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Supplier:</strong>\n"
+"                        ${object.supplier_name.name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Product:</strong>\n"
+"                        ${object.grn_product}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Current Status:</strong>\n"
+"                        <span>${dict(object._fields['status'].selection).get(object.status)}</span>\n"
+"                    </p>\n"
+"\n"
+"                    % if object.approval_history_ids and object.approval_history_ids[0].description:\n"
+"                    <p>\n"
+"                        <strong>Latest Note:</strong>\n"
+"                        ${object.approval_history_ids[0].description}\n"
+"                    </p>\n"
+"                    % endif\n"
+"\n"
+"                    % if object.rejection_notes:\n"
+"                    <p>\n"
+"                        <strong>Rejection Notes:</strong>\n"
+"                        ${object.rejection_notes}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>Please review this information and take any necessary actions as part of the CFT process.</p>\n"
+"\n"
+"                <p>Regards,\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #4c4c4c;\">GRN Status Update for CFT Team</h2>\n"
+"\n"
+"                <p>Dear CFT Team,</p>\n"
+"\n"
+"                <p>This is a notification about a GRN status change that may require your attention:</p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #875A7B;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Supplier:</strong>\n"
+"                        ${object.supplier_name.name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Product:</strong>\n"
+"                        ${object.grn_product}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Current Status:</strong>\n"
+"                        <span>${dict(object._fields['status'].selection).get(object.status)}</span>\n"
+"                    </p>\n"
+"\n"
+"                    % if object.approval_history_ids and object.approval_history_ids[0].description:\n"
+"                    <p>\n"
+"                        <strong>Latest Note:</strong>\n"
+"                        ${object.approval_history_ids[0].description}\n"
+"                    </p>\n"
+"                    % endif\n"
+"\n"
+"                    % if object.rejection_notes:\n"
+"                    <p>\n"
+"                        <strong>Rejection Notes:</strong>\n"
+"                        ${object.rejection_notes}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>Please review this information and take any necessary actions as part of the CFT process.</p>\n"
+"\n"
+"                <p>Regards,\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+
+#. module: grn
+#: model:mail.template,body_html:grn.email_template_grn_submitted
+msgid ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #4c4c4c;\">GRN Submitted for Inspection</h2>\n"
+"\n"
+"                <p>Dear Responsible Team,</p>\n"
+"\n"
+"                <p>A GRN has been submitted for inspection with the following details:</p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #875A7B;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Supplier:</strong>\n"
+"                        ${object.supplier_name.name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Supplier Code:</strong>\n"
+"                        ${object.supplier_code}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Invoice No:</strong>\n"
+"                        ${object.invoice_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Status:</strong>\n"
+"                        <span style=\"color: #17a2b8;\">${dict(object._fields['status'].selection).get(object.status)}\n"
+"                        </span>\n"
+"                    </p>\n"
+"\n"
+"                    % if object.approval_history_ids and object.approval_history_ids[0].description:\n"
+"                    <p>\n"
+"                        <strong>Notes:</strong>\n"
+"                        ${object.approval_history_ids[0].description}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>Please review this GRN and take appropriate action.</p>\n"
+"\n"
+"                <p>Thank you,\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #4c4c4c;\">GRN Submitted for Inspection</h2>\n"
+"\n"
+"                <p>Dear Responsible Team,</p>\n"
+"\n"
+"                <p>A GRN has been submitted for inspection with the following details:</p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #875A7B;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Supplier:</strong>\n"
+"                        ${object.supplier_name.name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Supplier Code:</strong>\n"
+"                        ${object.supplier_code}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Invoice No:</strong>\n"
+"                        ${object.invoice_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Status:</strong>\n"
+"                        <span style=\"color: #17a2b8;\">${dict(object._fields['status'].selection).get(object.status)}\n"
+"                        </span>\n"
+"                    </p>\n"
+"\n"
+"                    % if object.approval_history_ids and object.approval_history_ids[0].description:\n"
+"                    <p>\n"
+"                        <strong>Notes:</strong>\n"
+"                        ${object.approval_history_ids[0].description}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>Please review this GRN and take appropriate action.</p>\n"
+"\n"
+"                <p>Thank you,\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+
+#. module: grn
+#: model:mail.template,body_html:grn.email_template_grn_admin_alert
+msgid ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #dc3545;\">GRN Administrator Alert</h2>\n"
+"\n"
+"                <p>Dear Administrator,</p>\n"
+"\n"
+"                <p>This is an important notification about a GRN status change that requires administrative attention:\n"
+"                </p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #dc3545;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Supplier:</strong>\n"
+"                        ${object.supplier_name.name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Product:</strong>\n"
+"                        ${object.grn_product}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Current Status:</strong>\n"
+"                        <span style=\"color: #dc3545;\">${dict(object._fields['status'].selection).get(object.status)}\n"
+"                        </span>\n"
+"                    </p>\n"
+"\n"
+"                    % if object.approval_history_ids and object.approval_history_ids[0].description:\n"
+"                    <p>\n"
+"                        <strong>Latest Note:</strong>\n"
+"                        ${object.approval_history_ids[0].description}\n"
+"                    </p>\n"
+"                    % endif\n"
+"\n"
+"                    % if object.rejection_notes:\n"
+"                    <p>\n"
+"                        <strong>Rejection Notes:</strong>\n"
+"                        ${object.rejection_notes}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>This status change may require administrative intervention or oversight.</p>\n"
+"\n"
+"                <p>Regards,\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #dc3545;\">GRN Administrator Alert</h2>\n"
+"\n"
+"                <p>Dear Administrator,</p>\n"
+"\n"
+"                <p>This is an important notification about a GRN status change that requires administrative attention:\n"
+"                </p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #dc3545;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Supplier:</strong>\n"
+"                        ${object.supplier_name.name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Product:</strong>\n"
+"                        ${object.grn_product}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Current Status:</strong>\n"
+"                        <span style=\"color: #dc3545;\">${dict(object._fields['status'].selection).get(object.status)}\n"
+"                        </span>\n"
+"                    </p>\n"
+"\n"
+"                    % if object.approval_history_ids and object.approval_history_ids[0].description:\n"
+"                    <p>\n"
+"                        <strong>Latest Note:</strong>\n"
+"                        ${object.approval_history_ids[0].description}\n"
+"                    </p>\n"
+"                    % endif\n"
+"\n"
+"                    % if object.rejection_notes:\n"
+"                    <p>\n"
+"                        <strong>Rejection Notes:</strong>\n"
+"                        ${object.rejection_notes}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>This status change may require administrative intervention or oversight.</p>\n"
+"\n"
+"                <p>Regards,\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+
+#. module: grn
+#: model:mail.template,body_html:grn.email_template_grn_scrap
+msgid ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #dc3545;\">GRN Material Marked for Scrap</h2>\n"
+"\n"
+"                <p>Dear ${object.supplier_name.name},</p>\n"
+"\n"
+"                <p>We regret to inform you that the materials in the referenced GRN have been marked for scrap after\n"
+"                    thorough inspection.\n"
+"                </p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #dc3545;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Product:</strong>\n"
+"                        ${object.grn_product}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Invoice No:</strong>\n"
+"                        ${object.invoice_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Status:</strong>\n"
+"                        <span style=\"color: #dc3545;\">${dict(object._fields['status'].selection).get(object.status)}\n"
+"                        </span>\n"
+"                    </p>\n"
+"\n"
+"                    % if object.rejection_notes:\n"
+"                    <p>\n"
+"                        <strong>Rejection Notes:</strong>\n"
+"                        ${object.rejection_notes}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>Please contact our quality department to discuss further actions and replacement terms.</p>\n"
+"\n"
+"                <p>Regards,\n"
+"                    <br>\n"
+"                    ${user.company_id.name}\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #dc3545;\">GRN Material Marked for Scrap</h2>\n"
+"\n"
+"                <p>Dear ${object.supplier_name.name},</p>\n"
+"\n"
+"                <p>We regret to inform you that the materials in the referenced GRN have been marked for scrap after\n"
+"                    thorough inspection.\n"
+"                </p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #dc3545;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Product:</strong>\n"
+"                        ${object.grn_product}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Invoice No:</strong>\n"
+"                        ${object.invoice_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Status:</strong>\n"
+"                        <span style=\"color: #dc3545;\">${dict(object._fields['status'].selection).get(object.status)}\n"
+"                        </span>\n"
+"                    </p>\n"
+"\n"
+"                    % if object.rejection_notes:\n"
+"                    <p>\n"
+"                        <strong>Rejection Notes:</strong>\n"
+"                        ${object.rejection_notes}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>Please contact our quality department to discuss further actions and replacement terms.</p>\n"
+"\n"
+"                <p>Regards,\n"
+"                    <br>\n"
+"                    ${user.company_id.name}\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+
+#. module: grn
+#: model:mail.template,body_html:grn.email_template_grn_return_supplier
+msgid ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #dc3545;\">GRN Material to be Returned</h2>\n"
+"\n"
+"                <p>Dear ${object.supplier_name.name},</p>\n"
+"\n"
+"                <p>We regret to inform you that the materials in the referenced GRN will be returned to you as they did\n"
+"                    not meet our quality requirements.\n"
+"                </p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #dc3545;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Product:</strong>\n"
+"                        ${object.grn_product}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Invoice No:</strong>\n"
+"                        ${object.invoice_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Status:</strong>\n"
+"                        <span style=\"color: #ffc107;\">${dict(object._fields['status'].selection).get(object.status)}\n"
+"                        </span>\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Current Location:</strong>\n"
+"                        ${object.store_location}\n"
+"                    </p>\n"
+"\n"
+"                    % if object.rejection_notes:\n"
+"                    <p>\n"
+"                        <strong>Rejection Notes:</strong>\n"
+"                        ${object.rejection_notes}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>Please arrange for the collection of these materials at your earliest convenience. Our logistics team\n"
+"                    will coordinate the return process with you.\n"
+"                </p>\n"
+"\n"
+"                <p>Regards,\n"
+"                    <br>\n"
+"                    ${user.company_id.name}\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #dc3545;\">GRN Material to be Returned</h2>\n"
+"\n"
+"                <p>Dear ${object.supplier_name.name},</p>\n"
+"\n"
+"                <p>We regret to inform you that the materials in the referenced GRN will be returned to you as they did\n"
+"                    not meet our quality requirements.\n"
+"                </p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #dc3545;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Product:</strong>\n"
+"                        ${object.grn_product}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Invoice No:</strong>\n"
+"                        ${object.invoice_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Status:</strong>\n"
+"                        <span style=\"color: #ffc107;\">${dict(object._fields['status'].selection).get(object.status)}\n"
+"                        </span>\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Current Location:</strong>\n"
+"                        ${object.store_location}\n"
+"                    </p>\n"
+"\n"
+"                    % if object.rejection_notes:\n"
+"                    <p>\n"
+"                        <strong>Rejection Notes:</strong>\n"
+"                        ${object.rejection_notes}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>Please arrange for the collection of these materials at your earliest convenience. Our logistics team\n"
+"                    will coordinate the return process with you.\n"
+"                </p>\n"
+"\n"
+"                <p>Regards,\n"
+"                    <br>\n"
+"                    ${user.company_id.name}\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+
+#. module: grn
+#: model:mail.template,body_html:grn.email_template_grn_rejected
+msgid ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #dc3545;\">GRN Rejected</h2>\n"
+"                <p>Dear ${object.supplier_name.name},</p>\n"
+"                <p>We regret to inform you that your GRN has been rejected as the materials did not meet our quality\n"
+"                    standards.\n"
+"                </p>\n"
+"                <div style=\"background-color: #ffffff; padding: 20px; border: 2px solid #dc3545; margin: 15px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1);\">\n"
+"                    <table style=\"width: 100%; border-collapse: collapse;\">\n"
+"                        <tr>\n"
+"                            <td colspan=\"2\" style=\"text-align: center; background-color: #dc3545; color: white; padding: 10px;\">\n"
+"                                <strong>Supplier Parts - Non-Conformance Report</strong>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Part No:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">${object.part_number or ''}</td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Defect Source:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                ${object.rejection_wizard_defect_source or ''}\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Defective Qty:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                ${object.rejection_wizard_defective_qty or 0}\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Suspected Qty:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                ${object.rejection_wizard_suspected_qty or 0}\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Defect Description:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                ${object.rejection_wizard_defect_description or ''}\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Defect Snap:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                % if object.rejection_wizard_defect_snapshot:\n"
+"                                <img src=\"data:image/png;base64,${object.rejection_wizard_defect_snapshot}\" alt=\"Defect Snapshot\" style=\"max-width: 200px; max-height: 200px;\">\n"
+"                                % else:\n"
+"                                No snapshot available\n"
+"                                % endif\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Additional Information:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">Repeat Issue:\n"
+"                                ${object.rejection_wizard_repeat_issue or 'N/A'}\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Rejection Notes:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">${object.rejection_notes or ''}</td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Recommended Actions:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                1) Containment Action - JIGS/Parts action along with GRN No. to be checked for OPL stock\n"
+"                                <br>\n"
+"                                2) For next batch material identification for contamination/quality concerns and after\n"
+"                                reassembly\n"
+"                                <br>\n"
+"                                3) BD Submission\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </table>\n"
+"                </div>\n"
+"                <p>Please contact our quality department to discuss further steps.</p>\n"
+"                <p>Regards,<br>${user.company_id.name}<br>${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #dc3545;\">GRN Rejected</h2>\n"
+"                <p>Dear ${object.supplier_name.name},</p>\n"
+"                <p>We regret to inform you that your GRN has been rejected as the materials did not meet our quality\n"
+"                    standards.\n"
+"                </p>\n"
+"                <div style=\"background-color: #ffffff; padding: 20px; border: 2px solid #dc3545; margin: 15px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1);\">\n"
+"                    <table style=\"width: 100%; border-collapse: collapse;\">\n"
+"                        <tr>\n"
+"                            <td colspan=\"2\" style=\"text-align: center; background-color: #dc3545; color: white; padding: 10px;\">\n"
+"                                <strong>Supplier Parts - Non-Conformance Report</strong>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Part No:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">${object.part_number or ''}</td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Defect Source:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                ${object.rejection_wizard_defect_source or ''}\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Defective Qty:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                ${object.rejection_wizard_defective_qty or 0}\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Suspected Qty:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                ${object.rejection_wizard_suspected_qty or 0}\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Defect Description:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                ${object.rejection_wizard_defect_description or ''}\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Defect Snap:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                % if object.rejection_wizard_defect_snapshot:\n"
+"                                <img src=\"data:image/png;base64,${object.rejection_wizard_defect_snapshot}\" alt=\"Defect Snapshot\" style=\"max-width: 200px; max-height: 200px;\">\n"
+"                                % else:\n"
+"                                No snapshot available\n"
+"                                % endif\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Additional Information:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">Repeat Issue:\n"
+"                                ${object.rejection_wizard_repeat_issue or 'N/A'}\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Rejection Notes:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">${object.rejection_notes or ''}</td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                <strong>Recommended Actions:</strong>\n"
+"                            </td>\n"
+"                            <td style=\"border: 1px solid #ddd; padding: 8px;\">\n"
+"                                1) Containment Action - JIGS/Parts action along with GRN No. to be checked for OPL stock\n"
+"                                <br>\n"
+"                                2) For next batch material identification for contamination/quality concerns and after\n"
+"                                reassembly\n"
+"                                <br>\n"
+"                                3) BD Submission\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </table>\n"
+"                </div>\n"
+"                <p>Please contact our quality department to discuss further steps.</p>\n"
+"                <p>Regards,<br>${user.company_id.name}<br>${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+
+#. module: grn
+#: model:mail.template,body_html:grn.email_template_grn_quarantine
+msgid ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #ffc107;\">GRN Moved to Quarantine</h2>\n"
+"\n"
+"                <p>Dear Team,</p>\n"
+"\n"
+"                <p>A GRN has been moved to quarantine for further inspection or pending decision.</p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #ffc107;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Supplier:</strong>\n"
+"                        ${object.supplier_name.name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Product:</strong>\n"
+"                        ${object.grn_product}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Status:</strong>\n"
+"                        <span style=\"color: #ffc107;\">${dict(object._fields['status'].selection).get(object.status)}\n"
+"                        </span>\n"
+"                    </p>\n"
+"\n"
+"                    % if object.approval_history_ids and object.approval_history_ids[0].description:\n"
+"                    <p>\n"
+"                        <strong>Notes:</strong>\n"
+"                        ${object.approval_history_ids[0].description}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>The materials are currently in the quarantine area. Please take appropriate action.</p>\n"
+"\n"
+"                <p>Regards,\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+"<div style=\"font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;\">\n"
+"                <h2 style=\"color: #ffc107;\">GRN Moved to Quarantine</h2>\n"
+"\n"
+"                <p>Dear Team,</p>\n"
+"\n"
+"                <p>A GRN has been moved to quarantine for further inspection or pending decision.</p>\n"
+"\n"
+"                <div style=\"background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #ffc107;\">\n"
+"                    <p>\n"
+"                        <strong>GRN No:</strong>\n"
+"                        ${object.grn_no}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>GRN Date:</strong>\n"
+"                        ${object.grn_date}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Supplier:</strong>\n"
+"                        ${object.supplier_name.name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Product:</strong>\n"
+"                        ${object.grn_product}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part No:</strong>\n"
+"                        ${object.part_number}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Part Name:</strong>\n"
+"                        ${object.part_name}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Total Quantity:</strong>\n"
+"                        ${object.total_qty}\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        <strong>Status:</strong>\n"
+"                        <span style=\"color: #ffc107;\">${dict(object._fields['status'].selection).get(object.status)}\n"
+"                        </span>\n"
+"                    </p>\n"
+"\n"
+"                    % if object.approval_history_ids and object.approval_history_ids[0].description:\n"
+"                    <p>\n"
+"                        <strong>Notes:</strong>\n"
+"                        ${object.approval_history_ids[0].description}\n"
+"                    </p>\n"
+"                    % endif\n"
+"                </div>\n"
+"\n"
+"                <p>The materials are currently in the quarantine area. Please take appropriate action.</p>\n"
+"\n"
+"                <p>Regards,\n"
+"                    <br>\n"
+"                    ${user.name}\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+
+#. module: grn
+#: model:mail.template,subject:grn.email_template_grn_admin_alert
+msgid "ADMIN ALERT: GRN ${object.grn_no} Status Change"
+msgstr ""
+"ADMIN ALERT: GRN ${object.grn_no} Status Change (Alerte d'administration: "
+"grn $ {object.grn_no} Modification de l'état)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Accept (OK)"
+msgstr "Accept (OK) (Accepter (ok))"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Accept After Recheck"
+msgstr "Accept After Recheck (Accepter après revérifier)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_dol_confirm_wizard_form
+msgid "Accept Directly"
+msgstr "Accept Directly (Accepter directement)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_approval_history__action_type__accepted
+#: model:ir.model.fields.selection,name:grn.selection__grn_management__status__accepted
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_tree_search
+msgid "Accepted"
+msgstr "Accepted (Accepté)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__accepted_after_recheck
+#: model:ir.model.fields.selection,name:grn.selection__grn_approval_history__action_type__accepted_recheck
+msgid "Accepted After Recheck"
+msgstr "Accepted After Recheck (Accepté après revérificateur)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__accepted_before_recheck
+msgid "Accepted Before Recheck"
+msgstr "Accepted Before Recheck (Accepté avant de revérifier)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__message_needaction
+msgid "Action Needed"
+msgstr "Action Needed (Action nécessaire)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_approval_history__action_type
+msgid "Action Type"
+msgstr "Action Type (Type d'action)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__activity_ids
+msgid "Activities"
+msgstr "Activities (Activités)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Activity Exception Decoration (Décoration d'exception d'activité)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__activity_state
+msgid "Activity State"
+msgstr "Activity State (État d'activité)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Activity Type Icon (Icône de type d'activité)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_final_rejection_wizard_form
+msgid "Add any additional notes..."
+msgstr ""
+"Add any additional notes... (Ajoutez toutes les notes supplémentaires ...)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_submit_wizard_form
+msgid "Add any comments or notes regarding this submission..."
+msgstr ""
+"Add any comments or notes regarding this submission... (Ajoutez des "
+"commentaires ou des notes concernant cette soumission ...)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard__notes
+msgid "Additional Notes"
+msgstr "Additional Notes (Notes supplémentaires)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__after_recheck_count
+msgid "After Recheck Count"
+msgstr "After Recheck Count (Après le nombre de revérifications)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__approval_history_ids
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Approval History"
+msgstr "Approval History (Antécédents d'approbation)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__approved_by
+#: model:ir.model.fields,field_description:grn.field_grn_revision_history__approved_by
+msgid "Approved By"
+msgstr "Approved By (Approuvé par)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__message_attachment_count
+msgid "Attachment Count"
+msgstr "Attachment Count (Nombre de pièces jointes)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__attchment
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_line_form
+msgid "Attachments"
+msgstr "Attachments (Attachements)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__maintenance_equipment__gauge_type__attribute
+#: model:ir.model.fields.selection,name:grn.selection__product_template__gauge_type__attribute
+msgid "Attribute"
+msgstr "Attribute (Attribut)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__before_recheck_count
+msgid "Before Recheck Count"
+msgstr "Before Recheck Count (Avant le nombre de revérifications)"
+
+#. module: grn
+#: model:mail.template,subject:grn.email_template_grn_to_cft
+msgid "CFT Notification: GRN ${object.grn_no} Status Update"
+msgstr ""
+"CFT Notification: GRN ${object.grn_no} Status Update (Notification CFT: Grn "
+"$ {objet.grn_no} Mise à jour de l'état)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__team_cft
+msgid "CFT Team"
+msgstr "CFT Team (Équipe CFT)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__camera_attachments
+msgid "Camera Captures"
+msgstr "Camera Captures (Captures de la caméra)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_dol_confirm_wizard_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_final_rejection_wizard_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_rejection_wizard_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_submit_wizard_form
+msgid "Cancel"
+msgstr "Cancel (Annuler)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__process_name_id
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__process_name_id
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__process_name_id
+msgid "Characteristics"
+msgstr "Characteristics (Caractéristiques)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_characteristics__name
+msgid "Characteristics Name"
+msgstr "Characteristics Name (Nom des caractéristiques)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__char_class
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__char_class
+msgid "Class"
+msgstr "Class (Classe)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_maintenance_equipment__code
+msgid "Code"
+msgstr "Code (Code)"
+
+#. module: grn
+#: model:ir.model.fields,help:grn.field_grn_control_plan_process__measure_method_aid_details
+#: model:ir.model.fields,help:grn.field_grn_management_process__measure_method_aid_details
+msgid "Combined details of measurement method/aid"
+msgstr ""
+"Combined details of measurement method/aid (Détails combinés de la méthode /"
+" aide de mesure)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_final_rejection_wizard_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_rejection_wizard_form
+msgid "Confirm"
+msgstr "Confirm (Confirmer)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_res_partner
+msgid "Contact"
+msgstr "Contact (Contact)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__control_method
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__control_method
+msgid "Control Method"
+msgstr "Control Method (Méthode de contrôle)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_method__name
+msgid "Control Method Name"
+msgstr "Control Method Name (Nom de la méthode de contrôle)"
+
+#. module: grn
+#: model:ir.actions.act_window,name:grn.action_grn_control_plan
+#: model:ir.model.fields,field_description:grn.field_grn_revision_history__control_plan_id
+#: model:ir.ui.menu,name:grn.menu_grn_control_plan
+msgid "Control Plan"
+msgstr "Control Plan (Plan de contrôle)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__process_id
+msgid "Control Plan Process"
+msgstr "Control Plan Process (Processus de plan de contrôle)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_control_plan_process
+#: model:ir.model,name:grn.model_grn_management_process
+msgid "Control Process"
+msgstr "Control Process (Processus de contrôle)"
+
+#. module: grn
+#: model_terms:ir.actions.act_window,help:grn.action_grn_management_pivot
+msgid ""
+"Create GRN entries to analyze supplier performance and quality metrics."
+msgstr ""
+"Create GRN entries to analyze supplier performance and quality metrics. "
+"(Créez des entrées GRN pour analyser les performances des fournisseurs et "
+"les mesures de qualité.)"
+
+#. module: grn
+#: model_terms:ir.actions.act_window,help:grn.action_grn_status_pie_chart
+msgid "Create GRN records to see their status distribution."
+msgstr ""
+"Create GRN records to see their status distribution. (Créez des "
+"enregistrements GRN pour voir leur distribution de statut.)"
+
+#. module: grn
+#: model_terms:ir.actions.act_window,help:grn.action_grn_management_calendar
+msgid "Create a new GRN entry to schedule and track goods receipts."
+msgstr ""
+"Create a new GRN entry to schedule and track goods receipts. (Créez une "
+"nouvelle entrée GRN pour planifier et suivre les reçus de marchandises.)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_approval_history__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_attachment__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_characteristics__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_control_method__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_dol_approval_wizard__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_observation__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_management__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_process_class__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_reaction_plan__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_revision_history__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_sample_frequency__create_uid
+#: model:ir.model.fields,field_description:grn.field_grn_submit_wizard__create_uid
+msgid "Created by"
+msgstr "Created by (Créé par)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_approval_history__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_attachment__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_characteristics__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_control_method__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_dol_approval_wizard__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_observation__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_management__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_process_class__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_reaction_plan__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_revision_history__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_sample_frequency__create_date
+#: model:ir.model.fields,field_description:grn.field_grn_submit_wizard__create_date
+msgid "Created on"
+msgstr "Created on (Créé sur)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_control_plan__product_type__dol
+#: model:ir.model.fields.selection,name:grn.selection__grn_management__product_type__dol
+msgid "DOL Product"
+msgstr "DOL Product (Produit DOL)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_dol_confirm_wizard_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "DOL Product Approval"
+msgstr "DOL Product Approval (Approbation du produit DOL)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_approval_history__date
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__date
+msgid "Date"
+msgstr "Date (Date)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__date_origin
+msgid "Date (Orig.)"
+msgstr "Date (Orig.) (Date (orig.))"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_control_plan_tree_search
+msgid "Date Origin"
+msgstr "Date Origin (Date d'origine)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard__defect_description
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__defect_description
+msgid "Defect Description"
+msgstr "Defect Description (Description des défauts)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard__defect_snapshot
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__defect_snapshot
+msgid "Defect Snapshot"
+msgstr "Defect Snapshot (Instantané défaut)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard__defect_source
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__defect_source
+msgid "Defect Source"
+msgstr "Defect Source (Source de défaut)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard__defective_qty
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__defective_qty
+msgid "Defective Quantity"
+msgstr "Defective Quantity (Quantité défectueuse)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_approval_history__description
+msgid "Description"
+msgstr "Description (Description)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__maintenance_equipment__type_of_inspection__dimensional
+msgid "Dimensional"
+msgstr "Dimensional"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_approval_history__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_attachment__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_characteristics__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_control_method__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_dol_approval_wizard__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_observation__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_management__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_process_class__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_reaction_plan__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_revision_history__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_sample_frequency__display_name
+#: model:ir.model.fields,field_description:grn.field_grn_submit_wizard__display_name
+msgid "Display Name"
+msgstr "Display Name (Nom d'affichage)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_management__status__draft
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_tree_search
+msgid "Draft"
+msgstr "Draft (Brouillon)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_hr_employee
+msgid "Employee"
+msgstr "Employee"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_rejection_wizard_form
+msgid "Enter detailed reason for rejection..."
+msgstr ""
+"Enter detailed reason for rejection... (Entrez une raison détaillée de rejet"
+" ...)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_final_rejection_wizard_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_rejection_wizard_form
+msgid "Enter the quantity of defective items..."
+msgstr ""
+"Enter the quantity of defective items... (Entrez la quantité d'éléments "
+"défectueux ...)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_final_rejection_wizard_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_rejection_wizard_form
+msgid "Enter the source of the defect..."
+msgstr "Enter the source of the defect... (Entrez la source du défaut ...)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_attachment__report_filename
+msgid "Filename"
+msgstr "Filename (Nom de fichier)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_final_rejection_wizard_form
+msgid "Final Rejection Options"
+msgstr "Final Rejection Options (Options de rejet finales)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_pivot
+msgid "First Time Accepted Count"
+msgstr "First Time Accepted Count (Décompte accepté pour la première fois)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__follow_regular_process
+msgid "Follow Regular Process"
+msgstr "Follow Regular Process (Suivez le processus régulier)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__message_follower_ids
+msgid "Followers"
+msgstr "Followers"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Followers (Partners) (Abonnés (partenaires))"
+
+#. module: grn
+#: model:ir.model.fields,help:grn.field_grn_management__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+"Font awesome icon e.g. fa-tasks (Icône géniale de police, par exempleFA-"
+"TASS)"
+
+#. module: grn
+#: model:ir.model.fields,help:grn.field_grn_management__follow_regular_process
+msgid "For DOL products that will follow the regular inspection process"
+msgstr ""
+"For DOL products that will follow the regular inspection process (Pour les "
+"produits DOL qui suivront le processus d'inspection régulière)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_approval_history__grn_approval_id
+#: model:ir.model.fields,field_description:grn.field_grn_dol_approval_wizard__grn_id
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard__grn_id
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__grn_id
+#: model:ir.model.fields,field_description:grn.field_grn_submit_wizard__grn_id
+msgid "GRN"
+msgstr "GRN (Grn)"
+
+#. module: grn
+#: model:mail.template,subject:grn.email_template_grn_accepted_recheck
+msgid "GRN ${object.grn_no} Accepted After Recheck"
+msgstr ""
+"GRN ${object.grn_no} Accepted After Recheck (Grn $ {object.grn_no} accepté "
+"après revérificateur)"
+
+#. module: grn
+#: model:mail.template,subject:grn.email_template_grn_accepted
+msgid "GRN ${object.grn_no} Has Been Accepted"
+msgstr ""
+"GRN ${object.grn_no} Has Been Accepted (Grn $ {object.grn_no} a été accepté)"
+
+#. module: grn
+#: model:mail.template,subject:grn.email_template_grn_quarantine
+msgid "GRN ${object.grn_no} Has Been Moved to Quarantine"
+msgstr ""
+"GRN ${object.grn_no} Has Been Moved to Quarantine (Grn $ {object.grn_no} a "
+"été transféré en quarantaine)"
+
+#. module: grn
+#: model:mail.template,subject:grn.email_template_grn_rejected
+msgid "GRN ${object.grn_no} Has Been Rejected"
+msgstr ""
+"GRN ${object.grn_no} Has Been Rejected (Grn $ {object.grn_no} a été rejeté)"
+
+#. module: grn
+#: model:mail.template,subject:grn.email_template_grn_scrap
+msgid "GRN ${object.grn_no} Material Marked for Scrap"
+msgstr ""
+"GRN ${object.grn_no} Material Marked for Scrap (Grn $ {object.grn_no} "
+"Matériel marqué pour la ferraille)"
+
+#. module: grn
+#: model:mail.template,subject:grn.email_template_grn_return_supplier
+msgid "GRN ${object.grn_no} Material to be Returned"
+msgstr ""
+"GRN ${object.grn_no} Material to be Returned (Grn $ {object.grn_no} matériel"
+" à retourner)"
+
+#. module: grn
+#: model:mail.template,subject:grn.email_template_grn_recheck
+msgid "GRN ${object.grn_no} Sent for Recheck"
+msgstr ""
+"GRN ${object.grn_no} Sent for Recheck (Grn $ {object.grn_no} envoyé pour "
+"revérifier)"
+
+#. module: grn
+#: model:mail.template,subject:grn.email_template_grn_submitted
+msgid "GRN ${object.grn_no} Submitted for Inspection"
+msgstr ""
+"GRN ${object.grn_no} Submitted for Inspection (Grn $ {object.grn_no} soumis "
+"pour inspection)"
+
+#. module: grn
+#: model:ir.actions.act_window,name:grn.action_grn_management_pivot
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_pivot
+msgid "GRN Analysis"
+msgstr "GRN Analysis (Analyse GRN)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_approval_history
+msgid "GRN Approval History"
+msgstr "GRN Approval History (Historique de l'approbation de GRN)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_attachment
+msgid "GRN Attachment"
+msgstr "GRN Attachment (Attachement GRN)"
+
+#. module: grn
+#: model:ir.actions.act_window,name:grn.action_grn_management_calendar
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_calendar
+msgid "GRN Calendar"
+msgstr "GRN Calendar (Calendrier GRN)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_characteristics
+msgid "GRN Characteristics"
+msgstr "GRN Characteristics (Caractéristiques GRN)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_control_plan
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_control_plan_form
+msgid "GRN Control Plan"
+msgstr "GRN Control Plan (Plan de contrôle GRN)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_revision_history
+msgid "GRN Control Plan Revision History"
+msgstr ""
+"GRN Control Plan Revision History (Historique de révision du plan de "
+"contrôle GRN)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_dol_approval_wizard
+msgid "GRN DOL Approval Wizard"
+msgstr "GRN DOL Approval Wizard (Assistant d'approbation GRN DOL)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__grn_date
+#: model:ir.model.fields,field_description:grn.field_grn_management__grn_date
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_tree_search
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_tree_search
+msgid "GRN Date"
+msgstr "GRN Date (GRN Date)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_final_rejection_wizard
+msgid "GRN Final Rejection Options"
+msgstr "GRN Final Rejection Options (Options de rejet final GRN)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_management
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__grn_management_id
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_tree
+msgid "GRN Management"
+msgstr "GRN Management (GESTION GRN)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__grn_process_id
+msgid "GRN Management Process"
+msgstr "GRN Management Process (Processus de gestion GRN)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__grn_no
+#: model:ir.model.fields,field_description:grn.field_grn_management__grn_no
+msgid "GRN No"
+msgstr "GRN No (Grn non)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_tree_search
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_tree_search
+msgid "GRN Number"
+msgstr "GRN Number (Numéro GRN)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_control_plan_tree_search
+msgid "GRN Part Number"
+msgstr "GRN Part Number (Numéro de pièce GRN)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_control_method
+#: model:ir.model,name:grn.model_grn_process_class
+msgid "GRN Process Class"
+msgstr "GRN Process Class (Classe de processus GRN)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__grn_control_ids
+msgid "GRN Processes"
+msgstr "GRN Processes (Processus GRN)"
+
+#. module: grn
+#: model:ir.actions.act_window,name:grn.action_grn_management_total_qty_graph
+msgid "GRN Quantity Analysis"
+msgstr "GRN Quantity Analysis (Analyse de la quantité GRN)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_reaction_plan
+msgid "GRN Reaction Plan"
+msgstr "GRN Reaction Plan (Plan de réaction GRN)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_attachment__attch_id
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__grn_id
+msgid "GRN Reference"
+msgstr "GRN Reference (Référence GRN)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_rejection_wizard
+msgid "GRN Rejection Wizard"
+msgstr "GRN Rejection Wizard (Wizard de rejet GRN)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_sample_frequency
+msgid "GRN Sample Frequency"
+msgstr "GRN Sample Frequency (Fréquence d'échantillon GRN)"
+
+#. module: grn
+#: model:ir.actions.act_window,name:grn.action_grn_status_pie_chart
+msgid "GRN Status Overview"
+msgstr "GRN Status Overview (Présentation du statut GRN)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_submit_wizard
+msgid "GRN Submit Wizard"
+msgstr "GRN Submit Wizard (Grn soumettre l'assistant)"
+
+#. module: grn
+#: model:mail.template,name:grn.email_template_grn_accepted
+msgid "GRN: Accepted"
+msgstr "GRN: Accepted (GRN: accepté)"
+
+#. module: grn
+#: model:mail.template,name:grn.email_template_grn_accepted_recheck
+msgid "GRN: Accepted After Recheck"
+msgstr "GRN: Accepted After Recheck (GRN: accepté après revérificateur)"
+
+#. module: grn
+#: model:mail.template,name:grn.email_template_grn_admin_alert
+msgid "GRN: Administrator Alert"
+msgstr "GRN: Administrator Alert (GRN: Alerte administratrice)"
+
+#. module: grn
+#: model:mail.template,name:grn.email_template_grn_scrap
+msgid "GRN: Material Marked for Scrap"
+msgstr ""
+"GRN: Material Marked for Scrap (GRN: matériau marqué pour la ferraille)"
+
+#. module: grn
+#: model:mail.template,name:grn.email_template_grn_return_supplier
+msgid "GRN: Material Returned to Supplier"
+msgstr ""
+"GRN: Material Returned to Supplier (GRN: Matériel retourné au fournisseur)"
+
+#. module: grn
+#: model:mail.template,name:grn.email_template_grn_quarantine
+msgid "GRN: Moved to Quarantine"
+msgstr "GRN: Moved to Quarantine (GRN: déplacé en quarantaine)"
+
+#. module: grn
+#: model:mail.template,name:grn.email_template_grn_to_cft
+msgid "GRN: Notification to CFT Team"
+msgstr "GRN: Notification to CFT Team (GRN: Notification à l'équipe CFT)"
+
+#. module: grn
+#: model:mail.template,name:grn.email_template_grn_rejected
+msgid "GRN: Rejected"
+msgstr "GRN: Rejected (Grn: rejeté)"
+
+#. module: grn
+#: model:mail.template,name:grn.email_template_grn_recheck
+msgid "GRN: Sent for Recheck"
+msgstr "GRN: Sent for Recheck (GRN: envoyé pour revérifier)"
+
+#. module: grn
+#: model:mail.template,name:grn.email_template_grn_submitted
+msgid "GRN: Submitted for Inspection"
+msgstr "GRN: Submitted for Inspection (GRN: Soumis pour inspection)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__gauge_type
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__gauge_type
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__gauge_type
+#: model:ir.model.fields,field_description:grn.field_maintenance_equipment__gauge_type
+#: model:ir.model.fields,field_description:grn.field_product_product__gauge_type
+#: model:ir.model.fields,field_description:grn.field_product_template__gauge_type
+msgid "Gauge Type"
+msgstr "Gauge Type (Type de jauge)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_line_form
+msgid "Generate Observations"
+msgstr "Generate Observations (Générer des observations)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__generate_xls_file
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__generate_xls_file
+#: model:ir.model.fields,field_description:grn.field_grn_management__generate_xls_file
+msgid "Generated File"
+msgstr "Generated File (Fichier généré)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__graph_name
+msgid "Graph Name"
+msgstr "Graph Name (Nom graphique)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_control_plan_tree_search
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_tree_search
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_tree_search
+msgid "Group By"
+msgstr "Group By (Se regrouper)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__has_message
+msgid "Has Message"
+msgstr "Has Message (A un message)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_approval_history__id
+#: model:ir.model.fields,field_description:grn.field_grn_attachment__id
+#: model:ir.model.fields,field_description:grn.field_grn_characteristics__id
+#: model:ir.model.fields,field_description:grn.field_grn_control_method__id
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__id
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__id
+#: model:ir.model.fields,field_description:grn.field_grn_dol_approval_wizard__id
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard__id
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_observation__id
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__id
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__id
+#: model:ir.model.fields,field_description:grn.field_grn_management__id
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__id
+#: model:ir.model.fields,field_description:grn.field_grn_process_class__id
+#: model:ir.model.fields,field_description:grn.field_grn_reaction_plan__id
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__id
+#: model:ir.model.fields,field_description:grn.field_grn_revision_history__id
+#: model:ir.model.fields,field_description:grn.field_grn_sample_frequency__id
+#: model:ir.model.fields,field_description:grn.field_grn_submit_wizard__id
+msgid "ID"
+msgstr "ID (IDENTIFIANT)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__activity_exception_icon
+msgid "Icon"
+msgstr "Icon (Icône)"
+
+#. module: grn
+#: model:ir.model.fields,help:grn.field_grn_management__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+"Icon to indicate an exception activity. (Icône pour indiquer une activité "
+"d'exception.)"
+
+#. module: grn
+#: model:ir.model.fields,help:grn.field_grn_management__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+"If checked, new messages require your attention. (S'il est vérifié, les "
+"nouveaux messages nécessitent votre attention.)"
+
+#. module: grn
+#: model:ir.model.fields,help:grn.field_grn_management__message_has_error
+#: model:ir.model.fields,help:grn.field_grn_management__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+"If checked, some messages have a delivery error. (S'il est vérifié, certains"
+" messages ont une erreur de livraison.)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_form
+msgid "Incoming Inspection Report"
+msgstr "Incoming Inspection Report (Rapport d'inspection entrant)"
+
+#. module: grn
+#: model:ir.actions.act_window,name:grn.action_grn_inspection_report
+msgid "Incoming Inspection Reports"
+msgstr "Incoming Inspection Reports (Rapports d'inspection entrants)"
+
+#. module: grn
+#: model:ir.model.fields,help:grn.field_grn_management__accepted_after_recheck
+msgid "Indicates if the GRN was accepted after recheck was performed"
+msgstr ""
+"Indicates if the GRN was accepted after recheck was performed (Indique si le"
+" GRN a été accepté après la réalisation)"
+
+#. module: grn
+#: model:ir.model.fields,help:grn.field_grn_management__accepted_before_recheck
+msgid "Indicates if the GRN was accepted before any recheck was required"
+msgstr ""
+"Indicates if the GRN was accepted before any recheck was required (Indique "
+"si le GRN a été accepté avant toute revérification était nécessaire)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__inspected_by
+msgid "Inspected By"
+msgstr "Inspected By (Inspecté par)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Inspection"
+msgstr "Inspection (Inspection)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_observation__inspection_line_id
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_line_form
+msgid "Inspection Line"
+msgstr "Inspection Line (Ligne d'inspection)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__line_ids
+#: model:ir.model.fields,field_description:grn.field_grn_management__line_ids
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_form
+msgid "Inspection Lines"
+msgstr "Inspection Lines (Lignes d'inspection)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_form
+msgid "Inspection Management"
+msgstr "Inspection Management (Gestion de l'inspection)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__measure_method_aid
+msgid "Inspection Method"
+msgstr "Inspection Method (Méthode d'inspection)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_inspection_observation_form
+msgid "Inspection Observation"
+msgstr "Inspection Observation (Observation d'inspection)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_inspection_observation
+msgid "Inspection Observations"
+msgstr "Inspection Observations (Observations d'inspection)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__inspection_id
+msgid "Inspection Report"
+msgstr "Inspection Report (Rapport d'inspection)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__inspection_report_ids
+#: model:ir.ui.menu,name:grn.menu_grn_inspection
+msgid "Inspection Reports"
+msgstr "Inspection Reports (Rapports d'inspection)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Internal Verified Inspection Reports"
+msgstr ""
+"Internal Verified Inspection Reports (Rapports d'inspection vérifiés "
+"internes)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Internal Verified Properties Reports"
+msgstr ""
+"Internal Verified Properties Reports (Rapports de propriétés vérifiées "
+"internes)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__invoice_no
+msgid "Invoice No"
+msgstr "Invoice No (Facture non)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__message_is_follower
+msgid "Is Follower"
+msgstr "Is Follower (Est un adepte)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__key_contact
+msgid "Key Contact"
+msgstr "Key Contact (Contact clé)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_approval_history____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_attachment____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_characteristics____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_control_method____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_dol_approval_wizard____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_observation____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_management____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_management_process____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_process_class____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_reaction_plan____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_revision_history____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_sample_frequency____last_update
+#: model:ir.model.fields,field_description:grn.field_grn_submit_wizard____last_update
+msgid "Last Modified on"
+msgstr "Last Modified on (Dernier modification sur)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_approval_history__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_attachment__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_characteristics__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_control_method__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_dol_approval_wizard__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_observation__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_management__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_process_class__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_reaction_plan__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_revision_history__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_sample_frequency__write_uid
+#: model:ir.model.fields,field_description:grn.field_grn_submit_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Last Updated by (Dernière mise à jour par)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_approval_history__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_attachment__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_characteristics__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_control_method__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_dol_approval_wizard__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_observation__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_management__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_process_class__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_reaction_plan__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_revision_history__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_sample_frequency__write_date
+#: model:ir.model.fields,field_description:grn.field_grn_submit_wizard__write_date
+msgid "Last Updated on"
+msgstr "Last Updated on (Dernière mise à jour sur)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_maintenance_equipment__lc
+msgid "Least Count"
+msgstr "Least Count (Moins compter)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_maintenance_equipment__location
+msgid "Location"
+msgstr "Location (Emplacement)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Main Attachment (Attachement principal)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_maintenance_equipment
+msgid "Maintenance Equipment"
+msgstr "Maintenance Equipment (Équipement d'entretien)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_maintenance_equipment__make
+msgid "Make"
+msgstr "Make (Faire)"
+
+#. module: grn
+#: model:ir.ui.menu,name:grn.menu_grn_management
+msgid "Management Records"
+msgstr "Management Records (Dossiers de gestion)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_approval_history__action_type__scrap
+msgid "Material Scrapped"
+msgstr "Material Scrapped (Matériau mis au rebut)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__max_observations
+msgid "Maximum Observations"
+msgstr "Maximum Observations (Observations maximales)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__measure_method_aid
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__measure_method_aid
+msgid "Measurement Method / Measuring Aid"
+msgstr ""
+"Measurement Method / Measuring Aid (Méthode de mesure / aide à mesurer)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__measure_method_aid_details
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__measure_method_aid_details
+msgid "Measurement Method Details"
+msgstr "Measurement Method Details (Détails de la méthode de mesure)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__message_has_error
+msgid "Message Delivery error"
+msgstr "Message Delivery error (Erreur de livraison de messages)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__message_ids
+msgid "Messages"
+msgstr "Messages (Messages)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__move_to_quarantine
+msgid "Move to Quarantine"
+msgstr "Move to Quarantine (Passer à la quarantaine)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_approval_history__action_type__quarantine
+msgid "Moved to Quarantine"
+msgstr "Moved to Quarantine (Déplacé en quarantaine)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "My Activity Deadline (Ma date limite d'activité)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_process_class__name
+msgid "Name"
+msgstr "Name (Nom)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+"Next Activity Calendar Event (Prochain événement du calendrier d'activité)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Next Activity Deadline (Date limite d'activité suivante)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__activity_summary
+msgid "Next Activity Summary"
+msgstr "Next Activity Summary (Résumé de l'activité suivante)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__activity_type_id
+msgid "Next Activity Type"
+msgstr "Next Activity Type (Type d'activité suivante)"
+
+#. module: grn
+#: model_terms:ir.actions.act_window,help:grn.action_grn_management_calendar
+msgid "No GRN entries found"
+msgstr "No GRN entries found (Aucune entrée GRN trouvée)"
+
+#. module: grn
+#: model_terms:ir.actions.act_window,help:grn.action_grn_management_pivot
+msgid "No GRN entries found."
+msgstr "No GRN entries found. (Aucune entrée GRN trouvée.)"
+
+#. module: grn
+#: model_terms:ir.actions.act_window,help:grn.action_grn_status_pie_chart
+msgid "No GRN records found."
+msgstr "No GRN records found. (Aucun enregistrement GRN trouvé.)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__no_of_boxes
+msgid "No. of Boxes/Pallets Received"
+msgstr "No. of Boxes/Pallets Received (Nombre de boîtes / palettes reçues)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Number of Actions (Nombre d'actions)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__message_has_error_counter
+msgid "Number of errors"
+msgstr "Number of errors (Nombre d'erreurs)"
+
+#. module: grn
+#: model:ir.model.fields,help:grn.field_grn_management__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+"Number of messages requiring action (Nombre de messages nécessitant une "
+"action)"
+
+#. module: grn
+#: model:ir.model.fields,help:grn.field_grn_management__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+"Number of messages with delivery error (Nombre de messages avec erreur de "
+"livraison)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_observation__observation_value
+msgid "Observation"
+msgstr "Observation (Observation)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__observations
+msgid "Observations"
+msgstr "Observations (Observations)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard__part_description
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__part_description
+msgid "Part Description"
+msgstr "Part Description (Description des pièces)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_control_plan_tree_search
+msgid "Part ID"
+msgstr "Part ID (Pièce d'identité)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__part_name
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__part_name
+#: model:ir.model.fields,field_description:grn.field_grn_management__part_name
+#: model:ir.model.fields,field_description:grn.field_grn_revision_history__part_name
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_control_plan_tree_search
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_tree_search
+msgid "Part Name"
+msgstr "Part Name (Nom de pièce)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__grn_part_number
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard__part_number
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__grn_part_number
+#: model:ir.model.fields,field_description:grn.field_grn_management__grn_part_number
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__part_number
+#: model:ir.model.fields,field_description:grn.field_product_product__grn_part_number
+#: model:ir.model.fields,field_description:grn.field_product_template__grn_part_number
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_control_plan_tree_search
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_tree_search
+msgid "Part Number"
+msgstr "Part Number (Numéro de pièce)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_observation__part_sample_no
+msgid "Part Sample No."
+msgstr "Part Sample No. (N ° d'échantillon de pièce)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__per_box_qty
+msgid "Per Box/Pallet Qty."
+msgstr "Per Box/Pallet Qty. (Par boîte / palette Qté.)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_form
+msgid "Print Monthly Report"
+msgstr "Print Monthly Report (Rapport mensuel d'impression)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_control_plan_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Print Report"
+msgstr "Print Report (Rapport d'impression)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_dol_confirm_wizard_form
+msgid "Proceed with Inspection"
+msgstr "Proceed with Inspection (Procéder à l'inspection)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__grn_process_line_ids
+msgid "Process"
+msgstr "Process (Processus)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_control_plan_process_form
+msgid "Process Line"
+msgstr "Process Line (Ligne de processus)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_control_plan_process_tree
+msgid "Process Lines"
+msgstr "Process Lines (Lignes de traitement)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_control_plan_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Processes"
+msgstr "Processes (Processus)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_product_template
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__grn_product
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__grn_product
+#: model:ir.model.fields,field_description:grn.field_grn_management__grn_product
+#: model:ir.model.fields,field_description:grn.field_product_product__grn_product
+#: model:ir.model.fields,field_description:grn.field_product_template__grn_product
+msgid "Product"
+msgstr "Product (Produit)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__product_spec_tol
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__product_spec_tol
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__product_spec_tol
+msgid "Product Specification / Tolerance"
+msgstr ""
+"Product Specification / Tolerance (Spécification / tolérance du produit)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__product_type
+#: model:ir.model.fields,field_description:grn.field_grn_management__product_type
+msgid "Product Type"
+msgstr "Product Type (Type de produit)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__maintenance_equipment__type_of_inspection__properties
+msgid "Properties"
+msgstr "Properties (Propriétés)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__qr_code
+msgid "QR Code"
+msgstr "QR Code (Code QR)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_management__status__quarantine
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_tree_search
+msgid "Quarantine"
+msgstr "Quarantine (Quarantaine)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_tree_search
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_tree_search
+msgid "RIPQ Number"
+msgstr "RIPQ Number (Numéro RIPQ)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__part_number
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__part_number
+#: model:ir.model.fields,field_description:grn.field_grn_management__part_number
+#: model:ir.model.fields,field_description:grn.field_grn_revision_history__part_number
+msgid "RIQP Number"
+msgstr "RIQP Number (Numéro RIQP)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_maintenance_equipment__range
+msgid "Range"
+msgstr "Range (Gamme)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__reaction_plan
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__reaction_plan
+msgid "Reaction Plan"
+msgstr "Reaction Plan (Plan de réaction)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_reaction_plan__name
+msgid "Reaction Plan Name"
+msgstr "Reaction Plan Name (Nom du plan de réaction)"
+
+#. module: grn
+#: model:ir.actions.act_window,name:grn.action_grn_management
+#: model:ir.ui.menu,name:grn.menu_grn_management_root
+msgid "Receiving and Inspection Management"
+msgstr ""
+"Receiving and Inspection Management (Gestion de la réception et de "
+"l'inspection)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Receiving and inspection Management"
+msgstr ""
+"Receiving and inspection Management (Gestion de la réception et de "
+"l'inspection)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_tree_search
+msgid "Recent Inspections"
+msgstr "Recent Inspections (Inspections récentes)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_control_plan_tree_search
+msgid "Recent Plans"
+msgstr "Recent Plans (Plans récents)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__recheck_required
+msgid "Recheck Required"
+msgstr "Recheck Required (Revérificateur requis)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__part_id
+#: model:ir.model.fields,field_description:grn.field_grn_management__part_id
+msgid "Reference"
+msgstr "Reference (Référence)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_control_plan__product_type__regular
+#: model:ir.model.fields.selection,name:grn.selection__grn_management__product_type__regular
+msgid "Regular Product"
+msgstr "Regular Product (Produit régulier)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Reject (NC)"
+msgstr "Reject (NC) (Rejeter (NC))"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Reject After Recheck"
+msgstr "Reject After Recheck (Rejeter après revérifier)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_rejection_wizard_form
+msgid "Reject GRN"
+msgstr "Reject GRN (Rejeter GRN)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_approval_history__action_type__rejected
+#: model:ir.model.fields.selection,name:grn.selection__grn_management__status__rejected
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_tree_search
+msgid "Rejected"
+msgstr "Rejected"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__rejection_wizard_defect_description
+msgid "Rejection Defect Description"
+msgstr "Rejection Defect Description (Description du défaut de rejet)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__rejection_wizard_defect_snapshot
+msgid "Rejection Defect Snapshot"
+msgstr "Rejection Defect Snapshot (Instantané de défaut de rejet)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__rejection_wizard_defect_source
+msgid "Rejection Defect Source"
+msgstr "Rejection Defect Source (Source de défaut de rejet)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__rejection_wizard_defective_qty
+msgid "Rejection Defective Quantity"
+msgstr "Rejection Defective Quantity (Rejet quantité défectueuse)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Rejection Details"
+msgstr "Rejection Details (Détails de rejet)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__rejection_notes
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__rejection_notes
+msgid "Rejection Notes"
+msgstr "Rejection Notes (Notes de rejet)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard__rejection_option
+#: model:ir.model.fields,field_description:grn.field_grn_management__rejection_option
+msgid "Rejection Option"
+msgstr "Rejection Option (Option de rejet)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__rejection_wizard_repeat_issue
+msgid "Rejection Repeat Issue"
+msgstr "Rejection Repeat Issue (Rejet de répétition du numéro)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__rejection_wizard_suspected_qty
+msgid "Rejection Suspected Quantity"
+msgstr "Rejection Suspected Quantity (Rejet en quantité suspectée)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_attachment__report_attachment
+msgid "Report Attachment"
+msgstr "Report Attachment (Signaler la pièce jointe)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__grn_report_attachment
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_control_plan_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Report Attachments"
+msgstr "Report Attachments (Signaler des pièces jointes)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__grn_report_attachment
+msgid "Report Attchments"
+msgstr "Report Attchments (Signaler la pièce jointe)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_attachment__report_month
+msgid "Report Month"
+msgstr "Report Month (Mois du rapport)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_inspection_report
+msgid "Report of Incoming Inspection"
+msgstr "Report of Incoming Inspection (Rapport de l'inspection entrante)"
+
+#. module: grn
+#: model:ir.model,name:grn.model_grn_inspection_report_line
+msgid "Report of Incoming Inspection Line"
+msgstr ""
+"Report of Incoming Inspection Line (Rapport de la ligne d'inspection "
+"entrante)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__responsible_person
+msgid "Responsible Persons"
+msgstr "Responsible Persons (Responsables)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__activity_user_id
+msgid "Responsible User"
+msgstr "Responsible User (Utilisateur responsable)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_final_rejection_wizard__rejection_option__return_to_supplier
+#: model:ir.model.fields.selection,name:grn.selection__grn_management__rejection_option__return_to_supplier
+msgid "Return to Supplier"
+msgstr "Return to Supplier (Retour au fournisseur)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_approval_history__action_type__return_supplier
+msgid "Returned to Supplier"
+msgstr "Returned to Supplier (Retourné au fournisseur)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__rev_date
+#: model:ir.model.fields,field_description:grn.field_grn_revision_history__rev_date
+msgid "Rev. Date"
+msgstr "Rev. Date (Rév. Date)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__rev_no
+msgid "Rev. No"
+msgstr "Rev. No (Rév. Non)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_revision_history__rev_no
+msgid "Rev. No."
+msgstr "Rev. No. (Rév. No.)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_revision_history__revised_by
+msgid "Revised By"
+msgstr "Revised By (Révisé par)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_revision_history__revision_details
+msgid "Revision Details"
+msgstr "Revision Details (Détails de révision)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__revision_history_ids
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_control_plan_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_revision_history_tree
+msgid "Revision History"
+msgstr "Revision History (Historique de révision)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__process_step
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__process_step
+msgid "S.No"
+msgstr "S.No"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "SMS Delivery error (Erreur de livraison SMS)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__control_sample_freq
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__sample_freq
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__sample_freq
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__sample_freq
+msgid "Sample Frequency"
+msgstr "Sample Frequency (Fréquence d'échantillonnage)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_sample_frequency__name
+msgid "Sample Frequency Name"
+msgstr "Sample Frequency Name (Exemple de nom de fréquence)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__sample_qty_attribute
+#: model:ir.model.fields,field_description:grn.field_grn_management__sample_qty_attribute
+msgid "Sample Quantity / Lot Qty (Nos) For Attribute"
+msgstr ""
+"Sample Quantity / Lot Qty (Nos) For Attribute (Exemple de quantité / lot Qté"
+" (n °) pour l'attribut)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__sample_qty_variable
+#: model:ir.model.fields,field_description:grn.field_grn_management__sample_qty_variable
+msgid "Sample Quantity / Lot Qty (Nos) For Variable"
+msgstr ""
+"Sample Quantity / Lot Qty (Nos) For Variable (Échantillon de quantité / lot "
+"Qté (nos) pour la variable)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_management__rejection_option__scrap
+msgid "Scrap"
+msgstr "Scrap (Ferraille)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_final_rejection_wizard__rejection_option__scrap
+msgid "Scrap Material"
+msgstr "Scrap Material (Matériau de ferraille)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_control_plan_tree_search
+msgid "Search GRN Control Plans"
+msgstr "Search GRN Control Plans (Rechercher des plans de contrôle GRN)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_tree_search
+msgid "Search GRN Management"
+msgstr "Search GRN Management (Rechercher la gestion de GRN)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_tree_search
+msgid "Search Incoming Inspection Reports"
+msgstr ""
+"Search Incoming Inspection Reports (Rechercher des rapports d'inspection "
+"entrants)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_management__status__submit
+msgid "Send Approval"
+msgstr "Send Approval (Envoyer l'approbation)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__send_for_recheck
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Send for Recheck"
+msgstr "Send for Recheck (Envoyer pour revérifier)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_approval_history__action_type__recheck
+msgid "Sent for Recheck"
+msgstr "Sent for Recheck (Envoyé pour revérifier)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__sequence
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__sequence
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__sequence
+msgid "Sequence"
+msgstr "Sequence (Séquence)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_revision_history__serial_no
+msgid "Sr. No."
+msgstr "Sr. No. (Sr. Non)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report_line__sr_no
+msgid "Sr. No./Balloon No"
+msgstr "Sr. No./Balloon No (Sr. Non.)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_observation__observation_number
+msgid "Sr.No."
+msgstr "Sr.No."
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Start Inspection"
+msgstr "Start Inspection (Commencer l'inspection)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_approval_history__action_type__start_inspection
+msgid "Started Inspection"
+msgstr "Started Inspection (A commencé l'inspection)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__status
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_tree_search
+msgid "Status"
+msgstr "Status (Statut)"
+
+#. module: grn
+#: model:ir.model.fields,help:grn.field_grn_management__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities. (Statut basé sur les activités\n"
+"En retard: la date d'échéance est déjà adoptée\n"
+"Aujourd'hui: la date d'activité est aujourd'hui\n"
+"Planifié: activités futures.)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__store_location
+msgid "Store Location"
+msgstr "Store Location (Emplacement du magasin)"
+
+#. module: grn
+#: model:ir.actions.act_window,name:grn.action_grn_management_store_location_graph
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_store_location_graph
+msgid "Store Location Analysis"
+msgstr "Store Location Analysis (Analyse de l'emplacement des magasins)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_submit_wizard_form
+msgid "Submit"
+msgstr "Submit (Soumettre)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_submit_wizard_form
+msgid "Submit GRN"
+msgstr "Submit GRN (Soumettre GRN)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_submit_wizard__notes
+msgid "Submit Notes"
+msgstr "Submit Notes (Soumettre des notes)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_tree_search
+msgid "Submitted"
+msgstr "Submitted"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_approval_history__action_type__submit_inspection
+msgid "Submitted for Inspection"
+msgstr "Submitted for Inspection (Soumis pour inspection)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__supplier_name
+#: model:ir.model.fields,field_description:grn.field_grn_management__supplier_name
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_tree_search
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_tree_search
+msgid "Supplier"
+msgstr "Supplier"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__supplier_code
+#: model:ir.model.fields,field_description:grn.field_grn_management__supplier_code
+#: model:ir.model.fields,field_description:grn.field_hr_employee__supplier_code
+#: model:ir.model.fields,field_description:grn.field_res_partner__supplier_code
+#: model:ir.model.fields,field_description:grn.field_res_users__supplier_code
+msgid "Supplier Code"
+msgstr "Supplier Code (Code fournisseur)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Supplier Inspection Reports"
+msgstr "Supplier Inspection Reports (Rapports d'inspection des fournisseurs)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_tree_search
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_tree_search
+msgid "Supplier Name"
+msgstr "Supplier Name (Nom du fournisseur)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+msgid "Supplier Properties Reports"
+msgstr "Supplier Properties Reports (Rapports de propriétés des fournisseurs)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_final_rejection_wizard__suspected_qty
+#: model:ir.model.fields,field_description:grn.field_grn_rejection_wizard__suspected_qty
+msgid "Suspected Quantity"
+msgstr "Suspected Quantity (Quantité suspectée)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_process_class__symbol
+msgid "Symbol"
+msgstr "Symbol (Symbole)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__telephone
+msgid "Telephones"
+msgstr "Telephones (Téléphones)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_control_plan_tree_search
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_inspection_report_tree_search
+msgid "This Month"
+msgstr "This Month (Ce mois-ci)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_dol_confirm_wizard_form
+msgid ""
+"This is a DOL product. Do you want to accept it directly or proceed with "
+"regular inspection?"
+msgstr ""
+"This is a DOL product. Do you want to accept it directly or proceed with "
+"regular inspection? (Ceci est un produit DOL.Voulez-vous l'accepter "
+"directement ou procéder avec une inspection régulière?)"
+
+#. module: grn
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_total_qty_graph
+msgid "Total Quantity Analysis"
+msgstr "Total Quantity Analysis (Analyse de la quantité totale)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__total_qty
+msgid "Total Receipt Qty."
+msgstr "Total Receipt Qty. (Qté de reçu total.)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan_process__type_of_inspection
+#: model:ir.model.fields,field_description:grn.field_grn_management_process__type_of_inspection
+#: model:ir.model.fields,field_description:grn.field_maintenance_equipment__type_of_inspection
+msgid "Type of Inspection"
+msgstr "Type of Inspection (Type d'inspection)"
+
+#. module: grn
+#: model:ir.model.fields,help:grn.field_grn_management__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+"Type of the exception activity on record. (Type de l'activité d'exception "
+"enregistrée.)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__grn_management__status__inspection
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_form
+#: model_terms:ir.ui.view,arch_db:grn.view_grn_management_tree_search
+msgid "Under Inspection"
+msgstr "Under Inspection (En cours d'inspection)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_approval_history__user_id
+msgid "User"
+msgstr "User"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__maintenance_equipment__gauge_type__variable
+#: model:ir.model.fields.selection,name:grn.selection__product_template__gauge_type__variable
+msgid "Variable"
+msgstr "Variable (Variable)"
+
+#. module: grn
+#: model:ir.model.fields.selection,name:grn.selection__maintenance_equipment__type_of_inspection__visual
+msgid "Visual"
+msgstr "Visual"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_management__website_message_ids
+msgid "Website Messages"
+msgstr "Website Messages (Messages du site Web)"
+
+#. module: grn
+#: model:ir.model.fields,help:grn.field_grn_management__website_message_ids
+msgid "Website communication history"
+msgstr ""
+"Website communication history (Historique de communication du site Web)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__internal_verified_sir
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__internal_verified_spr
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__supplier_inspection_report
+#: model:ir.model.fields,field_description:grn.field_grn_inspection_report__supplier_properties_report
+#: model:ir.model.fields,field_description:grn.field_grn_management__internal_verified_sir
+#: model:ir.model.fields,field_description:grn.field_grn_management__internal_verified_spr
+#: model:ir.model.fields,field_description:grn.field_grn_management__supplier_inspection_report
+#: model:ir.model.fields,field_description:grn.field_grn_management__supplier_properties_report
+msgid "attachment"
+msgstr "attachment (pièce jointe)"
+
+#. module: grn
+#: model:ir.model.fields,field_description:grn.field_grn_control_plan__part_id
+msgid "reference"
+msgstr "reference (référence)"

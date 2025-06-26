@@ -1,0 +1,349 @@
+<odoo>
+
+    <!-- Form View -->
+    <record id="view_calibration_year_range_kanban" model="ir.ui.view">
+        <field name="name">calibration.year.range.kanban</field>
+        <field name="model">calibration.year.range</field>
+        <field name="arch" type="xml">
+
+            <kanban class="o_kanban_dashboard" create="true">
+                <!-- Add these field declarations -->
+                <field name="name"/>
+                <field name="start"/>
+                <field name="end"/>
+                <field name="instrument_count"/>
+                <field name="color"/>
+                <field name="id"/>
+
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click #{record.color.raw_value ? 'oe_kanban_color_' + record.color.raw_value : ''}"
+                             style="border-radius: 10px; margin: 5px; min-height: 100px; min-width: 200px; max-width: 250px;">
+                            <div class="o_kanban_card_content" style="text-align: center; padding: 20px;">
+                                <div class="o_kanban_record_title" style="font-size: 18px; font-weight: bold;">
+                                    <field name="start"/>
+                                    -
+                                    <field name="end"/>
+
+                                </div>
+
+                            </div>
+
+                            <div class="o_kanban_card_footer" style="text-align: center; padding-bottom: 10px;">
+                                <div class="oe_kanban_bottom_left">
+                                    <span class="o_value" style="margin-right: 4px;">
+                                        <strong>
+                                            <t t-esc="record.instrument_count.value or '0'"/>
+                                        </strong>
+                                    </span>
+                                    <span class="o_label">Instruments</span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_calibration_schedule_calendar" model="ir.ui.view">
+        <field name="name">calibration.schedule.line.calendar</field>
+        <field name="model">calibration.schedule.line</field>
+        <field name="arch" type="xml">
+            <calendar date_start="schedule_date" color="status">
+                <field name="equipment_id"/>
+                <field name="display_name"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="action_calibration_schedule" model="ir.actions.act_window">
+        <field name="name">Calibration Schedule</field>
+        <field name="res_model">calibration.schedule</field>
+        <field name="view_mode">tree,form,calendar</field>
+
+    </record>
+
+
+    <!-- Form View for Calibration Schedule inside Year Range-->
+    <record id="view_calibration_schedule_form" model="ir.ui.view">
+        <field name="name">calibration.schedule.form</field>
+        <field name="model">calibration.schedule</field>
+        <field name="arch" type="xml">
+            <form string="Calibration Schedule">
+                <header>
+
+                </header>
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            CALIBRATION SCHEDULE FOR INSPECTION MEASURING TEST EQUIPMENT
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <group>
+                        <group>
+                            <field name="prepared_by"/>
+                            <field name="schedule_date"/>
+                            <field name="equipment_id"/>
+                        </group>
+                        <group>
+                            <field name="cal_freq"/>
+                            <field name="interval"/>
+                        </group>
+
+
+                    </group>
+
+
+                    <div class="oe_button_box">
+                        <button name="generate_future_calibrations"
+                                type="object"
+                                string="Generate Schedules"
+                                class="btn-primary"
+                                icon="fa-calendar"/>
+
+                        <button name="view_instrument_calendar"
+                                type="object"
+                                string="Calendar"
+                                class="btn-info"
+                                icon="fa-calendar"
+                                attrs="{'invisible': [('equipment_id', '=', False)]}"/>
+
+                        <button name="action_generate_xlsx_report"
+                                type="object"
+                                string="Print Excel Report"
+                                class="btn-info"
+                                attrs="{'invisible': [('equipment_id', '=', False)]}"/>
+
+                    </div>
+                    <notebook>
+                        <page string="Calibration Lines">
+                            <field name="line_ids">
+                                <tree editable="bottom"
+                                      decoration-warning="days_until_schedule &lt;= 7 and days_until_schedule &gt;= 0"
+                                      decoration-success="status == 'done'"
+                                      decoration-info="is_schedule_today == True and status != 'done'">
+                                    <field name="equipment_id"/>
+                                    <field name="code"/>
+                                    <field name="range"/>
+                                    <field name="make"/>
+                                    <field name="lc"/>
+                                    <field name="location"/>
+                                    <field name="cal_freq"/>
+                                    <field name="interval"/>
+                                    <field name="schedule_date"/>
+                                    <field name="status"/>
+                                    <field name="done_date"/>
+                                    <field name="remarks"/>
+                                    <field name="attachment_ids" widget="many2many_binary"/>
+                                    <field name="approved_by"/>
+                                    <field name="approval_state"/>
+                                    <field name="days_until_schedule" invisible="1"/>
+                                    <field name="is_schedule_today" invisible="1"/>
+                                    <button name="action_open_calibration_report"
+                                            type="object"
+                                            string="Create Report"
+                                            class="btn-primary"
+                                            attrs="{'invisible': [('approval_state', '=', 'approved')]}"/>
+
+                                    <button name="action_open_calibration_report"
+                                            type="object"
+                                            string="View Report"
+                                            class="btn-secondary"
+                                            attrs="{'invisible': [('approval_state', 'not in', ['approved', 'rejected'])]}"/>
+
+
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!--     Form View for Custom Maintenance Equipment-->
+
+
+    <!-- Action for Year Ranges -->
+    <record id="action_calibration_year_range" model="ir.actions.act_window">
+        <field name="name">Schedules</field>
+        <field name="res_model">calibration.year.range</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Year Range
+            </p>
+        </field>
+    </record>
+
+    <!-- Action for Viewing Calibration Schedules in a Year Range -->
+    <record id="action_view_year_range_schedules" model="ir.actions.act_window">
+        <field name="name">Calibration Schedules</field>
+        <field name="res_model">calibration.schedule</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[
+            '|',
+            ('year_range_id', '=', active_id),
+            '&amp;',
+            ('schedule_date', '!=', False),
+            '&amp;',
+            ('schedule_date', '&gt;=', context.get('start_date')),
+            ('schedule_date', '&lt;=', context.get('end_date'))
+            ]
+        </field>
+        <field name="context">{
+            'default_year_range_id': active_id,
+            'search_default_year_range_id': active_id
+            }
+        </field>
+    </record>
+
+
+    <record id="view_calibration_year_range_form" model="ir.ui.view">
+        <field name="name">calibration.year.range.form</field>
+        <field name="model">calibration.year.range</field>
+        <field name="arch" type="xml">
+            <form string="Year Range">
+                <header>
+                <button name="action_submit_for_approval"
+                        type="object"
+                        string="Submit for Approval"
+                        class="btn-primary"
+                        icon="fa-paper-plane"
+                        attrs="{'invisible': [('approval_state', '!=', 'draft')]}" />
+                <button name="action_approve"
+                        type="object"
+                        string="Approve"
+                        class="btn-success"
+                        icon="fa-check"
+                        attrs="{'invisible': [('approval_state', '!=', 'to_approve')]}" />
+                <button name="action_reject"
+                        type="object"
+                        string="Reject"
+                        class="btn-danger"
+                        icon="fa-times"
+                        attrs="{'invisible': [('approval_state', '!=', 'to_approve')]}" />
+                <button name="%(action_view_year_range_schedules)d"
+                        string="View Schedules"
+                        type="action"
+                        class="oe_highlight"/>
+                <button name="action_view_yearly_calendar"
+                        type="object"
+                        string="Calendar"
+                        class="btn-info"
+                        icon="fa-calendar"/>
+                <button name="action_generate_year_range_excel_report"
+                        string="Print Excel Report"
+                        type="object"
+                        class="btn-info"
+                        icon="fa-file-excel-o"/>
+                <field name="approval_state" widget="statusbar" statusbar_visible="draft,to_approve,approved,rejected"/>
+            </header>
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            CALIBRATION SCHEDULE YEAR RANGE
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="start" widget="selection"/>
+                            <field name="end" widget="selection" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="color" widget="color_picker"/>
+                            <field name="instrument_count"/>
+                            <field name="approval_state"/>
+
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Calibration Lines">
+                            <field name="line_ids">
+                                <tree decoration-warning="has_upcoming_schedule == True"
+                                      decoration-success="approval_state == 'approved'"
+                                      decoration-danger="approval_state == 'rejected'"
+                                      decoration-info="approval_state == 'to_approve'">
+                                    <field name="equipment_id"/>
+                                    <field name="prepared_by"/>
+                                    <field name="schedule_date"/>
+                                    <field name="cal_freq" readonly="1"/>
+                                    <field name="interval" readonly="1"/>
+                                    <field name="approval_state" invisible="1"/>
+
+                                    <field name="has_upcoming_schedule" invisible="1"/>
+
+
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_calibration_schedule_tree" model="ir.ui.view">
+        <field name="name">calibration.schedule.tree</field>
+        <field name="model">calibration.schedule</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="equipment_id"/>
+                <field name="prepared_by"/>
+                <field name="schedule_date"/>
+                <field name="cal_freq"/>
+                <field name="interval"/>
+
+
+                <button name="generate_report"
+                        type="object"
+                        string="Send Report"
+                        class="btn-info"
+                        icon="fa-envelope"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="ir_cron_send_calibration_reports" model="ir.cron">
+        <field name="name">Send Calibration Schedule Reports</field>
+        <field name="model_id" ref="model_calibration_year_range"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_send_calibration_reports()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">weeks</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="active" eval="True"/>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_calibration_schedule_root"
+              name="Calibration"
+              web_icon="calibration_schedule,static/description/icon.png"
+              sequence="80"/>
+
+    <record id="action_calibration_schedule" model="ir.actions.act_window">
+        <field name="name">Calibration Schedules</field>
+        <field name="res_model">calibration.schedule</field>
+        <field name="view_mode">tree,form,calendar</field>
+    </record>
+
+<!--    <menuitem id="menu_calibration_schedule_main"-->
+<!--              name="Calibration"-->
+<!--              sequence="10"/>-->
+<!--    <menuitem id="menu_calibration_year_range"-->
+<!--              name="Schedules"-->
+<!--              parent="menu_calibration_schedule_main"-->
+<!--              action="action_calibration_year_range"-->
+<!--              sequence="20"/>-->
+</odoo>

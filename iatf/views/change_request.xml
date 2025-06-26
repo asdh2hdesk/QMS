@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="product_template_inherit_view_form" model="ir.ui.view">
+        <field name="name">product.template.form.inherit.sale.product.matrix</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='default_code']" position="after">
+                <field name="drg_no"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="change_request_tree_view" model="ir.ui.view">
+        <field name="name">change.request.tree</field>
+        <field name="model">change.request</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="emp_id"/>
+                <field name="product_id"/>
+                <field name="part_no"/>
+                <field name="customer_id"/>
+                <field name="processer_name"/>
+                <field name="material_descrp"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+    <record id="change_request_form_view" model="ir.ui.view">
+        <field name="name">change.request.form</field>
+        <field name="model">change.request</field>
+        <field name="arch" type="xml">
+            <form string="Change Request">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    <button name="action_generate_excel_report" string="Download Report" type="object"
+                            class="btn btn-primary"/>
+                    <button name='send_for_approval' string='Confirm' type='object' class='oe_highlight'
+                            attrs="{'invisible' : [('state', '=', 'confirm')]}"/>
+                    <button name='approve_document' string='APPROVE' type='object' class='btn btn-success'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='revise_document' string='REVISE' type='object' class='btn btn-info'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='reject_document' string='REJECT' type='object' class='btn btn-danger'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                </header>
+                <sheet>
+                    <!-- Copy from here to  -->
+                    <widget name="web_ribbon" title="Approved" bg_color="bg-success"
+                            attrs="{'invisible':[('final_status', '!=', 'approved')]}"/>
+                    <widget name="web_ribbon" title="Rejected" bg_color="bg-danger"
+                            attrs="{'invisible':[('final_status', '!=', 'rejected')]}"/>
+                    <widget name="web_ribbon" title="Revision Required" bg_color="bg-info"
+                            attrs="{'invisible':[('final_status', '!=', 'revision')]}"/>
+                    <widget name="web_ribbon" title="In progress" bg_color="bg-warning"
+                            attrs="{'invisible':[('final_status', '!=', 'pending')]}"/>
+                    <widget name="web_ribbon" title="Draft" bg_color="bg-info"
+                            attrs="{'invisible':[('final_status', '!=', 'draft')]}"/>
+                    <div class="oe_title">
+                        <label for="project_id" string="Project Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <!-- Copy till here  -->
+                    <group>
+                        <group>
+                            <field name="user_has_access_to_approve" invisible="1"/><!-- Copy this too  -->
+                            <field name="final_status" invisible="1"/><!-- Copy this too  -->
+                            <field name="emp_id"/>
+                            <field name="product_id"/>
+                            <field name="part_no"/>
+                            <field name="customer_id"/>
+                        </group>
+                        <group>
+                            <field name="dept_id"/>
+                            <field name="processer_name"/>
+                            <field name="drg_no"/>
+                            <field name="control_paln"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name='remark'/>
+                        </group>
+<!--                        <group>-->
+<!--                            <field name="create_uid"/>-->
+<!--                            <field name="create_date"/>-->
+<!--                            <field name="document_name" readonly='1'/>-->
+<!--                            <field name="approve_department_ids" readonly='1' widget='many2many_tags'/>-->
+<!--                            <field name="manager_ids" readonly='1' widget='many2many_tags'/>-->
+<!--                            <field name="approve_by_department_ids" readonly='1' widget='many2many_tags'/>-->
+<!--                            <field name="approvaed_manager_ids" readonly='1' widget='many2many_tags'/>-->
+
+<!--                            <field name="hr_approval_date" readonly='1'-->
+<!--                                   attrs="{'invisible' : [('hr_approval_date', '=', False)]}"/>-->
+<!--                            <field name="design_approval_date" readonly='1'-->
+<!--                                   attrs="{'invisible' : [('design_approval_date', '=', False)]}"/>-->
+<!--                            <field name="eng_approval_date" readonly='1'-->
+<!--                                   attrs="{'invisible' : [('eng_approval_date', '=', False)]}"/>-->
+<!--                            <field name="manu_approval_date" readonly='1'-->
+<!--                                   attrs="{'invisible' : [('manu_approval_date', '=', False)]}"/>-->
+<!--                            <field name="sale_approval_date" readonly='1'-->
+<!--                                   attrs="{'invisible' : [('sale_approval_date', '=', False)]}"/>-->
+<!--                            <field name="qc_approval_date" readonly='1'-->
+<!--                                   attrs="{'invisible' : [('qc_approval_date', '=', False)]}"/>-->
+<!--                            <field name="main_approval_date" readonly='1'-->
+<!--                                   attrs="{'invisible' : [('main_approval_date', '=', False)]}"/>-->
+<!--                            <field name="mark_approval_date" readonly='1'-->
+<!--                                   attrs="{'invisible' : [('mark_approval_date', '=', False)]}"/>-->
+<!--                            <field name="pm_approval_date" readonly='1'-->
+<!--                                   attrs="{'invisible' : [('pm_approval_date', '=', False)]}"/>-->
+<!--                            <field name="maneg_approval_date" readonly='1'-->
+<!--                                   attrs="{'invisible' : [('maneg_approval_date', '=', False)]}"/>-->
+<!--                        </group>-->
+                    </group>
+                    <notebook>
+                        <page name="primary_packing" string="Existing Material Disposition">
+                            <group>
+                                <field name="scraped"/>
+                                <field name="userd_in"/>
+                                <field name="specification"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    <notebook>
+                        <page name="purpose_chanege" string="Purpose of Change">
+                            <group>
+                                <group>
+                                    <field name="specific_change"/>
+                                    <field name="quality_imp"/>
+                                    <field name="cost_reduce"/>
+                                    <field name='standardisation'/>
+                                </group>
+                                <group>
+                                    <field name='sub_suppiler'/>
+                                    <field name='improve_machine'/>
+                                    <field name='customer_requirement'/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                    <notebook>
+                        <page name="impact_of_change" string="Impact of Changes on">
+                            <group>
+                                <group>
+                                    <field name='first_impact'/>
+                                    <field name='secound_impact'/>
+                                    <field name='third_impact'/>
+                                    <field name='forth_impact'/>
+                                </group>
+                                <group>
+                                    <field name='fifth_impact'/>
+                                    <field name='sixth_impact'/>
+                                    <field name='seven_impact'/>
+                                    <field name='eight_impact'/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                    <separator string="Feasible/Not Feasible (Select where Applicable)"/>
+                    <group>
+                        <group>
+                            <field name="feasible"/>
+                        </group>
+                        <group>
+                            <field name="not_feasible"/>
+                        </group>
+                    </group>
+                    <separator string="Changes Required"/>
+                    <field name="change_required_ids" widget="one2many_list">
+                        <tree string="Change Required" editable="bottom">
+                            <field name="sl_no"/>
+                            <field name="format"/>
+                            <field name="change_required"/>
+                            <field name="responsibility_id"/>
+                            <field name="target_date"/>
+                        </tree>
+                    </field>
+                    <group>
+                        <field name="ppap_approval_required"/>
+                    </group>
+                    <separator string="Production Part Approval Details"/>
+                    <group>
+                        <field name="date_of_ppap_submission"/>
+                        <field name="date_of_approval_received"/>
+                        <field name="date_of_pilot_lot_submission"/>
+                        <field name="date_of_regular_submission"/>
+                    </group>
+                    <group string="Initiator">
+                        <group>
+                            <field name="create_uid"/>
+                        </group>
+                        <group>
+                            <field name="create_date"/>
+                        </group>
+                    </group>
+                    <separator string="Approvers"/>
+                    <field name="iatf_members_ids" widget="many2many_tree"
+                               options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                               string="Approvers">
+                            <tree>
+                                <field name="approver_id"/>
+                                <field name="department_id"/>
+                                <field name="comment"/>
+                                <field name="date_approved_rejected"/>
+                                <field name="approval_status" widget="badge"
+                                       decoration-danger="approval_status == 'rejected'"
+                                       decoration-info="approval_status == 'revision'"
+                                       decoration-success="approval_status == 'approved'"/>
+                            </tree>
+                        </field>
+                    <!-- copy till here -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_change_request_view" model="ir.actions.act_window">
+        <field name="name">Change Request</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">change.request</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Change Request (ECN/ECR)" id="change_request_menu" parent="iatf_menu_engg" action="action_change_request_view"/>
+</odoo>

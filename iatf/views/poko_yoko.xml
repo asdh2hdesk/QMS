@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="poka_yoke_tree_view" model="ir.ui.view">
+        <field name="name">poka.yoka.tree</field>
+        <field name="model">poka.yoka</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="project_id"/>
+                <field name="poka_yoke_ids"/>
+            </tree>
+        </field>
+    </record>
+    <record id="poka_yoke_form_view" model="ir.ui.view">
+        <field name="name">poka.yoka.form</field>
+        <field name="model">poka.yoka</field>
+        <field name="arch" type="xml">
+            <form string="List Of Poka Yoke">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    <button name="action_poka_yoke" string="Download Report" type="object"
+                            class="btn btn-primary"/>
+                    <button name='send_for_approval' string='Confirm' type='object' class='oe_highlight'
+                            attrs="{'invisible' : [('state', '=', 'confirm')]}"/>
+                    <button name='approve_document' string='APPROVE' type='object' class='btn btn-success'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='revise_document' string='REVISE' type='object' class='btn btn-info'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='reject_document' string='REJECT' type='object' class='btn btn-danger'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Approved" bg_color="bg-success"
+                            attrs="{'invisible':[('final_status', '!=', 'approved')]}"/>
+                    <widget name="web_ribbon" title="Rejected" bg_color="bg-danger"
+                            attrs="{'invisible':[('final_status', '!=', 'rejected')]}"/>
+                    <widget name="web_ribbon" title="Revision Required" bg_color="bg-info"
+                            attrs="{'invisible':[('final_status', '!=', 'revision')]}"/>
+                    <widget name="web_ribbon" title="In progress" bg_color="bg-warning"
+                            attrs="{'invisible':[('final_status', '!=', 'pending')]}"/>
+                    <widget name="web_ribbon" title="Draft" bg_color="bg-info"
+                            attrs="{'invisible':[('final_status', '!=', 'draft')]}"/>
+                    <div class="oe_title text-center mb-5">
+                        <h1>LIST OF POKA-YOKE AND THEIR EFFECTIVENESS MONITORING PLAN</h1>
+                    </div>
+                    <div class="oe_title">
+                        <label for="project_id" string="Project Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
+                        <field name="part_id"/>
+                        <field name="partner_id"/>
+                        <field name="user_has_access_to_approve" invisible="1"/>
+                        <field name="final_status" invisible="1"/>
+                    </group>
+                    <div class="table-responsive p-0 m-0">
+                        <notebook>
+                            <page string="Poka Yoke">
+
+                                <field name="poka_yoke_ids" widget="one2many_list" options="{'no_open': True}">
+                                    <tree string="Poka Yoke" class="o_list_view">
+
+                                        <field name='team_id'/>
+                                        <field name="product_id"/>
+                                        <field name="partner_id"/>
+                                        <field name="operation"/>
+                                        <field name='date'/>
+                                        <field name="failer_mode"/>
+                                        <field name='genrationg_work_station'/>
+                                        <field name='detecting_work_station'/>
+                                        <field name='poka_yoke_description'/>
+                                        <field name="poka_yoke_number"/>
+                                        <field name='fixture_photography'/>
+                                        <field name='detecation'/>
+                                        <field name='section'/>
+                                        <field name='fixture'/>
+                                        <field name='responsible_id'/>
+                                        <field name='frequency_of_validation'/>
+                                        <field name='alternate_method'/>
+                                        <field name='selection'/>
+                                        <field name="create_uid"/>
+                                        <field name="create_date"/>
+                                    </tree>
+                                </field>
+
+                            </page>
+                        </notebook>
+                    </div>
+
+                    <group string="Initiator">
+                        <group>
+                            <field name="create_uid"/>
+                        </group>
+                        <group>
+                            <field name="create_date"/>
+                        </group>
+                    </group>
+                    <separator string="Approvers"/>
+                    <field name="iatf_members_ids" widget="many2many_tree"
+                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                           string="Approvers">
+                        <tree>
+                            <field name="approver_id"/>
+                            <field name="department_id"/>
+                            <field name="comment"/>
+                            <field name="date_approved_rejected"/>
+                            <field name="approval_status" widget="badge"
+                                   decoration-danger="approval_status == 'rejected'"
+                                   decoration-info="approval_status == 'revision'"
+                                   decoration-success="approval_status == 'approved'"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="poka_yoke_line_form_view" model="ir.ui.view">
+        <field name="name">poka.yoka.line.form</field>
+        <field name="model">poka.yoka.line</field>
+        <field name="arch" type="xml">
+            <form string="List Of Poka Yoke">
+                <group>
+                    <group>
+
+                        <field name='team_id'/>
+                        <field name="product_id"/>
+                        <field name="partner_id"/>
+                        <field name="operation"/>
+                        <field name='date'/>
+                        <field name="failer_mode"/>
+                        <field name='genrationg_work_station'/>
+                        <field name='detecting_work_station'/>
+                        <field name='poka_yoke_description'/>
+                        <field name="poka_yoke_number"/>
+                    </group>
+                    <group>
+                        <field name='fixture_photography'/>
+                        <field name='detecation'/>
+                        <field name='section'/>
+                        <field name='fixture'/>
+                        <field name='responsible_id'/>
+                        <field name='frequency_of_validation'/>
+                        <field name='alternate_method'/>
+                        <field name='selection'/>
+                        <field name="create_uid"/>
+                        <field name="create_date"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record id="action_poka_yoke_view" model="ir.actions.act_window">
+        <field name="name">List Of Poka Yoke Checklist</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">poka.yoka</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Poka Yoke List" id="poka_yoke_menu" parent="iatf_menu_engg" action="action_poka_yoke_view"
+              sequence="13"/>
+</odoo>

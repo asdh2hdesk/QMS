@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_production_analysis_tree" model="ir.ui.view">
+        <field name="name">production.analysis.tree</field>
+        <field name="model">production.analysis</field>
+        <field name="arch" type="xml">
+            <tree string="Production Analysis">
+                <field name="name"/>
+                <field name="year"/>
+                <field name="planned_production"/>
+                <field name="actual_production"/>
+                <field name="achievement_rate" widget="percentage"  digits="[0,2]"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_production_analysis_form" model="ir.ui.view">
+        <field name="name">production.analysis.form</field>
+        <field name="model">production.analysis</field>
+        <field name="arch" type="xml">
+            <form string="Production Analysis">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="month"/>
+                            <field name="year"/>
+                        </group>
+                        <group>
+                            <field name="planned_production"/>
+                            <field name="actual_production"/>
+                            <field name="achievement_rate" widget="percentage"  digits="[0,2]" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Graph View -->
+    <record id="view_production_analysis_graph" model="ir.ui.view">
+        <field name="name">production.analysis.graph</field>
+        <field name="model">production.analysis</field>
+        <field name="arch" type="xml">
+            <graph string="Planned vs Actual Production" type="line" sample="1">
+                <field name="name" type="row"/>
+                <field name="planned_production" type="measure"/>
+                <field name="actual_production" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_production_analysis_search" model="ir.ui.view">
+        <field name="name">production.analysis.search</field>
+        <field name="model">production.analysis</field>
+        <field name="arch" type="xml">
+            <search string="Production Analysis">
+                <field name="name"/>
+                <field name="year"/>
+                <filter string="This Year" name="this_year" domain="[('year', '=', (context_today().year))]"/>
+                <group expand="1" string="Group By">
+                    <filter string="Year" name="group_by_year" context="{'group_by': 'year'}"/>
+                    <filter string="Month" name="group_by_month" context="{'group_by': 'month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_production_analysis" model="ir.actions.act_window">
+        <field name="name">Production Analysis</field>
+        <field name="res_model">production.analysis</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_this_year': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Production Analysis record!
+            </p>
+            <p>
+                Track and compare your planned vs actual production figures.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <!-- Assuming the 'iatf.iatf_menu_quality' menu exists in your system -->
+    <menuitem id="menu_production_analysis_root" name="Production Analysis" parent="iatf.iatf_menu_quality"/>
+    <menuitem id="menu_production_analysis" name="Production Overview" parent="menu_production_analysis_root" action="action_production_analysis"/>
+</odoo>

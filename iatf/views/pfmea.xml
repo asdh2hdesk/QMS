@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pfmea_form" model="ir.ui.view">
+        <field name="name">pfmea.form</field>
+        <field name="model">his.pfmea</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    <button name="action_generate_excel_report" string="Download Report" type="object"
+                            class="btn btn-primary"/>
+                    <button name="action_update_process_flow" string="Update Process Flow" type="object"
+                            class="btn-info" icon="fa-arrow-left"/>
+                    <button name="action_update_process_matrix" string="Update Process Matrix" type="object"
+                            class="btn-info" icon="fa-arrow-left"/>
+                    <button name='send_for_approval' string='Confirm' type='object' class='oe_highlight'
+                            attrs="{'invisible' : [('state', '=', 'confirm')]}"/>
+                    <button name='approve_document' string='APPROVE' type='object' class='btn btn-success'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='revise_document' string='REVISE' type='object' class='btn btn-info'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='reject_document' string='REJECT' type='object' class='btn btn-danger'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                </header>
+
+                <sheet>
+                    <div class="oe_title">
+                        <div>
+                            <h1 class="text-center">PFMEA</h1>
+                        </div>
+                        <label for="project_id" string="Project Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="final_status" invisible="1"/>
+                            <field name="user_has_access_to_approve" invisible="1"/>
+                            <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
+                            <field name="part_id"/>
+                            <field name="part_name"/>
+                            <field name="part_number"/>
+                            <field name="fmea_no"/>
+                            <!--                            <field name="process_responsibility"/>-->
+                        </group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="mode_years"/>
+                            <field name="fmea_date"/>
+                            <field name="key_date"/>
+                            <field name="fmea_rev_date"/>
+                            <!--                        <field name="operation_ids"/>-->
+                        </group>
+                    </group>
+                    <separator string="PFMEA Operation" style="color:red;"/>
+                    <field name="operation_ids" widget="one2many_list">
+                        <tree create="false">
+                            <field name="pfmea_operation_details"/>
+                            <!--                            <field name="operation_desc"/>-->
+                        </tree>
+                    </field>
+                    <group string="Initiator">
+                        <group>
+                            <field name="create_uid"/>
+                        </group>
+                        <group>
+                            <field name="create_date"/>
+                        </group>
+                    </group>
+                    <separator string="Approvers"/>
+                    <field name="iatf_members_ids" widget="many2many_tree"
+                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                           string="Approvers">
+                        <tree>
+                            <field name="approver_id"/>
+                            <field name="department_id"/>
+                            <field name="comment"/>
+                            <field name="date_approved_rejected"/>
+                            <field name="approval_status" widget="badge"
+                                   decoration-danger="approval_status == 'rejected'"
+                                   decoration-info="approval_status == 'revision'"
+                                   decoration-success="approval_status == 'approved'"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pfmea_tree" model="ir.ui.view">
+        <field name="name">pfmea.tree</field>
+        <field name="model">his.pfmea</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="operation_ids"/>
+                <field name="part_name"/>
+                <field name="fmea_no"/>
+                <!--                <field name="core_team"/>-->
+                <field name="process_responsibility"/>
+                <field name="prepared_by"/>
+                <field name="mode_years"/>
+                <field name="fmea_date"/>
+                <field name="key_date"/>
+                <field name="fmea_rev_date"/>
+
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="view_pfmea_operations_form" model="ir.ui.view">
+        <field name="name">pfmea.operation.form</field>
+        <field name="model">his.pfmea.operations</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="operation"/>
+                        <field name="stage_pfmea"/>
+                        <field name="desc_of_operation_pfmea"/>
+                        <field name="pfmea_operation_details"/>
+                        <!--                        <field name="operation_desc"/>-->
+                    </group>
+                    <field name="operation_lines_ids" widget="one2many_list">
+                        <tree>
+                            <!--                            <field name="pfmea_operation_id"/>-->
+                            <field name="process_step_desc"/>
+                            <field name="requirement"/>
+                            <field name="potential_failure"/>
+                            <field name="potential_effect_of_failure" optional="hide"/>
+                            <field name="severity"/>
+                            <field name="class_name" optional="hide"/>
+                            <field name="potential_cause_mechanism_of_failure"/>
+                            <field name="prevention"/>
+                            <field name="occ" optional="hide"/>
+                            <field name="detection_desc" optional="hide"/>
+                            <field name="detection_no"/>
+                            <field name="rpn" optional="hide"/>
+                            <field name="recommended_action"/>
+                            <field name="responsibility_target_date"/>
+                            <field name="action_taken"/>
+                            <field name="result_sev" optional="hide"/>
+                            <field name="result_occ" optional="hide"/>
+                            <field name="result_det" optional="hide"/>
+                            <field name="result_rpn" optional="hide"/>
+                        </tree>
+                    </field>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pfmea_lines_form" model="ir.ui.view">
+        <field name="name">pfmea.lines.form</field>
+        <field name="model">his.pfmea.operations.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="pfmea_operation_id"/>
+                            <field name="process_step"/>
+                            <field name="process_desc"/>
+                            <field name="process_step_desc"/>
+                            <field name="requirement"/>
+                            <field name="potential_failure"/>
+                            <field name="potential_effect_of_failure"/>
+                            <field name="severity" placeholder="Enter the value between 0 to 10"/>
+                            <field name="class_name"/>
+                            <field name="potential_cause_mechanism_of_failure"/>
+                            <field name="prevention"/>
+                            <field name="occ" placeholder="Enter the value between 0 to 10"/>
+                        </group>
+                        <group>
+                            <field name="detection_desc"/>
+                            <field name="detection_no" placeholder="Enter the value between 0 to 10"/>
+                            <field name="rpn"/>
+                            <field name="recommended_action"/>
+                            <field name="responsibility_target_date"/>
+                            <field name="action_taken"/>
+                            <field name="result_sev"/>
+                            <field name="result_occ"/>
+                            <field name="result_det"/>
+                            <field name="result_rpn"/>
+                        </group>
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pfmea_line_tree" model="ir.ui.view">
+        <field name="name">pfmea.line.tree</field>
+        <field name="model">his.pfmea.operations.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="severity"/>
+                <field name="class_name"/>
+                <field name="potential_cause_mechanism_of_failure"/>
+                <field name="prevention"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_pfmea_model" model="ir.actions.act_window">
+        <field name="name">PFMEA</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">his.pfmea</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_pfmea_line" model="ir.actions.act_window">
+        <field name="name">PFMEA Line</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">his.pfmea.operations.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="pfmea_menu"
+              name="PFMEA"
+              parent="iatf_menu_engg"
+              action="action_pfmea_model"
+              sequence="8"
+    />
+
+</odoo>

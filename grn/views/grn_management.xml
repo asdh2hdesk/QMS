@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <record id="view_grn_management_form" model="ir.ui.view">
+        <field name="name">grn.management.form</field>
+        <field name="model">grn.management</field>
+        <field name="arch" type="xml">
+            <form string="GRN Management">
+                <header>
+                    <button name="action_start_inspection" type="object" string="Start Inspection"
+                            class="btn-info"
+                            attrs="{'invisible': ['|', ('status', '!=', 'draft'), ('product_type', '=', 'dol'), ('follow_regular_process', '!=', True)]}"/>
+                    <button name="action_open_dol_approval_wizard"
+                            string="DOL Product Approval"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': ['|', '|', ('product_type', '!=', 'dol'), ('status', '!=', 'draft'), ('follow_regular_process', '=', True)]}"
+                    />
+                    <!--                    <button name="action_submit_grn" type="object" string="Submit Inspection"-->
+                    <!--                            class="btn-primary" attrs="{'invisible': [('status', '!=', 'inspection')]}"/>-->
+                    <button name="action_submit_to_inspection" string="Submit"
+                            type="object" class="oe_highlight"
+                            attrs="{'invisible': [('status', '!=', 'inspection')]}"/>
+
+                    <button name="action_accept_grn" string="Accept (OK)"
+                            type="object" class="btn-success"
+                            attrs="{'invisible': ['|', ('status', '!=', 'submit'), ('recheck_required', '=', True)]}"/>
+                    <button name="action_reject_grn" string="Reject (NC)"
+                            type="object" class="btn-danger"
+                            attrs="{'invisible': ['|', ('status', '!=', 'submit'), ('recheck_required', '=', True)]}"/>
+                    <button name="action_send_for_recheck" string="Send for Recheck"
+                            type="object"
+                            attrs="{'invisible': ['|', ('status', '!=', 'quarantine'), ('recheck_required', '=', True)]}"/>
+                    <button name="action_accept_after_recheck" string="Accept After Recheck"
+                            type="object" class="btn-success"
+                            attrs="{'invisible': ['|', ('status', '!=', 'quarantine'), ('recheck_required', '=', False)]}"/>
+                    <button name="action_reject_after_recheck" string="Reject After Recheck"
+                            type="object" class="btn-danger"
+                            attrs="{'invisible': ['|', ('status', '!=', 'quarantine'), ('recheck_required', '=', False)]}"/>
+
+
+                    <!--                    <button name="action_accept_grn" type="object" string="Accept" class="btn-success"-->
+                    <!--                            attrs="{'invisible': [('status', '!=', 'submit')]}"/>-->
+                    <!--                    <button name="action_reject_grn" type="object" string="Reject" class="btn-danger"-->
+                    <!--                            attrs="{'invisible': [('status', '!=', 'submit')]}"/>-->
+                    <!--                    <button name="action_move_to_quarantine" type="object" string="Move to Quarantine"-->
+                    <!--                            class="oe_highlight" attrs="{'invisible': [('status', '!=', 'rejected')]}"/>-->
+                    <button name="generate_combined_xls_report" type="object" string="Print Report" class="oe_highlight"
+                            icon="fa-print"/>
+                    <field name="status" widget="statusbar"
+                           statusbar_visible="draft,inspection,accepted,rejected,quarantine"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Draft" bg_color="bg-info"
+                            attrs="{'invisible':[('status', '!=', 'draft')]}"/>
+                    <widget name="web_ribbon" title="Under Inspection" bg_color="bg-warning"
+                            attrs="{'invisible':[('status', '!=', 'inspection')]}"/>
+                    <widget name="web_ribbon" title="Accepted" bg_color="bg-success"
+                            attrs="{'invisible':[('status', '!=', 'accepted')]}"/>
+                    <widget name="web_ribbon" title="Rejected" bg_color="bg-danger"
+                            attrs="{'invisible':[('status', '!=', 'rejected')]}"/>
+                    <widget name="web_ribbon" title="Quarantine" bg_color="bg-primary"
+                            attrs="{'invisible':[('status', '!=', 'quarantine')]}"/>
+
+
+                    <div style="font-size:30px; text-align:center; border: 2px solid #090d54 ; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            Receiving and inspection Management
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <group>
+                        <group>
+                            <field name="status"/>
+                            <field name="grn_no"/>
+                            <field name="grn_date"/>
+                            <field name="part_id" on_change="1"/>
+                            <field name="follow_regular_process" invisible="1"/>
+                            <field name="grn_product"/>
+                            <field name="grn_part_number"/>
+                            <field name="part_number"/>
+                            <field name="part_name"/>
+                            <field name="responsible_person" widget="many2many_tags"/>
+                            <field name="product_type" readonly="1" widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="supplier_name"/>
+                            <field name="supplier_code"/>
+                            <field name="invoice_no"/>
+                            <field name="no_of_boxes"/>
+                            <field name="per_box_qty"/>
+                            <field name="total_qty"/>
+                            <field name="store_location"/>
+                            <field name="sample_qty_variable"/>
+                            <field name="sample_qty_attribute"/>
+
+
+                        </group>
+                        <group>
+                            <field name="qr_code" widget="image" options="{'size': [150, 150]}"/>
+                            <field name="grn_report_attachment" widget="many2many_binary" string="Report Attachments"
+                                   style="margin-bottom: 8px; padding: 5px; border-bottom: 1px dashed #d4d4d4;"/>
+
+                        </group>
+                        <group>
+                            <group style="border: 1px solid #e0e0e0; padding: 10px;  border-radius: 15px; background-color: transparent;box-shadow: 0 4px 10px #000000; width:400px; display:flex;flex-direction:column">
+                                <field name="supplier_inspection_report" widget="many2many_binary"
+                                       string="Supplier Inspection Reports"
+                                       options="{'no_text_in_buttons': True}"
+                                       style="margin-bottom: 8px; padding: 5px; border-bottom: 1px dashed #d4d4d4; font-size: 10px;"
+                                       class="o_field_text_size_10"/>
+
+                                <field name="internal_verified_sir" widget="many2many_binary"
+                                       string="Internal Verified Inspection Reports"
+                                       options="{'no_text_in_buttons': True}"
+                                       style="margin-bottom: 8px; padding: 5px; border-bottom: 1px dashed #d4d4d4; font-size: 10px;"
+                                       class="o_field_text_size_10"/>
+                            </group>
+                            <group style="border: 1px solid #e0e0e0; padding: 10px;  border-radius: 15px; background-color: transparent;box-shadow: 0 4px 10px #000000; width:400px; display:flex;flex-direction:column">
+                                <field name="supplier_properties_report" widget="many2many_binary"
+                                       string="Supplier Properties Reports"
+                                       options="{'no_text_in_buttons': True}"
+                                       style="margin-bottom: 8px; padding: 5px; border-bottom: 1px dashed #d4d4d4; font-size: 10px;"
+                                       class="o_field_text_size_10"/>
+                                <field name="internal_verified_spr" widget="many2many_binary"
+                                       string="Internal Verified Properties Reports"
+                                       options="{'no_text_in_buttons': True}"
+                                       style="margin-bottom: 8px; padding: 5px; border-bottom: 1px dashed #d4d4d4; font-size: 10px;"
+                                       class="o_field_text_size_10"/>
+                            </group>
+                        </group>
+
+                    </group>
+                    <!--                    <notebook>-->
+                    <!--                        <page string="Camera Captures">-->
+                    <!--                            <group>-->
+                    <!--                                <field name="camera_attachments" widget="camera_widget"/>-->
+                    <!--                            </group>-->
+                    <!--                            &lt;!&ndash; Display the captured images as a gallery &ndash;&gt;-->
+                    <!--                            <field name="camera_attachments" widget="many2many_binary" readonly="1"/>-->
+                    <!--                        </page>-->
+                    <!--                    </notebook>-->
+                    <notebook>
+                        <page string="Inspection" attrs="{'invisible': [('status', '=', 'draft')]}">
+                            <field name="line_ids">
+                                <tree>
+                                    <field name="sr_no"/>
+                                    <field name="process_name_id"/>
+                                    <field name="product_spec_tol"/>
+                                    <field name="measure_method_aid"/>
+                                    <field name="inspected_by"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Processes">
+                            <field name="grn_control_ids">
+                                <tree>
+                                    <field name="process_step"/>
+                                    <field name="process_name_id"/>
+                                    <field name="char_class"/>
+                                    <field name="gauge_type"/>
+                                    <field name="product_spec_tol"/>
+                                    <field name="measure_method_aid" invisible="1"/>
+                                    <field name="measure_method_aid_details"/>
+                                    <field name="sample_freq"/>
+                                    <field name="type_of_inspection"/>
+                                    <field name="control_method"/>
+                                    <field name="reaction_plan"/>
+                                </tree>
+                            </field>
+                        </page>
+
+
+                    </notebook>
+                    <notebook>
+                        <page string="Approval History" name="approval_history">
+                            <field name="approval_history_ids" readonly="1">
+                                <tree>
+                                    <field name="date"/>
+                                    <field name="action_type"/>
+                                    <field name="description"/>
+                                    <field name="user_id"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <!-- Add Rejection Details Tab (visible only when rejected) -->
+                        <page string="Rejection Details" name="rejection_details"
+                              attrs="{'invisible': [('status', '!=', 'rejected')]}">
+                            <group>
+                                <field name="recheck_required"/>
+                                <field name="rejection_option"
+                                       attrs="{'invisible': [('rejection_option', '=', False)]}"/>
+                                <field name="rejection_notes"/>
+                            </group>
+                        </page>
+
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_grn_management_tree_search" model="ir.ui.view">
+        <field name="name">grn.management.tree.search</field>
+        <field name="model">grn.management</field>
+        <field name="arch" type="xml">
+            <search string="Search GRN Management">
+                <!-- Search Fields -->
+                <field name="grn_no" string="GRN Number"/>
+                <field name="grn_date" string="GRN Date"/>
+                <field name="supplier_name" string="Supplier Name"/>
+                <field name="part_name" string="Part Name"/>
+                <field name="part_number" string="RIPQ Number"/>
+
+                <!-- Filters -->
+                <filter string="Draft" name="draft" domain="[('status', '=', 'draft')]"/>
+                <filter string="Under Inspection" name="inspection" domain="[('status', '=', 'inspection')]"/>
+                <filter string="Submitted" name="submit" domain="[('status', '=', 'submit')]"/>
+                <filter string="Accepted" name="accepted" domain="[('status', '=', 'accepted')]"/>
+                <filter string="Rejected" name="rejected" domain="[('status', '=', 'rejected')]"/>
+                <filter string="Quarantine" name="quarantine" domain="[('status', '=', 'quarantine')]"/>
+
+                <!-- Group By -->
+                <group expand="0" string="Group By">
+                    <filter string="Supplier" name="supplier_name" context="{'group_by': 'supplier_name'}"/>
+                    <filter string="Part Name" name="part_name" context="{'group_by': 'part_name'}"/>
+                    <filter string="GRN Date" name="grn_date" context="{'group_by': 'grn_date'}"/>
+                    <filter string="Status" name="status" context="{'group_by': 'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="view_grn_management_tree" model="ir.ui.view">
+        <field name="name">grn.management.tree</field>
+        <field name="model">grn.management</field>
+        <field name="arch" type="xml">
+            <tree string="GRN Management"
+                  decoration-info="status=='draft'"
+                  decoration-warning="status=='inspection'"
+                  decoration-success="status=='accepted'"
+                  decoration-danger="status=='rejected'"
+                  decoration-primary="status=='quarantine'"
+            >
+                <field name="grn_no"/>
+                <field name="grn_date"/>
+                <field name="supplier_name"/>
+                <field name="part_name"/>
+                <field name="part_number"/>
+                <field name="accepted_before_recheck"/>
+                <field name="accepted_after_recheck"/>
+                <!-- <field name="before_recheck_count"/> -->
+                <!-- <field name="after_recheck_count"/> -->
+                <field name="total_qty"/>
+                <field name="store_location"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Bar Chart View for Total Quantity -->
+    <record id="view_grn_management_total_qty_graph" model="ir.ui.view">
+        <field name="name">grn.management.total.qty.graph</field>
+        <field name="model">grn.management</field>
+        <field name="arch" type="xml">
+            <graph string="Total Quantity Analysis" type="bar">
+                <field name="grn_no"/>
+                <field name="total_qty" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Action for Total Quantity Bar Chart -->
+    <record id="action_grn_management_total_qty_graph" model="ir.actions.act_window">
+        <field name="name">GRN Quantity Analysis</field>
+        <field name="res_model">grn.management</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_grn_management_total_qty_graph"/>
+        <field name="domain">[]</field>
+        <field name="context">{'graph_mode':'bar'}</field>
+
+    </record>
+
+    <!-- Bar Chart View for Store Location -->
+    <record id="view_grn_management_store_location_graph" model="ir.ui.view">
+        <field name="name">grn.management.store.location.graph</field>
+        <field name="model">grn.management</field>
+        <field name="arch" type="xml">
+            <graph string="Store Location Analysis" type="bar">
+                <field name="store_location"/>
+                <field name="total_qty" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Action for Store Location Bar Chart -->
+    <record id="action_grn_management_store_location_graph" model="ir.actions.act_window">
+        <field name="name">Store Location Analysis</field>
+        <field name="res_model">grn.management</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_grn_management_store_location_graph"/>
+        <field name="domain">[]</field>
+        <field name="context">{'graph_mode':'bar'}</field>
+
+    </record>
+
+    <record id="view_grn_management_pivot" model="ir.ui.view">
+        <field name="name">grn.management.pivot</field>
+        <field name="model">grn.management</field>
+        <field name="arch" type="xml">
+            <pivot string="GRN Analysis" default_order="grn_date desc">
+                <field name="supplier_name" type="row"/>
+                <field name="grn_date" interval="month" type="col"/>
+                <field name="total_qty" type="measure"/>
+                <field name="status" type="row"/>
+                <field name="part_name" type="row"/>
+                <field name="before_recheck_count" type="measure" string="First Time Accepted Count"/>
+                <field name="after_recheck_count" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Action to open the pivot view -->
+    <record id="action_grn_management_pivot" model="ir.actions.act_window">
+        <field name="name">GRN Analysis</field>
+        <field name="res_model">grn.management</field>
+        <field name="view_mode">pivot</field>
+        <field name="view_id" ref="view_grn_management_pivot"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No GRN entries found.
+            </p>
+            <p>
+                Create GRN entries to analyze supplier performance and quality metrics.
+            </p>
+        </field>
+        <field name="context">{'search_default_supplier_name': 1}</field>
+    </record>
+
+
+    <record id="view_grn_management_status_pie_chart" model="ir.ui.view">
+        <field name="name">grn.management.status.pie.chart</field>
+        <field name="model">grn.management</field>
+        <field name="arch" type="xml">
+            <graph type="pie" sample="1">
+                <field name="status" type="row"/>
+                <field name="id" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Action for GRN Status Pie Chart -->
+    <record id="action_grn_status_pie_chart" model="ir.actions.act_window">
+        <field name="name">GRN Status Overview</field>
+        <field name="res_model">grn.management</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_grn_management_status_pie_chart"/>
+        <field name="context">{'graph_view_ref': 'grn_management.view_grn_management_status_pie_chart'}</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No GRN records found.
+            </p>
+            <p>
+                Create GRN records to see their status distribution.
+            </p>
+        </field>
+    </record>
+    <record id="view_grn_management_calendar" model="ir.ui.view">
+        <field name="name">grn.management.calendar</field>
+        <field name="model">grn.management</field>
+        <field name="arch" type="xml">
+            <calendar string="GRN Calendar" date_start="grn_date" color="status" quick_add="False" mode="month">
+                <field name="grn_no"/>
+                <field name="supplier_name"/>
+                <field name="part_name"/>
+                <field name="status"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Calendar Action -->
+    <record id="action_grn_management_calendar" model="ir.actions.act_window">
+        <field name="name">GRN Calendar</field>
+        <field name="res_model">grn.management</field>
+        <field name="view_mode">calendar,form,tree</field>
+        <field name="view_id" ref="view_grn_management_calendar"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No GRN entries found
+            </p>
+            <p>
+                Create a new GRN entry to schedule and track goods receipts.
+            </p>
+        </field>
+    </record>
+    <record id="view_grn_dol_confirm_wizard_form" model="ir.ui.view">
+        <field name="name">grn.dol.approval.wizard.form</field>
+        <field name="model">grn.dol.approval.wizard</field>
+        <field name="arch" type="xml">
+            <form string="DOL Product Approval">
+                <p>This is a DOL product. Do you want to accept it directly or proceed with regular inspection?</p>
+                <footer>
+                    <button name="action_approve_directly" string="Accept Directly" type="object" class="btn-primary"/>
+                    <button name="action_continue_inspection" string="Proceed with Inspection" type="object"
+                            class="btn-secondary"/>
+                    <button name="action_cancel" string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Rejection Wizard Form -->
+    <record id="view_grn_rejection_wizard_form" model="ir.ui.view">
+        <field name="name">grn.rejection.wizard.form</field>
+        <field name="model">grn.rejection.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Reject GRN">
+                <group>
+                    <field name="grn_id" invisible="1"/>
+                    <field name="rejection_notes" placeholder="Enter detailed reason for rejection..."/>
+
+                </group>
+                <group>
+                    <group>
+                        <field name="defect_source" placeholder="Enter the source of the defect..."/>
+                        <field name="defective_qty" placeholder="Enter the quantity of defective items..."/>
+                        <field name="suspected_qty"/>
+                    </group>
+                    <group>
+                        <field name="defect_description"/>
+                        <field name="defect_snapshot" widget="image"/>
+
+
+                    </group>
+                    <group>
+                        <field name="move_to_quarantine"/>
+                        <field name="send_for_recheck"/>
+                    </group>
+
+
+                </group>
+                <footer>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="view_grn_submit_wizard_form" model="ir.ui.view">
+        <field name="name">grn.submit.wizard.form</field>
+        <field name="model">grn.submit.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Submit GRN">
+                <sheet>
+                    <group>
+                        <field name="grn_id" invisible="1"/>
+                        <field name="notes" placeholder="Add any comments or notes regarding this submission..."/>
+                    </group>
+                    <footer>
+                        <button name="action_confirm" string="Submit" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Final Rejection Options Wizard Form -->
+    <record id="view_grn_final_rejection_wizard_form" model="ir.ui.view">
+        <field name="name">grn.final.rejection.wizard.form</field>
+        <field name="model">grn.final.rejection.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Final Rejection Options">
+                <group>
+                    <field name="grn_id" invisible="1"/>
+                    <field name="rejection_option"/>
+
+                </group>
+                <group>
+                    <group>
+                        <field name="defect_source" placeholder="Enter the source of the defect..."/>
+                        <field name="defective_qty" placeholder="Enter the quantity of defective items..."/>
+                        <field name="suspected_qty"/>
+                        <field name="notes" placeholder="Add any additional notes..."/>
+                    </group>
+                    <group>
+                        <field name="defect_description"/>
+                        <field name="defect_snapshot" widget="image"/>
+
+
+                    </group>
+
+
+                </group>
+                <footer>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <!--    <record id="board_grn_dashboard" model="ir.ui.view">-->
+    <!--        <field name="name">board.grn.management.form</field>-->
+    <!--        <field name="model">board.board</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <form string="Dashboard">-->
+    <!--                <board style="2-1">-->
+    <!--                    <column>-->
+    <!--                        <action name="%(action_grn_management)d" string="Receiving and Inspection Management"-->
+    <!--                                icon="fa-clipboard-list"/>-->
+    <!--                        <action name="%(action_grn_management_pivot)d"-->
+    <!--                                string="Receiving and Inspection Analysis: First-Time Acceptance vs Recheck Trends"-->
+    <!--                                icon="fa-table"/>-->
+    <!--                        <action name="%(action_grn_management_calendar)d"-->
+    <!--                                string="Current Month Receiving and Inspection Analysis"-->
+    <!--                                icon="fa-calendar"/>-->
+
+    <!--                        <action name="%(action_grn_management_total_qty_graph)d"-->
+    <!--                                string="Total Quantity Receiving and Inspection Analysis"-->
+    <!--                                icon="fa-chart-bar"/>-->
+
+
+    <!--                    </column>-->
+    <!--                    <column>-->
+
+    <!--                        <action name="%(action_grn_status_pie_chart)d"-->
+    <!--                                string="Receiving and Inspection Analysis Status"-->
+    <!--                                icon="fa-chart-pie"/>-->
+    <!--                        <action name="%(action_grn_management_store_location_graph)d"-->
+    <!--                                string="Store Location Receiving and Inspection Analysis"-->
+    <!--                                icon="fa-map-marker-alt"/>-->
+
+
+    <!--                    </column>-->
+    <!--                </board>-->
+    <!--            </form>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <!--    <record id="action_board_grn_dashboard" model="ir.actions.act_window">-->
+    <!--        <field name="name">DashBoard</field>-->
+    <!--        <field name="res_model">board.board</field>-->
+    <!--        <field name="view_mode">tree,form</field>-->
+    <!--        <field name="usage">menu</field>-->
+    <!--        <field name="view_id" ref="board_grn_dashboard"/>-->
+    <!--    </record>-->
+
+
+    <record id="action_grn_management" model="ir.actions.act_window">
+        <field name="name">Receiving and Inspection Management</field>
+        <field name="res_model">grn.management</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_grn_management_tree_search"/>
+    </record>
+
+    <menuitem id="menu_grn_management_root" name="Receiving and Inspection Management" sequence="10"/>
+
+    <menuitem id="menu_grn_management" name="Management Records"
+              parent="menu_grn_management_root"
+              action="action_grn_management" sequence="20"/>
+    <!--    <menuitem id="menu_grn_management_dashboard" name="DashBoard"-->
+    <!--              parent="menu_grn_management_root"-->
+    <!--              action="action_board_grn_dashboard" sequence="10"/>-->
+</odoo>

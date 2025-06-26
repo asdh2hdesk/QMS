@@ -1,0 +1,127 @@
+<odoo>
+    <!-- QWeb template for the calibration report -->
+    <template id="calibration_report_template">
+        <t t-name="calibration_schedule.calibration_report_template">
+            <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px;">
+                <div style="text-align: center; border-bottom: 2px solid #333; padding-bottom: 10px;">
+                    <h1 style="margin: 0;">QUALITY ASSURANCE DEPARTMENT</h1>
+                    <h2>CALIBRATION REPORT OF
+                        <span style="color: #ff5733; font-weight: bold; text-transform: uppercase;">
+                            <t t-esc="equipment_name"/>
+                        </span>
+                    </h2>
+                </div>
+
+                <table style="width: 100%; margin-top: 20px; border-collapse: collapse;">
+                    <tr>
+                        <td style="width: 50%; padding: 5px;">
+                            <strong>Reference :</strong>
+                            <t t-esc="equipment_code"/>
+                        </td>
+                        <td style="width: 50%; padding: 5px;">
+                            <strong>Date :</strong>
+                            <t t-esc="calibration_date"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px;">
+                            <strong>Frequency :</strong>
+                            <t t-esc="calibration_frequency"/>
+                        </td>
+
+                        <td style="padding: 5px;">
+                            <strong>Instrument No. :</strong>
+                            <t t-esc="instrument_number"/>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px;">
+                            <strong>Make :</strong>
+                            <t t-esc="make"/>
+                        </td>
+                        <td style="padding: 5px;"></td>
+                    </tr>
+
+                </table>
+
+
+                <div style="margin-top: 20px; border: 1px solid #333; padding: 10px;">
+                    <p>
+                        <t t-esc="calibration_instructions"/>
+                    </p>
+
+                    <table style="width: 100%; border-collapse: collapse; border: 1px solid #333;">
+                        <tr style="background-color: #f2f2f2;">
+                            <th style="border: 1px solid #333; padding: 5px; text-align: center;">Sr. No.</th>
+                            <th style="border: 1px solid #333; padding: 5px; text-align: center;">Standard Length Rods
+                                (mm)
+                            </th>
+                            <th colspan="3" style="border: 1px solid #333; padding: 5px; text-align: center;">Reading of
+                                Measuring Jaws at Position (mm)
+                            </th>
+                            <th style="border: 1px solid #333; padding: 5px; text-align: center;">Average Reading (mm)
+                            </th>
+                            <th colspan="2" style="border: 1px solid #333; padding: 5px; text-align: center;">Limit
+                                (mm)
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="border: 1px solid #333; padding: 5px;"></th>
+                            <th style="border: 1px solid #333; padding: 5px;"></th>
+                            <th style="border: 1px solid #333; padding: 5px; text-align: center;">Upper</th>
+                            <th style="border: 1px solid #333; padding: 5px; text-align: center;">Center</th>
+                            <th style="border: 1px solid #333; padding: 5px; text-align: center;">Lower</th>
+                            <th style="border: 1px solid #333; padding: 5px;"></th>
+                            <th style="border: 1px solid #333; padding: 5px; text-align: center;">Min.</th>
+                            <th style="border: 1px solid #333; padding: 5px; text-align: center;">Max.</th>
+                        </tr>
+                        <t t-raw="measurement_rows"/>
+                    </table>
+
+                    <p style="margin-top: 10px;">
+                        <strong>Conclusion :</strong>
+                        Calibration is <t t-esc="conclusion"/>.
+                    </p>
+
+                    <p style="margin-top: 20px;">
+                        <strong>Next Calibration Due On :</strong>
+                        <t t-esc="next_calibration_date"/>
+                    </p>
+
+                    <p style="margin-top: 20px;">
+                        <strong>Approval Status :</strong>
+                        <t t-esc="approval_state"/>
+                    </p>
+                </div>
+
+                <table style="width: 100%; margin-top: 20px; border-collapse: collapse; border: 1px solid #333;">
+                    <tr>
+                        <td style="width: 50%; border: 1px solid #333; padding: 10px;">
+                            <p>
+                                <strong>Done By :</strong>
+                                <t t-esc="done_by"/>
+                            </p>
+                            <p>
+                                <strong>Date :</strong>
+                                <t t-esc="current_date"/>
+                            </p>
+                        </td>
+                        <td style="width: 50%; border: 1px solid #333; padding: 10px;">
+                            <p>
+                                <strong>Checked By :</strong>
+                                <t t-esc="checked_by"/>
+                            </p>
+                            <p>
+                                <strong>Date :</strong>
+                                <t t-esc="current_date"/>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+
+                <t t-raw="attachments_html"/>
+            </div>
+        </t>
+    </template>
+</odoo>

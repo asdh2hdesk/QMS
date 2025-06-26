@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Dashboard Tree View -->
+    <record id="pfmea_dashboard_tree" model="ir.ui.view">
+        <field name="name">pfmea.dashboard.tree</field>
+        <field name="model">pfmea.dashboard</field>
+        <field name="arch" type="xml">
+            <tree string="PFMEA Dashboard" limit="10" default_order="status desc, target_completion_date asc">
+                <field name="problem_id"/>
+                <field name="part_id"/>
+                <field name="issue"/>
+                <field name="process_step_name"/>
+                <field name="prevention_action"/>
+                <field name="detection_action"/>
+                <field name="target_completion_date"/>
+                <field name="responsible_person_name"/>
+                <field name="status" widget="badge" decoration-success="status == 'completed'"
+                       decoration-info="status == 'in_progress'" decoration-warning="status == 'under_consideration'"
+                       decoration-danger="status == 'discarded'" decoration-muted="status == 'untouched'"/>
+                <field name="work_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Dashboard Form View -->
+    <record id="view_pfmea_dashboard_form" model="ir.ui.view">
+        <field name="name">pfmea.dashboard.form</field>
+        <field name="model">pfmea.dashboard</field>
+        <field name="arch" type="xml">
+            <form string="PFMEA Dashboard Item" create="false" edit="false" delete="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="problem_id"/>
+                            <field name="part_id"/>
+                            <field name="issue"/>
+                            <field name="process_step_name"/>
+                            <field name="work_type"/>
+                            <field name="target_completion_date"/>
+                            <field name="responsible_person_name"/>
+                            <field name="status" widget="badge"/>
+                        </group>
+                        <group>
+                            <field name="prevention_action"/>
+                            <field name="detection_action"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="process_operation_id" invisible="1"/>
+                        <field name="process_line_id" invisible="1"/>
+                        <field name="company_id" invisible="1"/>
+                        <field name="pfmea_id" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Dashboard Search View -->
+    <record id="view_pfmea_dashboard_search" model="ir.ui.view">
+        <field name="name">pfmea.dashboard.search</field>
+        <field name="model">pfmea.dashboard</field>
+        <field name="arch" type="xml">
+            <search string="PFMEA Dashboard Search">
+                <field name="problem_id"/>
+                <field name="part_id" />
+                <field name="issue"/>
+                <field name="process_step_name"/>
+                <field name="responsible_person_name"/>
+                <!-- Removed duplicate part_id field -->
+                <separator/>
+                <filter string="Untouched" name="untouched" domain="[('status', '=', 'untouched')]"/>
+                <filter string="Under Consideration" name="under_consideration"
+                        domain="[('status', '=', 'under_consideration')]"/>
+                <filter string="In Progress" name="in_progress" domain="[('status', '=', 'in_progress')]"/>
+                <filter string="Completed" name="completed" domain="[('status', '=', 'completed')]"/>
+                <filter string="Discarded" name="discarded" domain="[('status', '=', 'discarded')]"/>
+                <separator/>
+                <filter string="Man" name="man" domain="[('work_type', '=', 'man')]"/>
+                <filter string="Machine" name="machine" domain="[('work_type', '=', 'machine')]"/>
+                <filter string="Material" name="material" domain="[('work_type', '=', 'material')]"/>
+                <filter string="Environment" name="environment" domain="[('work_type', '=', 'environment')]"/>
+                <filter string="Method" name="method" domain="[('work_type', '=', 'method')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Status" name="group_by_status" context="{'group_by':'status'}"/>
+                    <filter string="Process Step" name="group_by_process_step"
+                            context="{'group_by':'process_step_name'}"/>
+                    <filter string="4M Type" name="group_by_work_type" context="{'group_by':'work_type'}"/>
+                    <filter string="Responsible" name="group_by_responsible"
+                            context="{'group_by':'responsible_person_name'}"/>
+                    <filter string="Target Date" name="group_by_target_date"
+                            context="{'group_by':'target_completion_date'}"/>
+                    <filter string="Part" name="group_by_part" context="{'group_by':'part_id'}"/>
+                    <filter string="Company" name="group_by_company" context="{'group_by':'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Dashboard Kanban View -->
+    <record id="view_pfmea_dashboard_kanban" model="ir.ui.view">
+        <field name="name">pfmea.dashboard.kanban</field>
+        <field name="model">pfmea.dashboard</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_dashboard" create="false">
+                <field name="problem_id"/>
+                <field name="part_id"/>
+                <field name="issue"/>
+                <field name="process_step_name"/>
+                <field name="status"/>
+                <field name="work_type"/>
+                <field name="target_completion_date"/>
+                <field name="responsible_person_name"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <div class="row mb-1">
+                                    <div class="col-6">
+                                        <strong>
+                                            <field name="problem_id"/>
+                                        </strong>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span t-attf-class="badge badge-#{status == 'completed' ? 'success' : status == 'in_progress' ? 'info' : status == 'under_consideration' ? 'warning' : status == 'discarded' ? 'danger' : 'secondary'}">
+                                            <field name="status"/>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-12">
+                                        <strong>Process:</strong>
+                                        <field name="process_step_name"/>
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-6">
+                                        <strong>Issue:</strong>
+                                        <field name="issue"/>
+                                    </div>
+                                    <div class="col-6">
+                                        <strong>Type:</strong>
+                                        <field name="work_type"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <strong>Responsible:</strong>
+                                        <field name="responsible_person_name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <strong>Target:</strong>
+                                        <field name="target_completion_date"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Dashboard Graph View -->
+    <record id="view_pfmea_dashboard_graph" model="ir.ui.view">
+        <field name="name">pfmea.dashboard.graph</field>
+        <field name="model">pfmea.dashboard</field>
+        <field name="arch" type="xml">
+            <graph string="PFMEA Status" type="pie">
+                <field name="status"/>
+                <field name="id" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Dashboard Pivot View -->
+    <record id="view_pfmea_dashboard_pivot" model="ir.ui.view">
+        <field name="name">pfmea.dashboard.pivot</field>
+        <field name="model">pfmea.dashboard</field>
+        <field name="arch" type="xml">
+            <pivot string="PFMEA Analysis">
+                <field name="process_step_name" type="row"/>
+                <field name="work_type" type="row"/>
+                <field name="status" type="col"/>
+                <field name="id" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Dashboard Calendar View -->
+    <record id="view_pfmea_dashboard_calendar" model="ir.ui.view">
+        <field name="name">pfmea.dashboard.calendar</field>
+        <field name="model">pfmea.dashboard</field>
+        <field name="arch" type="xml">
+            <calendar string="Target Completion Dates" date_start="target_completion_date" color="status" mode="month"
+                      quick_add="0">
+                <field name="problem_id"/>
+                <field name="process_step_name"/>
+                <field name="status"/>
+                <field name="responsible_person_name"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Dashboard Action -->
+    <record id="action_pfmea_dashboard" model="ir.actions.act_window">
+        <field name="name">PFMEA Dashboard</field>
+        <field name="res_model">pfmea.dashboard</field>
+        <field name="view_mode">list,kanban,form,graph,pivot,calendar</field>
+        <field name="context">{'search_default_group_by_status': 1}</field>
+    </record>
+
+    <!-- Refresh Dashboard Action -->
+    <record id="action_refresh_dashboard" model="ir.actions.server">
+        <field name="name">Refresh PFMEA Dashboard</field>
+        <field name="model_id" ref="model_pfmea_dashboard"/>
+        <field name="state">code</field>
+        <field name="code">model.refresh_dashboard_data()</field>
+    </record>
+
+
+
+
+<!--      <record id="board_pf_dashboard" model="ir.ui.view">-->
+<!--        <field name="name">board.pfmea.dashboard.form</field>-->
+<!--        <field name="model">board.board</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form string="Dashboard">-->
+<!--                <board style="2-1">-->
+<!--                    <column>-->
+
+<!--                          &lt;!&ndash; Main Table &ndash;&gt;-->
+<!--                        <action name="%(action_pfmea_dashboard_view)d" string="Top Optimized AP Items " view_mode="list"/>-->
+
+<!--                        <action name="%(action_pfmea_dashboard)d" string="Recommended Action for AP Items"-->
+<!--                                icon="fa-clipboard-list"/>-->
+<!--                          <action name="%(action_pfmea_dashboard)d" string="Upcoming Target Dates" view_mode="calendar"/>-->
+
+
+
+
+
+
+<!--                    </column>-->
+<!--                    <column>-->
+<!--                         &lt;!&ndash; Risk AP Chart &ndash;&gt;-->
+<!--                        <action name="%(action_risk_ap_graph)d" string="Initial Risk Action Priority"-->
+<!--                                view_mode="graph"/>-->
+<!--                        &lt;!&ndash; Optimization AP Chart &ndash;&gt;-->
+<!--                        <action name="%(action_opt_ap_graph)d" string="Optimized Action Priority" view_mode="graph"/>-->
+
+<!--                            &lt;!&ndash; Status Overview &ndash;&gt;-->
+<!--                        <action name="%(action_pfmea_dashboard)d" string="PFMEA Status Overview" view_mode="graph"/>-->
+
+<!--&lt;!&ndash;                        &lt;!&ndash; Status Distribution by Process &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                        <action name="%(action_pfmea_dashboard)d" string="Status by Process" view_mode="pivot"/>&ndash;&gt;-->
+
+
+
+<!--                    </column>-->
+<!--                </board>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="action_board_pf_dashboard" model="ir.actions.act_window">-->
+<!--        <field name="name">DashBoard</field>-->
+<!--        <field name="res_model">board.board</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--        <field name="usage">menu</field>-->
+<!--        <field name="view_id" ref="board_pf_dashboard"/>-->
+<!--    </record>-->
+
+<!--    &lt;!&ndash; Menu Item &ndash;&gt;-->
+<!--     <menuitem id="menu_pf_dashboard" name="PFMEA DashBoard" parent="pfmea_fmea_menu"-->
+<!--              action="action_board_pf_dashboard" sequence="0"/>-->
+
+
+
+
+
+</odoo>

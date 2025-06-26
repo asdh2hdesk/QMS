@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View for Gauge R&amp;R Setup -->
+    <record id="view_gauge_rnr_form" model="ir.ui.view">
+        <field name="name">gauge.rnr.form</field>
+        <field name="model">gauge.rnr</field>
+        <field name="arch" type="xml">
+            <form string="Gauge R&amp;R Setup" class="gauge_rnr_setup_form">
+                <header>
+                    <button name="generate_xlsx_report" string="Print Report" type="object" class="oe_highlight"
+                            attrs="{'invisible': [('approval_state', 'not in', ('approved', 'rejected'))]}"/>
+
+                    <!-- 1. Start button: Show only if NOT started AND approval_state is draft -->
+                    <button name="action_start" type="object" string="Start"
+                            class="btn-primary"
+                            attrs="{'invisible': ['|', ('started', '=', True), ('approval_state', '!=', 'draft')]}" />
+
+                    <!-- 2. Submit for Approval: Show only if started is True and approval_state is draft -->
+                    <button name="action_submit_for_approval" type="object" string="Submit for Approval"
+                            class="oe_highlight"
+                            attrs="{'invisible': ['|', ('started', '=', False), ('approval_state', '!=', 'draft')]}" />
+
+                    <!-- 3. Approve: Visible only if approval_state is 'to_approve' -->
+                    <button name="action_approve" type="object" string="Approve"
+                            class="btn-success"
+                            attrs="{'invisible': [('approval_state', '!=', 'to_approve')]}" />
+
+                    <!-- 4. Reject: Visible only if approval_state is 'to_approve' -->
+                    <button name="action_reject" type="object" string="Reject"
+                            class="btn-danger"
+                            attrs="{'invisible': [('approval_state', '!=', 'to_approve')]}" />
+                    
+                    <field name="approval_state" widget="statusbar"
+                            statusbar_visible="draft,to_approve,approved,rejected"/>
+                    
+                </header>
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            MEASUREMENT SYSTEM ANALYSIS (Repeatability and Reproducibility)
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+
+                    <field name="started" invisible="1"/>
+
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="gage_name"/>
+                            <field name="gage_type"/>
+                            <field name="gage_number"/>
+                        </group>
+
+                        <group>
+                            <field name="prepared_by"/>
+                            <field name="appraiser_a_name"/>
+                            <field name="appraiser_b_name"/>
+                            <field name="appraiser_c_name"/>
+                        </group>
+
+                        <separator string=""/>
+
+                        <group>
+                            <field name="units"/>
+                            <field name="characteristic"/>
+                            <field name="specification"/>
+                            <field name="test_number"/>
+                        </group>
+                    </group>
+                    <separator string="Specification Limits"/>
+                    <group>
+                        <group>
+                            <field name="sample_size" widget="selection" options="{'widget': 'selection'}"
+                                   attrs="{'required': True}"/>
+                            <field name="appraisers"/>
+                            <field name="trials"/>
+                        </group>
+                        <group>
+                            <field name="upper_spec_limit"/>
+                            <field name="lower_spec_limit"/>
+                            <field name="tolerance" readonly="1"/>
+                            <br/>
+                        </group>
+                    </group>
+
+
+                    <notebook>
+                        <page string="Appraisals Data">
+                            <notebook>
+                                <page string="Appraisers A">
+                                    <field name="appraiser_a_ids" domain="[('appraiser', '=', 'Appraiser A')]"
+                                           class="o_list_view">
+                                        <tree editable="bottom">
+                                            <field name="trial" string="Trial/Sample"/>
+                                            <field name="sample_1" string="1"/>
+                                            <field name="sample_2" string="2"/>
+                                            <field name="sample_3" string="3"/>
+                                            <field name="sample_4" string="4"/>
+                                            <field name="sample_5" string="5"/>
+                                            <field name="sample_6" string="6"/>
+                                            <field name="sample_7" string="7"/>
+                                            <field name="sample_8" string="8"/>
+                                            <field name="sample_9" string="9"/>
+                                            <field name="sample_10" string="10"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                                <page string="Appraisers B">
+                                    <field name="appraiser_b_ids" domain="[('appraiser', '=', 'Appraiser B')]"
+                                           class="o_list_view">
+                                        <tree editable="bottom">
+                                            <field name="trial" string="Trial/Sample"/>
+                                            <field name="sample_1" string="1"/>
+                                            <field name="sample_2" string="2"/>
+                                            <field name="sample_3" string="3"/>
+                                            <field name="sample_4" string="4"/>
+                                            <field name="sample_5" string="5"/>
+                                            <field name="sample_6" string="6"/>
+                                            <field name="sample_7" string="7"/>
+                                            <field name="sample_8" string="8"/>
+                                            <field name="sample_9" string="9"/>
+                                            <field name="sample_10" string="10"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                                <page string="Appraisers C">
+                                    <field name="appraiser_c_ids" domain="[('appraiser', '=', 'Appraiser C')]"
+                                           class="o_list_view">
+                                        <tree editable="bottom">
+                                            <field name="trial" string="Trial/Sample"/>
+                                            <field name="sample_1" string="1"/>
+                                            <field name="sample_2" string="2"/>
+                                            <field name="sample_3" string="3"/>
+                                            <field name="sample_4" string="4"/>
+                                            <field name="sample_5" string="5"/>
+                                            <field name="sample_6" string="6"/>
+                                            <field name="sample_7" string="7"/>
+                                            <field name="sample_8" string="8"/>
+                                            <field name="sample_9" string="9"/>
+                                            <field name="sample_10" string="10"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </page>
+                        <page string="Averages &amp; Ranges">
+                            <button name="calculate_statistics" string="Calculate Statistics" type="object" class="oe_highlight"/>
+                            <notebook>
+                                <!-- Appraiser A Statistics -->
+                                <page string="Appraiser A Statistics">
+                                   
+                                        <group>
+                                            <field name="appraiser_a_sample_stats_ids"  class="o_list_view" readonly="1">
+                                                <tree>
+                                                    <field name="sample_number" string="Sample"/>
+                                                    <field name="average" string="Average"/>
+                                                    <field name="range" string="Range"/>
+                                                </tree>
+                                            </field>
+                                        </group>
+                                        <group>
+                                            <field name="appraiser_a_trial_stats_ids" class="o_list_view" readonly="1">
+                                                <tree>
+                                                    <field name="trial_number" string="Trial"/>
+                                                    <field name="average" string="Average"/>
+                                                    <field name="range" string="Range"/>
+                                                </tree>
+                                            </field>
+                                        </group>
+                                    
+                                </page>
+                                
+                                <!-- Appraiser B Statistics -->
+                                <page string="Appraiser B Statistics">
+                                   
+                                        <group>
+                                            <field name="appraiser_b_sample_stats_ids"  class="o_list_view" readonly="1">
+                                                <tree>
+                                                    <field name="sample_number" string="Sample"/>
+                                                    <field name="average" string="Average"/>
+                                                    <field name="range" string="Range"/>
+                                                </tree>
+                                            </field>
+                                        </group>
+                                        <group>
+                                            <field name="appraiser_b_trial_stats_ids" class="o_list_view" readonly="1">
+                                                <tree>
+                                                    <field name="trial_number" string="Trial"/>
+                                                    <field name="average" string="Average"/>
+                                                    <field name="range" string="Range"/>
+                                                </tree>
+                                            </field>
+                                        </group>
+                                    
+                                </page>
+                                
+                                <!-- Appraiser C Statistics -->
+                                <page string="Appraiser C Statistics">
+                                   
+                                        <group>
+                                            <field name="appraiser_c_sample_stats_ids"  class="o_list_view" readonly="1">
+                                                <tree>
+                                                    <field name="sample_number" string="Sample"/>
+                                                    <field name="average" string="Average"/>
+                                                    <field name="range" string="Range"/>
+                                                </tree>
+                                            </field>
+                                        </group>
+                                        <group>
+                                            <field name="appraiser_c_trial_stats_ids"  class="o_list_view" readonly="1">
+                                                <tree>
+                                                    <field name="trial_number" string="Trial"/>
+                                                    <field name="average" string="Average"/>
+                                                    <field name="range" string="Range"/>
+                                                </tree>
+                                            </field>
+                                        </group>
+                                    
+                                </page>
+                            </notebook>
+                        </page>
+                        
+                        <!-- Adding GRR Results page -->
+                        <page string="GRR Results">
+                            <group>
+                                <group string="Individual Appraiser Statistics">
+                                    <field name="xbar_a"/>
+                                    <field name="xbar_b"/>
+                                    <field name="xbar_c"/>
+                                    <field name="rbar_a"/>
+                                    <field name="rbar_b"/>
+                                    <field name="rbar_c"/>
+                                </group>
+                                <group string="Overall Statistics">
+                                    <field name="xbar_doublebar"/>
+                                    <field name="rbar_doublebar"/>
+                                    <field name="rp"/>
+                                    <field name="ro"/>
+                                </group>
+                                <group string="GRR Components">
+                                    <field name="ev"/>
+                                    <field name="av"/>
+                                    <field name="grr"/>
+                                    <field name="pv"/>
+                                    <field name="tv"/>
+                                </group>
+                                <group string="Component Variance Method (%)">
+                                    <field name="ev_percent_tv"/>
+                                    <field name="av_percent_tv"/>
+                                    <field name="grr_percent_tv"/>
+                                    <field name="pv_percent_tv"/>
+                                </group>
+                                <group string="AIAG Method (%)">
+                                    <field name="ev_percent_tolerance"/>
+                                    <field name="av_percent_tolerance"/>
+                                    <field name="grr_percent_tolerance"/>
+                                    <field name="pv_percent_tolerance"/>
+                                </group>
+                                <group string="Control Limits">
+                                    <field name="ucl_bias"/>
+                                    <field name="lcl_bias"/>
+                                    <field name="ucl_consistency"/>
+                                    <field name="lcl_consistency"/>
+                                </group>
+                            </group>
+                            <group string="Results Interpretation">
+                                <group>
+                                    <field name="utility_result"/>
+                                    <field name="bias_result"/>
+                                    <field name="consistency_result"/>
+                                </group>
+                                <group>
+                                    <field name="aiag_utility_result"/>
+                                    <field name="resolution_result"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <page string="Bias &amp; Consistency Charts">
+                          
+                                
+                           
+                            
+                                <group string="Appraiser Bias Chart">
+                                    <field name="bias_chart" widget="image" class="o_graph_canvas" readonly="1"  
+                                        attrs="{'invisible': [('bias_chart', '=', False)]}"/>
+                                    <div attrs="{'invisible': [('bias_chart', '!=', False)]}" class="text-muted" >
+                                        Calculate statistics to generate charts
+                                    </div>
+
+                                    
+                                
+                                </group>
+                                
+                                <group string="Appraiser Consistency Chart">
+                                    <field name="consistency_chart" widget="image" class="o_graph_canvas" readonly="1"
+                                        attrs="{'invisible': [('consistency_chart', '=', False)]}"/>
+                                    <div attrs="{'invisible': [('consistency_chart', '!=', False)]}" class="text-muted">
+                                        Calculate statistics to generate charts
+                                    </div>
+                                    
+                                </group>
+
+                                <group string="Chart Results">
+                                    <field name="bias_result" readonly="1"/>
+                                    <field name="consistency_result" readonly="1"/>
+                                </group>
+                     
+                        </page>
+
+                        <page string="Average &amp; Range Charts">
+                            
+                                <button name="generate_control_charts" string="Generate Control Charts" type="object" class = "oe_highlight"/>
+                            
+                            <group string="Range and Average Control Charts">
+                                <group> 
+                                        
+                                        <field name="average_chart" widget="image" options="{'zoom': true}" class="o_graph_canvas" readonly="1" 
+                                            attrs="{'invisible': [('average_chart', '=', False)]}" 
+                                            />
+                                
+                                        
+                                        <field name="range_chart" widget="image" options="{'zoom': true}" class="o_graph_canvas" readonly="1" 
+                                            attrs="{'invisible': [('range_chart', '=', False)]}" 
+                                            />
+                                </group>
+                                   
+                            </group>
+                        </page>
+
+                        
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View for Gauge R&amp;R -->
+    <record id="view_gauge_rnr_tree" model="ir.ui.view">
+        <field name="name">gauge.rnr.tree</field>
+        <field name="model">gauge.rnr</field>
+        <field name="arch" type="xml">
+            <tree string="Gauge R&amp;R List">
+                <field name="gage_name"/>
+                <field name="gage_type"/>
+                <field name="gage_number"/>
+                <field name="date"/>
+                <field name="grr_percent_tv"/>
+                <field name="pv_percent_tv"/>
+                <field name="utility_result"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Report for Gauge R&R -->
+    <record id="action_report_gauge_rnr" model="ir.actions.report">
+        <field name="name">Gauge R&amp;R Report</field>
+        <field name="model">gauge.rnr</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">gauge_rnr.gauge_rnr_report</field>
+        <field name="report_file">gauge_rnr.gauge_rnr_report</field>
+        <field name="binding_model_id" ref="model_gauge_rnr"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Action for Gauge R&amp;R -->
+    <record id="action_gauge_rnr" model="ir.actions.act_window">
+        <field name="name">Gauge R&amp;R</field>
+        <field name="res_model">gauge.rnr</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_gauge_rnr_tree"/>
+    </record>
+
+    <!-- Menu for Gauge R&amp;R -->
+    <menuitem id="menu_gauge_rnr_root" name="MSA" sequence="10"/>
+    <menuitem id="menu_gauge_rnr" name="MSA Statistics" parent="menu_gauge_rnr_root" action="action_gauge_rnr"
+              sequence="30"/>
+    <menuitem id="menu_constants_root"
+            name="Constants"
+            parent="menu_gauge_rnr_root"
+            sequence="40"/> 
+    <menuitem id="menu_gauge_rnr_constants_table"
+            name="Statistical Constants"
+            parent="menu_constants_root"
+            action="action_gauge_rnr_constants_table"
+            sequence="10"/>
+    <menuitem id="menu_anome_statistical_table"
+              name="ANOME Statistical Values"
+              parent="menu_constants_root"
+              action="action_anome_statistical_table"
+              sequence="20"/>
+</odoo>

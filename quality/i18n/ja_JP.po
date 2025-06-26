@@ -1,0 +1,3248 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* quality
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-07 06:29+0000\n"
+"PO-Revision-Date: 2025-06-07 06:29+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__work_type
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__work_type
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__work_type
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__work_type
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "4M Type"
+msgstr "4M Type (4Mタイプ)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_kanban
+msgid "<strong>Issue:</strong>"
+msgstr "<strong>Issue:</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_kanban
+msgid "<strong>Process:</strong>"
+msgstr "<strong>Process:</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_kanban
+msgid "<strong>Responsible:</strong>"
+msgstr "<strong>Responsible:</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "<strong>Risk Analysis</strong>"
+msgstr "<strong>Risk Analysis</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_kanban
+msgid "<strong>Target:</strong>"
+msgstr "<strong>Target:</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_kanban
+msgid "<strong>Type:</strong>"
+msgstr "<strong>Type:</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Ability to Detect"
+msgstr "Ability to Detect (検出する能力)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_production_analysis__achievement_rate
+msgid "Achievement Rate (%)"
+msgstr "Achievement Rate (%) (達成率（％）)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_needaction
+msgid "Action Needed"
+msgstr "Action Needed (アクションが必要です)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__action_plan
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Action Plan"
+msgstr "Action Plan (アクションプラン)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Action Priority"
+msgstr "Action Priority (アクションの優先順位)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__action_required
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Action Required"
+msgstr "Action Required (アクションが必要です)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__action_taken
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__action_taken
+msgid "Action Taken (with pointer to evidence)"
+msgstr "Action Taken (with pointer to evidence) (実行されたアクション（証拠へのポインター付き）)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__active
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__active
+msgid "Active"
+msgstr "Active (アクティブ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_ids
+msgid "Activities"
+msgstr "Activities (活動)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Activity Exception Decoration (アクティビティ例外の装飾)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_state
+msgid "Activity State"
+msgstr "Activity State (アクティビティ状態)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Activity Type Icon (アクティビティタイプアイコン)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__actual_efficiency
+msgid "Actual Efficiency (%)"
+msgstr "Actual Efficiency (%) (実際の効率（％）)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_production_analysis__actual_production
+msgid "Actual Production"
+msgstr "Actual Production (実際の生産)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_sub_operations_lines_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_form
+msgid "Additional Information"
+msgstr "Additional Information (追加情報)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_line_form
+msgid "Additional comments"
+msgstr "Additional comments (追加のコメント)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Apply CAPA"
+msgstr "Apply CAPA (CAPAを適用します)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__approval_date
+#: model:ir.model.fields,field_description:quality.field_non_conformance__deviation_approved_date
+msgid "Approval Date"
+msgstr "Approval Date (承認日)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__approver
+msgid "Approved By"
+msgstr "Approved By (によって承認されています)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__iatf_members_ids
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__iatf_members_ids
+#: model:ir.model.fields,field_description:quality.field_non_conformance__iatf_members_ids
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__iatf_members_ids
+#: model:ir.model.fields,field_description:quality.field_process_report__iatf_members_ids
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Approvers"
+msgstr "Approvers (承認者)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__04
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__04
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__04
+msgid "April"
+msgstr "April (4月)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__assigned_to
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__assigned_to
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Assigned To"
+msgstr "Assigned To (に割り当てられます)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_kanban
+msgid "Assigned to:"
+msgstr "Assigned to: (割り当て：)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_attachment_count
+msgid "Attachment Count"
+msgstr "Attachment Count (添付ファイルカウント)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint__attachment_ids
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__attachment_ids
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__attachment_ids
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Attachments"
+msgstr "Attachments (添付ファイル)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__08
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__08
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__08
+msgid "August"
+msgstr "August (8月)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__in_process_inspection_report_line__observation_status__auto_filled
+msgid "Auto Filled"
+msgstr "Auto Filled (自動充填)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+msgid "Basic Information"
+msgstr "Basic Information (基本情報)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__batch_quantity
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__batch_quantity
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__batch_quantity
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__batch_quantity
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__batch_quantity
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__batch_quantity
+msgid "Batch Quantity"
+msgstr "Batch Quantity (バッチ数量)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__process_report__confidentiality_level__business
+msgid "Business"
+msgstr "Business (仕事)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__state__capa
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "CAPA Applied"
+msgstr "CAPA Applied (CAPAが適用されました)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__capa_closing_date
+msgid "CAPA Closing Date"
+msgstr "CAPA Closing Date (CAPAの締め切り日)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__capa_complaint_id
+msgid "CAPA Complaint"
+msgstr "CAPA Complaint (CAPAの苦情)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "CONTINUOUS IMPROVEMENT"
+msgstr "CONTINUOUS IMPROVEMENT (継続的な改善)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document__calibration
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document_id__calibration_sheet
+msgid "Calibration"
+msgstr "Calibration (較正)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_copy_wizard
+msgid "Cancel"
+msgstr "Cancel (キャンセル)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__cause_type
+msgid "Cause Type"
+msgstr "Cause Type (原因タイプ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__symbol
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__symbol
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__symbol
+#: model:ir.model.fields,field_description:quality.field_process_operations__special_product_characteristics
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__special_characteristics
+msgid "Class"
+msgstr "Class (クラス)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Close"
+msgstr "Close (近い)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Close NCR"
+msgstr "Close NCR (NCRを閉じます)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__state__closed
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__closed
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Closed"
+msgstr "Closed (閉じた)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__color
+msgid "Color"
+msgstr "Color (色)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__company_id
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__company_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__company_id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__company_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__company_id
+#: model:ir.model.fields,field_description:quality.field_process_report__company_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__company_id
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Company"
+msgstr "Company (会社)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__company_name
+msgid "Company Name"
+msgstr "Company Name (会社名)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__category_id
+msgid "Complaint Category"
+msgstr "Complaint Category (苦情カテゴリ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__complaint_description
+msgid "Complaint Description"
+msgstr "Complaint Description (苦情の説明)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Complaint Details"
+msgstr "Complaint Details (苦情の詳細)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__rework_completed
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__status__completed
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__status__completed
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__status__completed
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Completed"
+msgstr "Completed (完了しました)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__completion_date
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__completion_date
+msgid "Completion Date"
+msgstr "Completion Date (完了日)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__concession
+msgid "Concession"
+msgstr "Concession (租界)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__process_report__confidentiality_level__confidential
+msgid "Confidential"
+msgstr "Confidential (機密)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__confidentiality_level
+msgid "Confidentiality Level"
+msgstr "Confidentiality Level (機密レベル)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__scrap_confirmed_by
+msgid "Confirmed By"
+msgstr "Confirmed By (によって確認されました)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_copy_wizard
+msgid "Copy"
+msgstr "Copy (コピー)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Copy Form"
+msgstr "Copy Form (フォームをコピーします)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard__selected_record_id
+msgid "Copy From"
+msgstr "Copy From (からコピーします)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_copy_wizard
+msgid "Copy Process Report"
+msgstr "Copy Process Report (プロセスレポートをコピーします)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_process_report_copy_wizard
+msgid "Copy Process Report Data"
+msgstr "Copy Process Report Data (プロセスレポートデータをコピーします)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_customer_complaint_capa_wizard
+msgid "Create CAPA Complaint"
+msgstr "Create CAPA Complaint (CAPAの苦情を作成します)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Create Customer Complaint for CAPA"
+msgstr "Create Customer Complaint for CAPA (CAPAの顧客の苦情を作成します)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_qms_rejection_handling
+msgid "Create a new rejection record"
+msgstr "Create a new rejection record (新しい拒否レコードを作成します)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_process_report
+msgid "Create and manage process reports."
+msgstr "Create and manage process reports. (プロセスレポートを作成および管理します。)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_non_conformance
+msgid "Create your first Non-Conformance Report"
+msgstr "Create your first Non-Conformance Report (最初の不適合レポートを作成します)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_production_analysis
+msgid "Create your first Production Analysis record!"
+msgstr "Create your first Production Analysis record! (最初の制作分析レコードを作成してください！)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__create_uid
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__create_uid
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__create_uid
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__create_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__create_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__create_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__create_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__create_uid
+#: model:ir.model.fields,field_description:quality.field_non_conformance__create_uid
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__create_uid
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__create_uid
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__create_uid
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__create_uid
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__create_uid
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__create_uid
+#: model:ir.model.fields,field_description:quality.field_process_operations__create_uid
+#: model:ir.model.fields,field_description:quality.field_process_report__create_uid
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard__create_uid
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__create_uid
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__create_uid
+#: model:ir.model.fields,field_description:quality.field_production_analysis__create_uid
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__create_uid
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__create_uid
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__create_uid
+msgid "Created by"
+msgstr "Created by (によって作成されました)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__create_date
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__create_date
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__create_date
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__create_date
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__create_date
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__create_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__create_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__create_date
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__create_date
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__create_date
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__create_date
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__create_date
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__create_date
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__create_date
+#: model:ir.model.fields,field_description:quality.field_non_conformance__create_date
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__create_date
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__create_date
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__create_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__create_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__create_date
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__create_date
+#: model:ir.model.fields,field_description:quality.field_process_operations__create_date
+#: model:ir.model.fields,field_description:quality.field_process_report__create_date
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard__create_date
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__create_date
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__create_date
+#: model:ir.model.fields,field_description:quality.field_production_analysis__create_date
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__create_date
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__create_date
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__create_date
+msgid "Created on"
+msgstr "Created on (に作成されました)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__severity__critical
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__severity__critical
+msgid "Critical"
+msgstr "Critical (致命的)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Critical Severity"
+msgstr "Critical Severity (重大度)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__currency_id
+msgid "Currency"
+msgstr "Currency (通貨)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__current_detection_control
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__current_detection_control
+msgid "Current Detection Control of FC or FM"
+msgstr "Current Detection Control of FC or FM (FCまたはFMの電流検出制御)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__current_prevention_control
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__current_prevention_control
+msgid "Current Prevention Control of FC"
+msgstr "Current Prevention Control of FC (FCの現在の予防制御)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard__current_record_id
+msgid "Current Report"
+msgstr "Current Report (現在のレポート)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Custom Form"
+msgstr "Custom Form (カスタムフォーム)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_type__customer
+msgid "Customer"
+msgstr "Customer (お客様)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_customer_complaint
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document__complaint
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document_id__customer_complaint_handling
+msgid "Customer Complaint"
+msgstr "Customer Complaint (顧客の苦情)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_customer_complaint_capa_wizard
+msgid "Customer Complaint CAPA Wizard"
+msgstr "Customer Complaint CAPA Wizard (顧客の苦情キャパウィザード)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fe_customer_end
+#: model:ir.model.fields,field_description:quality.field_process_operations__fe_customer_end
+msgid "Customer End"
+msgstr "Customer End (顧客の終わり)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__customer_impact
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Customer Impact"
+msgstr "Customer Impact (顧客の影響)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__customer_impact
+msgid "Customer Impact?"
+msgstr "Customer Impact? (顧客の影響？)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Customer Information"
+msgstr "Customer Information (顧客情報)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Customer NCR"
+msgstr "Customer NCR (顧客NCR)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__customer_name
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__partner_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__partner_id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__partner_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__partner_id
+#: model:ir.model.fields,field_description:quality.field_process_report__partner_id
+msgid "Customer Name"
+msgstr "Customer Name (顧客名)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__cus_part_name
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__customer_part_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__cus_part_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__customer_part_name
+#: model:ir.model.fields,field_description:quality.field_non_conformance__cus_part_name
+#: model:ir.model.fields,field_description:quality.field_non_conformance__customer_part_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__cus_part_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__customer_part_name
+#: model:ir.model.fields,field_description:quality.field_process_report__cus_part_name
+#: model:ir.model.fields,field_description:quality.field_process_report__customer_part_name
+msgid "Customer Part name"
+msgstr "Customer Part name (顧客部品名)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__cus_part_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__cus_part_no
+#: model:ir.model.fields,field_description:quality.field_non_conformance__cus_part_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__cus_part_no
+#: model:ir.model.fields,field_description:quality.field_process_report__cus_part_no
+msgid "Customer Part num"
+msgstr "Customer Part num (顧客部品番号)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__cus_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__cus_id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__cus_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__cus_id
+#: model:ir.model.fields,field_description:quality.field_process_report__cus_id
+msgid "Customer name"
+msgstr "Customer name (顧客名)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_pfmea_dashboard_board
+msgid "Dashboard Board"
+msgstr "Dashboard Board (ダッシュボードボード)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__date
+msgid "Date"
+msgstr "Date (日付)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_non_conformance__capa_closing_date
+msgid "Date when the associated CAPA was completed"
+msgstr "Date when the associated CAPA was completed (関連するCAPAが完了した日付)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_kanban
+msgid "Date:"
+msgstr "Date: (日付：)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__days_to_resolution
+msgid "Days to Resolution"
+msgstr "Days to Resolution (解決額)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__12
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__12
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__12
+msgid "December"
+msgstr "December (12月)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__defect_description
+msgid "Defect Description"
+msgstr "Defect Description (欠陥の説明)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__defect_snapshot
+msgid "Defect Snapshot"
+msgstr "Defect Snapshot (欠陥スナップショット)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__defect_source
+msgid "Defect Source"
+msgstr "Defect Source (欠陥ソース)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__defective_parts
+msgid "Defective Parts"
+msgstr "Defective Parts (欠陥のある部品)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__defective_qty
+msgid "Defective Quantity"
+msgstr "Defective Quantity (欠陥のある量)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_category__delivery
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_sub_category__delivery
+msgid "Delivery"
+msgstr "Delivery (配達)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__department
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Department"
+msgstr "Department (部門)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Describe the customer complaint in detail..."
+msgstr "Describe the customer complaint in detail... (顧客の苦情を詳細に説明してください...)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Description"
+msgstr "Description (説明)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Detection"
+msgstr "Detection (検出)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__detection
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__detection
+msgid "Detection (D) of FC/FM"
+msgstr "Detection (D) of FC/FM (FC/FMの検出（D）)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__detection_action
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__detection_action
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__detection_action
+msgid "Detection Action"
+msgstr "Detection Action (検出アクション)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__detection_date
+msgid "Detection Date"
+msgstr "Detection Date (検出日)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__detection_level
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__detection_level
+msgid "Detection Level"
+msgstr "Detection Level (検出レベル)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_process_sub_operations_lines__detection
+#: model:ir.model.fields,help:quality.field_process_sub_operations_lines__detection_level
+#: model:ir.model.fields,help:quality.field_process_suggestions__detection
+#: model:ir.model.fields,help:quality.field_process_suggestions__detection_level
+msgid "Detection rating from 1-10"
+msgstr "Detection rating from 1-10 (1〜10の検出評価)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Deviation"
+msgstr "Deviation (偏差)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__deviation_approver
+msgid "Deviation Approved By"
+msgstr "Deviation Approved By (によって承認された偏差)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__deviation_document_filename
+msgid "Deviation Document Filename"
+msgstr "Deviation Document Filename (偏差ドキュメントファイル名)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__deviation_justification
+msgid "Deviation Justification"
+msgstr "Deviation Justification (偏差の正当化)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__deviation_document
+msgid "Deviation Report (PDF)"
+msgstr "Deviation Report (PDF) (偏差レポート（PDF）)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__dimension_des
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__dimension_des
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__dimension_des
+msgid "Dimension Description"
+msgstr "Dimension Description (寸法の説明)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__status__discarded
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__status__discarded
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__status__discarded
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Discarded"
+msgstr "Discarded (廃棄されました)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__display_name
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__display_name
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__display_name
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__display_name
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__display_name
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__display_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__display_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__display_name
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__display_name
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__display_name
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__display_name
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__display_name
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__display_name
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__display_name
+#: model:ir.model.fields,field_description:quality.field_non_conformance__display_name
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__display_name
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__display_name
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__display_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__display_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__display_name
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__display_name
+#: model:ir.model.fields,field_description:quality.field_process_operations__display_name
+#: model:ir.model.fields,field_description:quality.field_process_report__display_name
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard__display_name
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__display_name
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__display_name
+#: model:ir.model.fields,field_description:quality.field_production_analysis__display_name
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__display_name
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__display_name
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__display_name
+msgid "Display Name"
+msgstr "Display Name (表示名)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Disposition"
+msgstr "Disposition (配置)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__disposition
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__disposition
+msgid "Disposition Decision"
+msgstr "Disposition Decision (処分の決定)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__doc_type
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__doc_type
+#: model:ir.model.fields,field_description:quality.field_non_conformance__doc_type
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__doc_type
+#: model:ir.model.fields,field_description:quality.field_process_report__doc_type
+msgid "Doc Type"
+msgstr "Doc Type (ドキュメントタイプ)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__in_process_inspection_report_line__observation_status__draft
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__state__draft
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__draft
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Draft"
+msgstr "Draft (下書き)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__drawing_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__drawing_no
+#: model:ir.model.fields,field_description:quality.field_non_conformance__drawing_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__drawing_no
+#: model:ir.model.fields,field_description:quality.field_process_report__drawing_no
+msgid "Drawing No."
+msgstr "Drawing No. (描画番号)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_product_product__drg_no
+#: model:ir.model.fields,field_description:quality.field_product_template__drg_no
+msgid "Drawing Number"
+msgstr "Drawing Number (描画番号)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__drawing_rev_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__drawing_rev_date
+#: model:ir.model.fields,field_description:quality.field_non_conformance__drawing_rev_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__drawing_rev_date
+#: model:ir.model.fields,field_description:quality.field_process_report__drawing_rev_date
+msgid "Drawing Rev. Date"
+msgstr "Drawing Rev. Date (rev.日付を描く)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__drawing_rev_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__drawing_rev_no
+#: model:ir.model.fields,field_description:quality.field_non_conformance__drawing_rev_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__drawing_rev_no
+#: model:ir.model.fields,field_description:quality.field_process_report__drawing_rev_no
+msgid "Drawing. Rev. No."
+msgstr "Drawing. Rev. No. (描画。Rev. No.)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__is_editable
+msgid "Editable"
+msgstr "Editable (編集可能)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Effects"
+msgstr "Effects (効果)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__efficiency_gap
+msgid "Efficiency Gap (%)"
+msgstr "Efficiency Gap (%) (効率ギャップ（％）)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__ele_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__ele_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__ele_no
+msgid "Element No."
+msgstr "Element No. (要素番号)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__customer_email
+msgid "Email"
+msgstr "Email (メール)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fe_end_user
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fpi_end_user
+#: model:ir.model.fields,field_description:quality.field_process_operations__fe_end_user
+#: model:ir.model.fields,field_description:quality.field_process_operations__fpi_end_user
+msgid "End User"
+msgstr "End User (エンドユーザー)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__work_type__environment
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__work_type__environment
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__work_type__environment
+#: model:ir.model.fields.selection,name:quality.selection__top_ap_pfmea__work_type__environment
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Environment"
+msgstr "Environment (環境)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__environment_line_ids
+#: model:ir.model.fields,field_description:quality.field_process_operations__environment_line_ids
+msgid "Environment Lines"
+msgstr "Environment Lines (環境ライン)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__environment_pro_id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__environment_pro_id
+msgid "Environment Process Reference"
+msgstr "Environment Process Reference (環境プロセスの参照)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__cost
+msgid "Estimated Cost of Non-Conformance"
+msgstr "Estimated Cost of Non-Conformance (不適合の推定コスト)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Evaluate"
+msgstr "Evaluate (評価する)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__state__evaluated
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Evaluated"
+msgstr "Evaluated (評価された)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_type__external
+msgid "External"
+msgstr "External (外部の)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "External NCR"
+msgstr "External NCR (外部NCR)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__fmea_ap
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__fmea_ap
+msgid "FMEA AP"
+msgstr "FMEA AP (fmea ap)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__fmea_ap_sort
+msgid "FMEA AP Sort Priority"
+msgstr "FMEA AP Sort Priority (fmea apソート優先度)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__failure_causes
+msgid "Failure Cause"
+msgstr "Failure Cause (障害の原因)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__failure_causes
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__failure_causes
+msgid "Failure Causes (FC)"
+msgstr "Failure Causes (FC) (障害原因（FC）)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Failure Effects"
+msgstr "Failure Effects (障害効果)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__failure_mode
+msgid "Failure Mode"
+msgstr "Failure Mode (障害モード)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__failure_mode
+#: model:ir.model.fields,field_description:quality.field_process_operations__failure_mode
+msgid "Failure Mode (FM)"
+msgstr "Failure Mode (FM) (故障モード（FM）)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__02
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__02
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__02
+msgid "February"
+msgstr "February (2月)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__filter_code
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__filter_code
+msgid "Filter Code (Optional)"
+msgstr "Filter Code (Optional) (フィルターコード（オプション）)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__financial_impact
+msgid "Financial Impact"
+msgstr "Financial Impact (経済的影響)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_follower_ids
+msgid "Followers"
+msgstr "Followers (フォロワー)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Followers (Partners) (フォロワー（パートナー）)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Font awesome icon e.g. fa-tasks (フォント素晴らしいアイコンFAタスク)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_operations__func_of_process_step
+msgid "Function of Process Step"
+msgstr "Function of Process Step (プロセスステップの関数)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__func_of_process_step
+msgid "Function of Process Step and Process Characteristics"
+msgstr ""
+"Function of Process Step and Process Characteristics (プロセスステップとプロセス特性の関数)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__function_of_process_work_element
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__function_of_process_work_element
+msgid "Function of Process Work Element and Process Characteristics"
+msgstr ""
+"Function of Process Work Element and Process Characteristics "
+"(プロセス作業要素とプロセス特性の関数)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__func_of_product_step
+msgid "Function of Product Step and Process Characteristics"
+msgstr ""
+"Function of Product Step and Process Characteristics (製品ステップとプロセス特性の関数)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document__grn
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document_id__grn_management
+msgid "GRN"
+msgstr "GRN (GRN)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__generate_xls_file
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__generate_xls_file
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__generate_xls_file
+#: model:ir.model.fields,field_description:quality.field_process_report__generate_xls_file
+msgid "Generated File"
+msgstr "Generated File (生成されたファイル)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Group By"
+msgstr "Group By (グループ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__has_message
+msgid "Has Message"
+msgstr "Has Message (メッセージがあります)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__severity__high
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__severity__high
+msgid "High"
+msgstr "High (高い)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "High Severity"
+msgstr "High Severity (高い重症度)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__hca
+#: model:ir.model.fields,field_description:quality.field_process_operations__hca
+msgid "History/Change Authorization"
+msgstr "History/Change Authorization (履歴/変更承認)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__cause_type__human_error
+msgid "Human Error"
+msgstr "Human Error (ヒューマンエラー)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__id
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__id
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__id
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__id
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__id
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__id
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__id
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__id
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__id
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__id
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__id
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__id
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__id
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__id
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__id
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__id
+#: model:ir.model.fields,field_description:quality.field_process_operations__id
+#: model:ir.model.fields,field_description:quality.field_process_report__id
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard__id
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__id
+#: model:ir.model.fields,field_description:quality.field_production_analysis__id
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__id
+msgid "ID"
+msgstr "ID (id)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_exception_icon
+msgid "Icon"
+msgstr "Icon (アイコン)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icon to indicate an exception activity. (例外アクティビティを示すアイコン。)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+"If checked, new messages require your attention. "
+"(チェックした場合、新しいメッセージに注意が必要です。)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__message_has_error
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+"If checked, some messages have a delivery error. "
+"(チェックした場合、一部のメッセージには配信エラーがあります。)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_in_coming_report
+#: model:ir.ui.menu,name:quality.menu_in_coming_inspection
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+msgid "In Coming Inspection Report"
+msgstr "In Coming Inspection Report (今後の検査報告書)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_in_coming_report_lines
+msgid "In Coming Inspection Report Lines"
+msgstr "In Coming Inspection Report Lines (今後の検査報告書)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fe_in_plant
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fpi_in_plant
+#: model:ir.model.fields,field_description:quality.field_process_operations__fe_in_plant
+#: model:ir.model.fields,field_description:quality.field_process_operations__fpi_in_plant
+msgid "In Plant"
+msgstr "In Plant (植物で)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_in_process_report
+#: model:ir.ui.menu,name:quality.menu_in_process_inspection
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+msgid "In Process Inspection Report"
+msgstr "In Process Inspection Report (プロセス検査レポート)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_in_process_report_lines
+msgid "In Process Inspection Report Lines"
+msgstr "In Process Inspection Report Lines (プロセス検査報告書)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_in_process_operations
+msgid "In Process Operations"
+msgstr "In Process Operations (プロセス操作)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__status__in_progress
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__status__in_progress
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__status__in_progress
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__in_progress
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "In Progress"
+msgstr "In Progress (進行中)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Initial Risk Action Priority"
+msgstr "Initial Risk Action Priority (初期リスクアクションの優先順位)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Initiator"
+msgstr "Initiator (イニシエータ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__inspected_by
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__inspected_by
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__inspected_by
+msgid "Inspected By"
+msgstr "Inspected By (検査)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_operation_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+msgid "Inspection Details"
+msgstr "Inspection Details (検査の詳細)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__inspection_frequency
+msgid "Inspection Frequency"
+msgstr "Inspection Frequency (検査頻度)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__inspection_line_id
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__inspection_line_id
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__inspection_line_id
+msgid "Inspection Line"
+msgstr "Inspection Line (検査ライン)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_line_form
+msgid "Inspection Line Detail"
+msgstr "Inspection Line Detail (検査ラインの詳細)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__line_ids
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__line_ids
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__line_ids
+msgid "Inspection Lines"
+msgstr "Inspection Lines (検査ライン)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__inspection_method
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__inspection_method
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__inspection_method
+msgid "Inspection Method"
+msgstr "Inspection Method (検査方法)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_inspection_observation
+#: model:ir.model,name:quality.model_inspection_observation
+msgid "Inspection Observations"
+msgstr "Inspection Observations (検査の観察)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__inspection_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__inspection_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__inspection_id
+msgid "Inspection Report"
+msgstr "Inspection Report (検査報告書)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.inspection_menu
+msgid "Inspection Reports"
+msgstr "Inspection Reports (検査報告書)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_type__internal
+msgid "Internal"
+msgstr "Internal (内部)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Internal NCR"
+msgstr "Internal NCR (内部NCR)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_is_follower
+msgid "Is Follower"
+msgstr "Is Follower (フォロワーです)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__is_overdue
+msgid "Is Overdue"
+msgstr "Is Overdue (期限切れです)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__issue
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__issue
+#: model:ir.model.fields,field_description:quality.field_process_operations__issue
+msgid "Issue #"
+msgstr "Issue # (問題 ＃)"
+
+#. module: quality
+#: model:ir.model.constraint,message:quality.constraint_process_operations_unique_issue_process_step
+msgid "Issue number must be unique for a given Process Step!"
+msgstr ""
+"Issue number must be unique for a given Process Step! "
+"(問題番号は、特定のプロセスステップで一意でなければなりません！)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__01
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__01
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__01
+msgid "January"
+msgstr "January (1月)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__07
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__07
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__07
+msgid "July"
+msgstr "July (7月)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__06
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__06
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__06
+msgid "June"
+msgstr "June (6月)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__justification
+msgid "Justification"
+msgstr "Justification (正当化)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__name
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__name
+msgid "Label"
+msgstr "Label (ラベル)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__language_id
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__language_id
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__language_id
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__language_id
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__language_id
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__language_id
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__language_id
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__language_id
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__language_id
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__language_id
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__language_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__language_id
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__language_id
+#: model:ir.model.fields,field_description:quality.field_production_analysis__language_id
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__language_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__language_id
+msgid "Language"
+msgstr "Language (言語)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard____last_update
+#: model:ir.model.fields,field_description:quality.field_dashboard_report____last_update
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler____last_update
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report____last_update
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line____last_update
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation____last_update
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report____last_update
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line____last_update
+#: model:ir.model.fields,field_description:quality.field_in_process_operations____last_update
+#: model:ir.model.fields,field_description:quality.field_inspection_observation____last_update
+#: model:ir.model.fields,field_description:quality.field_ncr_repair____last_update
+#: model:ir.model.fields,field_description:quality.field_ncr_rework____last_update
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap____last_update
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is____last_update
+#: model:ir.model.fields,field_description:quality.field_non_conformance____last_update
+#: model:ir.model.fields,field_description:quality.field_oee_analysis____last_update
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions____last_update
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis____last_update
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report____last_update
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line____last_update
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation____last_update
+#: model:ir.model.fields,field_description:quality.field_process_operations____last_update
+#: model:ir.model.fields,field_description:quality.field_process_report____last_update
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard____last_update
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines____last_update
+#: model:ir.model.fields,field_description:quality.field_process_suggestions____last_update
+#: model:ir.model.fields,field_description:quality.field_production_analysis____last_update
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling____last_update
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea____last_update
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler____last_update
+msgid "Last Modified on"
+msgstr "Last Modified on (最後に変更されました)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__write_uid
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__write_uid
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__write_uid
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__write_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__write_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__write_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__write_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__write_uid
+#: model:ir.model.fields,field_description:quality.field_non_conformance__write_uid
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__write_uid
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__write_uid
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__write_uid
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__write_uid
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__write_uid
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__write_uid
+#: model:ir.model.fields,field_description:quality.field_process_operations__write_uid
+#: model:ir.model.fields,field_description:quality.field_process_report__write_uid
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard__write_uid
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__write_uid
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__write_uid
+#: model:ir.model.fields,field_description:quality.field_production_analysis__write_uid
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__write_uid
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__write_uid
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__write_uid
+msgid "Last Updated by"
+msgstr "Last Updated by (最後に更新されました)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__write_date
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__write_date
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__write_date
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__write_date
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__write_date
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__write_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__write_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__write_date
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__write_date
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__write_date
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__write_date
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__write_date
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__write_date
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__write_date
+#: model:ir.model.fields,field_description:quality.field_non_conformance__write_date
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__write_date
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__write_date
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__write_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__write_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__write_date
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__write_date
+#: model:ir.model.fields,field_description:quality.field_process_operations__write_date
+#: model:ir.model.fields,field_description:quality.field_process_report__write_date
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard__write_date
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__write_date
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__write_date
+#: model:ir.model.fields,field_description:quality.field_production_analysis__write_date
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__write_date
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__write_date
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__write_date
+msgid "Last Updated on"
+msgstr "Last Updated on (最後に更新されました)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__link
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__link
+#: model:ir.model.fields,field_description:quality.field_non_conformance__link
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__link
+#: model:ir.model.fields,field_description:quality.field_process_report__link
+msgid "Link"
+msgstr "Link (リンク)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__severity__low
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__severity__low
+msgid "Low"
+msgstr "Low (低い)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Low Severity"
+msgstr "Low Severity (低い重症度)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__lower_limit
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__lower_limit
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__lower_limit
+msgid "Lower Limit"
+msgstr "Lower Limit (下限)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document__msa
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document_id__msa_sheet
+msgid "MSA"
+msgstr "MSA (MSA)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__machine_id
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__work_type__machine
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__work_type__machine
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__work_type__machine
+#: model:ir.model.fields.selection,name:quality.selection__top_ap_pfmea__work_type__machine
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Machine"
+msgstr "Machine (機械)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__cause_type__machine_failure
+msgid "Machine Failure"
+msgstr "Machine Failure (機械の故障)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__machine_line_ids
+#: model:ir.model.fields,field_description:quality.field_process_operations__machine_line_ids
+msgid "Machine Lines"
+msgstr "Machine Lines (機械ライン)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__machine_pro_id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__machine_pro_id
+msgid "Machine Process Reference"
+msgstr "Machine Process Reference (マシンプロセスの参照)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Main Attachment (メインアタッチメント)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__work_type__man
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__work_type__man
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__work_type__man
+#: model:ir.model.fields.selection,name:quality.selection__top_ap_pfmea__work_type__man
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Man"
+msgstr "Man (男)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__man_line_ids
+#: model:ir.model.fields,field_description:quality.field_process_operations__man_line_ids
+msgid "Man Lines"
+msgstr "Man Lines (マンライン)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__man_pro_id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__man_pro_id
+msgid "Man Process Reference"
+msgstr "Man Process Reference (マンプロセスリファレンス)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__in_process_inspection_report_line__observation_status__manually_edited
+msgid "Manually Edited"
+msgstr "Manually Edited (手動で編集)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__03
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__03
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__03
+msgid "March"
+msgstr "March (行進)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__work_type__material
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__work_type__material
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__work_type__material
+#: model:ir.model.fields.selection,name:quality.selection__top_ap_pfmea__work_type__material
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Material"
+msgstr "Material (材料)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__cause_type__material_defect
+msgid "Material Defect"
+msgstr "Material Defect (物質的な欠陥)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__material_line_ids
+#: model:ir.model.fields,field_description:quality.field_process_operations__material_line_ids
+msgid "Material Lines"
+msgstr "Material Lines (マテリアルライン)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__material_pro_id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__material_pro_id
+msgid "Material Process Reference"
+msgstr "Material Process Reference (マテリアルプロセスリファレンス)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__05
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__05
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__05
+msgid "May"
+msgstr "May (5月)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__severity__medium
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__severity__medium
+msgid "Medium"
+msgstr "Medium (中くらい)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Medium Severity"
+msgstr "Medium Severity (中程度の重症度)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__member_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__member_name
+#: model:ir.model.fields,field_description:quality.field_non_conformance__member_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__member_name
+#: model:ir.model.fields,field_description:quality.field_process_report__member_name
+msgid "Member Name"
+msgstr "Member Name (メンバー名)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_has_error
+msgid "Message Delivery error"
+msgstr "Message Delivery error (メッセージ配信エラー)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_ids
+msgid "Messages"
+msgstr "Messages (メッセージ)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__work_type__method
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__work_type__method
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__work_type__method
+#: model:ir.model.fields.selection,name:quality.selection__top_ap_pfmea__work_type__method
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Method"
+msgstr "Method (方法)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__method_line_ids
+#: model:ir.model.fields,field_description:quality.field_process_operations__method_line_ids
+msgid "Method Lines"
+msgstr "Method Lines (メソッド行)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__method_pro_id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__method_pro_id
+msgid "Method Process Reference"
+msgstr "Method Process Reference (メソッドプロセス参照)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__dimension_spec
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__dimension_spec
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__dimension_spec
+msgid "Method Product Spec./ Tolerance"
+msgstr "Method Product Spec./ Tolerance (メソッド製品仕様/許容範囲)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__myp
+msgid "Model/Year/Platform"
+msgstr "Model/Year/Platform (モデル/年/プラットフォーム)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__month
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__month
+#: model:ir.model.fields,field_description:quality.field_production_analysis__month
+#: model:ir.model.fields,field_description:quality.field_production_analysis__name
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_search
+msgid "Month"
+msgstr "Month (月)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_production_analysis
+msgid "Monthly Production Analysis"
+msgstr "Monthly Production Analysis (毎月の生産分析)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__quarantine
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Move to Quarantine"
+msgstr "Move to Quarantine (検疫に移動します)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__scrap
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Move to Scrap"
+msgstr "Move to Scrap (スクラップに移動します)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "My Activity Deadline (私のアクティビティの締め切り)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__non_conformance_id
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__non_conformance_id
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__non_conformance_id
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__non_conformance_id
+msgid "NCR"
+msgstr "NCR (ncr)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__name
+msgid "NCR Number"
+msgstr "NCR Number (NCR番号)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_ncr_repair
+msgid "NCR Repair Details"
+msgstr "NCR Repair Details (NCR修復の詳細)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_ncr_rework
+msgid "NCR Rework Details"
+msgstr "NCR Rework Details (NCRは詳細を作り直します)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_ncr_scrap
+msgid "NCR Scrap Details"
+msgstr "NCR Scrap Details (NCRスクラップの詳細)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "NCR Type"
+msgstr "NCR Type (NCRタイプ)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_ncr_useas_is
+msgid "NCR Use-As-Is Details"
+msgstr "NCR Use-As-Is Details (NCRの使用の詳細)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_flow_class__name
+msgid "Name"
+msgstr "Name (名前)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__process_item
+msgid "Name of Process"
+msgstr "Name of Process (プロセス名)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Next Activity Calendar Event (次のアクティビティカレンダーイベント)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Next Activity Deadline (次のアクティビティの締め切り)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_summary
+msgid "Next Activity Summary"
+msgstr "Next Activity Summary (次のアクティビティの概要)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_type_id
+msgid "Next Activity Type"
+msgstr "Next Activity Type (次のアクティビティタイプ)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_non_conformance
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__non_conformance_id
+msgid "Non Conformance"
+msgstr "Non Conformance (非適合性)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__non_conformance_category
+msgid "Non Conformance Category"
+msgstr "Non Conformance Category (非適合カテゴリ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__non_conformance_sub_category
+msgid "Non Conformance Sub Category"
+msgstr "Non Conformance Sub Category (非適合サブカテゴリ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__non_conformance_type
+msgid "Non Conformance Type"
+msgstr "Non Conformance Type (非適合タイプ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__non_conformity_ids
+msgid "Non Conformity"
+msgstr "Non Conformity (非適合性)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__non_conformity_count
+msgid "Non Conformity Count"
+msgstr "Non Conformity Count (非適合性カウント)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_quality_non_conformance
+msgid "Non-Conformance"
+msgstr "Non-Conformance (不適合)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_graph
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_pivot
+msgid "Non-Conformance Analysis"
+msgstr "Non-Conformance Analysis (不適合分析)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_calendar
+msgid "Non-Conformance Calendar"
+msgstr "Non-Conformance Calendar (不適合カレンダー)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Non-Conformance Details"
+msgstr "Non-Conformance Details (不適合の詳細)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Non-Conformance Information"
+msgstr "Non-Conformance Information (不適合情報)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document__ncr
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document_id__non_conformance
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Non-Conformance Report"
+msgstr "Non-Conformance Report (不適合レポート)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_non_conformance
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_tree
+msgid "Non-Conformance Reports"
+msgstr "Non-Conformance Reports (不適合レポート)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__not_ok_quantity
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__not_ok_quantity
+msgid "Not OK Quantity After Rework"
+msgstr "Not OK Quantity After Rework (やり直した後は大丈夫ではありません)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__notes
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Notes"
+msgstr "Notes (メモ)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__11
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__11
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__11
+msgid "November"
+msgstr "November (11月)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Number of Actions (アクションの数)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__parts_to_be_checked
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__parts_to_be_checked
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__parts_to_be_checked
+msgid "Number of Parts to be Checked"
+msgstr "Number of Parts to be Checked (チェックする部品の数)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_has_error_counter
+msgid "Number of errors"
+msgstr "Number of errors (エラー数)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Number of messages requiring action (アクションを必要とするメッセージの数)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Number of messages with delivery error (配信エラーがあるメッセージの数)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_oee_analysis
+msgid "OEE (Overall Equipment Effectiveness) Analysis"
+msgstr "OEE (Overall Equipment Effectiveness) Analysis (OEE（全体的な機器の有効性）分析)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_oee_analysis
+#: model:ir.ui.menu,name:quality.menu_oee_analysis
+msgid "OEE Analysis"
+msgstr "OEE Analysis (OEE分析)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_oee_analysis_graph
+msgid "OEE Comparison"
+msgstr "OEE Comparison (OEE比較)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_oee_root
+msgid "OEE Reports"
+msgstr "OEE Reports (OEEレポート)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__observation_value
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__observation_value
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__observation_value
+msgid "Observation"
+msgstr "Observation (観察)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__observation_number
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__observation_number
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__observation_number
+msgid "Observation No."
+msgstr "Observation No. (観察番号)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__observation_status
+msgid "Observation Status"
+msgstr "Observation Status (観察状況)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__observations
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__observations
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__observations
+msgid "Observations"
+msgstr "Observations (観察)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Occurrence"
+msgstr "Occurrence (発生)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__occurrence
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__occurrence
+msgid "Occurrence (O) of FC"
+msgstr "Occurrence (O) of FC (FCの発生（O）)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__occurrence_level
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__occurrence_level
+msgid "Occurrence Level"
+msgstr "Occurrence Level (発生レベル)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_process_sub_operations_lines__occurrence
+#: model:ir.model.fields,help:quality.field_process_sub_operations_lines__occurrence_level
+#: model:ir.model.fields,help:quality.field_process_suggestions__occurrence
+#: model:ir.model.fields,help:quality.field_process_suggestions__occurrence_level
+msgid "Occurrence rating from 1-10"
+msgstr "Occurrence rating from 1-10 (1〜10の発生率)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__10
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__10
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__10
+msgid "October"
+msgstr "October (10月)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__ok_quantity_after
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__ok_quantity_after
+msgid "Ok Quantity After Rework"
+msgstr "Ok Quantity After Rework (やり直し後の量)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__op_ids
+msgid "Operation Lines"
+msgstr "Operation Lines (操作ライン)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__op_name
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__op_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__op_name
+msgid "Operation Name"
+msgstr "Operation Name (操作名)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__op_no
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__op_no
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__operation_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__op_no
+msgid "Operation No."
+msgstr "Operation No. (運用番号)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__report_ids
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_operation_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Operations"
+msgstr "Operations (操作)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_process_operations
+msgid "Operations of in process inspection"
+msgstr "Operations of in process inspection (プロセス検査の操作)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Operator"
+msgstr "Operator (オペレーター)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__operator
+msgid "Operator / Responsible Person"
+msgstr "Operator / Responsible Person (オペレーター /責任者)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_sub_operations_lines_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_form
+msgid "Optimization"
+msgstr "Optimization (最適化)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_opt_ap_graph
+msgid "Optimization AP"
+msgstr "Optimization AP (最適化AP)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__pfmea_ap
+#: model_terms:ir.ui.view,arch_db:quality.board_top_ap_pfmea_form
+#: model_terms:ir.ui.view,arch_db:quality.view_top_ap_pfmea_opt_graph
+msgid "Optimization Action Priority"
+msgstr "Optimization Action Priority (最適化アクションの優先順位)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Optimized Action Priority"
+msgstr "Optimized Action Priority (最適化されたアクションの優先順位)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_category__other
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_sub_category__other
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__other
+msgid "Other"
+msgstr "Other (他の)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Overdue"
+msgstr "Overdue (期限切れ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__pfmea_aid_no
+msgid "PFMEA AID Number"
+msgstr "PFMEA AID Number (PFMEA援助番号)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__pfmea_ap
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__pfmea_ap
+msgid "PFMEA AP"
+msgstr "PFMEA AP (PFMEA AP)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_pivot
+msgid "PFMEA Analysis"
+msgstr "PFMEA Analysis (PFMEA分析)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_dashboard_report
+#: model:ir.model,name:quality.model_dashboard_report
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+#: model_terms:ir.ui.view,arch_db:quality.dashboard_report_tree
+msgid "PFMEA Dashboard"
+msgstr "PFMEA Dashboard (PFMEAダッシュボード)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_board_pfmea_dashboard
+msgid "PFMEA Dashboard Board"
+msgstr "PFMEA Dashboard Board (PFMEAダッシュボードボード)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_form
+msgid "PFMEA Dashboard Item"
+msgstr "PFMEA Dashboard Item (PFMEAダッシュボードアイテム)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_dashboard_report_scheduler
+msgid "PFMEA Dashboard Scheduler"
+msgstr "PFMEA Dashboard Scheduler (PFMEAダッシュボードスケジューラ)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "PFMEA Dashboard Search"
+msgstr "PFMEA Dashboard Search (PFMEAダッシュボード検索)"
+
+#. module: quality
+#: model:ir.actions.server,name:quality.ir_cron_refresh_pfmea_dashboard_ir_actions_server
+#: model:ir.cron,cron_name:quality.ir_cron_refresh_pfmea_dashboard
+msgid "PFMEA Dashboard: Auto Refresh"
+msgstr "PFMEA Dashboard: Auto Refresh (PFMEAダッシュボード：自動更新)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__pfmea_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__pfmea_id
+msgid "PFMEA Report"
+msgstr "PFMEA Report (PFMEAレポート)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__pfmea_revision_date
+msgid "PFMEA Revision Date"
+msgstr "PFMEA Revision Date (PFMEA改訂日)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__pfmea_start_date
+msgid "PFMEA Start Date"
+msgstr "PFMEA Start Date (PFMEA開始日)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_graph
+msgid "PFMEA Status"
+msgstr "PFMEA Status (PFMEAステータス)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "PFMEA Status Overview"
+msgstr "PFMEA Status Overview (PFMEAステータスの概要)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_pfmea_suggestions
+#: model:ir.ui.menu,name:quality.menu_pfmea_suggestions
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_tree
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_form
+msgid "PFMEA Suggestions"
+msgstr "PFMEA Suggestions (PFMEAの提案)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.process_fmea_menu
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "PFMEA-VDA-AIAG"
+msgstr "PFMEA-VDA-AIAG (pfmea-vda-aiag)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_process_report
+msgid "PFMEA-VDA_AIAG"
+msgstr "PFMEA-VDA_AIAG (PFMEA-VDA_AIAG)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_ppm_analysis
+msgid "PPM (Parts Per Million) Analysis"
+msgstr "PPM (Parts Per Million) Analysis (ppm（100万分の1）分析)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_ppm_analysis
+#: model:ir.ui.menu,name:quality.menu_ppm_analysis
+msgid "PPM Analysis"
+msgstr "PPM Analysis (PPM分析)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__ppm_level
+msgid "PPM Level"
+msgstr "PPM Level (PPMレベル)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_ppm_analysis_graph
+msgid "PPM Level Over Time"
+msgstr "PPM Level Over Time (時間の経過に伴うPPMレベル)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__page_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__page_no
+msgid "Page No."
+msgstr "Page No. (ページ番号)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__part_id
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__part_id
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__part_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__part_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__part_id
+#: model:ir.model.fields,field_description:quality.field_process_report__part_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__part_id
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Part"
+msgstr "Part (一部)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__part_description
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__part_description
+#: model:ir.model.fields,field_description:quality.field_non_conformance__part_description
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__part_description
+#: model:ir.model.fields,field_description:quality.field_process_report__part_description
+msgid "Part Description"
+msgstr "Part Description (パーツの説明)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__part_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__part_name
+#: model:ir.model.fields,field_description:quality.field_non_conformance__part_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__part_name
+#: model:ir.model.fields,field_description:quality.field_process_report__part_name
+msgid "Part Name"
+msgstr "Part Name (部品名)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__part_number
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__part_number
+#: model:ir.model.fields,field_description:quality.field_non_conformance__part_id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__part_number
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__part_number
+#: model:ir.model.fields,field_description:quality.field_process_report__part_number
+msgid "Part Number"
+msgstr "Part Number (部品番号)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_pfmea_suggestions
+msgid "Pfmea Suggestions"
+msgstr "Pfmea Suggestions (PFMEAの提案)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__customer_phone
+msgid "Phone"
+msgstr "Phone (電話)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__planned_efficiency
+msgid "Planned Efficiency (%)"
+msgstr "Planned Efficiency (%) (計画効率（％）)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_production_analysis__planned_production
+msgid "Planned Production"
+msgstr "Planned Production (計画された生産)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_graph
+msgid "Planned vs Actual Production"
+msgstr "Planned vs Actual Production (計画されている対実際の生産)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__plant_location
+msgid "Plant Location"
+msgstr "Plant Location (植物の場所)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_pre_inspection_observation
+msgid "Pre Dispatch Inspection Observations"
+msgstr "Pre Dispatch Inspection Observations (事前派遣検査の観察)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_pre_dispatch_report
+#: model:ir.ui.menu,name:quality.menu_pre_dispatch_inspection
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+msgid "Pre Dispatch Inspection Report"
+msgstr "Pre Dispatch Inspection Report (事前派遣検査報告書)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_pre_dispatch_report_lines
+msgid "Pre Dispatch Inspection Report Lines"
+msgstr "Pre Dispatch Inspection Report Lines (事前派遣検査報告書行)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Prediction of Failure Cause Occurring"
+msgstr "Prediction of Failure Cause Occurring (障害の予測原因が発生します)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__prevention_action
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__prevention_action
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__prevention_action
+msgid "Prevention Action"
+msgstr "Prevention Action (予防行動)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Print Report"
+msgstr "Print Report (印刷レポート)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__problem_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__problem_id
+msgid "Problem ID"
+msgstr "Problem ID (問題ID)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+msgid "Process Details"
+msgstr "Process Details (詳細を処理します)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_process_report
+#: model:ir.ui.menu,name:quality.menu_process_report_main
+msgid "Process Failure Mode and Effect Analysis"
+msgstr "Process Failure Mode and Effect Analysis (プロセス障害モードと効果分析)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_process_flow_class
+msgid "Process Flow Class"
+msgstr "Process Flow Class (プロセスフロークラス)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__cause_type__process_issue
+msgid "Process Issue"
+msgstr "Process Issue (プロセスの問題)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fpi_process_item
+#: model:ir.model.fields,field_description:quality.field_process_operations__fpi_process_item
+msgid "Process Item"
+msgstr "Process Item (プロセスアイテム)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Process Item - Function - Failure"
+msgstr "Process Item - Function - Failure (プロセス項目 - 機能 - 障害)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+msgid "Process Item Function"
+msgstr "Process Item Function (プロセスアイテム機能)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__process_line_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__process_line_id
+msgid "Process Line"
+msgstr "Process Line (プロセスライン)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__process_operation_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__process_operation_id
+msgid "Process Operation"
+msgstr "Process Operation (プロセス操作)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_process_operations
+#: model:ir.model,name:quality.model_process_operations
+msgid "Process Operations"
+msgstr "Process Operations (プロセス操作)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_operations__operations_id
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Process Report"
+msgstr "Process Report (プロセスレポート)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_process_report
+msgid "Process Reports"
+msgstr "Process Reports (レポートを処理します)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__process_responsibility
+msgid "Process Responsibility"
+msgstr "Process Responsibility (責任を処理します)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__process_step_name
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__process_step
+#: model:ir.model.fields,field_description:quality.field_process_operations__process_step
+#: model:ir.model.fields,field_description:quality.field_process_operations__process_step_name
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__process_step_name
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+msgid "Process Step"
+msgstr "Process Step (プロセスステップ)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Process Step - Function - Failure"
+msgstr "Process Step - Function - Failure (プロセスステップ - 機能 - 障害)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_operations__process_item
+msgid "Process Step Station No. and Name of Process Step"
+msgstr ""
+"Process Step Station No. and Name of Process Step "
+"(プロセスステップステーション番号とプロセスステップの名前)"
+
+#. module: quality
+#: model:ir.model.constraint,message:quality.constraint_pfmea_suggestions_process_step_issue_uniq
+msgid "Process Step and Issue combination must be unique!"
+msgstr ""
+"Process Step and Issue combination must be unique! "
+"(プロセスステップと問題の組み合わせは一意でなければなりません！)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_process_sub_operations_lines
+msgid "Process Sub Operations Lines"
+msgstr "Process Sub Operations Lines (サブオペレーションラインを処理します)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_process_suggestions
+#: model:ir.model,name:quality.model_process_suggestions
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_tree
+msgid "Process Suggestions"
+msgstr "Process Suggestions (プロセスの提案)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__process_work_element
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__process_work_element
+msgid "Process Work Element"
+msgstr "Process Work Element (作業要素を処理します)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_sub_operations_lines_form
+msgid "Process Work Element - Function - Failure"
+msgstr "Process Work Element - Function - Failure (プロセス作業要素 - 機能 - 障害)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_form
+msgid "Process Work Element - Function -Failure"
+msgstr "Process Work Element - Function -Failure (プロセス作業要素 - 機能 - ファイル)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_product_template
+msgid "Product"
+msgstr "Product (製品)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_operations__func_of_product_step
+msgid "Product Characteristics"
+msgstr "Product Characteristics (製品の特性)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_production_analysis
+#: model:ir.ui.menu,name:quality.menu_production_analysis_root
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_form
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_search
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_tree
+msgid "Production Analysis"
+msgstr "Production Analysis (生産分析)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_production_analysis
+msgid "Production Overview"
+msgstr "Production Overview (制作の概要)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__project_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__project_id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__project_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__project_id
+#: model:ir.model.fields,field_description:quality.field_process_report__project_id
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Project Name"
+msgstr "Project Name (プロジェクト名)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__process_report__confidentiality_level__proprietary
+msgid "Proprietary"
+msgstr "Proprietary (独自)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_qms_rejection_handling
+msgid "QMS Rejection Handling"
+msgstr "QMS Rejection Handling (QMS拒絶処理)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_category__quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_sub_category__quality
+msgid "Quality"
+msgstr "Quality (品質)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_quality_management
+msgid "Quality Management"
+msgstr "Quality Management (品質管理)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_ppm_root
+msgid "Quality Metrics"
+msgstr "Quality Metrics (品質指標)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__quantity_affected
+msgid "Quantity Affected"
+msgstr "Quantity Affected (影響を受ける量)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__quarantine_location
+msgid "Quarantine Location"
+msgstr "Quarantine Location (検疫所)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__quarantined
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Quarantined"
+msgstr "Quarantined (隔離)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Recommended Action for AP Items"
+msgstr "Recommended Action for AP Items (APアイテムの推奨アクション)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__name
+msgid "Reference"
+msgstr "Reference (参照)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Refresh"
+msgstr "Refresh (リフレッシュします)"
+
+#. module: quality
+#: model:ir.actions.server,name:quality.action_refresh_dashboard
+msgid "Refresh PFMEA Dashboard"
+msgstr "Refresh PFMEA Dashboard (PFMEAダッシュボードを更新します)"
+
+#. module: quality
+#: model:ir.actions.server,name:quality.action_refresh_top_ap
+msgid "Refresh Top AP Data"
+msgstr "Refresh Top AP Data (トップAPデータを更新します)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__rejected_by
+msgid "Rejected By"
+msgstr "Rejected By (拒否された)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_qms_rejection_handling
+msgid "Rejection Analysis"
+msgstr "Rejection Analysis (拒否分析)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__rejection_date
+msgid "Rejection Date"
+msgstr "Rejection Date (拒否日)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Rejection Details"
+msgstr "Rejection Details (拒否の詳細)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_qms_rejection_handling
+#: model:ir.ui.menu,name:quality.menu_qms_rejection_handling_root
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_calendar
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_tree
+msgid "Rejection Handling"
+msgstr "Rejection Handling (拒絶処理)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__rejection_reason
+msgid "Rejection Reason"
+msgstr "Rejection Reason (拒否の理由)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint__non_conformance_id
+msgid "Related NCR"
+msgstr "Related NCR (関連NCR)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__remarks
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__remarks
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__remarks
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__remarks
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__remarks
+msgid "Remarks"
+msgstr "Remarks (備考)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__disposition__repair
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__repair
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Repair"
+msgstr "Repair (修理)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__repair_date
+msgid "Repair Date"
+msgstr "Repair Date (修理日)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__repair_details
+#: model:ir.model.fields,field_description:quality.field_non_conformance__repair_ids
+msgid "Repair Details"
+msgstr "Repair Details (詳細を修理します)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+msgid "Report of In Coming inspection"
+msgstr "Report of In Coming inspection (今後の検査の報告)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+msgid "Report of In process inspection"
+msgstr "Report of In process inspection (プロセス検査の報告)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_coming_inspection_report
+msgid "Report of Incoming Inspection"
+msgstr "Report of Incoming Inspection (着信検査の報告)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_coming_inspection_report_line
+msgid "Report of Incoming Inspection Line"
+msgstr "Report of Incoming Inspection Line (着信検査ラインのレポート)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+msgid "Report of Pre Dispatch inspection"
+msgstr "Report of Pre Dispatch inspection (派遣前検査の報告)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_process_inspection_report
+msgid "Report of in process inspection"
+msgstr "Report of in process inspection (プロセス検査の報告)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_process_inspection_report_line
+msgid "Report of in process inspection line"
+msgstr "Report of in process inspection line (プロセス検査ラインのレポート)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_pre_dispatch_inspection_report
+msgid "Report of pre dispatch inspection"
+msgstr "Report of pre dispatch inspection (派遣前検査の報告)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_pre_dispatch_inspection_report_line
+msgid "Report of pre dispatch inspection line"
+msgstr "Report of pre dispatch inspection line (事前派遣検査ラインのレポート)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Reset to Draft"
+msgstr "Reset to Draft (ドラフトにリセットします)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__resolution_date
+msgid "Resolution Date"
+msgstr "Resolution Date (解決日)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Resolve"
+msgstr "Resolve (解決する)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__resolved
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Resolved"
+msgstr "Resolved (解決しました)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Responsible"
+msgstr "Responsible (責任者)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__department_id
+msgid "Responsible Department"
+msgstr "Responsible Department (責任ある部門)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__responsible_person_name
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__responsible_person
+msgid "Responsible Person"
+msgstr "Responsible Person (責任者)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__responsible_person_name
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__responsible_person_name
+msgid "Responsible Person Name"
+msgstr "Responsible Person Name (責任者の名前)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_user_id
+msgid "Responsible User"
+msgstr "Responsible User (責任あるユーザー)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__return_to_supplier
+msgid "Return to Supplier"
+msgstr "Return to Supplier (サプライヤーに戻ります)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__return_supplier_details
+msgid "Return to Supplier Details"
+msgstr "Return to Supplier Details (サプライヤーの詳細に戻ります)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__rev_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__rev_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__rev_date
+msgid "Rev. Date"
+msgstr "Rev. Date (Rev.日付)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__rev_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__rev_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__rev_no
+msgid "Rev. No."
+msgstr "Rev. No. (Rev. No.)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__revision_history_ids
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__revision_history_ids
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__revision_history_ids
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+msgid "Revision History"
+msgstr "Revision History (改訂履歴)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__disposition__rework
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__rework
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Rework"
+msgstr "Rework (やり直し)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__rework_action
+msgid "Rework Action"
+msgstr "Rework Action (アクションをやり直します)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__rework_deadline
+msgid "Rework Deadline"
+msgstr "Rework Deadline (締め切りをやり直します)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__rework_ids
+msgid "Rework Details"
+msgstr "Rework Details (詳細を作り直します)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__rework_instructions
+msgid "Rework Instructions"
+msgstr "Rework Instructions (指示をやり直します)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_my_custom_view
+#: model:ir.ui.menu,name:quality.menu_my_custom_menu
+#: model_terms:ir.ui.view,arch_db:quality.view_process_sub_operations_lines_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_form
+msgid "Risk Analysis"
+msgstr "Risk Analysis (リスク分析)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_risk_ap_graph
+msgid "Risk Analysis AP"
+msgstr "Risk Analysis AP (リスク分析AP)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__fmea_ap
+#: model_terms:ir.ui.view,arch_db:quality.board_top_ap_pfmea_form
+#: model_terms:ir.ui.view,arch_db:quality.view_top_ap_pfmea_risk_graph
+msgid "Risk Analysis Action Priority"
+msgstr "Risk Analysis Action Priority (リスク分析アクションの優先順位)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "SMS Delivery error (SMS配信エラー)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__disposition__scrap
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Scrap"
+msgstr "Scrap (スクラップ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__scrap_date
+msgid "Scrap Date"
+msgstr "Scrap Date (スクラップ日)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__scrap_ids
+msgid "Scrap Details"
+msgstr "Scrap Details (スクラップの詳細)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__reason
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__scrap_reason
+msgid "Scrap Reason"
+msgstr "Scrap Reason (スクラップ理由)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__scrapped
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Scrapped"
+msgstr "Scrapped (廃棄)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__scrap_quantity
+msgid "Scrapped Quantity"
+msgstr "Scrapped Quantity (廃棄された量)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Search Non-Conformances"
+msgstr "Search Non-Conformances (不適合を検索します)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Search Rejection Handling"
+msgstr "Search Rejection Handling (拒絶処理を検索します)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_customer_complaint_capa_wizard__language_id
+#: model:ir.model.fields,help:quality.field_dashboard_report__language_id
+#: model:ir.model.fields,help:quality.field_in_coming_inspection_report_line__language_id
+#: model:ir.model.fields,help:quality.field_in_inspection_observation__language_id
+#: model:ir.model.fields,help:quality.field_inspection_observation__language_id
+#: model:ir.model.fields,help:quality.field_ncr_repair__language_id
+#: model:ir.model.fields,help:quality.field_ncr_rework__language_id
+#: model:ir.model.fields,help:quality.field_ncr_scrap__language_id
+#: model:ir.model.fields,help:quality.field_ncr_useas_is__language_id
+#: model:ir.model.fields,help:quality.field_oee_analysis__language_id
+#: model:ir.model.fields,help:quality.field_ppm_analysis__language_id
+#: model:ir.model.fields,help:quality.field_pre_dispatch_inspection_report_line__language_id
+#: model:ir.model.fields,help:quality.field_pre_inspection_observation__language_id
+#: model:ir.model.fields,help:quality.field_production_analysis__language_id
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__language_id
+#: model:ir.model.fields,help:quality.field_top_ap_pfmea__language_id
+msgid "Select the language used to translate field values."
+msgstr ""
+"Select the language used to translate field values. "
+"(フィールド値を翻訳するために使用される言語を選択します。)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__09
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__09
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__09
+msgid "September"
+msgstr "September (9月)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__sequence
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__sequence
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__sequence
+msgid "Sequence"
+msgstr "Sequence (順序)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_category__service
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_sub_category__service
+msgid "Service"
+msgstr "Service (サービス)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Severity"
+msgstr "Severity (重大度)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__severity
+#: model:ir.model.fields,field_description:quality.field_process_operations__severity
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__severity
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__severity
+msgid "Severity (S) of FE"
+msgstr "Severity (S) of FE (Feの重症度)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__severity
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__severity_level
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__severity_level
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__severity
+msgid "Severity Level"
+msgstr "Severity Level (重大度)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_process_sub_operations_lines__severity_level
+#: model:ir.model.fields,help:quality.field_process_suggestions__severity_level
+msgid "Severity rating from 1-10"
+msgstr "Severity rating from 1-10 (1-10の重大度評価)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__shift
+#: model:ir.model.fields,field_description:quality.field_non_conformance__shift
+msgid "Shift"
+msgstr "Shift (シフト)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fpi_ship_to_plant
+#: model:ir.model.fields,field_description:quality.field_process_operations__fpi_ship_to_plant
+msgid "Ship to Plant"
+msgstr "Ship to Plant (植物に出荷します)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__show_buttons
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__show_buttons
+#: model:ir.model.fields,field_description:quality.field_non_conformance__show_buttons
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__show_buttons
+#: model:ir.model.fields,field_description:quality.field_process_report__show_buttons
+msgid "Show Buttons"
+msgstr "Show Buttons (ボタンを表示します)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__source_document
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Source Document"
+msgstr "Source Document (ソースドキュメント)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__source_document_id
+msgid "Source Document Reference"
+msgstr "Source Document Reference (ソースドキュメントリファレンス)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__special_characteristics
+msgid "Special Characteristics"
+msgstr "Special Characteristics (特別な特性)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__special_product_characteristics
+msgid "Special Product Characteristics"
+msgstr "Special Product Characteristics (特別な製品特性)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__sr_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__sr_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__sr_no
+msgid "Sr. No./Balloon No"
+msgstr "Sr. No./Balloon No (Sr. No./balloon no)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "State"
+msgstr "State (州)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__station_no
+#: model:ir.model.fields,field_description:quality.field_process_operations__station_no
+msgid "Station No."
+msgstr "Station No. (駅番号)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__status
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__final_status
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__state
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__final_status
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__state
+#: model:ir.model.fields,field_description:quality.field_non_conformance__final_status
+#: model:ir.model.fields,field_description:quality.field_non_conformance__state
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__final_status
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__state
+#: model:ir.model.fields,field_description:quality.field_process_report__final_status
+#: model:ir.model.fields,field_description:quality.field_process_report__state
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__status
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__status
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__state
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Status"
+msgstr "Status (状態)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities. (アクティビティに基づくステータス\n"
+"期限切れ：期日はすでに渡されています\n"
+"今日：アクティビティの日付は今日です\n"
+"計画：将来の活動。)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Status by Process"
+msgstr "Status by Process (プロセスごとのステータス)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Submit Complaint"
+msgstr "Submit Complaint (苦情を提出します)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_type__supplier
+msgid "Supplier"
+msgstr "Supplier (サプライヤー)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Supplier NCR"
+msgstr "Supplier NCR (サプライヤーNCR)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__suspected_qty
+msgid "Suspected Quantity"
+msgstr "Suspected Quantity (疑わしい数量)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_flow_class__symbol
+msgid "Symbol"
+msgstr "Symbol (シンボル)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__target_completion_date
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__target_completion_date
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__target_completion_date
+msgid "Target Completion Date"
+msgstr "Target Completion Date (目標完了日)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_calendar
+msgid "Target Completion Dates"
+msgstr "Target Completion Dates (ターゲットの完了日)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Target Date"
+msgstr "Target Date (目標日)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__technician
+msgid "Technician"
+msgstr "Technician (技術者)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_search
+msgid "This Year"
+msgstr "This Year (今年)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__time_date_inspection
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__time_date_inspection
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__time_date_inspection
+msgid "Time & Date of Inspection"
+msgstr "Time & Date of Inspection (検査の時間と日付)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_top_ap_pfmea_pivot
+msgid "Top AP Analysis"
+msgstr "Top AP Analysis (トップAP分析)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_board_top_ap_pfmea
+#: model_terms:ir.ui.view,arch_db:quality.board_top_ap_pfmea_form
+msgid "Top AP Dashboard"
+msgstr "Top AP Dashboard"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_top_ap_pfmea_form
+msgid "Top AP Items"
+msgstr "Top AP Items"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_top_ap_pfmea
+#: model:ir.model,name:quality.model_top_ap_pfmea
+#: model_terms:ir.ui.view,arch_db:quality.top_ap_pfmea_tree
+msgid "Top AP for PFMEA"
+msgstr "Top AP for PFMEA"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_top_ap_pfmea_form
+msgid "Top AP for PFMEA Item"
+msgstr "Top AP for PFMEA Item"
+
+#. module: quality
+#: model:ir.model,name:quality.model_top_ap_pfmea_scheduler
+msgid "Top AP for PFMEA Scheduler"
+msgstr "Top AP for PFMEA Scheduler"
+
+#. module: quality
+#: model:ir.actions.server,name:quality.ir_cron_refresh_top_ap_ir_actions_server
+#: model:ir.cron,cron_name:quality.ir_cron_refresh_top_ap
+msgid "Top AP for PFMEA: Auto Refresh"
+msgstr "Top AP for PFMEA: Auto Refresh"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Top Optimized AP Items"
+msgstr "Top Optimized AP Items"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_tree
+msgid "Total Affected"
+msgstr "Total Affected"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__total_parts
+msgid "Total Parts Produced"
+msgstr "Total Parts Produced"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_production_analysis
+msgid "Track and compare your planned vs actual production figures."
+msgstr "Track and compare your planned vs actual production figures."
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_non_conformance
+msgid "Track and manage non-conformities in your quality management system."
+msgstr "Track and manage non-conformities in your quality management system."
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_qms_rejection_handling
+msgid ""
+"Track and manage rejection cases from various sources\n"
+"                like GRN, Calibration, MSA, Customer Complaints, and NCRs."
+msgstr ""
+"Track and manage rejection cases from various sources\n"
+"                like GRN, Calibration, MSA, Customer Complaints, and NCRs."
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.tracking_sheet_menu
+msgid "Tracking Sheet"
+msgstr "Tracking Sheet"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Type of the exception activity on record."
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__status__under_consideration
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__status__under_consideration
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__status__under_consideration
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Under Consideration"
+msgstr "Under Consideration"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__under_review
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Under Review"
+msgstr "Under Review"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__uom_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__uom_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__uom_id
+msgid "Unit of Measure"
+msgstr "Unit of Measure"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__status__untouched
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__status__untouched
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__status__untouched
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Untouched"
+msgstr "Untouched"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Upcoming Target Dates"
+msgstr "Upcoming Target Dates"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_line_form
+msgid "Update Observations"
+msgstr "Update Observations"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__attachment
+msgid "Upload Image/Doc"
+msgstr "Upload Image/Doc"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__upper_limit
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__upper_limit
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__upper_limit
+msgid "Upper Limit"
+msgstr "Upper Limit"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__disposition__use_as_is
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__use_as_is
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Use As-Is"
+msgstr "Use As-Is"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__useas_is_ids
+msgid "Use-As-Is Details"
+msgstr "Use-As-Is Details"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__user_has_access_to_approve
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__user_has_access_to_approve
+#: model:ir.model.fields,field_description:quality.field_non_conformance__user_has_access_to_approve
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__user_has_access_to_approve
+#: model:ir.model.fields,field_description:quality.field_process_report__user_has_access_to_approve
+msgid "User Has Access"
+msgstr "User Has Access"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__verification_date
+msgid "Verification Date"
+msgstr "Verification Date"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__verified_by
+msgid "Verified By"
+msgstr "Verified By"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__website_message_ids
+msgid "Website Messages"
+msgstr "Website Messages"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__website_message_ids
+msgid "Website communication history"
+msgstr "Website communication history"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__year
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__year
+#: model:ir.model.fields,field_description:quality.field_production_analysis__year
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_search
+msgid "Year"
+msgstr "Year"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "e.g. Compressor Shaft"
+msgstr "e.g. Compressor Shaft"

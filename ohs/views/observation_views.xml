@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree View for Parent -->
+        <record id="view_observation_tree" model="ir.ui.view">
+            <field name="name">observation.record.tree</field>
+            <field name="model">observation.record</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="type"/>
+                    <field name="date"/>
+                    <field name="observers"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for Parent -->
+        <record id="view_observation_form" model="ir.ui.view">
+            <field name="name">observation.record.form</field>
+            <field name="model">observation.record</field>
+            <field name="arch" type="xml">
+                <form>
+
+                    <sheet>
+                         <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            Mock Drill Observation Record
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                        <group>
+                        <field name="type"/>
+                        <field name="date"/>
+                        <field name="observers"/>
+                    </group>
+                    <notebook>
+                        <page string="Details">
+                            <field name="observation_details_ids">
+                                <tree editable="bottom">
+                                    <field name="sl_no"/>
+                                    <field name="observations"/>
+                                    <field name="corrective_actions"/>
+                                    <field name="responsibility"/>
+                                    <field name="target_date"/>
+                                    <field name="completed_date"/>
+                                    <field name="verified"/>
+                                    <field name="verified_date"/>
+                                    <field name="vendor"/>
+                                    <field name="observer_signature" widget="binary"/>
+                                    <field name="verified_signature" widget="binary"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- Action to Open List View -->
+        <record id="action_observation_record" model="ir.actions.act_window">
+            <field name="name">Mock Drill Observation</field>
+            <field name="res_model">observation.record</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No records found. Create a new observation record.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu Item -->
+        <menuitem id="menu_observation_root"
+                  name="Mock Drill Observation"
+                  parent="menu_ohs_root"
+                  action="action_observation_record"
+                  sequence="4"/>
+    </data>
+</odoo>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Tree View -->
+    <record id="view_ocp_final_tree" model="ir.ui.view">
+        <field name="name">ocp.final.tree</field>
+        <field name="model">ocp.final</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="doc_no"/>
+                <field name="rev_no"/>
+                <field name="date"/>
+                <field name="prepared_by"/>
+                <field name="approved_by"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_ocp_final_form" model="ir.ui.view">
+        <field name="name">ocp.final.form</field>
+        <field name="model">ocp.final</field>
+        <field name="arch" type="xml">
+            <form string="OCP Final">
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #090d54 ; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            HR OCP Final
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <group>
+                        <group>
+                            <field name="doc_no"/>
+                            <field name="rev_no"/>
+                            <field name="date"/>
+                            <field name="purpose"/>
+                        </group>
+                        <group>
+                            <field name="responsibility"/>
+                            <field name="prepared_by"/>
+                            <field name="approved_by"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="OCP Lines">
+                            <field name="ocp_line_ids">
+                                <tree editable="bottom">
+                                    <field name="sr_no"/>
+                                    <field name="description"/>
+                                    <field name="resp"/>
+                                    <field name="ref_doc_no"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action and Menu (optional) -->
+    <record id="action_ocp_final" model="ir.actions.act_window">
+        <field name="name">OCP Final</field>
+        <field name="res_model">ocp.final</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_ocp_final" name="OCP Final" parent="menu_ohs_root" action="action_ocp_final" sequence="10"/>
+
+</odoo>

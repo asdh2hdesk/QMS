@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_calibration_tree" model="ir.ui.view">
+        <field name="name">msa.sheet.tree</field>
+        <field name="model">msa.sheet</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="approval_state=='draft'"
+                  decoration-warning="approval_state=='to_approve'" decoration-success="approval_state=='approved'"
+                  decoration-danger="approval_state=='rejected'">
+                <field name="name"/>
+                <field name="start"/>
+                <field name="end"/>
+                <field name="instrument_count"/>
+                <field name="approval_state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_calibration_form" model="ir.ui.view">
+        <field name="name">msa.sheet.form</field>
+        <field name="model">msa.sheet</field>
+        <field name="arch" type="xml">
+            <form string="MSA Work Sheet">
+                <header>
+                    <button name="action_submit_for_approve"
+                            type="object"
+                            string="Submit for Approval"
+                            class="btn-primary"
+                            icon="fa-paper-plane"
+                            attrs="{'invisible': [('approval_state', '!=', 'draft')]}"/>
+                    <button name="action_approve"
+                            type="object"
+                            string="Approve"
+                            class="btn-success"
+                            icon="fa-check"
+                            attrs="{'invisible': [('approval_state', '!=', 'to_approve')]}"/>
+                    <button name="action_reject"
+                            type="object"
+                            string="Reject"
+                            class="btn-danger"
+                            icon="fa-times"
+                            attrs="{'invisible': [('approval_state', '!=', 'to_approve')]}"/>
+                    <button name="generate_xls_report" type="object" string="Print Report" class="oe_highlight"
+                            icon="fa-print"/>
+
+                    <field name="approval_state" widget="statusbar"
+                           statusbar_visible="draft,to_approve,approved,rejected"/>
+
+
+                </header>
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            MSA SCHEDULE YEAR RANGE
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="start"/>
+                            <field name="end"/>
+
+                        </group>
+                        <group>
+                            <field name="instrument_count"/>
+                            <field name="approval_state" optional="hide"/>
+                            <field name="approved_by"/>
+
+
+                        </group>
+
+
+                    </group>
+                    <notebook>
+                        <page string="MSA Schedule">
+                            <field name="cal_sheet_ids">
+                                <tree>
+                                    <field name="equipment_id"/>
+                                    <field name="code"/>
+                                    <field name="location"/>
+                                    <field name="prepared_by"/>
+                                    <field name="cal_freq"/>
+                                    <field name="interval"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View for MSA Schedule -->
+    <record id="view_calibration_schedule_tree" model="ir.ui.view">
+        <field name="name">msa.sheet.schedule.tree</field>
+        <field name="model">msa.sheet.schedule</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sched_id"/>
+                <field name="equipment_id"/>
+                <field name="prepared_by"/>
+                <field name="cal_freq"/>
+                <field name="interval"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_calibration_schedule_graph" model="ir.ui.view">
+        <field name="name">msa.sheet.schedule.graph</field>
+        <field name="model">msa.sheet.schedule</field>
+        <field name="arch" type="xml">
+            <graph type="bar">
+
+                <field name="cal_freq" type="col"/>
+
+                <field name="id" type="measure" invisible="1"/>
+            </graph>
+        </field>
+    </record>
+    <record id="view_calibration_generate_search" model="ir.ui.view">
+        <field name="name">msa.sheet.generate.search</field>
+        <field name="model">msa.sheet.generate</field>
+        <field name="arch" type="xml">
+            <search string="MSA Sheet Search">
+                <!-- Filter for cal_freq -->
+                <filter string="Daily" name="daily" domain="[('cal_freq', '=', 'daily')]"/>
+                <filter string="Weekly" name="weekly" domain="[('cal_freq', '=', 'weekly')]"/>
+                <filter string="Monthly" name="monthly" domain="[('cal_freq', '=', 'monthly')]"/>
+                <!-- Optional: Group by cal_freq -->
+                <group name="groupby">
+                    <filter string="MSA Frequency" name="cal_freq" context="{'group_by': 'cal_freq'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="view_calibration_generate_graph" model="ir.ui.view">
+        <field name="name">msa.sheet.generate.graph</field>
+        <field name="model">msa.sheet.generate</field>
+        <field name="arch" type="xml">
+            <graph type="bar">
+
+                <field name="status" type="col"/>
+                <field name="cal_freq" type="col"/>
+
+                <field name="id" type="measure" invisible="1" operator="count"/>
+            </graph>
+        </field>
+    </record>
+
+
+    <!-- Form View for MSA Schedule -->
+    <record id="view_calibration_schedule_form" model="ir.ui.view">
+        <field name="name">msa.sheet.schedule.form</field>
+        <field name="model">msa.sheet.schedule</field>
+        <field name="arch" type="xml">
+            <form string="MSA Schedule">
+
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            MSA SCHEDULE FOR INSPECTION MEASURING TEST EQUIPMENT
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <group>
+                        <group>
+                            <field name="prepared_by"/>
+                            <field name="equipment_id"/>
+                            <field name="code"/>
+
+
+                        </group>
+                        <group>
+
+                            <field name="cal_freq"/>
+                            <field name="interval"/>
+                            <field name="current_date"/>
+
+                        </group>
+
+
+                    </group>
+                    <button name="generate_future_calibrations" style="width: 200px;" type="object"
+                            string="Genarate Schedule" class="btn-success"/>
+
+                    <notebook>
+                        <page string="MSA Generation">
+                            <field name="scd_ids">
+                                <tree decoration-danger="status == 'not_done'"
+                                      decoration-warning="status == 'pending'"
+                                      decoration-success="status == 'done'"
+                                      decoration-bf="scheduled_date and (scheduled_date &lt;= next_week_date and scheduled_date &gt;= current_date)"
+                                      decoration-info="status == 'not_started' and scheduled_date and (scheduled_date &lt;= next_week_date and scheduled_date &gt;= current_date)"
+                                      editable="bottom">
+                                    <field name="equipment_id"/>
+                                    <field name="code"/>
+                                    <field name="range" optional="hide"/>
+                                    <field name="make" optional="hide"/>
+                                    <field name="lc" optional="hide"/>
+                                    <field name="location"/>
+                                    <field name="gauge_type" optional="hide"/>
+                                    <field name="cal_freq"/>
+                                    <field name="interval"/>
+                                    <field name="scheduled_date"/>
+                                    <field name="completion_date"/>
+                                    <field name="status"/>
+
+                                    <field name="current_date" invisible="1"/>
+                                    <field name="next_week_date" invisible="1"/>
+                                    <field name="approved_by"/>
+                                    <field name="approval_state" optional="hide"/>
+                                    <field name="attachment" widget="attachment"/>
+                                    <field name="remarks"/>
+                                    <button name="action_open_calibration_report"
+                                            type="object"
+                                            string="Create Report"
+                                            class="btn-primary"
+                                            attrs="{'invisible': [('approval_state', '=', 'approved')]}"/>
+
+                                    <button name="action_open_calibration_report"
+                                            type="object"
+                                            string="View Report"
+                                            class="btn-secondary"
+                                            attrs="{'invisible': [('approval_state', 'not in', ['approved', 'rejected'])]}"/>
+
+
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_calibration_generate_calendar" model="ir.ui.view">
+        <field name="name">msa.sheet.generate.calendar</field>
+        <field name="model">msa.sheet.generate</field>
+        <field name="arch" type="xml">
+            <calendar string="MSA Schedule" date_start="scheduled_date">
+                <field name="equipment_id"/>
+                <field name="status"/>
+                <field name="location"/>
+            </calendar>
+        </field>
+    </record>
+    <record id="view_calibration_generate_daily_graph" model="ir.ui.view">
+        <field name="name">msa.sheet.generate.daily.graph</field>
+        <field name="model">msa.sheet.generate</field>
+        <field name="arch" type="xml">
+            <graph type="pie">
+                <field name="status" type="col"/>
+                <!-- Removed domain from cal_freq and made it optional/invisible if needed -->
+                <field name="cal_freq" invisible="1"/>
+            </graph>
+        </field>
+    </record>
+    <record id="action_calibration_generate_daily_graph" model="ir.actions.act_window">
+        <field name="name">Daily MSA Status</field>
+        <field name="res_model">msa.sheet.generate</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_calibration_generate_daily_graph"/>
+        <field name="domain">[('cal_freq', '=', 'daily')]</field>
+    </record>
+    <record id="view_calibration_generate_weekly_graph" model="ir.ui.view">
+        <field name="name">msa.sheet.generate.weekly.graph</field>
+        <field name="model">msa.sheet.generate</field>
+        <field name="arch" type="xml">
+            <graph type="pie">
+                <field name="status" type="col"/>
+                <field name="cal_freq" invisible="1"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_calibration_generate_weekly_graph" model="ir.actions.act_window">
+        <field name="name">Weekly MSA Status</field>
+        <field name="res_model">msa.sheet.generate</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_calibration_generate_weekly_graph"/>
+        <field name="domain">[('cal_freq', '=', 'weekly')]</field>
+    </record>
+    <record id="view_calibration_generate_monthly_graph" model="ir.ui.view">
+        <field name="name">msa.sheet.generate.monthly.graph</field>
+        <field name="model">msa.sheet.generate</field>
+        <field name="arch" type="xml">
+            <graph type="pie">
+                <field name="status" type="col"/>
+                <field name="cal_freq" invisible="1"/>
+            </graph>
+        </field>
+    </record>
+    <record id="action_calibration_generate_monthly_graph" model="ir.actions.act_window">
+        <field name="name">Monthly MSA Status</field>
+        <field name="res_model">msa.sheet.generate</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_calibration_generate_monthly_graph"/>
+        <field name="domain">[('cal_freq', '=', 'monthly')]</field>
+    </record>
+
+
+    <record id="view_calibration_generate_tree" model="ir.ui.view">
+        <field name="name">msa.sheet.generate.tree</field>
+        <field name="model">msa.sheet.generate</field>
+        <field name="arch" type="xml">
+            <tree decoration-danger="status == 'not_done'"
+                  decoration-warning="status == 'pending'"
+                  decoration-success="status == 'done'"
+                  decoration-bf="scheduled_date and (scheduled_date &lt;= next_week_date and scheduled_date &gt;= current_date)"
+                  decoration-info="status == 'not_started' and scheduled_date and (scheduled_date &lt;= next_week_date and scheduled_date &gt;= current_date)"
+                  editable="bottom">
+                <field name="equipment_id"/>
+                <field name="code" optional="hide"/>
+                <field name="range" optional="hide"/>
+                <field name="make" optional="hide"/>
+                <field name="lc" optional="hide"/>
+                <field name="location"/>
+                <field name="cal_freq"/>
+                <field name="interval"/>
+                <field name="scheduled_date"/>
+                <field name="completion_date"/>
+                <field name="status"/>
+                <field name="approved_by"/>
+                <field name="current_date" invisible="1"/>
+                <field name="next_week_date" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Tree View for MSA Report -->
+    <record id="view_calibration_report_tree" model="ir.ui.view">
+        <field name="name">msa.report.tree</field>
+        <field name="model">msa.report</field>
+        <field name="arch" type="xml">
+            <tree>
+
+                <field name="next_cal_date"/>
+                <field name="conclusion"/>
+                <field name="approved_by"/>
+
+            </tree>
+        </field>
+    </record>
+
+    
+
+
+    <!-- Action -->
+    <record id="action_calibration" model="ir.actions.act_window">
+        <field name="name">MSA Work Sheets</field>
+        <field name="res_model">msa.sheet</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="action_calibration_schedule" model="ir.actions.act_window">
+        <field name="name">MSA Schedules</field>
+        <field name="res_model">msa.sheet.schedule</field>
+        <field name="view_mode">tree,form,graph</field>
+        <field name="view_id" ref="view_calibration_schedule_graph"/>
+    </record>
+    <record id="action_calibration_generate" model="ir.actions.act_window">
+        <field name="name">MSA Generations</field>
+        <field name="res_model">msa.sheet.generate</field>
+        <field name="view_mode">tree,form,graph</field>
+        <field name="view_id" ref="view_calibration_generate_graph"/>
+        <field name="search_view_id" ref="view_calibration_generate_search"/>
+    </record>
+    
+    
+
+    <record id="board_calibration" model="ir.ui.view">
+        <field name="name">board.MSA.sheet.form</field>
+        <field name="model">board.board</field>
+        <field name="arch" type="xml">
+            <form string="Dashboard">
+                <board style="2-1">
+                    <column>
+                        <!-- Risk AP Chart -->
+                        <action name="%(action_calibration_generate)d" string="MSA Schedule "
+                                view_mode="graph" decoration="height: 1000px; width: 100%;"/>
+                        <!-- Optimization AP Chart -->
+                        <action name="%(action_calibration_schedule)d" string="MSA Schedule" view_mode="list"/>
+                    </column>
+                    <column>
+                        <!-- Main Table -->
+                        <action name="%(action_calibration_schedule)d" string="Bar Chart of MSA Schudule"
+                                view_mode="graph"/>
+                        <!-- Daily MSA with Explicit Domain -->
+                        <action
+                                name="%(action_calibration_generate_daily_graph)d"
+                                string="Pie Chart of Daily MSA Schedule"
+                                domain="[('cal_freq', '=', 'daily')]"
+                                view_mode="graph"/>
+
+                        <!-- Weekly MSA with Explicit Domain -->
+                        <action
+                                name="%(action_calibration_generate_weekly_graph)d"
+                                string="Pie Chart of Weekly MSA Schedule"
+                                domain="[('cal_freq', '=', 'weekly')]"
+                                view_mode="graph"/>
+
+                        <!-- Monthly MSA with Explicit Domain -->
+                        <action
+                                name="%(action_calibration_generate_monthly_graph)d"
+                                string="Pie Chart of Monthly MSA Schedule"
+                                domain="[('cal_freq', '=', 'monthly')]"
+                                view_mode="graph"/>
+                    </column>
+                </board>
+            </form>
+        </field>
+    </record>
+    
+      
+    <record id="custom_maintenance_equipment_form" model="ir.ui.view">
+        <field name="name">maintenance.hr_equipment_view_form.inherit</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group" position="inside">
+                <group>
+                    <field name="code"/>
+                    <field name="range"/>
+                    <field name="make"/>
+                    <field name="lc"/>
+                    <field name="location"/>
+                    <field name="gauge_type"/>
+
+
+                </group>
+
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_board_dashboard" model="ir.actions.act_window">
+        <field name="name">DashBoard</field>
+        <field name="res_model">board.board</field>
+        <field name="view_mode">tree,form</field>
+        <field name="usage">menu</field>
+        <field name="view_id" ref="board_calibration"/>
+    </record>
+
+    
+    
+
+
+
+    <menuitem id="menu_calibration_sheet" name="MSA Work Sheets"
+              parent="menu_gauge_rnr_root" action="action_calibration" sequence="20"/>
+    
+    <menuitem id="menu_calibration" name="DashBoard"
+              parent="menu_gauge_rnr_root" action="action_board_dashboard" sequence="10"/>
+ 
+
+
+</odoo>
+
+

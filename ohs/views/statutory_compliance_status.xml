@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View for Lines -->
+    <record id="view_statutory_approval_line_tree" model="ir.ui.view">
+        <field name="name">statutory.approval.line.tree</field>
+        <field name="model">statutory.approval.line</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="sr_no"/>
+                <field name="document_name"/>
+                <field name="when_to_apply"/>
+                <field name="responsibility"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Main Model -->
+    <record id="view_statutory_approval_form" model="ir.ui.view">
+        <field name="name">statutory.approval.form</field>
+        <field name="model">statutory.approval</field>
+        <field name="arch" type="xml">
+            <form string="Statutory Approval">
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #090d54 ; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            Statutory Approvals And NOCs
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <field name="statutory_approval_line_ids">
+                        <tree editable="bottom">
+                            <field name="sr_no"/>
+                            <field name="document_name"/>
+                            <field name="when_to_apply"/>
+                            <field name="responsibility"/>
+                            <field name="status"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View for Main Model -->
+    <record id="view_statutory_approval_tree" model="ir.ui.view">
+        <field name="name">statutory.approval.tree</field>
+        <field name="model">statutory.approval</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id" string="ID"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_statutory_approval" model="ir.actions.act_window">
+        <field name="name">Statutory Approvals</field>
+        <field name="res_model">statutory.approval</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_statutory_approvals" name="Statutory Approvals And NOCs"
+              parent="menu_ohs_root"
+              action="action_statutory_approval"/>
+</odoo>

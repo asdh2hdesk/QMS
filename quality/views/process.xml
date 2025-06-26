@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Process Report Tree View -->
+    <record id="view_process_report_tree" model="ir.ui.view">
+        <field name="name">process.report.tree</field>
+        <field name="model">process.report</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="state == 'draft'"
+                  decoration-success="state == 'confirm'">
+                <field name="company_name"/>
+                <field name="plant_location"/>
+                <field name="partner_id"/>
+                <field name="myp"/>
+                <field name="pfmea_start_date"/>
+                <field name="pfmea_revision_date"/>
+                <field name="state" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Process Report Form View -->
+    <record id="view_process_report_form" model="ir.ui.view">
+        <field name="name">process.report.form</field>
+        <field name="model">process.report</field>
+        <field name="arch" type="xml">
+            <form string="Process Report">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    <button name="action_open_copy_wizard" string="Copy Form" type="object" class="btn-primary"/>
+                    <button name="generate_xls_report" type="object" string="Print Report" class="oe_highlight"
+                            icon="fa-print"/>
+                </header>
+                <sheet>
+                    <div class="oe_title  mb-5">
+                        <h1 class="text-center">PFMEA-VDA-AIAG</h1>
+                        <h1>
+                            <label for="project_id" string="Project Name"/>
+                            <div class="d-flex">
+                                <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
+                            <field name="part_id"/>
+                            <field name="drawing_rev_no"/>
+                            <field name="company_name"/>
+                            <field name="plant_location"/>
+                            <field name="myp"/>
+                        </group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="pfmea_start_date"/>
+                            <field name="pfmea_revision_date"/>
+                            <field name="process_responsibility"/>
+                            <field name="confidentiality_level"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Operations">
+                            <field name="report_ids" widget="one2many_list">
+                                <tree>
+                                    <field name="issue"/>
+                                    <field name="station_no"/>
+                                    <field name="process_item"/>
+                                    <field name="process_step_name"/>
+
+                                </tree>
+                            </field>
+
+                        </page>
+                    </notebook>
+                    <group string="Initiator">
+                        <group>
+                            <field name="create_uid"/>
+                        </group>
+                        <group>
+                            <field name="create_date"/>
+                        </group>
+                    </group>
+                    <separator string="Approvers"/>
+                    <field name="iatf_members_ids" widget="many2many_tree"
+                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                           string="Approvers">
+                        <tree>
+                            <field name="approver_id"/>
+                            <field name="department_id"/>
+                            <field name="comment"/>
+                            <field name="date_approved_rejected"/>
+                            <field name="approval_status" widget="badge"
+                                   decoration-danger="approval_status == 'rejected'"
+                                   decoration-info="approval_status == 'revision'"
+                                   decoration-success="approval_status == 'approved'"/>
+                        </tree>
+                    </field>
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Process Operations Tree View -->
+    <record id="view_process_operations_tree" model="ir.ui.view">
+        <field name="name">process.operations.tree</field>
+        <field name="model">process.operations</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="issue"/>
+                <field name="station_no"/>
+                <field name="process_item"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <!-- Process Operations Form View -->
+    <record id="view_process_operations_form" model="ir.ui.view">
+        <field name="name">process.operations.form</field>
+        <field name="model">process.operations</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="process_step"/>
+
+                    </group>
+                    <group string="CONTINUOUS IMPROVEMENT">
+                        <group>
+                            <field name="issue"/>
+                        </group>
+                        <group>
+                            <field name="hca"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Process Item - Function - Failure">
+                            <field name="process_item"/>
+                            <field name="fpi_process_item"/>
+                            <field name="fpi_in_plant"/>
+                            <field name="fpi_ship_to_plant"/>
+                            <field name="fpi_end_user"/>
+                        </group>
+                        <group string="Failure Effects">
+                            <field name="fe_in_plant"/>
+                            <field name="fe_customer_end"/>
+                            <field name="fe_end_user"/>
+                            <field name="severity"/>
+
+                        </group>
+                    </group>
+                    <group string="Process Step - Function - Failure">
+                        <group>
+                            <field name="station_no"/>
+                            <field name="func_of_process_step"/>
+                            <field name="func_of_product_step"/>
+                            <field name="special_product_characteristics"/>
+                        </group>
+                        <group>
+                            <field name="process_step_name"/>
+                            <field name="failure_mode"/>
+
+
+                        </group>
+                    </group>
+
+
+                    <notebook>
+                        <!--                        <page string="Sub-Operations">-->
+                        <!--                            <field name="process_ids" widget="one2many_list">-->
+                        <!--                                <tree>-->
+
+                        <!--                                    <field name="severity"/>-->
+                        <!--                                    <field name="work_type"/>-->
+                        <!--                                    <field name="line_ids"/>-->
+
+
+                        <!--                                </tree>-->
+                        <!--                            </field>-->
+
+                        <!--                        </page>-->
+
+                        <page string="Man">
+                            <field name="man_line_ids" widget="one2many_list">
+                                <tree>
+                                    <field name="work_type" invisible="1"/>
+                                    <field name="process_work_element"/>
+                                    <field name="function_of_process_work_element"/>
+                                    <field name="failure_causes"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Machine">
+                            <field name="machine_line_ids" widget="one2many_list">
+                                <tree>
+                                    <field name="work_type" invisible="1"/>
+                                    <field name="process_work_element"/>
+                                    <field name="function_of_process_work_element"/>
+                                    <field name="failure_causes"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Material">
+                            <field name="material_line_ids" widget="one2many_list">
+                                <tree>
+                                    <field name="work_type" invisible="1"/>
+                                    <field name="process_work_element"/>
+                                    <field name="function_of_process_work_element"/>
+                                    <field name="failure_causes"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Environment">
+                            <field name="environment_line_ids" widget="one2many_list">
+                                <tree>
+                                    <field name="work_type" invisible="1"/>
+                                    <field name="process_work_element"/>
+                                    <field name="function_of_process_work_element"/>
+                                    <field name="failure_causes"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Method">
+                            <field name="method_line_ids" widget="one2many_list">
+                                <tree>
+                                    <field name="work_type" invisible="1"/>
+                                    <field name="process_work_element"/>
+                                    <field name="function_of_process_work_element"/>
+                                    <field name="failure_causes"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Process Operations Sub Tree View -->
+    <!--    <record id="view_process_sub_operations_tree" model="ir.ui.view">-->
+    <!--        <field name="name">process.sub.operations.tree</field>-->
+    <!--        <field name="model">process.sub.operations</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <tree>-->
+    <!--                <field name="severity"/>-->
+    <!--                <field name="work_type"/>-->
+
+
+    <!--            </tree>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+
+    <!-- Form View for Process Sub Operations -->
+    <!--    <record id="view_process_sub_operations_form" model="ir.ui.view">-->
+    <!--        <field name="name">process.sub.operations.form</field>-->
+    <!--        <field name="model">process.sub.operations</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <form>-->
+    <!--                <sheet>-->
+    <!--                    <group string="Process Work Element - Function - Failure">-->
+    <!--                        <group>-->
+    <!--                            <field name="work_type"/>-->
+    <!--                        </group>-->
+    <!--                        <group>-->
+    <!--                            <field name="severity"/>-->
+    <!--                        </group>-->
+    <!--                    </group>-->
+    <!--                    <notebook>-->
+    <!--                        <page string="Sub lines Operations">-->
+    <!--                            <field name="line_ids" widget="one2many_list">-->
+    <!--                                <tree>-->
+    <!--                                    <field name="process_work_element"/>-->
+    <!--                                    <field name="function_of_process_work_element"/>-->
+    <!--                                    <field name="failure_causes"/>-->
+    <!--                                </tree>-->
+    <!--                            </field>-->
+    <!--                        </page>-->
+    <!--                    </notebook>-->
+    <!--                </sheet>-->
+    <!--            </form>-->
+    <!--        </field>-->
+    <!--    </record>-->
+    <!-- Tree View for Sub Operations Lines -->
+    <record id="view_process_sub_operations_lines_tree" model="ir.ui.view">
+        <field name="name">process.sub.operations.lines.tree</field>
+        <field name="model">process.sub.operations.lines</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="process_work_element"/>
+                <field name="function_of_process_work_element"/>
+                <field name="failure_causes"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Sub Operations Lines -->
+    <record id="view_process_sub_operations_lines_form" model="ir.ui.view">
+        <field name="name">process.sub.operations.lines.form</field>
+        <field name="model">process.sub.operations.lines</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group string="Process Work Element - Function - Failure">
+                        <group>
+                            <!--                            <field name="work_type"/>-->
+                            <field name="process_work_element"/>
+                            <field name="severity" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="function_of_process_work_element"/>
+                            <field name="failure_causes"/>
+                        </group>
+                    </group>
+
+                    <!-- Risk Analysis Section -->
+                    <group string="Risk Analysis">
+                        <group>
+                            <field name="current_prevention_control"/>
+                            <field name="occurrence"/>
+                            <field name="fmea_ap"/>
+                        </group>
+                        <group>
+                            <field name="current_detection_control"/>
+                            <field name="detection"/>
+                            <field name="filter_code"/>
+                        </group>
+                    </group>
+
+                    <!-- Optimization Section -->
+                    <group string="Optimization"
+                           style="background-color: #f5f5f5;text-align:center; padding: 10px; border-radius: 5px;">
+                        <group>
+                            <field name="prevention_action"/>
+                            <field name="responsible_person_name"/>
+                            <field name="status"/>
+                            <field name="completion_date"/>
+                            <field name="occurrence_level"/>
+                            <field name="special_characteristics"/>
+                        </group>
+                        <group>
+                            <field name="detection_action"/>
+                            <field name="target_completion_date"/>
+                            <field name="action_taken"/>
+                            <field name="severity_level"/>
+                            <field name="detection_level"/>
+                            <field name="pfmea_ap"/>
+                        </group>
+                    </group>
+
+                    <!-- Additional Information Section -->
+                    <group string="Additional Information">
+                        <field name="remarks"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Process Report Copy Wizard Form View -->
+    <record id="view_process_report_copy_wizard" model="ir.ui.view">
+        <field name="name">process.report.copy.wizard.form</field>
+        <field name="model">process.report.copy.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Copy Process Report">
+                <group>
+<!--                    <field name="current_record_id" readonly="1"/>-->
+                    <field name="selected_record_id"/>
+                </group>
+                <footer>
+                    <button string="Copy" type="object" name="action_copy_data" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Process Report Action -->
+    <record id="action_process_report" model="ir.actions.act_window">
+        <field name="name">Process Failure Mode and Effect Analysis</field>
+        <field name="res_model">process.report</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>Create and manage process reports.</p>
+        </field>
+    </record>
+
+
+    <!-- Process Operations Action -->
+    <record id="action_process_operations" model="ir.actions.act_window">
+        <field name="name">Process Operations</field>
+        <field name="res_model">process.operations</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!--    &lt;!&ndash; Process Operations Sub Action &ndash;&gt;-->
+    <!--    <record id="action_process_operations_sub" model="ir.actions.act_window">-->
+    <!--        <field name="name">Sub Operations</field>-->
+    <!--        <field name="res_model">process.sub.operations</field>-->
+    <!--        <field name="view_mode">tree,form</field>-->
+    <!--    </record>-->
+    <!-- Process Report Menu -->
+    <menuitem id="process_fmea_menu" name="PFMEA-VDA-AIAG" parent="iatf.iatf_menu_engg" sequence="10"/>
+    <menuitem id="menu_process_report_main" name="Process Failure Mode and Effect Analysis"
+              action="action_process_report" parent="process_fmea_menu" sequence="1"/>
+
+
+</odoo>

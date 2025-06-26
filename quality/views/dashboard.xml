@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Top AP Tree View -->
+    <record id="top_ap_pfmea_tree" model="ir.ui.view">
+        <field name="name">top.ap.pfmea.tree</field>
+        <field name="model">top.ap.pfmea</field>
+        <field name="arch" type="xml">
+            <tree string="Top AP for PFMEA" limit="10" default_order="fmea_ap_sort desc">
+                <field name="problem_id"/>
+                <field name="part_id"/>
+                <field name="process_step_name"/>
+                <field name="work_type"/>
+                <field name="failure_mode"/>
+                <field name="failure_causes"/>
+                <field name="fmea_ap" widget="badge" decoration-danger="fmea_ap == 'H'" decoration-warning="fmea_ap == 'M'" decoration-success="fmea_ap == 'L'"/>
+                <field name="pfmea_ap" widget="badge" decoration-danger="pfmea_ap == 'H'" decoration-warning="pfmea_ap == 'M'" decoration-success="pfmea_ap == 'L'"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Top AP Form View -->
+    <record id="view_top_ap_pfmea_form" model="ir.ui.view">
+        <field name="name">top.ap.pfmea.form</field>
+        <field name="model">top.ap.pfmea</field>
+        <field name="arch" type="xml">
+            <form string="Top AP for PFMEA Item" create="false" edit="false" delete="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="problem_id"/>
+                            <field name="part_id" />
+                            <field name="process_step_name"/>
+                            <field name="work_type"/>
+                        </group>
+                        <group>
+                            <field name="failure_mode"/>
+                            <field name="failure_causes"/>
+                            <field name="fmea_ap" widget="badge"/>
+                            <field name="pfmea_ap" widget="badge"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="process_operation_id" invisible="1"/>
+                        <field name="process_line_id" invisible="1"/>
+                        <field name="company_id" invisible="1"/>
+                        <field name="pfmea_id" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Risk Analysis AP Pie Chart -->
+    <record id="view_top_ap_pfmea_risk_graph" model="ir.ui.view">
+        <field name="name">top.ap.pfmea.risk.graph</field>
+        <field name="model">top.ap.pfmea</field>
+        <field name="arch" type="xml">
+            <graph string="Risk Analysis Action Priority" type="pie" >
+                <field name="fmea_ap"/>
+                <field name="id" type="measure" invisible="1"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Optimization AP Pie Chart -->
+    <record id="view_top_ap_pfmea_opt_graph" model="ir.ui.view">
+        <field name="name">top.ap.pfmea.opt.graph</field>
+        <field name="model">top.ap.pfmea</field>
+        <field name="arch" type="xml">
+            <graph string="Optimization Action Priority" type="pie">
+                <field name="pfmea_ap"/>
+                <field name="id" type="measure" invisible="1"/>
+
+            </graph>
+        </field>
+    </record>
+
+    <!-- Top AP Pivot View -->
+    <record id="view_top_ap_pfmea_pivot" model="ir.ui.view">
+        <field name="name">top.ap.pfmea.pivot</field>
+        <field name="model">top.ap.pfmea</field>
+        <field name="arch" type="xml">
+            <pivot string="Top AP Analysis">
+                <field name="part_id" type="row"/>
+                <field name="process_step_name" type="row"/>
+                <field name="work_type" type="row"/>
+                <field name="fmea_ap" type="col"/>
+                <field name="pfmea_ap" type="col"/>
+                <field name="id" type="measure" invisible="1"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Top AP Action -->
+    <record id="action_top_ap_pfmea" model="ir.actions.act_window">
+        <field name="name">Top AP for PFMEA</field>
+        <field name="res_model">top.ap.pfmea</field>
+        <field name="view_mode">tree,form,graph,pivot</field>
+        <field name="context">{'search_default_group_by_fmea_ap': 1}</field>
+    </record>
+
+    <!-- Risk AP Action -->
+    <record id="action_risk_ap_graph" model="ir.actions.act_window">
+        <field name="name">Risk Analysis AP</field>
+        <field name="res_model">top.ap.pfmea</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_top_ap_pfmea_risk_graph"/>
+    </record>
+
+    <!-- Optimization AP Action -->
+    <record id="action_opt_ap_graph" model="ir.actions.act_window">
+        <field name="name">Optimization AP</field>
+        <field name="res_model">top.ap.pfmea</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_top_ap_pfmea_opt_graph"/>
+    </record>
+
+    <!-- Refresh Top AP Action -->
+    <record id="action_refresh_top_ap" model="ir.actions.server">
+        <field name="name">Refresh Top AP Data</field>
+        <field name="model_id" ref="model_top_ap_pfmea"/>
+        <field name="state">code</field>
+        <field name="code">model.refresh_top_ap_data()</field>
+    </record>
+
+<!--    &lt;!&ndash; Menu Items &ndash;&gt;-->
+<!--    <menuitem id="menu_top_ap_pfmea_main" name="Top AP for PFMEA" parent="process_fmea_menu" sequence="15"/>-->
+<!--    <menuitem id="menu_top_ap_pfmea" name="Top AP Table" parent="menu_top_ap_pfmea_main" action="action_top_ap_pfmea" sequence="1"/>-->
+<!--    <menuitem id="menu_risk_ap_graph" name="Risk Analysis AP" parent="menu_top_ap_pfmea_main" action="action_risk_ap_graph" sequence="2"/>-->
+<!--    <menuitem id="menu_opt_ap_graph" name="Optimization AP" parent="menu_top_ap_pfmea_main" action="action_opt_ap_graph" sequence="3"/>-->
+<!--    <menuitem id="menu_top_ap_refresh" name="Refresh Top AP Data" parent="menu_top_ap_pfmea_main" action="action_refresh_top_ap" sequence="4"/>-->
+
+    <!-- Board View -->
+    <record id="board_top_ap_pfmea_form" model="ir.ui.view">
+        <field name="name">board.top.ap.pfmea.form</field>
+        <field name="model">board.board</field>
+        <field name="arch" type="xml">
+            <form string="Top AP Dashboard">
+                <board style="2-1">
+                    <column>
+                        <!-- Risk AP Chart -->
+                        <action name="%(action_risk_ap_graph)d" string="Risk Analysis Action Priority" view_mode="graph"/>
+                        <!-- Optimization AP Chart -->
+                        <action name="%(action_opt_ap_graph)d" string="Optimization Action Priority" view_mode="graph"/>
+                    </column>
+                    <column>
+                        <!-- Main Table -->
+                        <action name="%(action_top_ap_pfmea)d" string="Top AP Items" view_mode="list" limit="10"/>
+                    </column>
+                </board>
+            </form>
+        </field>
+    </record>
+
+    <!-- Board Action -->
+    <record id="action_board_top_ap_pfmea" model="ir.actions.act_window">
+        <field name="name">Top AP Dashboard</field>
+        <field name="res_model">board.board</field>
+        <field name="view_mode">tree,form</field>
+        <field name="usage">menu</field>
+        <field name="view_id" ref="board_top_ap_pfmea_form"/>
+    </record>
+
+<!--    &lt;!&ndash; Board Menu Item &ndash;&gt;-->
+<!--    <menuitem id="menu_top_ap_board" name="Top AP Dashboard" parent="menu_top_ap_pfmea_main" action="action_board_top_ap_pfmea" sequence="0"/>-->
+
+    <!-- Scheduled Action for Top AP Refresh -->
+    <record id="ir_cron_refresh_top_ap" model="ir.cron">
+        <field name="name">Top AP for PFMEA: Auto Refresh</field>
+        <field name="model_id" ref="model_top_ap_pfmea_scheduler"/>
+        <field name="state">code</field>
+        <field name="code">model.refresh_top_ap()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="active" eval="True"/>
+    </record>
+</odoo>

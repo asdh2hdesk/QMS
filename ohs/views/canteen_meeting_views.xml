@@ -1,0 +1,59 @@
+<odoo>
+    <record id="view_canteen_meeting_form" model="ir.ui.view">
+        <field name="name">canteen.meeting.form</field>
+        <field name="model">canteen.meeting</field>
+        <field name="arch" type="xml">
+            <form string="Canteen Meeting">
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            Canteen Meeting Schedule Plan
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    
+                    <group>
+                        <field name="line_ids">
+                            <tree editable="bottom">
+                                <field name="jan"/>
+                                <field name="feb"/>
+                                <field name="mar"/>
+                                <field name="apr"/>
+                                <field name="may"/>
+                                <field name="jun"/>
+                                <field name="jul"/>
+                                <field name="aug"/>
+                                <field name="sep"/>
+                                <field name="oct"/>
+                                <field name="nov"/>
+                                <field name="dec"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_canteen_meeting_tree" model="ir.ui.view">
+        <field name="name">canteen.meeting.tree</field>
+        <field name="model">canteen.meeting</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id"/>
+                <field name="line_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_canteen_meeting" model="ir.actions.act_window">
+        <field name="name">Canteen Meeting</field>
+        <field name="res_model">canteen.meeting</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
+    <menuitem id="menu_canteen_meeting_action" name="Canteen Meetings" parent="menu_ohs_root" action="action_canteen_meeting"/>
+</odoo>

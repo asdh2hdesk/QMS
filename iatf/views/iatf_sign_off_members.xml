@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         Tree view for iatf.members.data
+        <record id="iatf_sign_off_members_tree_view" model="ir.ui.view">
+            <field name="name">iatf.members.data.tree</field>
+            <field name="model">iatf.members.data</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="approval_status" widget="badge" decoration-danger="approval_status == 'rejected'"
+                           decoration-info="approval_status == 'revision'"
+                           decoration-success="approval_status == 'approved'"/>
+                    <field name="date_approved_rejected"/>
+                    <field name="approver_id"/>
+                    <field name="department_id"/>
+                    <field name="comment"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view for approve.document.wizard -->
+        <record id="view_approve_document_wizard" model="ir.ui.view">
+            <field name="name">approve.document.wizard.form</field>
+            <field name="model">approve.document.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Approve/Reject/Revise Document">
+                    <div>
+                        <h1>
+                            <field name="action" readonly="1" decoration-danger="action == 'reject'"
+                                   decoration-info="action == 'revise'"
+                                   decoration-success="action == 'approve'"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="comment" attrs="{'required': [('action', 'in', ['reject', 'revise'])]}"/>
+                    </group>
+                    <footer>
+                        <button name="confirm_action" string="Confirm" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

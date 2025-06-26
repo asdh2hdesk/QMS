@@ -1,0 +1,2516 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* msa
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-07 07:28+0000\n"
+"PO-Revision-Date: 2025-06-07 07:28+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__av_percent_tv
+msgid "%AV"
+msgstr "%AV (%Av)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__av_percent_tolerance
+msgid "%AV of Tolerance"
+msgstr "%AV of Tolerance (%AV di tolleranza)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__ev_percent_tv
+msgid "%EV"
+msgstr "%EV (%Ev)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__ev_percent_tolerance
+msgid "%EV of Tolerance"
+msgstr "%EV of Tolerance (%EV di tolleranza)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__grr_percent_tv
+msgid "%GRR"
+msgstr "%GRR (%Grr)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__grr_percent_tolerance
+msgid "%GRR of Tolerance"
+msgstr "%GRR of Tolerance (%GRR di tolleranza)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__pv_percent_tv
+msgid "%PV"
+msgstr "%PV (%PV)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__pv_percent_tolerance
+msgid "%PV of Tolerance"
+msgstr "%PV of Tolerance (%PV di tolleranza)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "&lt; 15"
+msgstr "&lt; 15 (& lt;15)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.099"
+msgstr "0.099 (0,099)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.102"
+msgstr "0.102 (0.102)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.123"
+msgstr "0.123 (0.123)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.136"
+msgstr "0.136 (0.136)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.149"
+msgstr "0.149 (0.149)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.163"
+msgstr "0.163 (0.163)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.172"
+msgstr "0.172 (0.172)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.186"
+msgstr "0.186 (0.186)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.192"
+msgstr "0.192 (0.192)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.203"
+msgstr "0.203 (0,203)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.204"
+msgstr "0.204 (0,204)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.208"
+msgstr "0.208 (0,208)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.224"
+msgstr "0.224 (0.224)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.226"
+msgstr "0.226 (0.226)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.233"
+msgstr "0.233 (0.233)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.242"
+msgstr "0.242 (0.242)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.245"
+msgstr "0.245 (0.245)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.246"
+msgstr "0.246 (0.246)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.253"
+msgstr "0.253 (0,253)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.264"
+msgstr "0.264 (0,264)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.278"
+msgstr "0.278 (0.278)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.292"
+msgstr "0.292 (0.292)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.299"
+msgstr "0.299 (0.299)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.306"
+msgstr "0.306 (0,306)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.309"
+msgstr "0.309 (0,309)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.322"
+msgstr "0.322 (0.322)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.329"
+msgstr "0.329 (0.329)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.331"
+msgstr "0.331 (0.331)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.333"
+msgstr "0.333 (0.333)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.346"
+msgstr "0.346 (0.346)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.357"
+msgstr "0.357 (0.357)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.388"
+msgstr "0.388 (0.388)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.389"
+msgstr "0.389 (0.389)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.395"
+msgstr "0.395 (0.395)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.400"
+msgstr "0.400 (0.400)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.406"
+msgstr "0.406 (0.406)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.408"
+msgstr "0.408 (0.408)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.416"
+msgstr "0.416 (0.416)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.435"
+msgstr "0.435 (0.435)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.436"
+msgstr "0.436 (0.436)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.442"
+msgstr "0.442 (0.442)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.451"
+msgstr "0.451 (0.451)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.475"
+msgstr "0.475 (0.475)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.478"
+msgstr "0.478 (0.478)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.485"
+msgstr "0.485 (0.485)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.501"
+msgstr "0.501 (0,501)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.505"
+msgstr "0.505 (0,505)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.506"
+msgstr "0.506 (0,506)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.511"
+msgstr "0.511 (0,511)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.519"
+msgstr "0.519 (0,519)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.530"
+msgstr "0.530 (0,530)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.531"
+msgstr "0.531 (0,531)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.556"
+msgstr "0.556 (0,556)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.559"
+msgstr "0.559 (0,559)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.569"
+msgstr "0.569 (0,569)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.575"
+msgstr "0.575 (0,575)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.592"
+msgstr "0.592 (0,592)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.599"
+msgstr "0.599 (0,599)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.603"
+msgstr "0.603 (0.603)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.610"
+msgstr "0.610 (0.610)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.630"
+msgstr "0.630 (0.630)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.635"
+msgstr "0.635 (0.635)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.638"
+msgstr "0.638 (0.638)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.649"
+msgstr "0.649 (0.649)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.658"
+msgstr "0.658 (0.658)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.668"
+msgstr "0.668 (0.668)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.669"
+msgstr "0.669 (0.669)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.672"
+msgstr "0.672 (0.672)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.678"
+msgstr "0.678 (0.678)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.681"
+msgstr "0.681 (0.681)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.696"
+msgstr "0.696 (0.696)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.703"
+msgstr "0.703 (0.703)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.719"
+msgstr "0.719 (0.719)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.724"
+msgstr "0.724 (0.724)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.728"
+msgstr "0.728 (0.728)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.743"
+msgstr "0.743 (0.743)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.757"
+msgstr "0.757 (0.757)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.781"
+msgstr "0.781 (0.781)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.803"
+msgstr "0.803 (0.803)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.814"
+msgstr "0.814 (0.814)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.827"
+msgstr "0.827 (0.827)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "0.831"
+msgstr "0.831 (0.831)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.084"
+msgstr "1.084 (1.084)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.128"
+msgstr "1.128 (1.128)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.15"
+msgstr "1.15 (1.15)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.16"
+msgstr "1.16 (1.16)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.169"
+msgstr "1.169 (1.169)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.17"
+msgstr "1.17 (1.17)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.173"
+msgstr "1.173 (1.173)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.18"
+msgstr "1.18 (1.18)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.19"
+msgstr "1.19 (1.19)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.197"
+msgstr "1.197 (1.197)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.21"
+msgstr "1.21 (1.21)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.219"
+msgstr "1.219 (1.219)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.23"
+msgstr "1.23 (1.23)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.243"
+msgstr "1.243 (1.243)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.257"
+msgstr "1.257 (1.257)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.272"
+msgstr "1.272 (1.272)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.276"
+msgstr "1.276 (1.276)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.278"
+msgstr "1.278 (1.278)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.28"
+msgstr "1.28 (1.28)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.297"
+msgstr "1.297 (1.297)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.304"
+msgstr "1.304 (1.304)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.315"
+msgstr "1.315 (1.315)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.328"
+msgstr "1.328 (1.328)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.332"
+msgstr "1.332 (1.332)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.333"
+msgstr "1.333 (1.333)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.351"
+msgstr "1.351 (1.351)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.352"
+msgstr "1.352 (1.352)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.360"
+msgstr "1.360 (1.360)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.365"
+msgstr "1.365 (1.365)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.370"
+msgstr "1.370 (1.370)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.389"
+msgstr "1.389 (1.389)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.397"
+msgstr "1.397 (1.397)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.41"
+msgstr "1.41 (1.41)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.425"
+msgstr "1.425 (1.425)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.431"
+msgstr "1.431 (1.431)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.433"
+msgstr "1.433 (1.433)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.470"
+msgstr "1.470 (1.470)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.476"
+msgstr "1.476 (1.476)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.485"
+msgstr "1.485 (1.485)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.515"
+msgstr "1.515 (1.515)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.525"
+msgstr "1.525 (1.525)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.534"
+msgstr "1.534 (1.534)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.538"
+msgstr "1.538 (1.538)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.547"
+msgstr "1.547 (1.547)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.585"
+msgstr "1.585 (1.585)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.605"
+msgstr "1.605 (1.605)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.625"
+msgstr "1.625 (1.625)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.637"
+msgstr "1.637 (1.637)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.693"
+msgstr "1.693 (1.693)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.701"
+msgstr "1.701 (1.701)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.71"
+msgstr "1.71 (1.71)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.72"
+msgstr "1.72 (1.72)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.73"
+msgstr "1.73 (1.73)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.74"
+msgstr "1.74 (1.74)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.75"
+msgstr "1.75 (1.75)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.764"
+msgstr "1.764 (1.764)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.77"
+msgstr "1.77 (1.77)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.775"
+msgstr "1.775 (1.775)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.81"
+msgstr "1.81 (1.81)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "1.91"
+msgstr "1.91 (1.91)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "1.915"
+msgstr "1.915 (1.915)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__sample_size__10
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "10"
+msgstr "10"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "11"
+msgstr "11"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "12"
+msgstr "12"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "13"
+msgstr "13"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "14"
+msgstr "14"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "15"
+msgstr "15"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "16"
+msgstr "16"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "18"
+msgstr "18"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.059"
+msgstr "2.059 (2.059)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.07"
+msgstr "2.07 (2.07)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.08"
+msgstr "2.08 (2.08)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.09"
+msgstr "2.09 (2.09)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.1"
+msgstr "2.1 (2.1)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.11"
+msgstr "2.11 (2.11)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.12"
+msgstr "2.12 (2.12)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "2.133"
+msgstr "2.133 (2.133)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.15"
+msgstr "2.15 (2.15)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.24"
+msgstr "2.24 (2.24)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.326"
+msgstr "2.326 (2.326)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.34"
+msgstr "2.34 (2.34)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.35"
+msgstr "2.35 (2.35)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.36"
+msgstr "2.36 (2.36)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.37"
+msgstr "2.37 (2.37)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.38"
+msgstr "2.38 (2.38)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.4"
+msgstr "2.4 (2.4)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.48"
+msgstr "2.48 (2.48)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.534"
+msgstr "2.534 (2.534)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.54"
+msgstr "2.54 (2.54)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.55"
+msgstr "2.55 (2.55)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.56"
+msgstr "2.56 (2.56)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.57"
+msgstr "2.57 (2.57)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.58"
+msgstr "2.58 (2.58)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.6"
+msgstr "2.6 (2.6)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.67"
+msgstr "2.67 (2.67)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.704"
+msgstr "2.704 (2.704)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.71"
+msgstr "2.71 (2.71)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.72"
+msgstr "2.72 (2.72)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.73"
+msgstr "2.73 (2.73)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.74"
+msgstr "2.74 (2.74)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.75"
+msgstr "2.75 (2.75)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.77"
+msgstr "2.77 (2.77)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.83"
+msgstr "2.83 (2.83)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.847"
+msgstr "2.847 (2.847)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.85"
+msgstr "2.85 (2.85)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.86"
+msgstr "2.86 (2.86)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.87"
+msgstr "2.87 (2.87)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.88"
+msgstr "2.88 (2.88)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.89"
+msgstr "2.89 (2.89)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.91"
+msgstr "2.91 (2.91)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.96"
+msgstr "2.96 (2.96)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.97"
+msgstr "2.97 (2.97)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.98"
+msgstr "2.98 (2.98)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "2.99"
+msgstr "2.99 (2.99)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "20"
+msgstr "20"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "21"
+msgstr "21"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "24"
+msgstr "24"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "25"
+msgstr "25"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "27"
+msgstr "27"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "28"
+msgstr "28"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "3.01"
+msgstr "3.01 (3.01)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "3.02"
+msgstr "3.02"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "3.078"
+msgstr "3.078 (3.078)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "3.08"
+msgstr "3.08 (3.08)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "3.09"
+msgstr "3.09 (3.09)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "3.1"
+msgstr "3.1 (3.1)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "3.11"
+msgstr "3.11 (3.11)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "3.13"
+msgstr "3.13 (3.13)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "3.18"
+msgstr "3.18 (3.18)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "30"
+msgstr "30"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "AIAG Method (%)"
+msgstr "AIAG Method (%) (Metodo AIAG (%))"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__aiag_utility_result
+msgid "AIAG Utility Result"
+msgstr "AIAG Utility Result (Risultato dell'utilità AIAG)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "ANOME Statistical Table Reference"
+msgstr ""
+"ANOME Statistical Table Reference (Riferimento della tabella statistica "
+"anime)"
+
+#. module: msa
+#: model:ir.actions.act_window,name:msa.action_anome_statistical_table
+#: model:ir.ui.menu,name:msa.menu_anome_statistical_table
+msgid "ANOME Statistical Values"
+msgstr "ANOME Statistical Values (Valori statistici anime)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "ANOME Statistical Values Table"
+msgstr "ANOME Statistical Values Table (Tabella dei valori statistici anime)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "ANOME.05"
+msgstr "ANOME.05 (Anome.05)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__av
+msgid "AV"
+msgstr "AV (Av)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "Analysis of Mean Effects (ANOME)"
+msgstr "Analysis of Mean Effects (ANOME) (Analisi dell'effetto medio (anime))"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__bias_chart
+msgid "Appraisal Bias Chart"
+msgstr "Appraisal Bias Chart (Grafico di pregiudizio di valutazione)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__consistency_chart
+msgid "Appraisal Consistency Chart"
+msgstr "Appraisal Consistency Chart (Grafico di coerenza della valutazione)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Appraisals Data"
+msgstr "Appraisals Data (Dati di valutazione)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__appraiser
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_sample__appraiser
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_trial__appraiser
+msgid "Appraiser"
+msgstr "Appraiser"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__appraiser_a_ids
+msgid "Appraiser A"
+msgstr "Appraiser A (Perito a)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__appraiser_a_name
+msgid "Appraiser A "
+msgstr "Appraiser A  (Perito a)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__appraiser_a_sample_stats_ids
+msgid "Appraiser A Sample Statistics"
+msgstr "Appraiser A Sample Statistics (Valutatore A Sample Statistics)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Appraiser A Statistics"
+msgstr "Appraiser A Statistics (Valutatore una statistica)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__appraiser_a_trial_stats_ids
+msgid "Appraiser A Trial Statistics"
+msgstr "Appraiser A Trial Statistics (Valutatore una statistica di prova)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__appraiser_b_ids
+msgid "Appraiser B"
+msgstr "Appraiser B (Valutatore b)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__appraiser_b_name
+msgid "Appraiser B "
+msgstr "Appraiser B  (Valutatore b)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__appraiser_b_sample_stats_ids
+msgid "Appraiser B Sample Statistics"
+msgstr "Appraiser B Sample Statistics (Statistiche del campione del perito B)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Appraiser B Statistics"
+msgstr "Appraiser B Statistics (Statistiche del perito B.)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__appraiser_b_trial_stats_ids
+msgid "Appraiser B Trial Statistics"
+msgstr "Appraiser B Trial Statistics (Statistiche di prova del perito B)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Appraiser Bias Chart"
+msgstr "Appraiser Bias Chart (Grafico di pregiudizio per appalti)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__appraiser_c_ids
+msgid "Appraiser C"
+msgstr "Appraiser C (Valutatore c)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__appraiser_c_name
+msgid "Appraiser C "
+msgstr "Appraiser C  (Valutatore c)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__appraiser_c_sample_stats_ids
+msgid "Appraiser C Sample Statistics"
+msgstr "Appraiser C Sample Statistics (Statistiche del campione di perito C)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Appraiser C Statistics"
+msgstr "Appraiser C Statistics (Statistiche del perito C.)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__appraiser_c_trial_stats_ids
+msgid "Appraiser C Trial Statistics"
+msgstr "Appraiser C Trial Statistics (Statistiche di prova del perito C)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Appraiser Consistency Chart"
+msgstr "Appraiser Consistency Chart (Grafico di coerenza del perito)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__appraiser_ids
+msgid "Appraiser Data"
+msgstr "Appraiser Data (Dati di perito)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__bias_result__bias
+msgid "Appraiser bias present"
+msgstr "Appraiser bias present (PRESENZIONE DEL VALSE Presente)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__appraisers
+msgid "Appraisers (o)"
+msgstr "Appraisers (o) (Periti (O))"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Appraisers A"
+msgstr "Appraisers A (Periti a)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Appraisers B"
+msgstr "Appraisers B (Periti b)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Appraisers C"
+msgstr "Appraisers C (Periti c)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__approval_state
+msgid "Approval State"
+msgstr "Approval State (Stato di approvazione)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_report__approval_state
+#: model:ir.model.fields,field_description:msa.field_msa_sheet__approval_state
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__approval_state
+msgid "Approval Status"
+msgstr "Approval Status (Stato di approvazione)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_form
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Approve"
+msgstr "Approve (Approvare)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__approval_state__approved
+#: model:ir.model.fields.selection,name:msa.selection__msa_report__approval_state__approved
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet__approval_state__approved
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet_generate__approval_state__approved
+msgid "Approved"
+msgstr "Approved"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_report__approved_by
+#: model:ir.model.fields,field_description:msa.field_msa_sheet__approved_by
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__approved_by
+msgid "Approved By"
+msgstr "Approved By (Approvato da)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__attachment
+msgid "Attachment"
+msgstr "Attachment (Attaccamento)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__gage_type__attribute
+#: model:ir.model.fields.selection,name:msa.selection__maintenance_equipment__gauge_type__attribute
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet_generate__gauge_type__attribute
+msgid "Attribute"
+msgstr "Attribute (Attributo)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__average
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_sample__average
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_trial__average
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Average"
+msgstr "Average (Media)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Average & Range Charts"
+msgstr "Average & Range Charts (Grafici medi e di range)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__average_chart
+msgid "Average Chart"
+msgstr "Average Chart (Grafico medio)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_report_line__avg_reading
+msgid "Average Reading (mm)"
+msgstr "Average Reading (mm) (Lettura media (mm))"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Averages & Ranges"
+msgstr "Averages & Ranges (Medie e gamme)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.board_calibration
+msgid "Bar Chart of MSA Schudule"
+msgstr "Bar Chart of MSA Schudule (Grafico a barre del programma MSA)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Bias & Consistency Charts"
+msgstr "Bias & Consistency Charts (Bias e grafico di coerenza)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__bias_result
+msgid "Bias Result"
+msgstr "Bias Result (Risultato di pregiudizio)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Calculate Statistics"
+msgstr "Calculate Statistics (Calcola le statistiche)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Calculate statistics to generate charts"
+msgstr ""
+"Calculate statistics to generate charts (Calcola le statistiche per generare"
+" grafici)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__completion_date
+msgid "Calibration Completion Date"
+msgstr ""
+"Calibration Completion Date (Data di completamento della calibrazione)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__report_id
+#: model:ir.model.fields,field_description:msa.field_msa_report__report_id
+msgid "Calibration Record"
+msgstr "Calibration Record (Record di calibrazione)"
+
+#. module: msa
+#: model:ir.model,name:msa.model_msa_report
+msgid "Calibration Report"
+msgstr "Calibration Report (Rapporto di calibrazione)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__report_ids
+msgid "Calibration Reports"
+msgstr "Calibration Reports (Rapporti di calibrazione)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_schedule__sched_id
+msgid "Calibration Sheet"
+msgstr "Calibration Sheet (Foglio di calibrazione)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_schedule__scd_ids
+msgid "Calibration gen"
+msgstr "Calibration gen (Calibrazione gen)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_report_line__center_reading
+msgid "Center Reading (mm)"
+msgstr "Center Reading (mm) (Lettura centrale (mm))"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__characteristic
+msgid "Characteristic"
+msgstr "Characteristic (Caratteristica)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Chart Results"
+msgstr "Chart Results (Risultati del grafico)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "Close"
+msgstr "Close"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_maintenance_equipment__code
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__code
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_schedule__code
+msgid "Code"
+msgstr "Code (Codice)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Component Variance Method (%)"
+msgstr "Component Variance Method (%) (Metodo di varianza dei componenti (%))"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_report__conclusion
+msgid "Conclusion"
+msgstr "Conclusion (Conclusione)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__consistency_result
+msgid "Consistency Result"
+msgstr "Consistency Result (Risultato di coerenza)"
+
+#. module: msa
+#: model:ir.ui.menu,name:msa.menu_constants_root
+msgid "Constants"
+msgstr "Constants (Costanti)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "Constants Table Reference"
+msgstr "Constants Table Reference"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Control Limits"
+msgstr "Control Limits (Limiti di controllo)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_schedule_form
+msgid "Create Report"
+msgstr "Create Report (Crea report)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__create_uid
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__create_uid
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_sample__create_uid
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_trial__create_uid
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_constants__create_uid
+#: model:ir.model.fields,field_description:msa.field_msa_report__create_uid
+#: model:ir.model.fields,field_description:msa.field_msa_report_line__create_uid
+#: model:ir.model.fields,field_description:msa.field_msa_sheet__create_uid
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__create_uid
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_schedule__create_uid
+msgid "Created by"
+msgstr "Created by (Creato da)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__create_date
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__create_date
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_sample__create_date
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_trial__create_date
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_constants__create_date
+#: model:ir.model.fields,field_description:msa.field_msa_report__create_date
+#: model:ir.model.fields,field_description:msa.field_msa_report_line__create_date
+#: model:ir.model.fields,field_description:msa.field_msa_sheet__create_date
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__create_date
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_schedule__create_date
+msgid "Created on"
+msgstr "Created on (Creato su)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__current_date
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_schedule__current_date
+msgid "Current Date"
+msgstr "Current Date (Data corrente)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet_schedule__cal_freq__daily
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_generate_search
+msgid "Daily"
+msgstr "Daily"
+
+#. module: msa
+#: model:ir.actions.act_window,name:msa.action_calibration_generate_daily_graph
+msgid "Daily MSA Status"
+msgstr "Daily MSA Status (Stato MSA giornaliero)"
+
+#. module: msa
+#: model:ir.actions.act_window,name:msa.action_board_dashboard
+#: model:ir.ui.menu,name:msa.menu_calibration
+msgid "DashBoard"
+msgstr "DashBoard (Pannello di controllo)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.board_calibration
+msgid "Dashboard"
+msgstr "Dashboard (Pannello di controllo)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__date
+msgid "Date"
+msgstr "Date (Data)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__display_name
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__display_name
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_sample__display_name
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_trial__display_name
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_constants__display_name
+#: model:ir.model.fields,field_description:msa.field_msa_report__display_name
+#: model:ir.model.fields,field_description:msa.field_msa_report_line__display_name
+#: model:ir.model.fields,field_description:msa.field_msa_sheet__display_name
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__display_name
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_schedule__display_name
+msgid "Display Name"
+msgstr "Display Name (Nome da visualizzare)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet_generate__status__done
+msgid "Done"
+msgstr "Done (Fatto)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__approval_state__draft
+#: model:ir.model.fields.selection,name:msa.selection__msa_report__approval_state__draft
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet__approval_state__draft
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet_generate__approval_state__draft
+msgid "Draft"
+msgstr "Draft (Bozza)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__ev
+msgid "EV"
+msgstr "EV (EV)"
+
+#. module: msa
+#: model:ir.model.constraint,message:msa.constraint_msa_sheet_schedule_unique_equipment_per_sheet
+msgid "Each instrument should be unique per calibration sheet!"
+msgstr ""
+"Each instrument should be unique per calibration sheet! (Ogni strumento "
+"dovrebbe essere unico per foglio di calibrazione!)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet__end
+msgid "End Year"
+msgstr "End Year (Anno di fine)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_report__cal_freq
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__cal_freq
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_schedule__cal_freq
+msgid "Frequency"
+msgstr "Frequency (Frequenza)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__grr
+msgid "GRR"
+msgstr "GRR (Grr)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "GRR Components"
+msgstr "GRR Components (Componenti GRR)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "GRR Results"
+msgstr "GRR Results (Risultati GRR)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__gage_name
+msgid "Gage Name"
+msgstr "Gage Name (Nome calibro)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__gage_number
+msgid "Gage Number"
+msgstr "Gage Number (Numero di calibro)"
+
+#. module: msa
+#: model:ir.actions.act_window,name:msa.action_gauge_rnr
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__gauge_id
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_sample__gauge_id
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_trial__gauge_id
+msgid "Gauge R&R"
+msgstr "Gauge R&R (Calibro R&R)"
+
+#. module: msa
+#: model:ir.model,name:msa.model_gauge_rnr_appraiser
+msgid "Gauge R&R Appraiser Data"
+msgstr "Gauge R&R Appraiser Data (Calibro di dati di perito R&R)"
+
+#. module: msa
+#: model:ir.model,name:msa.model_gauge_rnr_appraiser_sample
+msgid "Gauge R&R Appraiser Sample Statistics"
+msgstr ""
+"Gauge R&R Appraiser Sample Statistics (Calibro di statistiche del campione "
+"per perito R&R)"
+
+#. module: msa
+#: model:ir.model,name:msa.model_gauge_rnr_appraiser_trial
+msgid "Gauge R&R Appraiser Trial Statistics"
+msgstr ""
+"Gauge R&R Appraiser Trial Statistics (Calibro di statistiche di prova del "
+"perito R&R)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_tree
+msgid "Gauge R&R List"
+msgstr "Gauge R&R List (Elenco R&R calibro)"
+
+#. module: msa
+#: model:ir.actions.report,name:msa.action_report_gauge_rnr
+msgid "Gauge R&R Report"
+msgstr "Gauge R&R Report (Rapporto R&R calibro)"
+
+#. module: msa
+#: model:ir.model,name:msa.model_gauge_rnr
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Gauge R&R Setup"
+msgstr "Gauge R&R Setup (Setup R&R calibro)"
+
+#. module: msa
+#: model:ir.model,name:msa.model_gauge_rnr_constants
+msgid "Gauge R&R Statistical Constants"
+msgstr ""
+"Gauge R&R Statistical Constants (Costanti statistiche di misurazione R&R)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__gage_type
+#: model:ir.model.fields,field_description:msa.field_maintenance_equipment__gauge_type
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__gauge_type
+msgid "Gauge Type"
+msgstr "Gauge Type (Tipo di calibro)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__gen_id
+msgid "Genarate"
+msgstr "Genarate"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_schedule_form
+msgid "Genarate Schedule"
+msgstr "Genarate Schedule (Generare programma)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Generate Control Charts"
+msgstr "Generate Control Charts (Generare grafici di controllo)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__generate_xlsx_file
+msgid "Generate XLSX File"
+msgstr "Generate XLSX File (Generare file xlsx)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet__generate_xlsx_report
+msgid "Generated XLSX Report"
+msgstr "Generated XLSX Report (Rapporto XLSX generato)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__aiag_utility_result__good
+msgid "Good (< 10%)"
+msgstr "Good (< 10%) (Buono (<10%))"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__utility_result__good
+msgid "Good (>= 80%)"
+msgstr "Good (>= 80%)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__id
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__id
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_sample__id
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_trial__id
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_constants__id
+#: model:ir.model.fields,field_description:msa.field_msa_report__id
+#: model:ir.model.fields,field_description:msa.field_msa_report_line__id
+#: model:ir.model.fields,field_description:msa.field_msa_sheet__id
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__id
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_schedule__id
+msgid "ID"
+msgstr "ID (ID)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Individual Appraiser Statistics"
+msgstr "Individual Appraiser Statistics (Statistiche per perito individuali)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_report__equipment_id
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__equipment_id
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_schedule__equipment_id
+msgid "Instrument"
+msgstr "Instrument (Strumento)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet__instrument_count
+msgid "Instrument Count"
+msgstr "Instrument Count (Conteggio degli strumenti)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__interval
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_schedule__interval
+msgid "Interval"
+msgstr "Interval (Intervallo)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__lcl_bias
+msgid "LCL Bias"
+msgstr "LCL Bias (Bias LCL)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__lcl_consistency
+msgid "LCL Consistency"
+msgstr "LCL Consistency (Coerenza LCL)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "LMR.05"
+msgstr "LMR.05 (LMR.05)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr____last_update
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser____last_update
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_sample____last_update
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_trial____last_update
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_constants____last_update
+#: model:ir.model.fields,field_description:msa.field_msa_report____last_update
+#: model:ir.model.fields,field_description:msa.field_msa_report_line____last_update
+#: model:ir.model.fields,field_description:msa.field_msa_sheet____last_update
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate____last_update
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_schedule____last_update
+msgid "Last Modified on"
+msgstr "Last Modified on (Ultimo modificato)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__write_uid
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__write_uid
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_sample__write_uid
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_trial__write_uid
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_constants__write_uid
+#: model:ir.model.fields,field_description:msa.field_msa_report__write_uid
+#: model:ir.model.fields,field_description:msa.field_msa_report_line__write_uid
+#: model:ir.model.fields,field_description:msa.field_msa_sheet__write_uid
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__write_uid
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_schedule__write_uid
+msgid "Last Updated by"
+msgstr "Last Updated by (Ultimo aggiornamento da)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__write_date
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__write_date
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_sample__write_date
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_trial__write_date
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_constants__write_date
+#: model:ir.model.fields,field_description:msa.field_msa_report__write_date
+#: model:ir.model.fields,field_description:msa.field_msa_report_line__write_date
+#: model:ir.model.fields,field_description:msa.field_msa_sheet__write_date
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__write_date
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_schedule__write_date
+msgid "Last Updated on"
+msgstr "Last Updated on (Ultimo aggiornamento su)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_maintenance_equipment__lc
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__lc
+msgid "Least Count"
+msgstr "Least Count (Conteggio minimo)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_maintenance_equipment__location
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__location
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_schedule__location
+msgid "Location"
+msgstr "Location"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_report_line__lower_reading
+msgid "Lower Reading (mm)"
+msgstr "Lower Reading (mm)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__lower_spec_limit
+msgid "Lower Specification Limit"
+msgstr "Lower Specification Limit (Limite di specifica inferiore)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "MEASUREMENT SYSTEM ANALYSIS (Repeatability and Reproducibility)"
+msgstr ""
+"MEASUREMENT SYSTEM ANALYSIS (Repeatability and Reproducibility) (Analisi del"
+" sistema di misurazione (ripetibilità e riproducibilità))"
+
+#. module: msa
+#: model:ir.ui.menu,name:msa.menu_gauge_rnr_root
+msgid "MSA"
+msgstr "MSA (MSA)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_generate_search
+msgid "MSA Frequency"
+msgstr "MSA Frequency (Frequenza MSA)"
+
+#. module: msa
+#: model:ir.model,name:msa.model_msa_sheet_generate
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_schedule_form
+msgid "MSA Generation"
+msgstr "MSA Generation (Generazione MSA)"
+
+#. module: msa
+#: model:ir.actions.act_window,name:msa.action_calibration_generate
+msgid "MSA Generations"
+msgstr "MSA Generations (Generazioni MSA)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_schedule_form
+msgid "MSA SCHEDULE FOR INSPECTION MEASURING TEST EQUIPMENT"
+msgstr ""
+"MSA SCHEDULE FOR INSPECTION MEASURING TEST EQUIPMENT (Programma MSA per "
+"l'ispezione Misurazione dell'attrezzatura di prova)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_form
+msgid "MSA SCHEDULE YEAR RANGE"
+msgstr "MSA SCHEDULE YEAR RANGE (MSA Program Year Range)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.board_calibration
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_form
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_generate_calendar
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_schedule_form
+msgid "MSA Schedule"
+msgstr "MSA Schedule (Programma MSA)"
+
+#. module: msa
+#: model:ir.actions.act_window,name:msa.action_calibration_schedule
+msgid "MSA Schedules"
+msgstr "MSA Schedules (Spegni MSA)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_generate_search
+msgid "MSA Sheet Search"
+msgstr "MSA Sheet Search (Ricerca del foglio MSA)"
+
+#. module: msa
+#: model:ir.ui.menu,name:msa.menu_gauge_rnr
+msgid "MSA Statistics"
+msgstr "MSA Statistics (Statistiche MSA)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_form
+msgid "MSA Work Sheet"
+msgstr "MSA Work Sheet (Foglio di lavoro MSA)"
+
+#. module: msa
+#: model:ir.actions.act_window,name:msa.action_calibration
+#: model:ir.ui.menu,name:msa.menu_calibration_sheet
+msgid "MSA Work Sheets"
+msgstr "MSA Work Sheets (Fogli da lavoro MSA)"
+
+#. module: msa
+#: model:ir.model,name:msa.model_maintenance_equipment
+msgid "Maintenance Equipment"
+msgstr "Maintenance Equipment (Attrezzatura di manutenzione)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_maintenance_equipment__make
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__make
+msgid "Make"
+msgstr "Make (Fare)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__aiag_utility_result__marginal
+msgid "Marginal (10% - 30%)"
+msgstr "Marginal (10% - 30%) (Marginale (10% - 30%))"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__utility_result__marginal
+msgid "Marginal (50% - 80%)"
+msgstr "Marginal (50% - 80%) (Marginale (50% - 80%))"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_report_line__max_lim
+msgid "Max Limit (mm)"
+msgstr "Max Limit (mm) (Limite massimo (mm))"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__resolution_result__adequate
+msgid "Measurement system has adequate resolution"
+msgstr ""
+"Measurement system has adequate resolution (Il sistema di misurazione ha una"
+" risoluzione adeguata)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__resolution_result__inadequate
+msgid "Measurement system may not have adequate resolution"
+msgstr ""
+"Measurement system may not have adequate resolution (Il sistema di "
+"misurazione potrebbe non avere una risoluzione adeguata)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__consistency_result__inconsistent
+msgid "Measurement system shows inconsistency"
+msgstr ""
+"Measurement system shows inconsistency (Il sistema di misurazione mostra "
+"l'incoerenza)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_report_line__min_lim
+msgid "Min Limit (mm)"
+msgstr "Min Limit (mm) (Limite min (mm))"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet_schedule__cal_freq__monthly
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_generate_search
+msgid "Monthly"
+msgstr "Monthly (Mensile)"
+
+#. module: msa
+#: model:ir.actions.act_window,name:msa.action_calibration_generate_monthly_graph
+msgid "Monthly MSA Status"
+msgstr "Monthly MSA Status (Stato MSA mensile)"
+
+#. module: msa
+#: model:ir.model,name:msa.model_msa_sheet
+msgid "Msa  Sheet"
+msgstr "Msa  Sheet (Foglio MSA)"
+
+#. module: msa
+#: model:ir.model,name:msa.model_msa_report_line
+msgid "Msa Report Line"
+msgstr "Msa Report Line (Linea di report MSA)"
+
+#. module: msa
+#: model:ir.model,name:msa.model_msa_sheet_schedule
+msgid "Msa Sheet Schedule"
+msgstr "Msa Sheet Schedule (Programma del foglio MSA)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet__name
+msgid "Name"
+msgstr "Name (Nome)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_report__next_cal_date
+msgid "Next Calibration Date"
+msgstr "Next Calibration Date (Data di calibrazione successiva)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__next_week_date
+msgid "Next Week Date"
+msgstr "Next Week Date (Data della prossima settimana)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__bias_result__no_bias
+msgid "No appraiser bias present"
+msgstr "No appraiser bias present (Nessun pregiudizio per perito presente)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet_generate__status__not_done
+msgid "Not Done"
+msgstr "Not Done (Non fatto)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__msa_report__conclusion__not_satisfactory
+msgid "Not Satisfactory"
+msgstr "Not Satisfactory (Non soddisfacente)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet_generate__status__not_started
+msgid "Not Started"
+msgstr "Not Started (Non è iniziato)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Overall Statistics"
+msgstr "Overall Statistics (Statistiche complessive)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__pv
+msgid "PV"
+msgstr "PV (Pv)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet_generate__status__pending
+msgid "Pending"
+msgstr "Pending (In attesa di)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.board_calibration
+msgid "Pie Chart of Daily MSA Schedule"
+msgstr ""
+"Pie Chart of Daily MSA Schedule (Grafico a torta del programma MSA "
+"giornaliero)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.board_calibration
+msgid "Pie Chart of Monthly MSA Schedule"
+msgstr ""
+"Pie Chart of Monthly MSA Schedule (Grafico a torta del programma MSA "
+"mensile)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.board_calibration
+msgid "Pie Chart of Weekly MSA Schedule"
+msgstr ""
+"Pie Chart of Weekly MSA Schedule (Grafico a torta del programma MSA "
+"settimanale)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__utility_result__poor
+msgid "Poor (< 50%)"
+msgstr "Poor (< 50%) (Portato (<50%))"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__aiag_utility_result__poor
+msgid "Poor (> 30%)"
+msgstr "Poor (> 30%) (Povera (> 30%))"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_schedule__prepared_by
+msgid "Prepared By"
+msgstr "Prepared By (Preparato da)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__prepared_by
+msgid "Prepared by"
+msgstr "Prepared by (Preparato da)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_form
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Print Report"
+msgstr "Print Report (Rapporto di stampa)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__range
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_sample__range
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_trial__range
+#: model:ir.model.fields,field_description:msa.field_maintenance_equipment__range
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__range
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Range"
+msgstr "Range (Allineare)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__range_chart
+msgid "Range Chart"
+msgstr "Range Chart (Grafico a portata)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Range and Average Control Charts"
+msgstr "Range and Average Control Charts (Range e grafici di controllo medi)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__rbar_a
+msgid "Rbar(A)"
+msgstr "Rbar(A) (Rbar (a))"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__rbar_b
+msgid "Rbar(B)"
+msgstr "Rbar(B) (RBAR (B))"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__rbar_c
+msgid "Rbar(C)"
+msgstr "Rbar(C) (RBAR (C))"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__rbar_doublebar
+msgid "Rdoublebar"
+msgstr "Rdoublebar (Rdoublebar)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_form
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Reject"
+msgstr "Reject (Rifiutare)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__approval_state__rejected
+#: model:ir.model.fields.selection,name:msa.selection__msa_report__approval_state__rejected
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet__approval_state__rejected
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet_generate__approval_state__rejected
+msgid "Rejected"
+msgstr "Rejected (Respinto)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__remarks
+msgid "Remarks"
+msgstr "Remarks (Osservazioni)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__resolution_result
+msgid "Resolution Result"
+msgstr "Resolution Result (Risultato di risoluzione)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Results Interpretation"
+msgstr "Results Interpretation (Interpretazione dei risultati)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__consistency_result__consistent
+msgid "Results are consistent across appraisers"
+msgstr ""
+"Results are consistent across appraisers (I risultati sono coerenti tra i "
+"periti)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__ro
+msgid "Ro"
+msgstr "Ro (Ro)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__rp
+msgid "Rp"
+msgstr "Rp (Rp)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_report_line__sn
+msgid "S.No"
+msgstr "S.No"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Sample"
+msgstr "Sample (Campione)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__sample_1
+msgid "Sample 1"
+msgstr "Sample 1 (Campione 1)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__sample_10
+msgid "Sample 10"
+msgstr "Sample 10 (Campione 10)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__sample_2
+msgid "Sample 2"
+msgstr "Sample 2 (Campione 2)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__sample_3
+msgid "Sample 3"
+msgstr "Sample 3 (Campione 3)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__sample_4
+msgid "Sample 4"
+msgstr "Sample 4 (Campione 4)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__sample_5
+msgid "Sample 5"
+msgstr "Sample 5 (Campione 5)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__sample_6
+msgid "Sample 6"
+msgstr "Sample 6 (Campione 6)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__sample_7
+msgid "Sample 7"
+msgstr "Sample 7 (Campione 7)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__sample_8
+msgid "Sample 8"
+msgstr "Sample 8 (Campione 8)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__sample_9
+msgid "Sample 9"
+msgstr "Sample 9 (Campione 9)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_sample__sample_number
+msgid "Sample Number"
+msgstr "Sample Number (Numero campione)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__sample_size
+msgid "Sample Size (p)"
+msgstr "Sample Size (p) (Dimensione del campione (P))"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__msa_report__conclusion__satisfactory
+msgid "Satisfactory"
+msgstr "Satisfactory (Soddisfacente)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__scheduled_date
+msgid "Scheduled Date"
+msgstr "Scheduled Date (Data programmata)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__specification
+msgid "Specification"
+msgstr "Specification (Specifiche)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Specification Limits"
+msgstr "Specification Limits (Limiti di specifica)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_report_line__standard_length
+msgid "Standard Length (mm)"
+msgstr "Standard Length (mm) (Lunghezza standard (mm))"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Start"
+msgstr "Start (Inizio)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet__start
+msgid "Start Year"
+msgstr "Start Year (Inizia l'anno)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__started
+msgid "Started"
+msgstr "Started"
+
+#. module: msa
+#: model:ir.actions.act_window,name:msa.action_gauge_rnr_constants_table
+#: model:ir.ui.menu,name:msa.menu_gauge_rnr_constants_table
+msgid "Statistical Constants"
+msgstr "Statistical Constants (Costanti statistiche)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "Statistical Constants Table"
+msgstr "Statistical Constants Table (Tabella delle costanti statistiche)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "Statistical Constants for MSA R&amp;R Analysis"
+msgstr ""
+"Statistical Constants for MSA R&amp;R Analysis (Costanti statistiche per MSA"
+" R & amp; R Analisi)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet_generate__status
+msgid "Status"
+msgstr "Status (Stato)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_form
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Submit for Approval"
+msgstr "Submit for Approval (Invia per l'approvazione)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__tv
+msgid "TV"
+msgstr "TV (TV)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__test_number
+msgid "Test Number"
+msgstr "Test Number (Numero di prova)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid ""
+"This table provides the statistical constants used in gauge R&amp;R "
+"calculations."
+msgstr ""
+"This table provides the statistical constants used in gauge R&amp;R "
+"calculations. (Questa tabella fornisce le costanti statistiche utilizzate "
+"nei calcoli del calibro R & amp; R.)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid ""
+"This table provides the statistical values used in ANOME.05 analysis "
+"calculations."
+msgstr ""
+"This table provides the statistical values used in ANOME.05 analysis "
+"calculations. (Questa tabella fornisce i valori statistici utilizzati nei "
+"calcoli di analisi di Anome.05.)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__approval_state__to_approve
+#: model:ir.model.fields.selection,name:msa.selection__msa_report__approval_state__to_approve
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet__approval_state__to_approve
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet_generate__approval_state__to_approve
+msgid "To Approve"
+msgstr "To Approve (Approvare)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__tolerance
+msgid "Tolerance (Upper Spec Limit - Lower Spec Limit)"
+msgstr ""
+"Tolerance (Upper Spec Limit - Lower Spec Limit) (Tolleranza (limite delle "
+"specifiche superiori - limite di specifiche inferiore))"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser__trial
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Trial"
+msgstr "Trial (Prova)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr_appraiser_trial__trial_number
+msgid "Trial Number"
+msgstr "Trial Number (Numero di prova)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_form
+msgid "Trial/Sample"
+msgstr "Trial/Sample (Prova/campione)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__trials
+msgid "Trials (n)"
+msgstr "Trials (n) (Prove (N))"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__ucl_bias
+msgid "UCL Bias"
+msgstr "UCL Bias (Bias UCL)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__ucl_consistency
+msgid "UCL Consistency"
+msgstr "UCL Consistency (Coerenza UCL)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "UMR.05"
+msgstr "UMR.05 (UMR.05)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__units
+msgid "Units"
+msgstr "Units (Unità)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_report_line__upper_reading
+msgid "Upper Reading (mm)"
+msgstr "Upper Reading (mm) (Lettura superiore (mm))"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__upper_spec_limit
+msgid "Upper Specification Limit"
+msgstr "Upper Specification Limit (Limite di specifica superiore)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__utility_result
+msgid "Utility Result"
+msgstr "Utility Result (Risultato dell'utilità)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__gauge_rnr__gage_type__variable
+#: model:ir.model.fields.selection,name:msa.selection__maintenance_equipment__gauge_type__variable
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet_generate__gauge_type__variable
+msgid "Variable"
+msgstr "Variable (Variabile)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_schedule_form
+msgid "View Report"
+msgstr "View Report (Visualizza il rapporto)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet_schedule__cal_freq__weekly
+#: model_terms:ir.ui.view,arch_db:msa.view_calibration_generate_search
+msgid "Weekly"
+msgstr "Weekly (Settimanale)"
+
+#. module: msa
+#: model:ir.actions.act_window,name:msa.action_calibration_generate_weekly_graph
+msgid "Weekly MSA Status"
+msgstr "Weekly MSA Status (Stato MSA settimanale)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__xbar_a
+msgid "Xbar(A)"
+msgstr "Xbar(A) (Xbar (a))"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__xbar_b
+msgid "Xbar(B)"
+msgstr "Xbar(B) (XBAR (B))"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__xbar_c
+msgid "Xbar(C)"
+msgstr "Xbar(C) (XBAR (C))"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_gauge_rnr__xbar_doublebar
+msgid "Xdoublebar"
+msgstr "Xdoublebar (XDoubleBar)"
+
+#. module: msa
+#: model:ir.model.fields.selection,name:msa.selection__msa_sheet_schedule__cal_freq__yearly
+msgid "Yearly"
+msgstr "Yearly (Annuale)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_sheet__cal_sheet_ids
+msgid "calibration"
+msgstr "calibration (calibrazione)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "g = number of subgroups (parts, operators, etc.)"
+msgstr ""
+"g = number of subgroups (parts, operators, etc.) (G = Numero di sottogruppi "
+"(parti, operatori, ecc.))"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "k = number of data points"
+msgstr "k = number of data points (K = Numero di punti dati)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_report_line__line_id
+msgid "lines"
+msgstr "lines (linee)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "m = number of measurements per data point"
+msgstr ""
+"m = number of measurements per data point (M = numero di misurazioni per "
+"punto dati)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_gauge_rnr_constants_table
+msgid "m = number of measurements per subgroup"
+msgstr ""
+"m = number of measurements per subgroup (M = numero di misurazioni per "
+"sottogruppo)"
+
+#. module: msa
+#: model_terms:ir.ui.view,arch_db:msa.view_anome_statistical_table
+msgid "n = number of replications"
+msgstr "n = number of replications (n = numero di repliche)"
+
+#. module: msa
+#: model:ir.model.fields,field_description:msa.field_msa_report__line_ids
+msgid "report"
+msgstr "report (rapporto)"

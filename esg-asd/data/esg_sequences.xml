@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_esg_environmental" model="ir.sequence">
+        <field name="name">Environmental Metric Sequence</field>
+        <field name="code">esg.environmental</field>
+        <field name="prefix">ENV/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+    <record id="seq_esg_social" model="ir.sequence">
+        <field name="name">Social Metric Sequence</field>
+        <field name="code">esg.social</field>
+        <field name="prefix">SOC/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+    <record id="seq_esg_governance" model="ir.sequence">
+        <field name="name">Governance Metric Sequence</field>
+        <field name="code">esg.governance</field>
+        <field name="prefix">GOV/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+</odoo>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree View for Emergency Response Master -->
+        <record id="view_emergency_response_master_tree" model="ir.ui.view">
+            <field name="name">emergency.response.master.tree</field>
+            <field name="model">emergency.response.master</field>
+            <field name="arch" type="xml">
+                <tree>
+
+                    <field name="company"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for Emergency Response Master -->
+        <record id="view_emergency_response_master_form" model="ir.ui.view">
+            <field name="name">emergency.response.master.form</field>
+            <field name="model">emergency.response.master</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                            <h1 style="color:#4492bd;">
+                                Master List of Emergency Response Team
+                            </h1>
+                        </div>
+                        <br/>
+                        <br/>
+                        <group>
+
+                            <field name="company"/>
+                        </group>
+                        <notebook>
+                            <page string="Team Members">
+                                <field name="team_member_ids">
+                                    <tree editable="bottom">
+                                        <field name="sl_no"/>
+                                        <field name="name"/>
+                                        <field name="team_type" widget="radio"/>
+                                        <field name="department"/>
+                                        <field name="remarks"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action to Open List View -->
+        <record id="action_emergency_response_master" model="ir.actions.act_window">
+            <field name="name">Master list of emergency response team</field>
+            <field name="res_model">emergency.response.master</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No master lists found. Create a new emergency response team master list.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu Item -->
+        <menuitem id="menu_emergency_response_team_root"
+                  name="Master list of emergency response team"
+                  parent="menu_ohs_root"
+                  action="action_emergency_response_master"
+                  sequence="6"/>
+
+    </data>
+</odoo>

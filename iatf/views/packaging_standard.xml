@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Define form view for Feasibility Commitment Report -->
+        <record id="iatf_packaging_standard_form" model="ir.ui.view">
+            <field name="name">iatf.packaging.standard form</field>
+            <field name="model">iatf.packaging.standard</field>
+            <field name="arch" type="xml">
+                <form string="Packaging Standard">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                        <button name="action_generate_report" string="Download Report" type="object"
+                                class="btn btn-primary"/>
+                        <button name='send_for_approval' string='Confirm' type='object' class='oe_highlight'
+                                attrs="{'invisible' : [('state', '=', 'confirm')]}"/>
+                        <button name='approve_document' string='APPROVE' type='object' class='btn btn-success'
+                                attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                        <button name='revise_document' string='REVISE' type='object' class='btn btn-info'
+                                attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                        <button name='reject_document' string='REJECT' type='object' class='btn btn-danger'
+                                attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    </header>
+                    <sheet>
+                        <!-- Copy from here to  -->
+                        <widget name="web_ribbon" title="Approved" bg_color="bg-success"
+                                attrs="{'invisible':[('final_status', '!=', 'approved')]}"/>
+                        <widget name="web_ribbon" title="Rejected" bg_color="bg-danger"
+                                attrs="{'invisible':[('final_status', '!=', 'rejected')]}"/>
+                        <widget name="web_ribbon" title="Revision Required" bg_color="bg-info"
+                                attrs="{'invisible':[('final_status', '!=', 'revision')]}"/>
+                        <widget name="web_ribbon" title="In progress" bg_color="bg-warning"
+                                attrs="{'invisible':[('final_status', '!=', 'pending')]}"/>
+                        <widget name="web_ribbon" title="Draft" bg_color="bg-info"
+                                attrs="{'invisible':[('final_status', '!=', 'draft')]}"/>
+                        <div class="oe_title">
+                            <label for="project_id" string="Project Name"/>
+                            <h1>
+                                <div class="d-flex">
+                                    <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
+                                </div>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="user_has_access_to_approve" invisible="1"/><!-- Copy this too  -->
+                                <field name="final_status" invisible="1"/>
+                                <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
+                                <field name="part_id" />
+                                <field name="part_name" />
+                                <field name="part_number" /><!-- Copy this too  -->
+
+                            </group>
+                            <group>
+                                 <field name="supplier_type"/>
+                                <field name="partner_id"/>
+                                <field name="photo_final_package_with_label" widget="image" class="oe_avatar"
+                                       filename="Photo Final Package with Label"/>
+
+                            </group>
+                            <group>
+
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="primary_packing" string="Primary Packing Details">
+                                <group>
+                                    <field name="primary_polythene_bag"/>
+                                    <field name="primary_butter_paper"/>
+                                    <field name="primary_bubble_sheet"/>
+                                    <field name="primary_any_other"/>
+                                    <field name="primary_other_material"
+                                           attrs="{'invisible': [('primary_any_other', '=', False)]}"/>
+                                    <field name="primary_na"/>
+                                </group>
+                                <group>
+                                    <field name="primary_other_material"/>
+                                    <field name="primary_antirust_oil_used_type"/>
+                                </group>
+                                <group>
+                                    <field name="primary_photo_with_primary_packing" widget="image" class="oe_avatar"
+                                           filename="Photograph with Primary Packing"/>
+                                </group>
+                            </page>
+                            <page name="secondary_packing" string="Secondary Packing Details">
+                                <group>
+                                    <field name="secondary_corrugated_box"/>
+                                    <field name="secondary_plastic_box"/>
+                                    <field name="secondary_wooden_box"/>
+                                    <field name="secondary_metallic_box"/>
+                                    <field name="secondary_gunny_bag"/>
+                                    <field name="secondary_drum"/>
+                                    <field name="secondary_any_other"/>
+                                    <field name="secondary_other_material"
+                                           attrs="{'invisible': [('secondary_any_other', '=', False)]}"/>
+                                    <field name="secondary_na"/>
+                                </group>
+                                <group>
+                                    <field name="secondary_other_material"/>
+                                    <field name="secondary_separator_details"/>
+                                </group>
+                                <group>
+                                    <field name="secondary_photo_with_secondary_packing" widget="image"
+                                           class="oe_avatar" filename="Photograph with Secondary Packing"/>
+                                </group>
+                            </page>
+                            <page name="final_packing" string="Final Packing Details">
+                                <group>
+                                    <field name="final_corrugated_box"/>
+                                    <field name="final_plastic_box"/>
+                                    <field name="final_wooden_box"/>
+                                    <field name="final_metallic_box"/>
+                                    <field name="final_gunny_bag"/>
+                                    <field name="final_drum"/>
+                                    <field name="final_dunnages"/>
+                                    <field name="final_any_other"/>
+                                    <field name="final_other_material"
+                                           attrs="{'invisible': [('final_any_other', '=', False)]}"/>
+                                    <field name="final_na"/>
+                                </group>
+                                <group>
+                                    <field name="final_detail_steel_nylon_other_clamping"/>
+                                </group>
+                                <group>
+                                    <field name="final_photo_with_final_packing" widget="image" class="oe_avatar"
+                                           filename="Photograph with Final Packing"/>
+                                </group>
+                            </page>
+                            <page name="final_packaging_data" string="Final Packaging Data">
+                                <group>
+                                    <field name="weight_per_packing"/>
+                                    <field name="num_of_pieces_per_box"/>
+                                </group>
+                                <group>
+                                    <label for="box_length"/>
+                                    <div>
+                                        <field name="box_length" class="oe_inline"/>
+                                        <span class="ml8">cm</span>
+                                    </div>
+                                    <label for="box_width"/>
+                                    <div>
+                                        <field name="box_width" class="oe_inline"/>
+                                        <span class="ml8">cm</span>
+                                    </div>
+                                    <label for="box_height"/>
+                                    <div>
+                                        <field name="box_height" class="oe_inline"/>
+                                        <span class="ml8">cm</span>
+                                    </div>
+                                </group>
+                            </page>
+                        </notebook>
+                        <group string="Approval">
+                            <group>
+                                <field name="prepared_by"/>
+                            </group>
+                            <group>
+                                <field name="buyer"/>
+                                <field name="customer_approval_date"/>
+                            </group>
+                        </group>
+                        <group string="Initiator">
+                            <group>
+                                <field name="create_uid"/>
+                            </group>
+                            <group>
+                                <field name="create_date"/>
+                            </group>
+                        </group>
+                        <separator string="Approvers"/>
+                        <field name="iatf_members_ids" widget="many2many_tree"
+                               options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                               string="Approvers">
+                            <tree>
+                                <field name="approver_id"/>
+                                <field name="department_id"/>
+                                <field name="comment"/>
+                                <field name="date_approved_rejected"/>
+                                <field name="approval_status" widget="badge"
+                                       decoration-danger="approval_status == 'rejected'"
+                                       decoration-info="approval_status == 'revision'"
+                                       decoration-success="approval_status == 'approved'"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="iatf_packaging_standard_tree" model="ir.ui.view">
+            <field name="name">iatf.packaging.standard tree</field>
+            <field name="model">iatf.packaging.standard</field>
+            <field name="arch" type="xml">
+                <tree string="Packaging Standards">
+                    <field name="partner_id" string="Supplier Name" optional="show"/>
+                    <field name="part_id" string="Part No." optional="show"/>
+                    <field name="part_description" string="Part Description" optional="show"/>
+                    <field name="primary_polythene_bag" optional="hide"/>
+                    <field name="primary_butter_paper" optional="hide"/>
+                    <field name="primary_bubble_sheet" optional="hide"/>
+                    <field name="primary_any_other" optional="hide"/>
+                    <field name="primary_na" optional="hide"/>
+                    <field name="primary_other_material" optional="hide"/>
+                    <field name="primary_antirust_oil_used_type" optional="hide"/>
+                    <field name="secondary_corrugated_box" optional="hide"/>
+                    <field name="secondary_plastic_box" optional="hide"/>
+                    <field name="secondary_wooden_box" optional="hide"/>
+                    <field name="secondary_metallic_box" optional="hide"/>
+                    <field name="secondary_gunny_bag" optional="hide"/>
+                    <field name="secondary_drum" optional="hide"/>
+                    <field name="secondary_any_other" optional="hide"/>
+                    <field name="secondary_na" optional="hide"/>
+                    <field name="secondary_other_material" optional="hide"/>
+                    <field name="secondary_separator_details" optional="hide"/>
+                    <field name="final_corrugated_box" optional="hide"/>
+                    <field name="final_plastic_box" optional="hide"/>
+                    <field name="final_wooden_box" optional="hide"/>
+                    <field name="final_metallic_box" optional="hide"/>
+                    <field name="final_gunny_bag" optional="hide"/>
+                    <field name="final_drum" optional="hide"/>
+                    <field name="final_dunnages" optional="hide"/>
+                    <field name="final_any_other" optional="hide"/>
+                    <field name="final_na" optional="hide"/>
+                    <field name="final_detail_steel_nylon_other_clamping" optional="hide"/>
+                    <field name="weight_per_packing" optional="hide"/>
+                    <field name="box_length" optional="hide"/>
+                    <field name="box_width" optional="hide"/>
+                    <field name="box_height" optional="hide"/>
+                    <field name="num_of_pieces_per_box" optional="show"/>
+                    <field name="buyer" optional="show"/>
+                    <field name="customer_approval_date" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_iatf_packing_standard_window" model="ir.actions.act_window">
+            <field name="name">Packaging Standard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">iatf.packaging.standard</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem name="Packaging Standard" id="iatf_packing_standard_menu" parent="iatf_menu_engg"
+                  action="action_iatf_packing_standard_window" sequence="16"/>
+
+    </data>
+</odoo>

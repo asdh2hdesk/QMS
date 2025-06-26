@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gauge_rnr_user,access_gauge_rnr_user,model_gauge_rnr,base.group_user,1,1,0,0
+access_gauge_rnr_admin,access_gauge_rnr_admin,model_gauge_rnr,base.group_system,1,1,1,1
+access_gauge_rnr_appraiser_user,access_gauge_rnr_appraiser_user,model_gauge_rnr_appraiser,base.group_user,1,1,0,0
+access_gauge_rnr_appraiser_admin,access_gauge_rnr_appraiser_admin,model_gauge_rnr_appraiser,base.group_system,1,1,1,1
+access_gauge_rnr_appraiser_sample,gauge.rnr.appraiser.sample,model_gauge_rnr_appraiser_sample,base.group_user,1,1,1,1
+access_gauge_rnr_appraiser_trial,gauge.rnr.appraiser.trial,model_gauge_rnr_appraiser_trial,base.group_user,1,1,1,1
+access_gauge_rnr_constants,access.gauge.rnr.constants,model_gauge_rnr_constants,base.group_user,1,0,0,0
+
+
+access_msa_sheet,access_msa_sheet,model_msa_sheet,base.group_user,1,1,1,1
+access_msa_sheet_schedule,access_msa_sheet_schedule,model_msa_sheet_schedule,base.group_user,1,1,1,1
+access_msa_sheet_generate,access_msa_sheet_generate,model_msa_sheet_generate,base.group_user,1,1,1,1
+access_msa_report,access_msa_report,model_msa_report,base.group_user,1,1,1,1
+access_msa_report_line,access_msa_report_line,model_msa_report_line,base.group_user,1,1,1,1

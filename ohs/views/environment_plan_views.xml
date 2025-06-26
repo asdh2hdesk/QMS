@@ -1,0 +1,75 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="view_environment_plan_tree" model="ir.ui.view">
+        <field name="name">environment.plan.tree</field>
+        <field name="model">environment.plan</field>
+        <field name="arch" type="xml">
+            <tree string="Environment Plans">
+                <field name="particular"/>
+                <field name="frequency"/>
+                <field name="year"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_environment_plan_form" model="ir.ui.view">
+        <field name="name">environment.plan.form</field>
+        <field name="model">environment.plan</field>
+        <field name="arch" type="xml">
+            <form string="Environment Plan">
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            EEnvironment Monitoring &amp; Analysis Plan
+                        </h1>
+                    </div>
+                    <br/>
+                    <group>
+                        <group>
+                            <field name="particular"/>
+                            <field name="frequency"/>
+                            <field name="quantity_quarter"/>
+                        </group>
+                        <group>
+                            <field name="quartity_year"/>
+                            <field name="year"/>
+                            <field name="date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Monthly Record">
+                            <group>
+                                <group string="1st Quarter (Jan - Mar)">
+                                    <field name="done_on_1" />
+                                </group>
+                                <group string="2nd Quarter (Apr - Jun)">
+                                    <field name="done_on_2" />
+                                </group>
+                                <group string="3rd Quarter (July - Sep)">
+                                    <field name="done_on_3" />
+                                </group>
+                                <group string="4th Quarter (Oct - Dec)">
+                                    <field name="done_on_4" />
+                                </group>
+                                    
+                                
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_environment_plan" model="ir.actions.act_window">
+        <field name="name">Environment Plans</field>
+        <field name="res_model">environment.plan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Items -->
+
+    <menuitem id="menu_environment_plan_main" name="Environment Plans" parent="menu_ohs_root" action="action_environment_plan"/>
+</odoo>

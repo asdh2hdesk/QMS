@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--        <record id="view_maintenance_equipment_tree_inherit_gauge_type" model="ir.ui.view">-->
+        <!--            <field name="name">maintenance.equipment.tree.inherit.gauge.type</field>-->
+        <!--            <field name="model">maintenance.equipment</field>-->
+        <!--            <field name="inherit_id" ref="maintenance.view_maintenance_equipment_tree"/>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <xpath expr="//field[@name='category_id']" position="after">-->
+        <!--                    <field name="gauge_type"/>-->
+        <!--                </xpath>-->
+        <!--            </field>-->
+        <!--        </record>-->
+        <!--<record id="custom_product_form_view" model="ir.ui.view">-->
+        <!--        <field name="name">custom.product.template.form.view</field>-->
+        <!--        <field name="model">product.template</field>-->
+        <!--        <field name="inherit_id" ref="product.product_template_form_view"/>-->
+        <!--        <field name="arch" type="xml">-->
+
+        <!--            &lt;!&ndash; Example 1: Add a field inside the 'general_information' group &ndash;&gt;-->
+        <!--            <xpath expr="//group[@name='general_information']" position="inside">-->
+        <!--                <field name="gauge_type"/>-->
+        <!--            </xpath>-->
+
+
+        <!--        </field>-->
+        <!--</record>-->
+
+
+        <record id="custom_product_form_view" model="ir.ui.view">
+            <field name="name">custom.product.template.form.view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='invoice_policy']" position="after">
+
+
+                    <field name="grn_product"/>
+                    <field name="grn_part_number"/>
+
+
+                </xpath>
+            </field>
+        </record>
+        <record id="custom_res_partner_form_view" model="ir.ui.view">
+            <field name="name">custom.res.partner.form.view</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!-- Insert new field after the phone div -->
+                <xpath expr="//div[contains(@class, 'o_row_readonly')][field[@name='phone']]" position="after">
+                    <field name="supplier_code"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="custom_employee_form_view" model="ir.ui.view">
+            <field name="name">custom.hr.employee.form.view</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+
+                <!-- Insert new field after company_id -->
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="supplier_code"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+        <record id="custom_maintenance_equipment_form" model="ir.ui.view">
+            <field name="name">maintenance.hr_equipment_view_form.inherit</field>
+            <field name="model">maintenance.equipment</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/group" position="inside">
+                    <group>
+                        <field name="code"/>
+                        <field name="range"/>
+                        <field name="make"/>
+                        <field name="lc"/>
+                        <field name="location"/>
+                        <field name="gauge_type"/>
+                        <field name="type_of_inspection"/>
+
+
+                    </group>
+
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Incoming Inspection Report Form View -->
+        <record id="view_grn_inspection_report_form" model="ir.ui.view">
+            <field name="name">grn.inspection.report.form</field>
+            <field name="model">grn.inspection.report</field>
+            <field name="arch" type="xml">
+                <form string="Incoming Inspection Report">
+                    <header>
+                        <button name="generate_xls_report" type="object" string="Print Report" class="oe_highlight"
+                            icon="fa-print"/>
+                        <button name="generate_xls_sheet_report" type="object" string="Print Monthly Report" class="oe_highlight"
+                            icon="fa-print"/>
+                    </header>
+                    <sheet>
+                        <div style="font-size:30px; text-align:center; border: 2px solid #090d54 ; padding: 10px; border-radius: 10px;">
+                            <h1 style="color:#4492bd;">
+                                Inspection Management
+                            </h1>
+                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <group>
+                            <group>
+                                <field name="grn_no"/>
+                                <field name="grn_date"/>
+
+
+                                <field name="part_id"/>
+                                <field name="grn_product"/>
+
+                                <field name="part_name" readonly="1"/>
+
+                            </group>
+                            <group>
+                                <field name="part_number" readonly="1"/>
+                                <field name="grn_part_number"/>
+                                <field name="supplier_name"/>
+                                <field name="supplier_code"/>
+
+                                <!--                                <field name="batch_quantity"/>-->
+
+
+                                <field name="date"/>
+
+                            </group>
+                            <group>
+                            <group style="border: 1px solid #e0e0e0; padding: 10px; border-radius: 15px; background-color: transparent; box-shadow: 0 4px 10px #000000; margin-right : 10px;width:400px; display:flex;flex-direction:column">
+                                <field name="supplier_inspection_report" widget="many2many_binary"
+                                       string="Supplier Inspection Reports"
+                                       options="{'no_text_in_buttons': True}"
+                                       style="margin-bottom: 8px; padding: 5px; border-bottom: 1px dashed #d4d4d4; font-size: 10px;"
+                                       class="o_field_text_size_10"/>
+
+                                <field name="internal_verified_sir" widget="many2many_binary"
+                                       string="Internal Verified Inspection Reports"
+                                       options="{'no_text_in_buttons': True}"
+                                       style="margin-bottom: 8px; padding: 5px; border-bottom: 1px dashed #d4d4d4; font-size: 10px;"
+                                       class="o_field_text_size_10"/>
+                            </group>
+                            <group style="border: 1px solid #e0e0e0; padding: 10px; border-radius: 15px; background-color: transparent;box-shadow: 0 4px 10px #000000; width:400px; display:flex;flex-direction:column">
+                                <field name="supplier_properties_report" widget="many2many_binary"
+                                       string="Supplier Properties Reports"
+                                       options="{'no_text_in_buttons': True}"
+                                       style="margin-bottom: 8px; padding: 5px; border-bottom: 1px dashed #d4d4d4; font-size: 10px;"
+                                       class="o_field_text_size_10"/>
+                                <field name="internal_verified_spr" widget="many2many_binary"
+                                       string="Internal Verified Properties Reports"
+                                       options="{'no_text_in_buttons': True}"
+                                       style="margin-bottom: 8px; padding: 5px; border-bottom: 1px dashed #d4d4d4; font-size: 10px;"
+                                       class="o_field_text_size_10"/>
+                            </group>
+                        </group>
+
+                        </group>
+                        <notebook>
+                            <page string="Inspection Lines">
+                                <field name="line_ids">
+                                    <tree>
+                                        <!--                                        <field name="sequence"/>-->
+                                        <field name="sr_no"/>
+                                        <field name="process_name_id"/>
+                                        <field name="product_spec_tol"/>
+                                        <field name="measure_method_aid"/>
+                                        <field name="inspected_by"/>
+
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_grn_inspection_report_tree_search" model="ir.ui.view">
+        <field name="name">grn.inspection.report.tree.search</field>
+        <field name="model">grn.inspection.report</field>
+        <field name="arch" type="xml">
+            <search string="Search Incoming Inspection Reports">
+                <!-- Search Fields -->
+                <field name="grn_no" string="GRN Number"/>
+                <field name="grn_date" string="GRN Date"/>
+                <field name="part_number" string="RIPQ Number"/>
+                <field name="supplier_name" string="Supplier Name"/>
+
+                <!-- Filters -->
+                <filter string="Recent Inspections" name="recent" domain="[('grn_date', '>=', (context_today() - relativedelta(months=1)).strftime('%Y-%m-%d'))]"/>
+                <filter string="This Month" name="this_month" domain="[('grn_date', '>=', context_today().strftime('%Y-%m-01'))]"/>
+
+                <!-- Group By -->
+                <group expand="0" string="Group By">
+                    <filter string="Supplier" name="supplier_name" context="{'group_by': 'supplier_name'}"/>
+                    <filter string="GRN Date" name="grn_date" context="{'group_by': 'grn_date'}"/>
+                    <filter string="Part Number" name="part_number" context="{'group_by': 'part_number'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+        <!-- Incoming Inspection Report Tree View -->
+        <record id="view_grn_inspection_report_tree" model="ir.ui.view">
+            <field name="name">grn.inspection.report.tree</field>
+            <field name="model">grn.inspection.report</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="grn_no"/>
+                    <field name="grn_date"/>
+                    <field name="date"/>
+                    <field name="part_id"/>
+                    <field name="part_number"/>
+                    <!--                    <field name="batch_quantity"/>-->
+
+                </tree>
+            </field>
+        </record>
+
+        <!-- Inspection Report Action -->
+        <record id="action_grn_inspection_report" model="ir.actions.act_window">
+            <field name="name">Incoming Inspection Reports</field>
+            <field name="res_model">grn.inspection.report</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_grn_inspection_report_tree_search"/>
+        </record>
+
+
+        <!-- Inspection Line Form View -->
+        <record id="view_grn_inspection_line_form" model="ir.ui.view">
+            <field name="name">grn.inspection.report.line.form</field>
+            <field name="model">grn.inspection.report.line</field>
+            <field name="arch" type="xml">
+                <form string="Inspection Line">
+                    <sheet>
+                        <group>
+                            <!--                            <field name="inspection_id"/>-->
+                            <!--                            <field name="sequence"/>-->
+                            <group>
+                                <field name="sr_no"/>
+                                <field name="process_name_id"/>
+                                <field name="product_spec_tol"/>
+                                <field name="measure_method_aid"/>
+                                <!--                                <field name="batch_quantity"/>-->
+                                <field name="sample_freq"/>
+                            </group>
+                            <group>
+                                <field name="gauge_type"/>
+                                <field name="inspected_by"/>
+
+                            </group>
+                        </group>
+                        <button name="action_generate_observations" type="object" string="Generate Observations"
+                                class="oe_highlight"/>
+
+
+                        <field name="observations">
+                            <tree editable="bottom">
+                                <field name="observation_number" readonly="1"/>
+                                <field name="part_sample_no"/>
+                                <field name="observation_value"/>
+                                <!--                                <field name="time_date_inspection"/>-->
+                            </tree>
+                        </field>
+
+                        <seperator string="Attachments"/>
+
+                        <field name="attchment" string="Attachments">
+                            <tree editable="bottom" string="Attachments">
+                                <!--                                <field name="report_filename"/>-->
+                                <field name="report_attachment" filename="report_filename" widget="attachment"/>
+                                <field name="report_month"/>
+
+                            </tree>
+
+                        </field>
+                        <!--                        <group>-->
+                        <!--                            <field name="attachment_1" filename="attachment_filename_1"/>-->
+                        <!--                            <field name="attachment_2" filename="attachment_filename_2"/>-->
+                        <!--                            <field name="attachment_3" filename="attachment_filename_3"/>-->
+                        <!--                        </group>-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Inspection Observations Form View -->
+        <record id="view_inspection_observation_form" model="ir.ui.view">
+            <field name="name">grn.inspection.observation.form</field>
+            <field name="model">grn.inspection.observation</field>
+            <field name="arch" type="xml">
+                <form string="Inspection Observation">
+                    <sheet>
+                        <group>
+
+                            <field name="observation_number"/>
+                            <!--                            <field name="part_sample_no"/>-->
+                            <field name="observation_value"/>
+
+                            <!--                            <field name="time_date_inspection"/>-->
+                        </group>
+
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Inspection Report Menu -->
+        <!--        <menuitem id="menu_grn_inspection_root" name="GRN Inspection"/>-->
+        <menuitem id="menu_grn_inspection" name="Inspection Reports" parent="menu_grn_management_root"
+                  action="action_grn_inspection_report" sequence="40"/>
+
+    </data>
+</odoo>

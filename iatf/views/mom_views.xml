@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_mom_tree" model="ir.ui.view">
+        <field name="name">mom.tree.view</field>
+        <field name="model">mom</field>
+        <field name="arch" type="xml">
+            <tree string="MOM">
+                <field name="mom_name"/>
+                <field name="document_name"/>
+                <field name="date"/>
+                <field name="meeting_location"/>
+                <field name="asd_team"/>
+                <field name="meeting_with"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_mom_form" model="ir.ui.view">
+        <field name="name">mom.form.view</field>
+        <field name="model">mom</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="MOM">
+                <header>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="mom_name"/>                            
+                            <field name="date"/>
+                            <field name="meeting_location"/>
+                            <field name="asd_team"/>
+                            <field name="meeting_with"/>
+                        </group>
+                        <group>
+                            <field name="create_uid"/>
+                            <field name="create_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="MoM Lines" name="mom_lines">
+                            <field name="mom_line" widget="section_and_note_one2many" mode="tree">
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="sl_no"/>
+                                            <field name="points_discussed"/>
+                                            <field name="responsibility"/>
+                                            <field name="status"/>
+                                            <field name="remarks"/>
+                                        </group>
+                                    </group>
+                                </form>
+                                <tree string="MoM Lines" editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="sl_no"/>
+                                    <field name="function_dept_id"/>
+                                    <field name="procedure_id"/>
+                                    <field name="procedure_description"/>
+                                    <field name="procedure_attachment"/>
+                                    <field name="format_id"/>
+                                    <field name="format_description"/>
+                                    <field name="format_attachment"/>
+                                    <field name="points_discussed"/>
+                                    <field name="responsibility"/>
+                                    <field name="status"/>
+                                    <field name="remarks"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mom_line_tree" model="ir.ui.view">
+        <field name="name">mom.line.tree</field>
+        <field name="model">mom.line</field>
+        <field name="arch" type="xml">
+            <tree string="MoM Lines">
+                <field name="sl_no"/>
+                <field name="points_discussed"/>
+                <field name="responsibility"/>
+                <field name="status"/>
+                <field name="remarks"/>
+            </tree>
+        </field>
+    </record>
+    <record id="main_mom_action" model="ir.actions.act_window">
+        <field name="name">MOM</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">mom</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+<!--    <menuitem id="iatf_menu_root" name="ISO IATF" sequence="-1"/>-->
+<!--    <menuitem id="iatf_menu" name="ISO IATF" parent="iatf_menu_root" sequence="2"/>-->
+    <menuitem id="iatf_menu_mom" name="MOM" parent="iatf_menu_engg" action="main_mom_action" sequence="1"/>
+</odoo>

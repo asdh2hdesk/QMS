@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Default Document Types -->
+    <record id="document_type_manual" model="qr.document.type">
+        <field name="name">Machine Manual</field>
+        <field name="description">Documentation provided by the manufacturer</field>
+    </record>
+
+    <record id="document_type_drawing" model="qr.document.type">
+        <field name="name">Drawing</field>
+        <field name="description">Technical drawings of the equipment</field>
+    </record>
+
+    <record id="document_type_checkpoints" model="qr.document.type">
+        <field name="name">Check Points</field>
+        <field name="description">Maintenance check points for the equipment</field>
+    </record>
+
+    <record id="document_type_critical_spares" model="qr.document.type">
+        <field name="name">Critical Spare Points</field>
+        <field name="description">Critical spare parts information</field>
+    </record>
+
+    <record id="document_type_scada" model="qr.document.type">
+        <field name="name">SCADA Diagram</field>
+        <field name="description">SCADA system diagrams</field>
+    </record>
+
+    <record id="document_type_plc" model="qr.document.type">
+        <field name="name">PLC Process</field>
+        <field name="description">PLC programming and process documentation</field>
+    </record>
+</odoo>

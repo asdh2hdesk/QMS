@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_ocp_root" name="OHSAS EHS" sequence="10"/>
+        <menuitem id="menu_ohs_root" name="OHSAS EHS" parent="menu_ocp_root" sequence="2"/>
+
+    </data>
+</odoo>

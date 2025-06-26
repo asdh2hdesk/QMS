@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_ppap_action_points_form" model="ir.ui.view">
+        <field name="name">ppap.action.points.form</field>
+        <field name="model">ppap.action.points</field>
+        <field name="arch" type="xml">
+            <form string="PPAP Action Points">
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            PPAP ACTION POINTS
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <group>
+                        <group>
+                            <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
+                            <field name="project"/>
+                            <field name="part_id"/>
+                            <field name="part_name" readonly="1"/>
+
+                        </group>
+                        <group>
+                            <field name="part_number" readonly="1"/>
+                            <field name="drg_no" readonly="1"/>
+                            <field name="partner_id" readonly="1"/>
+                            <field name="related_parts" widget="many2many_tags"/>
+
+
+                        </group>
+
+                    </group>
+                    <notebook>
+                        <page string="Action Points Formats">
+                            <field name="ppap_ids">
+                                <tree editable="bottom" create="False">
+                                    <field name="sl_no" readonly="1"/>
+                                    <field name="format" width="100px"/>
+                                    <field name="table" invisible="1"/>
+                                    <field name="change_required" width="80px"/>
+                                    <field name="responsibility_id" width="100px"/>
+                                    <field name="target_date" width="80px"/>
+                                    <field name="action" width="120px"/>
+                                    <field name="ecn_attachment" width="100px"/>
+                                    <button string="Open Format" name="action_open_format" type="object"
+                                            class="oe_highlight btn-sm" style="min-width: 80px;"
+                                            icon="fa-external-link" title="Open Format"
+                                            attrs="{'readonly': [('change_required', '=', False)]}"/>
+
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Additional Action Points Formats">
+                            <field name="additional_ids">
+                                <tree editable="bottom">
+                                    <field name="formate_name"/>
+                                    <field name="description"/>
+                                    <field name="change_required"/>
+                                    <field name="responsibility_id"/>
+                                    <field name="target_date"/>
+                                    <field name="ecn_attachment"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_ppap_action_points_tree" model="ir.ui.view">
+        <field name="name">ppap.action.points.tree</field>
+        <field name="model">ppap.action.points</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="project"/>
+                <field name="part_id"/>
+                <field name="part_number"/>
+                <field name="drg_no"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_ppap_action_points" model="ir.actions.act_window">
+        <field name="name">PPAP Action Points</field>
+        <field name="res_model">ppap.action.points</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create and manage PPAP Action Points.
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_ppap_action_points"
+              name="PPAP Action Points"
+              parent="menu_asd_ecn_root"
+              action="action_ppap_action_points"
+              sequence="20"/>
+
+
+</odoo>

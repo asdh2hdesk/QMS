@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+production.access_standard_operating_procedure,access_standard_operating_procedure,production.model_standard_operating_procedure,base.group_user,1,1,1,1
+production.access_process_and_tooling,access_process_and_tooling,production.model_process_and_tooling,base.group_user,1,1,1,1
+production.access_bill_of_materials,access_bill_of_materials,production.model_bill_of_materials,base.group_user,1,1,1,1
+production.access_sop_settings,access_sop_settings,production.model_sop_settings,base.group_user,1,1,1,1
+production.access_sop_safety,access_sop_safety,production.model_sop_safety,base.group_user,1,1,1,1

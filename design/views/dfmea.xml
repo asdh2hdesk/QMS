@@ -1,0 +1,337 @@
+<odoo>
+    <data>
+        <!-- DFMEA Item Sequence -->
+        <record id="dfmea_item_sequence" model="ir.sequence">
+            <field name="name">DFMEA Item Sequence</field>
+            <field name="code">dfmea.item</field>
+            <field name="prefix">DFMEA-</field>
+            <field name="padding">5</field>
+        </record>
+
+        <!-- DFMEA Item Tree View -->
+        <record id="dfmea_item_tree" model="ir.ui.view">
+            <field name="name">dfmea.item.tree</field>
+            <field name="model">dfmea.item</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="model_year"/>
+                    <field name="customer"/>
+                    <field name="supplier"/>
+                    <field name="team_leader_id"/>
+                    <field name="responsible_id"/>
+                    <field name="state"/>
+                    <field name="highest_rpn"/>
+                    <field name="high_risk_count"/>
+                    <field name="critical_risk_count"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- DFMEA Item Form View -->
+        <record id="dfmea_item_form" model="ir.ui.view">
+            <field name="name">dfmea.item.form</field>
+            <field name="model">dfmea.item</field>
+            <field name="arch" type="xml">
+                <form string="DFMEA Item">
+                    <header>
+                        <button name="action_start_design_review" type="object" string="Start Design Review"
+                                states="draft" class="btn-primary"/>
+                        <button name="action_define_system_functions" type="object" string="Define System Functions"
+                                states="design_review" class="btn-primary"/>
+                        <button name="action_perform_dfmea" type="object" string="Perform DFMEA" states="dfmea_analysis"
+                                class="btn-primary"/>
+                        <button name="action_conduct_dfa" type="object" string="Conduct DFA" states="dfa_required"
+                                class="btn-primary"/>
+                        <button name="action_design_verification" type="object" string="Design Verification"
+                                states="dfa_required,dfa_completed,verification" class="btn-primary"/>
+                        <button name="action_approve" type="object" string="Approve" states="verification"
+                                class="btn-success"/>
+                        <button name="action_qms_integration" type="object" string="Implement" states="approved"
+                                class="btn-success"/>
+                        <button name="action_reject" type="object" string="Reject" states="verification"
+                                class="btn-danger"/>
+                        <button name="action_resubmit_after_rejection" type="object" string="Resubmit" states="rejected"
+                                class="btn-warning"/>
+
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,design_review,dfmea_analysis,dfa_required,dfa_completed,verification,rejected,approved,implemented"/>
+                    </header>
+
+                    <sheet>
+                        <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                            <h1 style="color:#4492bd;">
+                                DFMEA
+                            </h1>
+                        </div>
+                        <div class="oe_title">
+                            <label for="project_id" string="Project Name"/>
+                            <h1>
+                                <div class="d-flex">
+                                    <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
+                                </div>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="name" readonly="1"/>
+                                <field name="doc_type" widget="radio" options="{'horizontal': true}"/>
+                                <field name="part_id" string="Part Reference"/>
+                                <field name="part_name"/>
+                                <field name="part_number"/>
+                                <field name="model_year"/>
+                                <field name="date"/>
+                                <field name="target_completion_date"/>
+
+                            </group>
+                            <group>
+                                <field name="customer"/>
+                                <field name="supplier"/>
+                                <field name="rev_date"/>
+                                <field name="rev_no"/>
+                                <field name="original_dfmea_date"/>
+                                <field name="date_completed"/>
+                            </group>
+                        </group>
+                        <group stirng="Team Information">
+                            <group>
+                                <field name="team_ids" widget="many2many_tags"/>
+                                <field name="team_leader_id" options="{'no_create': True}"/>
+                                <field name="responsible_id" options="{'no_create': True}"/>
+                                <field name="design_responsible_id" options="{'no_create': True}"/>
+                                 <field name="customer_approval_required"/>
+                                <field name="customer_approved_by"
+                                       attrs="{'invisible': [('customer_approval_required','=',False)]}"/>
+                                <field name="customer_approval_date"
+                                       attrs="{'invisible': [('customer_approval_required','=',False)]}"/>
+
+
+                            </group>
+
+
+
+
+                            <group>
+                                <field name="reviewed_by_id" options="{'no_create': True}"/>
+                                <field name="approved_by_id" options="{'no_create': True}"/>
+                                <field name="rejected_by_id"/>
+                                <field name="rejection_date"/>
+                                <field name="rejection_reason"/>
+
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="System Definition">
+                                <group>
+                                    <field name="system_function"/>
+                                    <field name="design_intent"/>
+                                    <field name="system_requirements"/>
+                                    <field name="interface_requirements"/>
+                                    <field name="attachments" widget="many2many_binary"/>
+                                </group>
+                            </page>
+
+                            <page string="Failure Mode Analysis">
+                                <field name="dfmea_line_ids">
+                                    <tree >
+                                        <field name="function"/>
+                                        <field name="failure_mode"/>
+                                        <field name="failure_effect"/>
+                                        <field name="failure_cause"/>
+                                        <field name="severity"/>
+                                        <field name="occurrence"/>
+                                        <field name="detection"/>
+                                        <field name="rpn"/>
+                                        <field name="current_design_controls"/>
+                                        <field name="current_detection_controls"/>
+                                        <field name="recommended_action"/>
+                                        <field name="action_priority"/>
+                                        <field name="action_owner_id"/>
+                                        <field name="action_due_date"/>
+                                        <field name="action_taken"/>
+                                        <field name="action_status"/>
+                                        <field name="action_completion_date"/>
+                                        <field name="severity_post"/>
+                                        <field name="occurrence_post"/>
+                                        <field name="detection_post"/>
+                                        <field name="rpn_post"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page string="Risk Metrics">
+                                <group>
+                                    <field name="highest_rpn"/>
+                                    <field name="high_risk_count"/>
+                                    <field name="critical_risk_count"/>
+                                    <field name="dfa_created"/>
+                                    <field name="design_controls_implemented"/>
+                                    <field name="document_control_number"/>
+                                </group>
+                            </page>
+                        </notebook>
+                        <group string="Initiator">
+                            <group>
+                                <field name="create_uid"/>
+                            </group>
+                            <group>
+                                <field name="create_date"/>
+                            </group>
+                        </group>
+                        <separator string="Approvers"/>
+                        <field name="iatf_members_ids" widget="many2many_tree"
+                               options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                               string="Approvers">
+                            <tree>
+                                <field name="approver_id"/>
+                                <field name="department_id"/>
+                                <field name="comment"/>
+                                <field name="date_approved_rejected"/>
+                                <field name="approval_status" widget="badge"
+                                       decoration-danger="approval_status == 'rejected'"
+                                       decoration-info="approval_status == 'revision'"
+                                       decoration-success="approval_status == 'approved'"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_dfmea_line_form" model="ir.ui.view">
+            <field name="name">dfmea.line.item.form</field>
+            <field name="model">dfmea.line.item</field>
+            <field name="arch" type="xml">
+                <form string="DFMEA Line Item">
+                    <sheet>
+                        <div class="oe_title">
+                            <h2>DFMEA Line Item</h2>
+                        </div>
+                        <group string="Function &amp; Failure">
+                            <group>
+                                <field name="function"/>
+                                <field name="failure_mode"/>
+
+                            </group>
+                            <group>
+                                <field name="failure_effect"/>
+                                <field name="failure_cause"/>
+
+                            </group>
+
+
+                        </group>
+                        <group string="Risk Assessment">
+                            <group>
+                                <field name="severity"/>
+                                <field name="occurrence"/>
+                            </group>
+                            <group>
+                                <field name="detection"/>
+                                <field name="rpn" readonly="1"/>
+                            </group>
+
+
+                        </group>
+
+                        <group string="Current Design Controls">
+                            <field name="current_design_controls"/>
+                            <field name="current_detection_controls"/>
+                        </group>
+
+                        <group string="Recommended Actions">
+                            <group>
+                                <field name="recommended_action"/>
+                                <field name="action_priority"/>
+                            </group>
+                            <group>
+
+                                <field name="action_owner_id"/>
+                                <field name="action_due_date"/>
+
+                            </group>
+
+                        </group>
+
+                        <group string="Action Status">
+                            <group>
+                                <field name="action_taken"/>
+                                <field name="action_status"/>
+                            </group>
+                            <group>
+                                <field name="action_completion_date"/>
+                            </group>
+
+
+                        </group>
+
+                        <group string="Post-Action Evaluation">
+                            <group>
+                                <field name="severity_post" readonly="1"/>
+                                <field name="occurrence_post" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="detection_post" readonly="1"/>
+                                <field name="rpn_post" readonly="1"/>
+                            </group>
+
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- DFMEA Item Search View -->
+        <record id="dfmea_item_search" model="ir.ui.view">
+            <field name="name">dfmea.item.search</field>
+            <field name="model">dfmea.item</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="customer"/>
+                    <field name="supplier"/>
+                    <field name="team_leader_id"/>
+                    <field name="responsible_id"/>
+                    <field name="state"/>
+                    <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Design Review" name="design_review" domain="[('state', '=', 'design_review')]"/>
+                    <filter string="DFMEA Analysis" name="dfmea_analysis" domain="[('state', '=', 'dfmea_analysis')]"/>
+                    <filter string="DFA Required" name="dfa_required" domain="[('state', '=', 'dfa_required')]"/>
+                    <filter string="DFA Completed" name="dfa_completed" domain="[('state', '=', 'dfa_completed')]"/>
+                    <filter string="Verification" name="verification" domain="[('state', '=', 'verification')]"/>
+                    <filter string="Approved" name="approved" domain="[('state', '=', 'approved')]"/>
+                    <filter string="Implemented" name="implemented" domain="[('state', '=', 'implemented')]"/>
+                    <filter string="High Risk Items" name="high_risk" domain="[('highest_rpn', '>=', 100)]"/>
+                    <filter string="Critical Risk Items" name="critical_risk"
+                            domain="[('critical_risk_count', '>', 0)]"/>
+                    <group string="Group By">
+                        <filter name="state" string="Status" context="{'group_by': 'state'}"/>
+                        <filter name="team_leader_id" string="Team Leader" context="{'group_by': 'team_leader_id'}"/>
+                        <filter name="customer" string="Customer" context="{'group_by': 'customer'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- DFMEA Items Action -->
+        <record id="action_dfmea_items" model="ir.actions.act_window">
+            <field name="name">DFMEA Items</field>
+            <field name="res_model">dfmea.item</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="dfmea_item_search"/>
+        </record>
+
+        <!-- Menu Items -->
+        <menuitem id="menu_dfmea_root" name="Design Management"/>
+        <menuitem id="menu_dfmea_items" name="DFMEA Items" parent="menu_dfmea_root" action="action_dfmea_items"
+                  sequence="10"/>
+    </data>
+</odoo>

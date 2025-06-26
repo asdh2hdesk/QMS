@@ -1,0 +1,65 @@
+<!-- views/oee_analysis_views.xml -->
+<odoo>
+  <!-- Tree View -->
+  <record id="view_oee_analysis_tree" model="ir.ui.view">
+    <field name="name">oee.analysis.tree</field>
+    <field name="model">oee.analysis</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="year"/>
+        <field name="month"/>
+        <field name="planned_efficiency"/>
+        <field name="actual_efficiency"/>
+        <field name="efficiency_gap"/>
+      </tree>
+    </field>
+  </record>
+
+  <!-- Form View -->
+  <record id="view_oee_analysis_form" model="ir.ui.view">
+    <field name="name">oee.analysis.form</field>
+    <field name="model">oee.analysis</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+
+            <field name="month"/>
+            <field name="year"/>
+          </group>
+          <group>
+            <field name="planned_efficiency"/>
+            <field name="actual_efficiency"/>
+            <field name="efficiency_gap" readonly="1"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!-- Graph View -->
+  <record id="view_oee_analysis_graph" model="ir.ui.view">
+    <field name="name">oee.analysis.graph</field>
+    <field name="model">oee.analysis</field>
+    <field name="arch" type="xml">
+      <graph string="OEE Comparison" type="bar">
+        <field name="name" type="row"/>
+        <field name="planned_efficiency"/>
+        <field name="actual_efficiency"/>
+      </graph>
+    </field>
+  </record>
+
+  <!-- Action -->
+  <record id="action_oee_analysis" model="ir.actions.act_window">
+    <field name="name">OEE Analysis</field>
+    <field name="res_model">oee.analysis</field>
+    <field name="view_mode">tree,form,graph</field>
+  </record>
+
+  <!-- Menu Items -->
+  <menuitem id="menu_oee_root" name="OEE Reports" parent="iatf.iatf_menu_quality"/>
+  <menuitem id="menu_oee_analysis" name="OEE Analysis" parent="menu_oee_root" action="action_oee_analysis"/>
+</odoo>

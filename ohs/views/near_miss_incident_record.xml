@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_form_near_miss_incident" model="ir.ui.view">
+        <field name="name">near.miss.incident.form</field>
+        <field name="model">near.miss.incident</field>
+        <field name="arch" type="xml">
+            <form string="Near Miss Incident Recording">
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #090d54 ; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            Environmental Management Programme
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <group>
+                        <group>
+                            <field name="serial_no"/>
+                            <field name="employee_id"/>
+                            <field name="employee_code"/>
+                            <field name="department"/>
+                            <field name="incident_date"/>
+                            <field name="incident_location"/>
+                        </group>
+                        <group>
+                            <field name="incident_description"/>
+                            <field name="incident_root_cause"/>
+                            <field name="discussion_with_employee"/>
+                            <field name="reported_by" widget="many2many_tags"/>
+                            <field name="corrective_action"/>
+                            <field name="remark"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="prepared_by"/>
+                        <field name="approved_by"/>
+                        <field name="date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_tree_near_miss_incident" model="ir.ui.view">
+        <field name="name">near.miss.incident.tree</field>
+        <field name="model">near.miss.incident</field>
+        <field name="arch" type="xml">
+            <tree string="Near Miss Incidents">
+                <field name="serial_no"/>
+                <field name="employee_id"/>
+                <field name="employee_code"/>
+                <field name="incident_date"/>
+                <field name="incident_location"/>
+                <field name="prepared_by"/>
+                <field name="approved_by"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_near_miss_incident" model="ir.actions.act_window">
+        <field name="name">Near Miss Incidents</field>
+        <field name="res_model">near.miss.incident</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Record and monitor near miss incidents.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_near_miss_incident" name="Near Miss Incidents" parent="menu_ohs_root" action="action_near_miss_incident"/>
+</odoo>

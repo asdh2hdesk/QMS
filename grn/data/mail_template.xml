@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Create this file as 'grn_email_templates.xml' and place it in your module's directory -->
+<odoo>
+
+    <!-- Define the grn.model_grn_management XML ID -->
+    <record id="model_grn_management" model="ir.model">
+        <field name="name">GRN Management</field>
+        <field name="model">grn.management</field>
+    </record>
+    <!-- GRN Submitted Template -->
+    <record id="email_template_grn_submitted" model="mail.template">
+        <field name="name">GRN: Submitted for Inspection</field>
+        <field name="model_id" ref="grn.model_grn_management"/>
+        <field name="subject">GRN ${object.grn_no} Submitted for Inspection</field>
+        <field name="email_from">${user.email_formatted}</field>
+        <field name="email_to">${';'.join([user.email for user in object.responsible_person])}</field>
+        <field name="partner_to">${object.supplier_name.id}</field>
+        <field name="body_html" type="html">
+            <div style="font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;">
+                <h2 style="color: #4c4c4c;">GRN Submitted for Inspection</h2>
+
+                <p>Dear Responsible Team,</p>
+
+                <p>A GRN has been submitted for inspection with the following details:</p>
+
+                <div style="background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #875A7B;">
+                    <p>
+                        <strong>GRN No:</strong>
+                        ${object.grn_no}
+                    </p>
+                    <p>
+                        <strong>GRN Date:</strong>
+                        ${object.grn_date}
+                    </p>
+                    <p>
+                        <strong>Supplier:</strong>
+                        ${object.supplier_name.name}
+                    </p>
+                    <p>
+                        <strong>Supplier Code:</strong>
+                        ${object.supplier_code}
+                    </p>
+                    <p>
+                        <strong>Part No:</strong>
+                        ${object.part_number}
+                    </p>
+                    <p>
+                        <strong>Part Name:</strong>
+                        ${object.part_name}
+                    </p>
+                    <p>
+                        <strong>Invoice No:</strong>
+                        ${object.invoice_no}
+                    </p>
+                    <p>
+                        <strong>Total Quantity:</strong>
+                        ${object.total_qty}
+                    </p>
+                    <p>
+                        <strong>Status:</strong>
+                        <span style="color: #17a2b8;">${dict(object._fields['status'].selection).get(object.status)}
+                        </span>
+                    </p>
+
+                    % if object.approval_history_ids and object.approval_history_ids[0].description:
+                    <p>
+                        <strong>Notes:</strong>
+                        ${object.approval_history_ids[0].description}
+                    </p>
+                    % endif
+                </div>
+
+                <p>Please review this GRN and take appropriate action.</p>
+
+                <p>Thank you,
+                    <br/>
+                    ${user.name}
+                </p>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+    <!-- GRN Accepted Template -->
+    <record id="email_template_grn_accepted" model="mail.template">
+        <field name="name">GRN: Accepted</field>
+        <field name="model_id" ref="grn.model_grn_management"/>
+        <field name="subject">GRN ${object.grn_no} Has Been Accepted</field>
+        <field name="email_from">${user.email_formatted}</field>
+        <field name="email_to">${';'.join([user.email for user in object.responsible_person])}</field>
+        <field name="partner_to">${object.supplier_name.id}</field>
+        <field name="body_html" type="html">
+            <div style="font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;">
+                <h2 style="color: #28a745;">GRN Accepted</h2>
+
+                <p>Dear ${object.supplier_name.name},</p>
+
+                <p>We are pleased to inform you that your GRN has been accepted and the materials have met our quality
+                    standards.
+                </p>
+
+                <div style="background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #28a745;">
+                    <p>
+                        <strong>GRN No:</strong>
+                        ${object.grn_no}
+                    </p>
+                    <p>
+                        <strong>GRN Date:</strong>
+                        ${object.grn_date}
+                    </p>
+                    <p>
+                        <strong>Product:</strong>
+                        ${object.grn_product}
+                    </p>
+                    <p>
+                        <strong>Part No:</strong>
+                        ${object.part_number}
+                    </p>
+                    <p>
+                        <strong>Part Name:</strong>
+                        ${object.part_name}
+                    </p>
+                    <p>
+                        <strong>Invoice No:</strong>
+                        ${object.invoice_no}
+                    </p>
+                    <p>
+                        <strong>Total Quantity:</strong>
+                        ${object.total_qty}
+                    </p>
+                    <p>
+                        <strong>Store Location:</strong>
+                        ${object.store_location}
+                    </p>
+                    <p>
+                        <strong>Status:</strong>
+                        <span style="color: #28a745;">${dict(object._fields['status'].selection).get(object.status)}
+                        </span>
+                    </p>
+
+                    % if object.approval_history_ids and object.approval_history_ids[0].description:
+                    <p>
+                        <strong>Approval Notes:</strong>
+                        ${object.approval_history_ids[0].description}
+                    </p>
+                    % endif
+                </div>
+
+                <p>The materials have been moved to the store location and are ready for use.</p>
+
+                <p>Thank you for your quality service.</p>
+
+                <p>Regards,
+                    <br/>
+                    ${user.company_id.name}
+                    <br/>
+                    ${user.name}
+                </p>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+    <!-- GRN Rejected Template -->
+    <record id="email_template_grn_rejected" model="mail.template">
+        <field name="name">GRN: Rejected</field>
+        <field name="model_id" ref="grn.model_grn_management"/>
+        <field name="subject">GRN ${object.grn_no} Has Been Rejected</field>
+        <field name="email_from">${user.email_formatted}</field>
+        <field name="email_to">${';'.join([user.email for user in object.responsible_person])}</field>
+        <field name="partner_to">${object.supplier_name.id}</field>
+        <field name="body_html" type="html">
+            <div style="font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;">
+                <h2 style="color: #dc3545;">GRN Rejected</h2>
+                <p>Dear ${object.supplier_name.name},</p>
+                <p>We regret to inform you that your GRN has been rejected as the materials did not meet our quality
+                    standards.
+                </p>
+                <div style="background-color: #ffffff; padding: 20px; border: 2px solid #dc3545; margin: 15px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td colspan="2"
+                                style="text-align: center; background-color: #dc3545; color: white; padding: 10px;">
+                                <strong>Supplier Parts - Non-Conformance Report</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">
+                                <strong>Part No:</strong>
+                            </td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">${object.part_number or ''}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">
+                                <strong>Defect Source:</strong>
+                            </td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">
+                                ${object.rejection_wizard_defect_source or ''}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">
+                                <strong>Defective Qty:</strong>
+                            </td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">
+                                ${object.rejection_wizard_defective_qty or 0}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">
+                                <strong>Suspected Qty:</strong>
+                            </td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">
+                                ${object.rejection_wizard_suspected_qty or 0}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">
+                                <strong>Defect Description:</strong>
+                            </td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">
+                                ${object.rejection_wizard_defect_description or ''}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">
+                                <strong>Defect Snap:</strong>
+                            </td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">
+                                % if object.rejection_wizard_defect_snapshot:
+                                <img src="data:image/png;base64,${object.rejection_wizard_defect_snapshot}"
+                                     alt="Defect Snapshot" style="max-width: 200px; max-height: 200px;"/>
+                                % else:
+                                No snapshot available
+                                % endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">
+                                <strong>Additional Information:</strong>
+                            </td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">Repeat Issue:
+                                ${object.rejection_wizard_repeat_issue or 'N/A'}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">
+                                <strong>Rejection Notes:</strong>
+                            </td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">${object.rejection_notes or ''}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #ddd; padding: 8px;">
+                                <strong>Recommended Actions:</strong>
+                            </td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">
+                                1) Containment Action - JIGS/Parts action along with GRN No. to be checked for OPL stock
+                                <br/>
+                                2) For next batch material identification for contamination/quality concerns and after
+                                reassembly
+                                <br/>
+                                3) BD Submission
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <p>Please contact our quality department to discuss further steps.</p>
+                <p>Regards,<br/>${user.company_id.name}<br/>${user.name}
+                </p>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+    <!-- GRN Quarantine Template -->
+    <record id="email_template_grn_quarantine" model="mail.template">
+        <field name="name">GRN: Moved to Quarantine</field>
+        <field name="model_id" ref="grn.model_grn_management"/>
+        <field name="subject">GRN ${object.grn_no} Has Been Moved to Quarantine</field>
+        <field name="email_from">${user.email_formatted}</field>
+        <field name="email_to">${';'.join([user.email for user in object.responsible_person])}</field>
+        <field name="partner_to">${object.supplier_name.id}</field>
+        <field name="body_html" type="html">
+            <div style="font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;">
+                <h2 style="color: #ffc107;">GRN Moved to Quarantine</h2>
+
+                <p>Dear Team,</p>
+
+                <p>A GRN has been moved to quarantine for further inspection or pending decision.</p>
+
+                <div style="background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #ffc107;">
+                    <p>
+                        <strong>GRN No:</strong>
+                        ${object.grn_no}
+                    </p>
+                    <p>
+                        <strong>GRN Date:</strong>
+                        ${object.grn_date}
+                    </p>
+                    <p>
+                        <strong>Supplier:</strong>
+                        ${object.supplier_name.name}
+                    </p>
+                    <p>
+                        <strong>Product:</strong>
+                        ${object.grn_product}
+                    </p>
+                    <p>
+                        <strong>Part No:</strong>
+                        ${object.part_number}
+                    </p>
+                    <p>
+                        <strong>Part Name:</strong>
+                        ${object.part_name}
+                    </p>
+                    <p>
+                        <strong>Total Quantity:</strong>
+                        ${object.total_qty}
+                    </p>
+                    <p>
+                        <strong>Status:</strong>
+                        <span style="color: #ffc107;">${dict(object._fields['status'].selection).get(object.status)}
+                        </span>
+                    </p>
+
+                    % if object.approval_history_ids and object.approval_history_ids[0].description:
+                    <p>
+                        <strong>Notes:</strong>
+                        ${object.approval_history_ids[0].description}
+                    </p>
+                    % endif
+                </div>
+
+                <p>The materials are currently in the quarantine area. Please take appropriate action.</p>
+
+                <p>Regards,
+                    <br/>
+                    ${user.name}
+                </p>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+    <!-- GRN Recheck Template -->
+    <record id="email_template_grn_recheck" model="mail.template">
+        <field name="name">GRN: Sent for Recheck</field>
+        <field name="model_id" ref="grn.model_grn_management"/>
+        <field name="subject">GRN ${object.grn_no} Sent for Recheck</field>
+        <field name="email_from">${user.email_formatted}</field>
+        <field name="email_to">${';'.join([user.email for user in object.responsible_person])}</field>
+        <field name="body_html" type="html">
+            <div style="font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;">
+                <h2 style="color: #17a2b8;">GRN Sent for Recheck</h2>
+
+                <p>Dear Quality Team,</p>
+
+                <p>A GRN has been sent for rechecking. Please perform a thorough re-inspection.</p>
+
+                <div style="background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #17a2b8;">
+                    <p>
+                        <strong>GRN No:</strong>
+                        ${object.grn_no}
+                    </p>
+                    <p>
+                        <strong>GRN Date:</strong>
+                        ${object.grn_date}
+                    </p>
+                    <p>
+                        <strong>Supplier:</strong>
+                        ${object.supplier_name.name}
+                    </p>
+                    <p>
+                        <strong>Product:</strong>
+                        ${object.grn_product}
+                    </p>
+                    <p>
+                        <strong>Part No:</strong>
+                        ${object.part_number}
+                    </p>
+                    <p>
+                        <strong>Part Name:</strong>
+                        ${object.part_name}
+                    </p>
+                    <p>
+                        <strong>Total Quantity:</strong>
+                        ${object.total_qty}
+                    </p>
+                    <p>
+                        <strong>Status:</strong>
+                        <span style="color: #17a2b8;">${dict(object._fields['status'].selection).get(object.status)}
+                        </span>
+                    </p>
+
+                    % if object.approval_history_ids and object.approval_history_ids[0].description:
+                    <p>
+                        <strong>Recheck Notes:</strong>
+                        ${object.approval_history_ids[0].description}
+                    </p>
+                    % endif
+                </div>
+
+                <p>Please prioritize this recheck and update the status accordingly.</p>
+
+                <p>Regards,
+                    <br/>
+                    ${user.name}
+                </p>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+    <!-- GRN Accepted After Recheck Template -->
+    <record id="email_template_grn_accepted_recheck" model="mail.template">
+        <field name="name">GRN: Accepted After Recheck</field>
+        <field name="model_id" ref="grn.model_grn_management"/>
+        <field name="subject">GRN ${object.grn_no} Accepted After Recheck</field>
+        <field name="email_from">${user.email_formatted}</field>
+        <field name="email_to">${';'.join([user.email for user in object.responsible_person])}</field>
+        <field name="partner_to">${object.supplier_name.id}</field>
+        <field name="body_html" type="html">
+            <div style="font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;">
+                <h2 style="color: #28a745;">GRN Accepted After Recheck</h2>
+
+                <p>Dear ${object.supplier_name.name},</p>
+
+                <p>We are pleased to inform you that your GRN has been accepted after rechecking the materials.</p>
+
+                <div style="background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #28a745;">
+                    <p>
+                        <strong>GRN No:</strong>
+                        ${object.grn_no}
+                    </p>
+                    <p>
+                        <strong>GRN Date:</strong>
+                        ${object.grn_date}
+                    </p>
+                    <p>
+                        <strong>Product:</strong>
+                        ${object.grn_product}
+                    </p>
+                    <p>
+                        <strong>Part No:</strong>
+                        ${object.part_number}
+                    </p>
+                    <p>
+                        <strong>Part Name:</strong>
+                        ${object.part_name}
+                    </p>
+                    <p>
+                        <strong>Invoice No:</strong>
+                        ${object.invoice_no}
+                    </p>
+                    <p>
+                        <strong>Total Quantity:</strong>
+                        ${object.total_qty}
+                    </p>
+                    <p>
+                        <strong>Store Location:</strong>
+                        ${object.store_location}
+                    </p>
+                    <p>
+                        <strong>Status:</strong>
+                        <span style="color: #28a745;">${dict(object._fields['status'].selection).get(object.status)}
+                        </span>
+                    </p>
+
+                    % if object.approval_history_ids and object.approval_history_ids[0].description:
+                    <p>
+                        <strong>Approval Notes:</strong>
+                        ${object.approval_history_ids[0].description}
+                    </p>
+                    % endif
+                </div>
+
+                <p>The materials have been moved to the store location and are now ready for use.</p>
+
+                <p>Thank you for your quality service and cooperation.</p>
+
+                <p>Regards,
+                    <br/>
+                    ${user.company_id.name}
+                    <br/>
+                    ${user.name}
+                </p>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+    <!-- GRN Scrap Template -->
+    <record id="email_template_grn_scrap" model="mail.template">
+        <field name="name">GRN: Material Marked for Scrap</field>
+        <field name="model_id" ref="grn.model_grn_management"/>
+        <field name="subject">GRN ${object.grn_no} Material Marked for Scrap</field>
+        <field name="email_from">${user.email_formatted}</field>
+        <field name="email_to">${';'.join([user.email for user in object.responsible_person])}</field>
+        <field name="partner_to">${object.supplier_name.id}</field>
+        <field name="body_html" type="html">
+            <div style="font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;">
+                <h2 style="color: #dc3545;">GRN Material Marked for Scrap</h2>
+
+                <p>Dear ${object.supplier_name.name},</p>
+
+                <p>We regret to inform you that the materials in the referenced GRN have been marked for scrap after
+                    thorough inspection.
+                </p>
+
+                <div style="background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #dc3545;">
+                    <p>
+                        <strong>GRN No:</strong>
+                        ${object.grn_no}
+                    </p>
+                    <p>
+                        <strong>GRN Date:</strong>
+                        ${object.grn_date}
+                    </p>
+                    <p>
+                        <strong>Product:</strong>
+                        ${object.grn_product}
+                    </p>
+                    <p>
+                        <strong>Part No:</strong>
+                        ${object.part_number}
+                    </p>
+                    <p>
+                        <strong>Part Name:</strong>
+                        ${object.part_name}
+                    </p>
+                    <p>
+                        <strong>Invoice No:</strong>
+                        ${object.invoice_no}
+                    </p>
+                    <p>
+                        <strong>Total Quantity:</strong>
+                        ${object.total_qty}
+                    </p>
+                    <p>
+                        <strong>Status:</strong>
+                        <span style="color: #dc3545;">${dict(object._fields['status'].selection).get(object.status)}
+                        </span>
+                    </p>
+
+                    % if object.rejection_notes:
+                    <p>
+                        <strong>Rejection Notes:</strong>
+                        ${object.rejection_notes}
+                    </p>
+                    % endif
+                </div>
+
+                <p>Please contact our quality department to discuss further actions and replacement terms.</p>
+
+                <p>Regards,
+                    <br/>
+                    ${user.company_id.name}
+                    <br/>
+                    ${user.name}
+                </p>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+    <!-- GRN Return to Supplier Template -->
+    <record id="email_template_grn_return_supplier" model="mail.template">
+        <field name="name">GRN: Material Returned to Supplier</field>
+        <field name="model_id" ref="grn.model_grn_management"/>
+        <field name="subject">GRN ${object.grn_no} Material to be Returned</field>
+        <field name="email_from">${user.email_formatted}</field>
+        <field name="email_to">${';'.join([user.email for user in object.responsible_person])}</field>
+        <field name="partner_to">${object.supplier_name.id}</field>
+        <field name="body_html" type="html">
+            <div style="font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;">
+                <h2 style="color: #dc3545;">GRN Material to be Returned</h2>
+
+                <p>Dear ${object.supplier_name.name},</p>
+
+                <p>We regret to inform you that the materials in the referenced GRN will be returned to you as they did
+                    not meet our quality requirements.
+                </p>
+
+                <div style="background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #dc3545;">
+                    <p>
+                        <strong>GRN No:</strong>
+                        ${object.grn_no}
+                    </p>
+                    <p>
+                        <strong>GRN Date:</strong>
+                        ${object.grn_date}
+                    </p>
+                    <p>
+                        <strong>Product:</strong>
+                        ${object.grn_product}
+                    </p>
+                    <p>
+                        <strong>Part No:</strong>
+                        ${object.part_number}
+                    </p>
+                    <p>
+                        <strong>Part Name:</strong>
+                        ${object.part_name}
+                    </p>
+                    <p>
+                        <strong>Invoice No:</strong>
+                        ${object.invoice_no}
+                    </p>
+                    <p>
+                        <strong>Total Quantity:</strong>
+                        ${object.total_qty}
+                    </p>
+                    <p>
+                        <strong>Status:</strong>
+                        <span style="color: #ffc107;">${dict(object._fields['status'].selection).get(object.status)}
+                        </span>
+                    </p>
+                    <p>
+                        <strong>Current Location:</strong>
+                        ${object.store_location}
+                    </p>
+
+                    % if object.rejection_notes:
+                    <p>
+                        <strong>Rejection Notes:</strong>
+                        ${object.rejection_notes}
+                    </p>
+                    % endif
+                </div>
+
+                <p>Please arrange for the collection of these materials at your earliest convenience. Our logistics team
+                    will coordinate the return process with you.
+                </p>
+
+                <p>Regards,
+                    <br/>
+                    ${user.company_id.name}
+                    <br/>
+                    ${user.name}
+                </p>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+    <!-- Include CFT Team in the email loop -->
+    <record id="email_template_grn_to_cft" model="mail.template">
+        <field name="name">GRN: Notification to CFT Team</field>
+        <field name="model_id" ref="grn.model_grn_management"/>
+        <field name="subject">CFT Notification: GRN ${object.grn_no} Status Update</field>
+        <field name="email_from">${user.email_formatted}</field>
+        <field name="body_html" type="html">
+            <div style="font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;">
+                <h2 style="color: #4c4c4c;">GRN Status Update for CFT Team</h2>
+
+                <p>Dear CFT Team,</p>
+
+                <p>This is a notification about a GRN status change that may require your attention:</p>
+
+                <div style="background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #875A7B;">
+                    <p>
+                        <strong>GRN No:</strong>
+                        ${object.grn_no}
+                    </p>
+                    <p>
+                        <strong>GRN Date:</strong>
+                        ${object.grn_date}
+                    </p>
+                    <p>
+                        <strong>Supplier:</strong>
+                        ${object.supplier_name.name}
+                    </p>
+                    <p>
+                        <strong>Product:</strong>
+                        ${object.grn_product}
+                    </p>
+                    <p>
+                        <strong>Part No:</strong>
+                        ${object.part_number}
+                    </p>
+                    <p>
+                        <strong>Part Name:</strong>
+                        ${object.part_name}
+                    </p>
+                    <p>
+                        <strong>Total Quantity:</strong>
+                        ${object.total_qty}
+                    </p>
+                    <p>
+                        <strong>Current Status:</strong>
+                        <span>${dict(object._fields['status'].selection).get(object.status)}</span>
+                    </p>
+
+                    % if object.approval_history_ids and object.approval_history_ids[0].description:
+                    <p>
+                        <strong>Latest Note:</strong>
+                        ${object.approval_history_ids[0].description}
+                    </p>
+                    % endif
+
+                    % if object.rejection_notes:
+                    <p>
+                        <strong>Rejection Notes:</strong>
+                        ${object.rejection_notes}
+                    </p>
+                    % endif
+                </div>
+
+                <p>Please review this information and take any necessary actions as part of the CFT process.</p>
+
+                <p>Regards,
+                    <br/>
+                    ${user.name}
+                </p>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+    <!-- Administrator notifications for critical status changes -->
+    <record id="email_template_grn_admin_alert" model="mail.template">
+        <field name="name">GRN: Administrator Alert</field>
+        <field name="model_id" ref="grn.model_grn_management"/>
+        <field name="subject">ADMIN ALERT: GRN ${object.grn_no} Status Change</field>
+        <field name="email_from">${user.email_formatted}</field>
+        <field name="body_html" type="html">
+            <div style="font-family: Arial, Helvetica, sans-serif; padding: 15px; color: #454748;">
+                <h2 style="color: #dc3545;">GRN Administrator Alert</h2>
+
+                <p>Dear Administrator,</p>
+
+                <p>This is an important notification about a GRN status change that requires administrative attention:
+                </p>
+
+                <div style="background-color: #f8f9fa; padding: 15px; margin: 15px 0; border-left: 4px solid #dc3545;">
+                    <p>
+                        <strong>GRN No:</strong>
+                        ${object.grn_no}
+                    </p>
+                    <p>
+                        <strong>GRN Date:</strong>
+                        ${object.grn_date}
+                    </p>
+                    <p>
+                        <strong>Supplier:</strong>
+                        ${object.supplier_name.name}
+                    </p>
+                    <p>
+                        <strong>Product:</strong>
+                        ${object.grn_product}
+                    </p>
+                    <p>
+                        <strong>Part No:</strong>
+                        ${object.part_number}
+                    </p>
+                    <p>
+                        <strong>Part Name:</strong>
+                        ${object.part_name}
+                    </p>
+                    <p>
+                        <strong>Total Quantity:</strong>
+                        ${object.total_qty}
+                    </p>
+                    <p>
+                        <strong>Current Status:</strong>
+                        <span style="color: #dc3545;">${dict(object._fields['status'].selection).get(object.status)}
+                        </span>
+                    </p>
+
+                    % if object.approval_history_ids and object.approval_history_ids[0].description:
+                    <p>
+                        <strong>Latest Note:</strong>
+                        ${object.approval_history_ids[0].description}
+                    </p>
+                    % endif
+
+                    % if object.rejection_notes:
+                    <p>
+                        <strong>Rejection Notes:</strong>
+                        ${object.rejection_notes}
+                    </p>
+                    % endif
+                </div>
+
+                <p>This status change may require administrative intervention or oversight.</p>
+
+                <p>Regards,
+                    <br/>
+                    ${user.name}
+                </p>
+            </div>
+        </field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+</odoo>

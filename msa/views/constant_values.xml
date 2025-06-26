@@ -1,0 +1,749 @@
+<odoo>
+    <record id="view_gauge_rnr_constants_table" model="ir.ui.view">
+        <field name="name">gauge.rnr.constants.table</field>
+        <field name="model">gauge.rnr.constants</field>
+        <field name="arch" type="xml">
+            <form string="Statistical Constants Table">
+                <div class="oe_title">
+                    <h1>Statistical Constants for MSA R&amp;R Analysis</h1>
+                </div>
+                <group>
+                    <div class="table-responsive" style="width:400%" > 
+                        <table class="table table-bordered table-striped" >
+                            <thead>
+                                <tr class="bg-primary">
+                                    <th rowspan="2" class="text-center">g</th>
+                                    <th colspan="9" class="text-center">m</th>
+                                </tr>
+                                <tr class="bg-primary">
+                                    <th class="text-center">2</th>
+                                    <th class="text-center">3</th>
+                                    <th class="text-center">4</th>
+                                    <th class="text-center">5</th>
+                                    <th class="text-center">6</th>
+                                    <th class="text-center">7</th>
+                                    <th class="text-center">8</th>
+                                    <th class="text-center">9</th>
+                                    <th class="text-center">10</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">1.41</td>
+                                    <td class="text-center">1.91</td>
+                                    <td class="text-center">2.24</td>
+                                    <td class="text-center">2.48</td>
+                                    <td class="text-center">2.67</td>
+                                    <td class="text-center">2.83</td>
+                                    <td class="text-center">2.96</td>
+                                    <td class="text-center">3.08</td>
+                                    <td class="text-center">3.18</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">1.28</td>
+                                    <td class="text-center">1.81</td>
+                                    <td class="text-center">2.15</td>
+                                    <td class="text-center">2.4</td>
+                                    <td class="text-center">2.6</td>
+                                    <td class="text-center">2.77</td>
+                                    <td class="text-center">2.91</td>
+                                    <td class="text-center">3.02</td>
+                                    <td class="text-center">3.13</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">1.23</td>
+                                    <td class="text-center">1.77</td>
+                                    <td class="text-center">2.12</td>
+                                    <td class="text-center">2.38</td>
+                                    <td class="text-center">2.58</td>
+                                    <td class="text-center">2.75</td>
+                                    <td class="text-center">2.89</td>
+                                    <td class="text-center">3.01</td>
+                                    <td class="text-center">3.11</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">4</td>
+                                    <td class="text-center">1.21</td>
+                                    <td class="text-center">1.75</td>
+                                    <td class="text-center">2.11</td>
+                                    <td class="text-center">2.37</td>
+                                    <td class="text-center">2.57</td>
+                                    <td class="text-center">2.74</td>
+                                    <td class="text-center">2.88</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">3.1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">5</td>
+                                    <td class="text-center">1.19</td>
+                                    <td class="text-center">1.74</td>
+                                    <td class="text-center">2.1</td>
+                                    <td class="text-center">2.36</td>
+                                    <td class="text-center">2.56</td>
+                                    <td class="text-center">2.73</td>
+                                    <td class="text-center">2.87</td>
+                                    <td class="text-center">2.99</td>
+                                    <td class="text-center">3.1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">6</td>
+                                    <td class="text-center">1.18</td>
+                                    <td class="text-center">1.73</td>
+                                    <td class="text-center">2.09</td>
+                                    <td class="text-center">2.35</td>
+                                    <td class="text-center">2.56</td>
+                                    <td class="text-center">2.73</td>
+                                    <td class="text-center">2.87</td>
+                                    <td class="text-center">2.99</td>
+                                    <td class="text-center">3.1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">7</td>
+                                    <td class="text-center">1.17</td>
+                                    <td class="text-center">1.73</td>
+                                    <td class="text-center">2.09</td>
+                                    <td class="text-center">2.35</td>
+                                    <td class="text-center">2.55</td>
+                                    <td class="text-center">2.72</td>
+                                    <td class="text-center">2.87</td>
+                                    <td class="text-center">2.99</td>
+                                    <td class="text-center">3.1</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">8</td>
+                                    <td class="text-center">1.17</td>
+                                    <td class="text-center">1.72</td>
+                                    <td class="text-center">2.08</td>
+                                    <td class="text-center">2.35</td>
+                                    <td class="text-center">2.55</td>
+                                    <td class="text-center">2.72</td>
+                                    <td class="text-center">2.87</td>
+                                    <td class="text-center">2.98</td>
+                                    <td class="text-center">3.09</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">9</td>
+                                    <td class="text-center">1.16</td>
+                                    <td class="text-center">1.72</td>
+                                    <td class="text-center">2.08</td>
+                                    <td class="text-center">2.34</td>
+                                    <td class="text-center">2.55</td>
+                                    <td class="text-center">2.72</td>
+                                    <td class="text-center">2.86</td>
+                                    <td class="text-center">2.98</td>
+                                    <td class="text-center">3.09</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">10</td>
+                                    <td class="text-center">1.16</td>
+                                    <td class="text-center">1.72</td>
+                                    <td class="text-center">2.08</td>
+                                    <td class="text-center">2.34</td>
+                                    <td class="text-center">2.55</td>
+                                    <td class="text-center">2.72</td>
+                                    <td class="text-center">2.86</td>
+                                    <td class="text-center">2.98</td>
+                                    <td class="text-center">3.09</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">11</td>
+                                    <td class="text-center">1.16</td>
+                                    <td class="text-center">1.71</td>
+                                    <td class="text-center">2.08</td>
+                                    <td class="text-center">2.34</td>
+                                    <td class="text-center">2.55</td>
+                                    <td class="text-center">2.72</td>
+                                    <td class="text-center">2.86</td>
+                                    <td class="text-center">2.98</td>
+                                    <td class="text-center">3.09</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">12</td>
+                                    <td class="text-center">1.15</td>
+                                    <td class="text-center">1.71</td>
+                                    <td class="text-center">2.07</td>
+                                    <td class="text-center">2.34</td>
+                                    <td class="text-center">2.55</td>
+                                    <td class="text-center">2.72</td>
+                                    <td class="text-center">2.85</td>
+                                    <td class="text-center">2.98</td>
+                                    <td class="text-center">3.09</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">13</td>
+                                    <td class="text-center">1.15</td>
+                                    <td class="text-center">1.71</td>
+                                    <td class="text-center">2.07</td>
+                                    <td class="text-center">2.34</td>
+                                    <td class="text-center">2.55</td>
+                                    <td class="text-center">2.71</td>
+                                    <td class="text-center">2.85</td>
+                                    <td class="text-center">2.98</td>
+                                    <td class="text-center">3.09</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">14</td>
+                                    <td class="text-center">1.15</td>
+                                    <td class="text-center">1.71</td>
+                                    <td class="text-center">2.07</td>
+                                    <td class="text-center">2.34</td>
+                                    <td class="text-center">2.54</td>
+                                    <td class="text-center">2.71</td>
+                                    <td class="text-center">2.85</td>
+                                    <td class="text-center">2.98</td>
+                                    <td class="text-center">3.08</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">15</td>
+                                    <td class="text-center">1.15</td>
+                                    <td class="text-center">1.71</td>
+                                    <td class="text-center">2.07</td>
+                                    <td class="text-center">2.34</td>
+                                    <td class="text-center">2.54</td>
+                                    <td class="text-center">2.71</td>
+                                    <td class="text-center">2.85</td>
+                                    <td class="text-center">2.98</td>
+                                    <td class="text-center">3.08</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"> &lt; 15</td>
+                                    <td class="text-center">1.128</td>
+                                    <td class="text-center">1.693</td>
+                                    <td class="text-center">2.059</td>
+                                    <td class="text-center">2.326</td>
+                                    <td class="text-center">2.534</td>
+                                    <td class="text-center">2.704</td>
+                                    <td class="text-center">2.847</td>
+                                    <td class="text-center">2.97</td>
+                                    <td class="text-center">3.078</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </group>
+                <div class="oe_title">
+                    <h3>Constants Table Reference</h3>
+                    <p>This table provides the statistical constants used in gauge R&amp;R calculations.</p>
+                    <p>g = number of subgroups (parts, operators, etc.)</p>
+                    <p>m = number of measurements per subgroup</p>
+                </div>
+                <footer>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_anome_statistical_table" model="ir.ui.view">
+        <field name="name">anome.statistical.table</field>
+        <field name="model">gauge.rnr.constants</field>
+        <field name="arch" type="xml">
+            <form string="ANOME Statistical Values Table">
+                <div class="oe_title">
+                    <h1>Analysis of Mean Effects (ANOME)</h1>
+                </div>
+                <group>
+                    <div class="table-responsive" style="width:200%">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr class="bg-primary">
+                                    <th class="text-center">k</th>
+                                    <th class="text-center">m</th>
+                                    <th colspan="2" class="text-center">n</th>
+                                    <th class="text-center" rowspan="2">ANOME.05</th>
+                                </tr>
+                                <tr class="bg-primary">
+                                    <th class="text-center"></th>
+                                    <th class="text-center"></th>
+                                    <th class="text-center">2</th>
+                                    <th class="text-center">3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">6</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.610</td>
+                                    <td class="text-center">0.299</td>
+                                    <td class="text-center bg-light">0.192</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">6</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">1.084</td>
+                                    <td class="text-center">0.519</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">8</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.501</td>
+                                    <td class="text-center">0.253</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">9</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.814</td>
+                                    <td class="text-center">0.408</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">10</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.435</td>
+                                    <td class="text-center">0.224</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">12</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.389</td>
+                                    <td class="text-center">0.203</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">12</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.678</td>
+                                    <td class="text-center">0.346</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">14</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.357</td>
+                                    <td class="text-center">0.186</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">15</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.592</td>
+                                    <td class="text-center">0.306</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">16</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.331</td>
+                                    <td class="text-center">0.172</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">18</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.309</td>
+                                    <td class="text-center">0.163</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">18</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.531</td>
+                                    <td class="text-center">0.278</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">20</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.292</td>
+                                    <td class="text-center">0.149</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">21</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.485</td>
+                                    <td class="text-center">0.245</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">24</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.264</td>
+                                    <td class="text-center">0.123</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">24</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.451</td>
+                                    <td class="text-center">0.226</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">25</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.416</td>
+                                    <td class="text-center">0.204</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">27</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.406</td>
+                                    <td class="text-center">0.208</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">28</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.242</td>
+                                    <td class="text-center">0.102</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">30</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.233</td>
+                                    <td class="text-center">0.099</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">30</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.400</td>
+                                    <td class="text-center">0.192</td>
+                                    <td class="text-center"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </group>
+                <group>
+                    <div class="table-responsive" style="width:200%">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr class="bg-primary">
+                                    <th class="text-center">k</th>
+                                    <th class="text-center">m</th>
+                                    <th colspan="2" class="text-center">n</th>
+                                    <th class="text-center" rowspan="2">LMR.05</th>
+                                </tr>
+                                <tr class="bg-primary">
+                                    <th class="text-center"></th>
+                                    <th class="text-center"></th>
+                                    <th class="text-center">2</th>
+                                    <th class="text-center">3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">6</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.395</td>
+                                    <td class="text-center">0.575</td>
+                                    <td class="text-center bg-light">0.669</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">6</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.136</td>
+                                    <td class="text-center">0.333</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">8</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.475</td>
+                                    <td class="text-center">0.635</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">9</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.246</td>
+                                    <td class="text-center">0.442</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">10</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.530</td>
+                                    <td class="text-center">0.672</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">12</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.569</td>
+                                    <td class="text-center">0.703</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">12</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.329</td>
+                                    <td class="text-center">0.511</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">14</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.603</td>
+                                    <td class="text-center">0.724</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">15</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.388</td>
+                                    <td class="text-center">0.559</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">16</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.630</td>
+                                    <td class="text-center">0.743</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">18</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.649</td>
+                                    <td class="text-center">0.757</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">18</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.436</td>
+                                    <td class="text-center">0.599</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">20</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.668</td>
+                                    <td class="text-center">0.781</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">21</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.478</td>
+                                    <td class="text-center">0.638</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">24</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.696</td>
+                                    <td class="text-center">0.803</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">24</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.505</td>
+                                    <td class="text-center">0.658</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">25</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.322</td>
+                                    <td class="text-center">0.506</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">27</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.530</td>
+                                    <td class="text-center">0.681</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">28</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.719</td>
+                                    <td class="text-center">0.827</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">30</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">0.728</td>
+                                    <td class="text-center">0.831</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">30</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">0.556</td>
+                                    <td class="text-center">0.669</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </group>
+                <group>
+                    <div class="table-responsive" style="width:200%">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr class="bg-primary">
+                                    <th class="text-center">k</th>
+                                    <th class="text-center">m</th>
+                                    <th colspan="2" class="text-center">n</th>
+                                    <th class="text-center" rowspan="2">UMR.05</th>
+                                </tr>
+                                <tr class="bg-primary">
+                                    <th class="text-center"></th>
+                                    <th class="text-center"></th>
+                                    <th class="text-center">2</th>
+                                    <th class="text-center">3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">6</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">1.605</td>
+                                    <td class="text-center">1.425</td>
+                                    <td class="text-center bg-light">1.315</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">6</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">2.133</td>
+                                    <td class="text-center">1.775</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td class="text-center">8</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">1.525</td>
+                                    <td class="text-center">1.365</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">9</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">1.915</td>
+                                    <td class="text-center">1.625</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">10</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">1.470</td>
+                                    <td class="text-center">1.328</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">12</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">1.431</td>
+                                    <td class="text-center">1.297</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">12</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">1.764</td>
+                                    <td class="text-center">1.534</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">14</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">1.397</td>
+                                    <td class="text-center">1.276</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">15</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">1.701</td>
+                                    <td class="text-center">1.476</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">16</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">1.370</td>
+                                    <td class="text-center">1.257</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">18</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">1.351</td>
+                                    <td class="text-center">1.243</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">18</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">1.637</td>
+                                    <td class="text-center">1.433</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">20</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">1.332</td>
+                                    <td class="text-center">1.219</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">21</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">1.585</td>
+                                    <td class="text-center">1.389</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">24</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">1.304</td>
+                                    <td class="text-center">1.197</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">24</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">1.547</td>
+                                    <td class="text-center">1.360</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">25</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">1.538</td>
+                                    <td class="text-center">1.352</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">27</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">1.515</td>
+                                    <td class="text-center">1.333</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">28</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">1.278</td>
+                                    <td class="text-center">1.173</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">30</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">1.272</td>
+                                    <td class="text-center">1.169</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">30</td>
+                                    <td class="text-center">3</td>
+                                    <td class="text-center">1.485</td>
+                                    <td class="text-center">1.315</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </group>
+                <div class="oe_title">
+                    <h3>ANOME Statistical Table Reference</h3>
+                    <p>This table provides the statistical values used in ANOME.05 analysis calculations.</p>
+                    <p>k = number of data points</p>
+                    <p>m = number of measurements per data point</p>
+                    <p>n = number of replications</p>
+                </div>
+                <footer>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_anome_statistical_table" model="ir.actions.act_window">
+        <field name="name">ANOME Statistical Values</field>
+        <field name="res_model">gauge.rnr.constants</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_anome_statistical_table"/>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_gauge_rnr_constants_table" model="ir.actions.act_window">
+        <field name="name">Statistical Constants</field>
+        <field name="res_model">gauge.rnr.constants</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_gauge_rnr_constants_table"/>
+        <field name="target">new</field>
+        
+    </record>
+
+
+    
+</odoo>

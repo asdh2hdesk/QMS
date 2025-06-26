@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Equipment Categories -->
+    <record id="category_machine" model="equipment.category.sheet">
+        <field name="name">Machine</field>
+    </record>
+    <record id="category_testing_machine" model="equipment.category.sheet">
+        <field name="name">Testing Machine</field>
+    </record>
+    <record id="category_conveyor" model="equipment.category.sheet">
+        <field name="name">Conveyor</field>
+    </record>
+    <record id="category_table" model="equipment.category.sheet">
+        <field name="name">Table</field>
+    </record>
+    <record id="category_traceability" model="equipment.category.sheet">
+        <field name="name">Traceability</field>
+    </record>
+
+    <!-- Machine Equipment -->
+    <record id="machine1" model="equipment.name.sheet">
+        <field name="name">Hydraulic Press Machine</field>
+        <field name="category_id" ref="category_machine"/>
+    </record>
+    <record id="machine2" model="equipment.name.sheet">
+        <field name="name">Servo Press Machine</field>
+        <field name="category_id" ref="category_machine"/>
+    </record>
+    <record id="machine3" model="equipment.name.sheet">
+        <field name="name">Pneumatic Press Machine</field>
+        <field name="category_id" ref="category_machine"/>
+    </record>
+    <record id="machine4" model="equipment.name.sheet">
+        <field name="name">Hydro-Pneumatic Press Machine</field>
+        <field name="category_id" ref="category_machine"/>
+    </record>
+
+    <!-- Testing Machine Equipment -->
+    <record id="testing1" model="equipment.name.sheet">
+        <field name="name">Leak Testing Machine</field>
+        <field name="category_id" ref="category_testing_machine"/>
+    </record>
+    <record id="testing2" model="equipment.name.sheet">
+        <field name="name">Vibration Testing Machine</field>
+        <field name="category_id" ref="category_testing_machine"/>
+    </record>
+    <record id="testing3" model="equipment.name.sheet">
+        <field name="name">Noise Testing Machine</field>
+        <field name="category_id" ref="category_testing_machine"/>
+    </record>
+
+    <!-- Conveyor Equipment -->
+    <record id="conveyor1" model="equipment.name.sheet">
+        <field name="name">Manual Roller Conveyor</field>
+        <field name="category_id" ref="category_conveyor"/>
+    </record>
+    <record id="conveyor2" model="equipment.name.sheet">
+        <field name="name">Manual Bearing Conveyor</field>
+        <field name="category_id" ref="category_conveyor"/>
+    </record>
+    <record id="conveyor3" model="equipment.name.sheet">
+        <field name="name">Motorized Chain Conveyor</field>
+        <field name="category_id" ref="category_conveyor"/>
+    </record>
+    <record id="conveyor4" model="equipment.name.sheet">
+        <field name="name">Motorized Slat Conveyor</field>
+        <field name="category_id" ref="category_conveyor"/>
+    </record>
+
+    <!-- Table Equipment -->
+    <record id="table1" model="equipment.name.sheet">
+        <field name="name">Inspection Table</field>
+        <field name="category_id" ref="category_table"/>
+    </record>
+    <record id="table2" model="equipment.name.sheet">
+        <field name="name">Assembly Table</field>
+        <field name="category_id" ref="category_table"/>
+    </record>
+    <record id="table3" model="equipment.name.sheet">
+        <field name="name">Final Inspection Table</field>
+        <field name="category_id" ref="category_table"/>
+    </record>
+
+    <!-- Traceability Equipment -->
+    <record id="traceability1" model="equipment.name.sheet">
+        <field name="name">Laser Marker</field>
+        <field name="category_id" ref="category_traceability"/>
+    </record>
+    <record id="traceability2" model="equipment.name.sheet">
+        <field name="name">Fixed Scanner</field>
+        <field name="category_id" ref="category_traceability"/>
+    </record>
+    <record id="traceability3" model="equipment.name.sheet">
+        <field name="name">Handheld Scanner</field>
+        <field name="category_id" ref="category_traceability"/>
+    </record>
+</odoo>

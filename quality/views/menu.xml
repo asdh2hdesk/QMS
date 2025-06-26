@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--    <menuitem id="quality_root" name="Quality" sequence="10"/>-->
+    <menuitem id="inspection_menu" name="Inspection Reports" parent="iatf.iatf_menu_quality" sequence="10"/>
+
+    <menuitem id="tracking_sheet_menu" name="Tracking Sheet" parent="iatf.iatf_menu_quality" sequence="20" />
+    <menuitem id="menu_process_report" name="Process Reports" parent="iatf.iatf_menu_quality" sequence="30"/>
+
+
+</odoo>

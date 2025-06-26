@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Equipment Tracking Tree -->
+    <record id="view_equipment_tracking_sheet_tree" model="ir.ui.view">
+        <field name="name">equipment.trackingsheet.tree</field>
+        <field name="model">equipment.trackingsheet</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="state == 'draft'"
+                  decoration-success="state == 'confirm'">
+                <field name="partner_id"/>
+                <field name="part_name"/>
+                <field name="part_number"/>
+                <field name="date_of_creation"/>
+                <field name="rev_date"/>
+                <field name="rev_no"/>
+
+                <field name="state" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Equipment Tracking Form -->
+    <record id="view_equipment_tracking_sheet_form" model="ir.ui.view">
+        <field name="name">equipment.trackingsheet.form</field>
+        <field name="model">equipment.trackingsheet</field>
+        <field name="arch" type="xml">
+            <form string="Equipment Tracking Sheet">
+                <header>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    <button name="generate_xls_report" type="object" string="Print Report" class="oe_highlight"
+                            icon="fa-print"/>
+                    <button name="action_update_control_plan" type="object" string="Update Control Plan"
+                            class="btn-info" icon="fa-arrow-left"/>
+                </header>
+                <sheet>
+                    <div class="oe_title text-center mb-5">
+                        <h1>Equipment Tracking Sheet</h1>
+                    </div>
+                    <div class="oe_title">
+                        <label for="project_id" string="Project Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
+                            <field name="part_id"/>
+                            <field name="part_name"/>
+                            <field name="part_number"/>
+                            <field name="total_actual_planned_cost"/>
+                            <field name="diff"/>
+                        </group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="date_of_creation"/>
+                            <field name="rev_date"/>
+                            <field name="rev_no"/>
+                            <field name="total_planned_cost"/>
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Equipment Tracking">
+                            <field name="line_ids">
+                                <tree>
+                                    <field name="category_id"/>
+                                    <field name="equipment_id"/>
+                                    <field name="equipment_no"/>
+                                    <field name="operation_no"/>
+                                    <field name="description"/>
+                                    <field name="availability"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group string="Initiator">
+                        <group>
+                            <field name="create_uid"/>
+                        </group>
+                        <group>
+                            <field name="create_date"/>
+                        </group>
+                    </group>
+                    <separator string="Approvers"/>
+                    <field name="iatf_members_ids" widget="many2many_tree"
+                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                           string="Approvers">
+                        <tree>
+                            <field name="approver_id"/>
+                            <field name="department_id"/>
+                            <field name="comment"/>
+                            <field name="date_approved_rejected"/>
+                            <field name="approval_status" widget="badge"
+                                   decoration-danger="approval_status == 'rejected'"
+                                   decoration-info="approval_status == 'revision'"
+                                   decoration-success="approval_status == 'approved'"/>
+                        </tree>
+                    </field>
+                    <separator string="Revision History"/>
+                    <field name="revision_history_ids" widget="many2many_tree"
+                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1">
+                        <tree>
+                            <field name="rev_no"/>
+                            <field name="rev_date"/>
+                            <field name="revised_by"/>
+                            <field name="revision_details"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Equipment Tracking Lines Tree -->
+    <record id="view_equipment_tracking_sheet_line_tree" model="ir.ui.view">
+        <field name="name">equipment.trackingsheet.line.tree</field>
+        <field name="model">equipment.trackingsheet.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="category_id"/>
+                <field name="equipment_id"/>
+                <field name="equipment_no"/>
+                <field name="operation_no"/>
+                <field name="description"/>
+                <field name="availability"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Equipment Tracking Line Form -->
+    <record id="view_equipment_tracking_sheet_line_form" model="ir.ui.view">
+        <field name="name">equipment.trackingsheet.line.form</field>
+        <field name="model">equipment.trackingsheet.line</field>
+        <field name="arch" type="xml">
+            <form string="Equipment Tracking Line Detail">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="element_no"/>
+                            <field name="category_id"/>
+                            <field name="equipment_id"/>
+                            <field name="equipment_no"/>
+                            <field name="description"/>
+                            <field name="availability" widget="radio"/>
+                            <field name="operation_no"/>
+                            <field name="expected_date"/>
+
+                            <field name="standard_delivery_time"/>
+                            <field name="to_be_ordered_by"/>
+
+
+                        </group>
+                        <group>
+
+                            <field name="requirement_raise_date"/>
+                            <field name="qty"/>
+                            <field name="cost_per_unit"/>
+                            <field name="total_qty_cost"/>
+
+
+                            <field name="indent_date"/>
+                            <field name="po_date"/>
+                            <field name="actual_received_date"/>
+                            <field name="drawing_attachments" widget="binary"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Equipment Tracking Report -->
+    <record id="action_equipment_tracking_sheet" model="ir.actions.act_window">
+        <field name="name">Equipment Tracking Sheet</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">equipment.trackingsheet</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Action for Equipment Tracking Lines -->
+    <record id="action_equipment_tracking_sheet_lines" model="ir.actions.act_window">
+        <field name="name">Equipment Tracking Sheet Lines</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">equipment.trackingsheet.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Items -->
+    <menuitem id="menu_equipment_tracking" name="Equipment Tracking" parent="iatf.iatf_menu_engg" sequence="20"
+              action="action_equipment_tracking_sheet"/>
+</odoo>

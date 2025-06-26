@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Canteen Department Views -->
+    
+
+    <!-- Canteen Committee Views -->
+    <record id="view_canteen_committee_tree" model="ir.ui.view">
+        <field name="name">canteen.committee.tree</field>
+        <field name="model">canteen.committee</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id"/>
+                <field name="department"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_canteen_committee_form" model="ir.ui.view">
+        <field name="name">canteen.committee.form</field>
+        <field name="model">canteen.committee</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            Canteen Committee
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <group>
+                        <field name="employee_id"/>
+                        <field name="department"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    
+
+    <!-- Action for Committee -->
+    <record id="action_canteen_committee" model="ir.actions.act_window">
+        <field name="name">Committees</field>
+        <field name="res_model">canteen.committee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Items -->
+ 
+    <menuitem id="menu_canteen_department" name="Canteen Committee" parent="menu_ohs_root" action="action_canteen_committee"/>
+</odoo>

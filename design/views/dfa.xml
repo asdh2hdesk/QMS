@@ -1,0 +1,265 @@
+<odoo>
+    <data>
+        <!-- DFA Record Sequence -->
+        <record id="dfa_record_sequence" model="ir.sequence">
+            <field name="name">DFA Record Sequence</field>
+            <field name="code">dfa.record</field>
+            <field name="prefix">DFA-</field>
+            <field name="padding">5</field>
+        </record>
+
+        <!-- DFA Record Tree View -->
+        <record id="dfa_record_tree" model="ir.ui.view">
+            <field name="name">dfa.record.tree</field>
+            <field name="model">dfa.record</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="dfmea_item_id"/>
+                    <field name="analysis_scope"/>
+                    <field name="analysis_trigger"/>
+                    <field name="team_leader_id"/>
+                    <field name="responsible_id"/>
+                    <field name="state"/>
+                    <field name="total_dependent_failures"/>
+                    <field name="critical_dependencies"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- DFA Record Form View -->
+        <record id="dfa_record_form" model="ir.ui.view">
+            <field name="name">dfa.record.form</field>
+            <field name="model">dfa.record</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_start_analysis" type="object" string="Start Analysis" states="draft"
+                                class="btn-primary"/>
+                        <button name="action_develop_mitigation_strategy" type="object"
+                                string="Develop Mitigation Strategy" states="analysis" class="btn-primary"/>
+                        <button name="action_verify_implementation" type="object" string="Verify Implementation"
+                                states="mitigation_strategy" class="btn-primary"/>
+                        <button name="action_approve" type="object" string="Approve" states="verification"
+                                class="btn-primary"/>
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,analysis,mitigation_strategy,verification,approved"/>
+                    </header>
+                    <sheet>
+                        <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                            <h1 style="color:#4492bd;">
+                                DFA Records
+                            </h1>
+                        </div>
+                        <div class="oe_title">
+                            <label for="project_id" string="Project Name"/>
+                            <h1>
+                                <div class="d-flex">
+                                    <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
+                                </div>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="name" readonly="1"/>
+                                <field name="dfmea_item_id" options="{'no_create': True}"/>
+                                <field name="part_id" string="Part Reference" readonly="1"/>
+                                <field name="part_name"/>
+                                <field name="part_number"/>
+                                <field name="target_completion_date"/>
+
+                            </group>
+                            <group>
+                                <field name="analysis_scope" readonly="1"/>
+                                <field name="analysis_trigger" readonly="1"/>
+                                <field name="revision" readonly="1"/>
+                                <field name="date"/>
+
+                                <field name="date_completed"/>
+                            </group>
+
+                        </group>
+                        <group>
+                            <group string="Team Information">
+                                <field name="team_ids" widget="many2many_tags" readonly="1"/>
+                                <field name="team_leader_id" options="{'no_create': True}" readonly="1"/>
+                                <field name="responsible_id" options="{'no_create': True}" readonly="1"/>
+                                <field name="approved_by_id" options="{'no_create': True}" readonly="1"/>
+                            </group>
+
+                            <group string="Metrics">
+                                <field name="total_dependent_failures"/>
+                                <field name="critical_dependencies"/>
+                                <field name="mitigation_strategies_count"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Dependent Failure Analysis">
+                                <field name="dfa_line_ids">
+                                    <tree>
+                                        <field name="dependent_item"/>
+
+                                        <field name="failure_effect" readonly="1"/>
+                                        <field name="severity" readonly="1"/>
+                                        <field name="occurrence" readonly="1"/>
+                                        <field name="detection" readonly="1"/>
+                                        <field name="rpn"/>
+                                        <field name="mitigation_strategy"/>
+                                        <field name="recommended_action"/>
+                                        <field name="owner_id"/>
+                                        <field name="due_date"/>
+                                        <field name="action_priority"/>
+                                        <field name="action_implemented"/>
+                                        <field name="date_action_completed"/>
+                                        <field name="verification_evidence"/>
+                                        <field name="severity_post_action"/>
+                                        <field name="occurrence_post_action"/>
+                                        <field name="detection_post_action"/>
+                                        <field name="rpn_post_action"/>
+                                        <field name="risk_reduction"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Summary">
+                                <group>
+                                    <field name="analysis_summary"/>
+                                    <field name="key_findings"/>
+
+                                </group>
+                                <group>
+
+                                    <field name="recommendations"/>
+                                    <field name="dfmea_updated"/>
+
+                                </group>
+
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="view_dfa_line_form" model="ir.ui.view">
+            <field name="name">dfa.item.form</field>
+            <field name="model">dfa.item</field>
+            <field name="arch" type="xml">
+                <form string="DFA Line Item">
+                    <sheet>
+                        <div class="oe_title">
+                            <h2>DFA Line Items</h2>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="dependent_item"/>
+
+
+
+                            </group>
+                            <group>
+                                 <field name="failure_effect" readonly="1"/>
+                            </group>
+
+
+                        </group>
+                        <group string="Risk Assessment">
+                            <group>
+                                 <field name="severity" readonly="1"/>
+                                        <field name="occurrence" readonly="1"/>
+                            </group>
+                            <group>
+                                 <field name="detection" readonly="1"/>
+                                <field name="rpn" readonly="1"/>
+                            </group>
+
+
+                        </group>
+
+                        <group string="Mitigation Strategy">
+                            <field name="mitigation_strategy"/>
+                        </group>
+
+                        <group string="Recommended Actions">
+                            <group>
+                                <field name="recommended_action"/>
+                                <field name="owner_id"/>
+                                <field name="due_date"/>
+                                <field name="verification_evidence"/>
+
+                            </group>
+                            <group>
+                                <field name="action_priority"/>
+                                <field name="action_implemented"/>
+                                <field name="date_action_completed"/>
+
+                            </group>
+
+                        </group>
+
+
+                        <group string="Post-Action Evaluation">
+                            <group>
+                                <field name="severity_post_action"/>
+                                <field name="occurrence_post_action"/>
+                                <field name="detection_post_action"/>
+
+                            </group>
+                            <group>
+                                <field name="rpn_post_action"/>
+                                <field name="risk_reduction"/>
+                            </group>
+
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- DFA Record Search View -->
+        <record id="dfa_record_search" model="ir.ui.view">
+            <field name="name">dfa.record.search</field>
+            <field name="model">dfa.record</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="dfmea_item_id"/>
+                    <field name="team_leader_id"/>
+                    <field name="responsible_id"/>
+                    <field name="state"/>
+                    <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                    <filter string="Analysis in Progress" name="analysis" domain="[('state', '=', 'analysis')]"/>
+                    <filter string="Mitigation Strategy" name="mitigation_strategy"
+                            domain="[('state', '=', 'mitigation_strategy')]"/>
+                    <filter string="Verification" name="verification" domain="[('state', '=', 'verification')]"/>
+                    <filter string="Approved" name="approved" domain="[('state', '=', 'approved')]"/>
+                    <filter string="Critical Dependencies" name="critical"
+                            domain="[('critical_dependencies', '>', 0)]"/>
+                    <group string="Group By">
+                        <filter name="state" string="Status" context="{'group_by': 'state'}"/>
+                        <filter name="team_leader_id" string="Team Leader" context="{'group_by': 'team_leader_id'}"/>
+                        <filter name="analysis_scope" string="Analysis Scope" context="{'group_by': 'analysis_scope'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- DFA Records Action -->
+        <record id="action_dfa_records" model="ir.actions.act_window">
+            <field name="name">DFA Records</field>
+            <field name="res_model">dfa.record</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="dfa_record_search"/>
+        </record>
+
+        <!-- Menu Items -->
+
+        <menuitem id="menu_dfa_records" name="DFA Records" parent="menu_dfmea_root" action="action_dfa_records"
+                  sequence="20"/>
+    </data>
+</odoo>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="customer_specification_tree_view" model="ir.ui.view">
+        <field name="name">customer.specification.tree</field>
+        <field name="model">customer.specification</field>
+        <field name="arch" type="xml">
+            <tree>
+
+                <field name="partner_id"/>
+                <!--                <field name='document_name'/>-->
+                <field name="mobile"/>
+                <field name="email"/>
+                <field name="employee_id"/>
+                <field name="dept_id"/>
+                <field name="manager_id"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+    <record id="customer_specification_form_view" model="ir.ui.view">
+        <field name="name">customer.specification.form</field>
+        <field name="model">customer.specification</field>
+        <field name="arch" type="xml">
+            <form string="Customer Specification">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    <button name="action_customer_specification" string="Download Report" type="object"
+                            class="btn btn-primary"/>
+                    <button name='send_for_approval' string='Confirm' type='object' class='oe_highlight'
+                            attrs="{'invisible' : [('state', '=', 'confirm')]}"/>
+                    <button name='approve_document' string='APPROVE' type='object' class='btn btn-success'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='revise_document' string='REVISE' type='object' class='btn btn-info'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='reject_document' string='REJECT' type='object' class='btn btn-danger'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                </header>
+                <sheet>
+                    <!-- Copy from here to  -->
+                    <widget name="web_ribbon" title="Approved" bg_color="bg-success"
+                            attrs="{'invisible':[('final_status', '!=', 'approved')]}"/>
+                    <widget name="web_ribbon" title="Rejected" bg_color="bg-danger"
+                            attrs="{'invisible':[('final_status', '!=', 'rejected')]}"/>
+                    <widget name="web_ribbon" title="Revision Required" bg_color="bg-info"
+                            attrs="{'invisible':[('final_status', '!=', 'revision')]}"/>
+                    <widget name="web_ribbon" title="In progress" bg_color="bg-warning"
+                            attrs="{'invisible':[('final_status', '!=', 'pending')]}"/>
+                    <widget name="web_ribbon" title="Draft" bg_color="bg-info"
+                            attrs="{'invisible':[('final_status', '!=', 'draft')]}"/>
+                    <div class="oe_title">
+                        <label for="project_id" string="Project Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <!--                <header>-->
+                    <!--                    &lt;!&ndash; <field name ='check_department' invisible='1'/> &ndash;&gt;-->
+                    <!--                    <field name ='is_hr_approved' invisible='1'/>-->
+                    <!--                    <field name ='is_design_approved' invisible='1'/>-->
+                    <!--                    <field name ='is_eng_approved' invisible='1'/>-->
+                    <!--                    <field name ='is_manu_approved' invisible='1'/>-->
+                    <!--                    <field name ='is_sales_approved' invisible='1'/>-->
+                    <!--                    <field name ='is_qc_approved' invisible='1'/>-->
+                    <!--                    <field name ='is_maintenance_approved' invisible='1'/>-->
+                    <!--                    <field name ='is_marketing_approved' invisible='1'/>-->
+                    <!--                    <field name ='is_pm_approved' invisible='1'/>-->
+                    <!--                    <field name ='is_management_approved' invisible='1'/>-->
+
+                    <!--                    <field name ='hr_check_department' invisible='1'/>-->
+                    <!--                    <field name ='des_check_department' invisible='1'/>-->
+                    <!--                    <field name ='eng_check_department' invisible='1'/>-->
+                    <!--                    <field name ='manu_check_department' invisible='1'/>-->
+                    <!--                    <field name ='sale_check_department' invisible='1'/>-->
+                    <!--                    <field name ='qc_check_department' invisible='1'/>-->
+                    <!--                    <field name ='mainte_check_department' invisible='1'/>-->
+                    <!--                    <field name ='marketing_check_department' invisible='1'/>-->
+                    <!--                    <field name ='pm_check_department' invisible='1'/>-->
+                    <!--                    <field name ='managment_check_department' invisible='1'/>-->
+
+
+                    <!--                    <button name='actipn_confirmed' string='Confirm' type='object' class='oe_highlight' attrs="{'invisible' : [('state', '=', 'confirm')]}"/>-->
+                    <!--                    <button name='hr_approval' string='Approve' type='object' class='oe_highlight' attrs="{'invisible' : ['|','|',('state', '=', 'draft'),('hr_check_department', '=', False),('is_hr_approved', '=', True)]}"/>-->
+                    <!--                    <button name='design_approval' string='Approve' type='object' class='oe_highlight' attrs="{'invisible' : ['|','|',('state', '=', 'draft'),('des_check_department', '=', False),('is_design_approved', '=', True)]}"/>-->
+                    <!--                    <button name='eng_approval' string='Approve' type='object' class='oe_highlight' attrs="{'invisible' : ['|','|',('state', '=', 'draft'),('eng_check_department', '=', False),('is_eng_approved', '=', True)]}"/>-->
+                    <!--                    <button name='manu_approval' string='Approve' type='object' class='oe_highlight' attrs="{'invisible' : ['|','|',('state', '=', 'draft'),('manu_check_department', '=', False),('is_manu_approved', '=', True)]}"/>-->
+                    <!--                    <button name='sales_approval' string='Approve' type='object' class='oe_highlight' attrs="{'invisible' : ['|','|',('state', '=', 'draft'),('sale_check_department', '=', False),('is_sales_approved', '=', True)]}"/>-->
+                    <!--                    <button name='qc_approval' string='Approve' type='object' class='oe_highlight' attrs="{'invisible' : ['|','|',('state', '=', 'draft'),('qc_check_department', '=', False),('is_qc_approved', '=', True)]}"/>-->
+                    <!--                    <button name='mainte_approval' string='Approve' type='object' class='oe_highlight' attrs="{'invisible' : ['|','|',('state', '=', 'draft'),('mainte_check_department', '=', False),('is_maintenance_approved', '=', True)]}"/>-->
+                    <!--                    <button name='marketing_approval' string='Approve' type='object' class='oe_highlight' attrs="{'invisible' : ['|','|',('state', '=', 'draft'),('marketing_check_department', '=', False),('is_marketing_approved', '=', True)]}"/>-->
+                    <!--                    <button name='pm_approval' string='Approve' type='object' class='oe_highlight' attrs="{'invisible' : ['|','|',('state', '=', 'draft'),('pm_check_department', '=', False),('is_pm_approved', '=', True)]}"/>-->
+                    <!--                    <button name='managment_approval' string='Approve' type='object' class='oe_highlight' attrs="{'invisible' : ['|','|',('state', '=', 'draft'),('managment_check_department', '=', False),('is_management_approved', '=', True)]}"/>-->
+
+                    <!--                    <button name='action_customer_specification' string='Download Report' type='object' class='oe_highlight'/>-->
+
+                    <!--                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>-->
+                    <!--                </header>-->
+                    <!-- <header>
+                        <button name="button_send_approval" string="Send Approval" type="object" states="draft" class="btn-primary" />
+                        <button name="button_hr_approval" string="HR Approval" type="object" states="hr_approve" class="btn-primary" />
+                        <button name="button_design" string="Design" type="object" states="design" class="btn-primary" />
+                        <button name="button_engineering" string="Engineering" type="object" states="engineering" class="btn-primary" />
+                        <button name="button_manufacturing" string="Manufacturing" type="object" states="manufacturing" class="btn-primary" />
+                        <button name="button_quality_test_done" string="Quality Test" type="object" states="quality" class="btn-primary" />
+                        <button name="button_top_managment_final_approved" string="TOP Management" type="object" states="top" class="btn-primary" />
+                        <field name="state" widget="statusbar" statusbar_visible="draft,hr_approve,design,engineering,manufacturing,quality,top,final_approved" />
+                    </header> -->
+                    <group>
+                        <group>
+                            <field name="user_has_access_to_approve" invisible="1"/><!-- Copy this too  -->
+                            <field name="final_status" invisible="1"/>
+                             <field name="final_status" invisible="1"/>
+                            <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
+                            <field name="part_id" />
+                            <field name="part_name" />
+                            <field name="part_number" />
+
+
+                            <!-- Copy this too  -->
+                            <field name="partner_id"/>
+                            <field name="address"/>
+
+                        </group>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="manager_id"/>
+                            <field name="date"/>
+                            <field name="mobile"/>
+                            <field name="email"/>
+
+
+<!--                            <field name="create_uid"/>-->
+<!--                            <field name="create_date"/>-->
+                            <!--                            <field name="document_name" readonly='1'/>-->
+                            <!--                            <field name="approve_department_ids" readonly='1' widget='many2many_tags'/>-->
+                            <!--                            <field name="manager_ids" readonly='1' widget='many2many_tags'/>-->
+                            <!--                            <field name="approve_by_department_ids" readonly='1' widget='many2many_tags'/>-->
+                            <!--                            <field name="approvaed_manager_ids" readonly='1' widget='many2many_tags'/>-->
+
+                            <!--                            <field name="hr_approval_date" readonly='1'-->
+                            <!--                                   attrs="{'invisible' : [('hr_approval_date', '=', False)]}"/>-->
+                            <!--                            <field name="design_approval_date" readonly='1'-->
+                            <!--                                   attrs="{'invisible' : [('design_approval_date', '=', False)]}"/>-->
+                            <!--                            <field name="eng_approval_date" readonly='1'-->
+                            <!--                                   attrs="{'invisible' : [('eng_approval_date', '=', False)]}"/>-->
+                            <!--                            <field name="manu_approval_date" readonly='1'-->
+                            <!--                                   attrs="{'invisible' : [('manu_approval_date', '=', False)]}"/>-->
+                            <!--                            <field name="sale_approval_date" readonly='1'-->
+                            <!--                                   attrs="{'invisible' : [('sale_approval_date', '=', False)]}"/>-->
+                            <!--                            <field name="qc_approval_date" readonly='1'-->
+                            <!--                                   attrs="{'invisible' : [('qc_approval_date', '=', False)]}"/>-->
+                            <!--                            <field name="main_approval_date" readonly='1'-->
+                            <!--                                   attrs="{'invisible' : [('main_approval_date', '=', False)]}"/>-->
+                            <!--                            <field name="mark_approval_date" readonly='1'-->
+                            <!--                                   attrs="{'invisible' : [('mark_approval_date', '=', False)]}"/>-->
+                            <!--                            <field name="pm_approval_date" readonly='1'-->
+                            <!--                                   attrs="{'invisible' : [('pm_approval_date', '=', False)]}"/>-->
+                            <!--                            <field name="maneg_approval_date" readonly='1'-->
+                            <!--                                   attrs="{'invisible' : [('maneg_approval_date', '=', False)]}"/>-->
+                        </group>
+                    </group>
+                    <field name="customer_specification_line_ids" widget="one2many_list">
+                        <tree string="Customer Specification" editable="bottom">
+                            <field name="requirement_id"/>
+                            <field name="remark"/>
+                        </tree>
+                    </field>
+                    <!-- <field name="cft_teams_line_ids" widget="one2many_list">
+                        <tree string="CFT Teams Lines" editable="bottom">
+                            <field name="sl_no"/>
+                            <field name="activity"/>
+                            <field name="suggested_action_by_cft"/>
+                            <field name="resp"/>
+                            <field name="target_date"/>
+                        </tree>
+                    </field> -->
+                    <group string="Initiator">
+                        <group>
+                            <field name="create_uid"/>
+                        </group>
+                        <group>
+                            <field name="create_date"/>
+                        </group>
+                    </group>
+                    <separator string="Approvers"/>
+                    <field name="iatf_members_ids" widget="many2many_tree"
+                               options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                               string="Approvers">
+                            <tree>
+                                <field name="approver_id"/>
+                                <field name="department_id"/>
+                                <field name="comment"/>
+                                <field name="date_approved_rejected"/>
+                                <field name="approval_status" widget="badge"
+                                       decoration-danger="approval_status == 'rejected'"
+                                       decoration-info="approval_status == 'revision'"
+                                       decoration-success="approval_status == 'approved'"/>
+                            </tree>
+                        </field>
+                    <!-- copy till here -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_customer_specification_view" model="ir.actions.act_window">
+        <field name="name">Customer Specification</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">customer.specification</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Customer Specification" id="customer_specification_menu" parent="iatf_menu_engg"
+              action="action_customer_specification_view"/>
+</odoo>

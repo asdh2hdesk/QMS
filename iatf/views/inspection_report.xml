@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_inspection_report_form" model="ir.ui.view">
+        <field name="name">inspection.report.form</field>
+        <field name="model">inspection.report</field>
+        <field name="arch" type="xml">
+            <form string="Inspection Report">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="customer"/>
+                            <field name="part"/>
+                            <field name="drawing_no"/>
+                        </group>
+                        <group>
+                            <field name="sample_Description"/>
+                            <field name="part_no"/>
+                            <field name="rev_no"/>
+                            <field name="level"/>
+                        </group>
+                    </group>
+                    <!--                    <field name="user_has_access_to_approve" invisible="1"/>&lt;!&ndash; Copy this too  &ndash;&gt;-->
+                    <!--                    <field name="final_status" invisible="1"/>&lt;!&ndash; Copy this too  &ndash;&gt;-->
+                    <!--                    <field name="inspection_line_ids" widget="one2many_list">-->
+                    <!--                    </field>-->
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+    <record id="view_inspection_report_tree" model="ir.ui.view">
+        <field name="name">inspection.report.tree</field>
+        <field name="model">inspection.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="customer"/>
+                <field name="part"/>
+                <field name="drawing_no"/>
+                <field name="sample_Description"/>
+                <field name="part_no"/>
+                <field name="rev_no"/>
+                <field name="level"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_inspection_report_search" model="ir.ui.view">
+        <field name="name">inspection.report.search</field>
+        <field name="model">inspection.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="customer"/>
+                <field name="part"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_inspection_line_report_tree" model="ir.ui.view">
+        <field name="name">inspection.line.tree</field>
+        <field name="model">inspection.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="series"/>
+                <field name="dimension"/>
+                <field name="specification"/>
+                <field name="mi"/>
+                <field name="observation1"/>
+                <field name="observation2"/>
+                <field name="observation3"/>
+                <field name="observation4"/>
+                <field name="observation5"/>
+                <field name="remarks"/>
+                <!--                <field name="inspection_id"/>-->
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_inspection_report_window" model="ir.actions.act_window">
+        <field name="name">Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">inspection.report</field>
+        <field name="view_mode">tree,form</field>
+
+    </record>
+    <menuitem name="Inspection Report" id="inspection_report_menu" parent="iatf_menu_engg"
+              action="action_inspection_report_window"/>
+
+</odoo>

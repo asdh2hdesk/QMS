@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View for Main Register -->
+    <record id="view_legal_register_compliance_tree" model="ir.ui.view">
+        <field name="name">legal.register.compliance.tree</field>
+        <field name="model">legal.register.compliance</field>
+        <field name="arch" type="xml">
+            <tree string="Legal Register Compliance">
+                <field name="id"/> <!-- or any other meaningful display field -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Main Register with Lines -->
+    <record id="view_legal_register_compliance_form" model="ir.ui.view">
+        <field name="name">legal.register.compliance.form</field>
+        <field name="model">legal.register.compliance</field>
+        <field name="arch" type="xml">
+            <form string="Legal Register Compliance">
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #090d54 ; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            Legal Register Compliance Matrix
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                        <field name="legal_register_line_ids">
+                            <tree editable="bottom">
+                                <field name="serial_no"/>
+                                <field name="title"/>
+                                <field name="description"/>
+                                <field name="responsibility"/>
+                                <field name="status"/>
+                            </tree>
+                        </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_legal_register_compliance" model="ir.actions.act_window">
+        <field name="name">Legal Register Compliance</field>
+        <field name="res_model">legal.register.compliance</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Items -->
+    <menuitem id="menu_legal_register_compliance" name="Legal Register Compliance Matrix"
+              parent="menu_ohs_root"
+              action="action_legal_register_compliance"/>
+</odoo>

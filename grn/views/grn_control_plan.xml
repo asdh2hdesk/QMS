@@ -1,0 +1,219 @@
+<odoo>
+
+    <!--            <record id="view_maintenance_equipment_tree_inherit_gauge_type" model="ir.ui.view">-->
+    <!--            <field name="name">maintenance.equipment.tree.inherit.gauge.type</field>-->
+    <!--            <field name="model">maintenance.equipment</field>-->
+    <!--            <field name="inherit_id" ref="maintenance.view_maintenance_equipment_tree"/>-->
+    <!--            <field name="arch" type="xml">-->
+    <!--                <xpath expr="//field[@name='category_id']" position="after">-->
+    <!--                    <field name="gauge_type"/>-->
+    <!--                </xpath>-->
+    <!--            </field>-->
+    <!--        </record>-->
+    <record id="view_grn_control_plan_form" model="ir.ui.view">
+        <field name="name">grn.control.plan.form</field>
+        <field name="model">grn.control.plan</field>
+        <field name="arch" type="xml">
+            <form string="GRN Control Plan">
+                <header>
+                    <button name="generate_xls_report" type="object" string="Print Report" class="oe_highlight"
+                            icon="fa-print"/>
+                </header>
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #090d54 ; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            GRN Control Plan
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <group>
+                        <group>
+                            <!--                            <field name="doc_type"/>-->
+                            <field name="part_id"/>
+                            <field name="grn_product"/>
+                            <field name="part_name"/>
+                            <field name="part_number"/>
+                            <field name="grn_part_number"/>
+                            <field name="product_type" widget="radio"/>
+                            <!--                            <field name="supplier_ids"/>-->
+                            <!--                            <field name="supplier_code"/>-->
+                        </group>
+                        <group>
+                            <!--                            <field name="vehicle_model"/>-->
+                            <!--                            <field name="doc_no"/>-->
+                            <field name="date_origin"/>
+                            <field name="rev_no"/>
+                            <field name="rev_date"/>
+                            <field name="key_contact" widget="many2one_tags"/>
+                            <field name="team_cft" widget="many2many_tags"/>
+                            <field name="telephone" readonly="1"/>
+                            <field name="approved_by"/>
+                        </group>
+                        <group>
+                            <field name="grn_report_attachment" widget="many2many_binary" string="Report Attachments"
+                                   style="margin-bottom: 8px; padding: 5px; border-bottom: 1px dashed #d4d4d4;"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Processes">
+                            <field name="grn_process_line_ids">
+                                <tree>
+                                    <field name="process_step"/>
+                                    <field name="process_name_id"/>
+                                    <field name="char_class"/>
+                                    <field name="gauge_type"/>
+                                    <field name="product_spec_tol"/>
+                                    <field name="measure_method_aid_details"/>
+                                    <field name="type_of_inspection"/>
+                                    <field name="control_sample_freq"/>
+                                    <field name="control_method"/>
+                                    <field name="reaction_plan"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                    </notebook>
+                    <notebook>
+                        <page string="Revision History">
+                            <field name="revision_history_ids" >
+                                <tree editable="bottom">
+                                    <field name="serial_no"/>
+                                    <field name="rev_no"/>
+                                    <field name="rev_date"/>
+                                    <field name="revision_details"/>
+                                    <field name="revised_by"/>
+                                    <field name="approved_by"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                    <!--                    <group>-->
+                    <!--                        <button name="action_generate_excel_report" type="object" string="Generate Excel"-->
+                    <!--                                class="btn-primary"/>-->
+                    <!--                        <field name="generate_xls_file" filename="grn_control_plan.xlsx" readonly="1"/>-->
+                    <!--                    </group>-->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_grn_control_plan_tree" model="ir.ui.view">
+        <field name="name">grn.control.plan.tree</field>
+        <field name="model">grn.control.plan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!--                <field name="doc_type"/>-->
+                <field name="part_id"/>
+                <field name="part_name"/>
+                <field name="part_number"/>
+                <!--                <field name="supplier_ids"/>-->
+                <!--                <field name="supplier_code"/>-->
+                <!--                <field name="supplier_ids"/>-->
+                <!--                <field name="supplier_code"/>-->
+                <!--                <field name="vehicle_model"/>-->
+                <!--                <field name="doc_no"/>-->
+            </tree>
+        </field>
+    </record>
+    <record id="view_grn_control_plan_process_tree" model="ir.ui.view">
+        <field name="name">grn.control.plan.process.tree</field>
+        <field name="model">grn.control.plan.process</field>
+        <field name="arch" type="xml">
+            <tree string="Process Lines" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="process_step" readonly="1"/>
+                <field name="process_name_id"/>
+                <field name="char_class"/>
+                <field name="product_spec_tol"/>
+                <!--                <field name="measure_method_aid"/>-->
+                <field name="measure_method_aid_details" readonly="1"/>
+                <field name="gauge_type" readonly="1"/>
+                <field name="type_of_inspection"/>
+                <field name="control_sample_freq"/>
+                <field name="control_method"/>
+                <field name="reaction_plan"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for grn.control.plan.process -->
+    <record id="view_grn_control_plan_process_form" model="ir.ui.view">
+        <field name="name">grn.control.plan.process.form</field>
+        <field name="model">grn.control.plan.process</field>
+        <field name="arch" type="xml">
+            <form string="Process Line">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="process_step" readonly="1"/>
+                            <field name="process_name_id"/>
+                            <field name="char_class"/>
+                            <field name="product_spec_tol"/>
+                            <field name="measure_method_aid"/>
+                            <field name="measure_method_aid_details" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="gauge_type" readonly="1"/>
+                            <field name="type_of_inspection"/>
+                            <field name="control_sample_freq"/>
+                            <field name="control_method"/>
+                            <field name="reaction_plan"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_grn_revision_history_tree" model="ir.ui.view">
+        <field name="name">grn.revision.history.tree</field>
+        <field name="model">grn.revision.history</field>
+        <field name="arch" type="xml">
+            <tree string="Revision History" decoration-info="serial_no == 1" create="false" editable="bottom">
+                <field name="serial_no"/>
+                <field name="rev_no"/>
+                <field name="rev_date"/>
+                <field name="revision_details"/>
+                <field name="revised_by"/>
+                <field name="approved_by" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+<record id="view_grn_control_plan_tree_search" model="ir.ui.view">
+        <field name="name">grn.control.plan.tree.search</field>
+        <field name="model">grn.control.plan</field>
+        <field name="arch" type="xml">
+            <search string="Search GRN Control Plans">
+                <!-- Search Fields -->
+                <field name="part_id" string="Part ID"/>
+                <field name="part_name" string="Part Name"/>
+                <field name="part_number" string="Part Number"/>
+                <field name="grn_part_number" string="GRN Part Number"/>
+
+                <!-- Filters -->
+                <filter string="Recent Plans" name="recent" domain="[('date_origin', '>=', (context_today() - relativedelta(months=1)).strftime('%Y-%m-%d'))]"/>
+                <filter string="This Month" name="this_month" domain="[('date_origin', '>=', context_today().strftime('%Y-%m-01'))]"/>
+
+                <!-- Group By -->
+                <group expand="0" string="Group By">
+                    <filter string="Date Origin" name="date_origin" context="{'group_by': 'date_origin'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_grn_control_plan" model="ir.actions.act_window">
+        <field name="name">Control Plan</field>
+        <field name="res_model">grn.control.plan</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_grn_control_plan_tree_search"/>
+    </record>
+
+    <menuitem id="menu_grn_control_plan" name="Control Plan"
+              parent="menu_grn_management_root"
+              action="action_grn_control_plan" sequence="30"/>
+</odoo>

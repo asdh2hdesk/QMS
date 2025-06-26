@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="model_dfmea_item" model="ir.model">
+            <field name="name">DFMEA Item</field>
+            <field name="model">dfmea.item</field>
+        </record>
+        <record id="model_dfa_record" model="ir.model">
+            <field name="name">DFA Record</field>
+            <field name="model">dfa.record</field>
+        </record>
+        <record id="model_dfmea_line_item" model="ir.model">
+            <field name="name">DFMEA Line Item</field>
+            <field name="model">dfmea.line.item</field>
+        </record>
+        <!-- DFMEA Created Notification -->
+        <record id="email_template_dfmea_created" model="mail.template">
+            <field name="name">DFMEA Created Notification</field>
+            <field name="model_id" ref="model_dfmea_item"/>
+            <field name="subject">🔧 DFMEA Created - Action Required: ${object.name}</field>
+            <field name="email_from">${user.email_formatted}</field>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h2 style="color: #2E86AB; border-bottom: 2px solid #2E86AB;">🔧 DFMEA Created - Action Required</h2>
+
+                    <p>Dear ${ctx.get('recipient_name', 'Team Member')},</p>
+
+                    <p>A new DFMEA analysis has been created and requires your attention:</p>
+
+                    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                        <tr style="background-color: #f5f5f5;">
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>DFMEA ID:</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">${object.name}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Model Year:</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">${object.model_year or 'Not specified'}</td>
+                        </tr>
+                        <tr style="background-color: #f5f5f5;">
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Customer:</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">${object.customer.name if object.customer else 'Not specified'}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Team Leader:</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">${object.team_leader_id.name if object.team_leader_id else 'Not assigned'}</td>
+                        </tr>
+                        <tr style="background-color: #f5f5f5;">
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Target Completion:</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">${object.target_completion_date or 'Not set'}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Status:</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">${dict(object._fields['state'].selection)[object.state]}</td>
+                        </tr>
+                    </table>
+
+                    <p><strong>System Function:</strong><br/>
+                    ${object.system_function or 'To be defined'}</p>
+
+                    <div style="margin: 20px 0; padding: 15px; background-color: #e8f4f8; border-left: 4px solid #2E86AB;">
+                        <p><strong>⚠️ Next Steps Required:</strong></p>
+                        <ul>
+                            <li>Review system requirements and design intent</li>
+                            <li>Participate in cross-functional team activities</li>
+                            <li>Prepare for design review phase</li>
+                        </ul>
+                    </div>
+
+                    <p><a href="/web#id=${object.id}&model=dfmea.item&view_type=form" style="background-color: #2E86AB; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">📊 View DFMEA Record</a></p>
+
+                    <p>This is an automated notification from the IATF 16949 Quality Management System.</p>
+                    <p>Generated on: ${ctx.get('email_date', datetime.now().strftime('%Y-%m-%d %H:%M:%S'))}</p>
+                </div>
+            ]]></field>
+        </record>
+
+        <!-- Design Review Phase Started Notification -->
+        <record id="email_template_design_review" model="mail.template">
+            <field name="name">Design Review Phase Started Notification</field>
+            <field name="model_id" ref="model_dfmea_item"/>
+            <field name="subject">🔍 Design Review Phase Started: ${object.name}</field>
+            <field name="email_from">${user.email_formatted}</field>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h2 style="color: #2E86AB; border-bottom: 2px solid #2E86AB;">🔍 Design Review Phase Started</h2>
+
+                    <p>Dear ${ctx.get('recipient_name', 'Team Member')},</p>
+
+                    <p>The design review phase has been initiated for DFMEA ${object.name}.</p>
+
+                    <div style="margin: 20px 0; padding: 15px; background-color: #e8f4f8; border-left: 4px solid #2E86AB;">
+                        <p><strong>📋 Review Requirements:</strong></p>
+                        <ul>
+                            <li>System/Component Function Analysis</li>
+                            <li>Design Intent Verification</li>
+                            <li>System Requirements Review</li>
+                            <li>Interface Requirements Assessment</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>🎯 Your Action Required:</strong><br/>
+                    Please review and complete the design analysis before the target date: ${object.target_completion_date or 'TBD'}</p>
+
+                    <p><a href="/web#id=${object.id}&model=dfmea.item&view_type=form" style="background-color: #2E86AB; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">🔍 Open Design Review</a></p>
+                </div>
+            ]]></field>
+        </record>
+
+        <!-- DFA Analysis Required Notification -->
+        <record id="email_template_dfa_required" model="mail.template">
+            <field name="name">DFA Analysis Required Notification</field>
+            <field name="model_id" ref="model_dfmea_item"/>
+            <field name="subject">⚠️ DFA Analysis Required - Critical Risk Items: ${object.name}</field>
+            <field name="email_from">${user.email_formatted}</field>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h2 style="color: #FF9800; border-bottom: 2px solid #FF9800;">⚠️ DFA Analysis Required - Critical Risk Items</h2>
+
+                    <p>Dear ${ctx.get('recipient_name', 'Team Member')},</p>
+
+                    <p>The DFMEA analysis for ${object.name} has identified high-risk items that require Dependent Failure Analysis (DFA).</p>
+
+                    <div style="margin: 20px 0; padding: 15px; background-color: #fff3e0; border-left: 4px solid #FF9800;">
+                        <p><strong>🚨 Risk Summary:</strong></p>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr style="background-color: #f5f5f5;">
+                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Highest RPN:</strong></td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">${object.highest_rpn}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>High Risk Items:</strong></td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">${object.high_risk_count}</td>
+                            </tr>
+                            <tr style="background-color: #f5f5f5;">
+                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Critical Risk Items:</strong></td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">${object.critical_risk_count}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div style="margin: 20px 0; padding: 15px; background-color: #e8f5e8; border-left: 4px solid #4CAF50;">
+                        <p><strong>📝 Required Actions:</strong></p>
+                        <ul>
+                            <li>Initiate DFA analysis for high RPN items (≥100)</li>
+                            <li>Analyze dependent failure modes and interactions</li>
+                            <li>Develop mitigation strategies</li>
+                            <li>Update DFMEA with DFA findings</li>
+                        </ul>
+                    </div>
+
+                    <p><a href="/web#id=${object.id}&model=dfmea.item&view_type=form" style="background-color: #FF9800; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">🚨 Initiate DFA Analysis</a></p>
+                </div>
+            ]]></field>
+        </record>
+
+        <!-- DFA Analysis Created Notification -->
+        <record id="email_template_dfa_analysis_created" model="mail.template">
+            <field name="name">DFA Analysis Created Notification</field>
+            <field name="model_id" ref="model_dfa_record"/>
+            <field name="subject">🔬 DFA Analysis Created: ${object.name}</field>
+            <field name="email_from">${user.email_formatted}</field>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h2 style="color: #9C27B0; border-bottom: 2px solid #9C27B0;">🔬 DFA Analysis Created</h2>
+
+                    <p>Dear ${ctx.get('recipient_name', 'Team Member')},</p>
+
+                    <p>A Dependent Failure Analysis (DFA) has been created for critical risk items:</p>
+
+                    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                        <tr style="background-color: #f5f5f5;">
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>DFA ID:</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">${object.name}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Linked DFMEA:</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">${object.dfmea_item_id.name if object.dfmea_item_id else 'N/A'}</td>
+                        </tr>
+                        <tr style="background-color: #f5f5f5;">
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Analysis Scope:</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">${dict(object._fields['analysis_scope'].selection)[object.analysis_scope]}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Total Dependencies:</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">${object.total_dependent_failures}</td>
+                        </tr>
+                        <tr style="background-color: #f5f5f5;">
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Critical Dependencies:</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">${object.critical_dependencies}</td>
+                        </tr>
+                    </table>
+
+                    <p><a href="/web#id=${object.id}&model=dfa.record&view_type=form" style="background-color: #9C27B0; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">🔬 Access DFA Analysis</a></p>
+                </div>
+            ]]></field>
+        </record>
+
+        <!-- Overdue Actions Reminder Notification -->
+        <record id="email_template_overdue_actions" model="mail.template">
+            <field name="name">Overdue Actions Reminder Notification</field>
+            <field name="model_id" ref="model_dfmea_line_item"/>
+            <field name="subject">⏰ Overdue Actions Reminder: ${object.dfmea_item_id.name}</field>
+            <field name="email_from">${user.email_formatted}</field>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h2 style="color: #D32F2F; border-bottom: 2px solid #D32F2F;">⏰ Overdue Actions Reminder</h2>
+
+                    <p>Dear ${ctx.get('recipient_name', 'Team Member')},</p>
+
+                    <p>You have ${ctx.get('overdue_count', 0)} overdue action(s) that require immediate attention:</p>
+
+                    <div style="margin: 20px 0;">
+                        <p><strong>📋 Overdue Items:</strong></p>
+                        % for item in ctx.get('overdue_items', []):
+                        <div style="padding: 10px; background-color: #fff3e0; border-left: 3px solid #FF9800; margin-bottom: 10px;">
+                            <p><strong>Failure Mode:</strong> ${item.failure_mode}</p>
+                            <p><strong>Due Date:</strong> ${item.action_due_date}</p>
+                            <p><strong>Priority:</strong> ${item.action_priority.title()}</p>
+                        </div>
+                        % endfor
+                    </div>
+
+                    <div style="margin: 20px 0; padding: 15px; background-color: #ffebee; border-left: 4px solid #D32F2F;">
+                        <p><strong>🚨 Immediate Action Required:</strong><br/>
+                        Please update the action status and complete pending tasks to maintain IATF 16949 compliance.</p>
+                    </div>
+
+                    <p><a href="/web#id=${object.id}&model=dfmea.line.item&view_type=form" style="background-color: #D32F2F; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">⚡ Update Actions Now</a></p>
+                </div>
+            ]]></field>
+        </record>
+
+        <!-- Approval Request Notification -->
+        <record id="email_template_approval_request" model="mail.template">
+            <field name="name">Approval Request Notification</field>
+            <field name="model_id" ref="model_dfmea_item"/>
+            <field name="subject">✅ Approval Request - DFMEA Ready: ${object.name}</field>
+            <field name="email_from">${user.email_formatted}</field>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h2 style="color: #2196F3; border-bottom: 2px solid #2196F3;">✅ Approval Request - DFMEA Ready</h2>
+
+                    <p>Dear ${ctx.get('recipient_name', 'Approver')},</p>
+
+                    <p>DFMEA ${object.name} has completed analysis and is ready for your approval:</p>
+
+                    <div style="margin: 20px 0; padding: 15px; background-color: #e3f2fd; border-left: 4px solid #2196F3;">
+                        <p><strong>📊 Analysis Summary:</strong></p>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr style="background-color: #f5f5f5;">
+                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Completion Status:</strong></td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Ready for Approval</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Design Controls:</strong></td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">${'✅ Implemented' if object.design_controls_implemented else '❌ Pending'}</td>
+                            </tr>
+                            <tr style="background-color: #f5f5f5;">
+                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Customer Approval:</strong></td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">${'Required' if object.customer_approval_required else 'Not Required'}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div style="margin: 20px 0; padding: 15px; background-color: #e8f5e8; border-left: 4px solid #4CAF50;">
+                        <p><strong>📝 Approval Checklist:</strong></p>
+                        <ul>
+                            <li>All failure modes analyzed and documented</li>
+                            <li>Risk Priority Numbers (RPN) calculated</li>
+                            <li>Recommended actions defined and scheduled</li>
+                            <li>Design controls verified and validated</li>
+                            <li>Team review completed and documented</li>
+                        </ul>
+                    </div>
+
+                    <p><a href="/web#id=${object.id}&model=dfmea.item&view_type=form" style="background-color: #2196F3; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">✅ Review & Approve</a></p>
+                    <p><a href="/web#id=${object.id}&model=dfmea.item&view_type=form" style="background-color: #D32F2F; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">❌ Request Changes</a></p>
+
+                    <p>Please review the DFMEA within 48 hours to maintain project timeline compliance.</p>
+                    <p>Generated on: ${ctx.get('email_date', datetime.now().strftime('%Y-%m-%d %H:%M:%S'))}</p>
+                </div>
+            ]]></field>
+        </record>
+
+        <!-- DFMEA Approved Notification -->
+        <record id="email_template_dfmea_approved" model="mail.template">
+            <field name="name">DFMEA Approved Notification</field>
+            <field name="model_id" ref="model_dfmea_item"/>
+            <field name="subject">🎉 DFMEA Approved - Implementation Ready: ${object.name}</field>
+            <field name="email_from">${user.email_formatted}</field>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h2 style="color: #4CAF50; border-bottom: 2px solid #4CAF50;">🎉 DFMEA Approved - Implementation Ready</h2>
+
+                    <p>Dear ${ctx.get('recipient_name', 'Team Member')},</p>
+
+                    <p>Congratulations! DFMEA ${object.name} has been approved and is ready for implementation:</p>
+
+                    <div style="margin: 20px 0; padding: 15px; background-color: #e8f5e8; border-left: 4px solid #4CAF50;">
+                        <p><strong>✅ Approval Details:</strong></p>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr style="background-color: #f5f5f5;">
+                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Approved By:</strong></td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">${object.approved_by_id.name if object.approved_by_id else 'N/A'}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Approval Date:</strong></td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">${object.date_completed or 'Just Now'}</td>
+                            </tr>
+                            <tr style="background-color: #f5f5f5;">
+                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Status:</strong></td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">Approved</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Implementation Target:</strong></td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">${object.date_completed or 'TBD'}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div style="margin: 20px 0; padding: 15px; background-color: #e8f4f8; border-left: 4px solid #2E86AB;">
+                        <p><strong>🚀 Next Steps:</strong></p>
+                        <ul>
+                            <li>Execute approved action plans</li>
+                            <li>Implement design controls</li>
+                            <li>Monitor effectiveness of corrective actions</li>
+                            <li>Prepare for production readiness review</li>
+                        </ul>
+                    </div>
+
+                    <p><a href="/web#id=${object.id}&model=dfmea.item&view_type=form" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">🚀 Begin Implementation</a></p>
+
+                    <p>This approval enables progression to the next phase of the IATF 16949 quality process.</p>
+                    <p>Generated on: ${ctx.get('email_date', datetime.now().strftime('%Y-%m-%d %H:%M:%S'))}</p>
+                </div>
+            ]]></field>
+        </record>
+
+        <!-- Weekly DFMEA Status Report Notification -->
+        <record id="email_template_weekly_dfmea_report" model="mail.template">
+            <field name="name">Weekly DFMEA Status Report Notification</field>
+            <field name="model_id" ref="model_dfmea_item"/>
+            <field name="subject">📊 Weekly DFMEA Status Report</field>
+            <field name="email_from">${user.email_formatted}</field>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+                    <h2 style="color: #2E86AB; border-bottom: 2px solid #2E86AB;">📊 Weekly DFMEA Status Report</h2>
+
+                    <p>Dear ${ctx.get('recipient_name', 'Team')},</p>
+
+                    <p>Here's your weekly DFMEA activity summary for the period ending ${ctx.get('report_date', 'this week')}:</p>
+
+                    <div style="margin: 20px 0; padding: 15px; background-color: #e8f4f8; border-left: 4px solid #2E86AB;">
+                        <p><strong>📈 Activity Summary:</strong></p>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr style="background-color: #f5f5f5;">
+                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>New DFMEAs:</strong></td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">${ctx.get('new_dfmeas', 0)}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Completed:</strong></td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">${ctx.get('completed_dfmeas', 0)}</td>
+                            </tr>
+                            <tr style="background-color: #f5f5f5;">
+                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Overdue Actions:</strong></td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">${ctx.get('overdue_actions', 0)}</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Pending Approvals:</strong></td>
+                                <td style="padding: 10px; border: 1px solid #ddd;">${ctx.get('pending_approvals', 0)}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div style="margin: 20px 0; padding: 15px; background-color: #fff3e0; border-left: 4px solid #FF9800;">
+                        <p><strong>⚠️ Items Requiring Attention:</strong></p>
+                        <ul>
+                            <li>${ctx.get('high_risk_items', 0)} high-risk items need immediate action</li>
+                            <li>${ctx.get('upcoming_deadlines', 0)} deadlines approaching within 7 days</li>
+                            <li>${ctx.get('missing_assignments', 0)} unassigned action items</li>
+                        </ul>
+                    </div>
+
+                    <p><a href="/web#model=dfmea.item&view_type=list" style="background-color: #2E86AB; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">📊 View Full Dashboard</a></p>
+
+                    <p>Weekly report generated automatically every Monday at 8:00 AM.</p>
+                    <p>Generated on: ${ctx.get('email_date', datetime.now().strftime('%Y-%m-%d %H:%M:%S'))}</p>
+                </div>
+            ]]></field>
+        </record>
+    </data>
+</odoo>

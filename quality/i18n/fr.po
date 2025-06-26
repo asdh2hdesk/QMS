@@ -1,0 +1,3325 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* quality
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-07 06:00+0000\n"
+"PO-Revision-Date: 2025-06-07 06:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__work_type
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__work_type
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__work_type
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__work_type
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "4M Type"
+msgstr "4M Type (Type 4m)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_kanban
+msgid "<strong>Issue:</strong>"
+msgstr "<strong>Issue:</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_kanban
+msgid "<strong>Process:</strong>"
+msgstr "<strong>Process:</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_kanban
+msgid "<strong>Responsible:</strong>"
+msgstr "<strong>Responsible:</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "<strong>Risk Analysis</strong>"
+msgstr "<strong>Risk Analysis</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_kanban
+msgid "<strong>Target:</strong>"
+msgstr "<strong>Target:</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_kanban
+msgid "<strong>Type:</strong>"
+msgstr "<strong>Type:</strong>"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Ability to Detect"
+msgstr "Ability to Detect (Capacité à détecter)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_production_analysis__achievement_rate
+msgid "Achievement Rate (%)"
+msgstr "Achievement Rate (%) (Taux de réussite (%))"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_needaction
+msgid "Action Needed"
+msgstr "Action Needed (Action nécessaire)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__action_plan
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Action Plan"
+msgstr "Action Plan (Plan d'action)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Action Priority"
+msgstr "Action Priority (Priorité d'action)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__action_required
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Action Required"
+msgstr "Action Required (Action requise)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__action_taken
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__action_taken
+msgid "Action Taken (with pointer to evidence)"
+msgstr ""
+"Action Taken (with pointer to evidence) (Action prise (avec pointeur vers "
+"des preuves))"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__active
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__active
+msgid "Active"
+msgstr "Active"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_ids
+msgid "Activities"
+msgstr "Activities (Activités)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Activity Exception Decoration (Décoration d'exception d'activité)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_state
+msgid "Activity State"
+msgstr "Activity State (État d'activité)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Activity Type Icon (Icône de type d'activité)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__actual_efficiency
+msgid "Actual Efficiency (%)"
+msgstr "Actual Efficiency (%) (Efficacité réelle (%))"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_production_analysis__actual_production
+msgid "Actual Production"
+msgstr "Actual Production (Production réelle)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_sub_operations_lines_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_form
+msgid "Additional Information"
+msgstr "Additional Information (Informations Complémentaires)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_line_form
+msgid "Additional comments"
+msgstr "Additional comments (Commentaires supplémentaires)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Apply CAPA"
+msgstr "Apply CAPA (Appliquer Capa)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__approval_date
+#: model:ir.model.fields,field_description:quality.field_non_conformance__deviation_approved_date
+msgid "Approval Date"
+msgstr "Approval Date (Date d'approbation)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__approver
+msgid "Approved By"
+msgstr "Approved By (Approuvé par)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__iatf_members_ids
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__iatf_members_ids
+#: model:ir.model.fields,field_description:quality.field_non_conformance__iatf_members_ids
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__iatf_members_ids
+#: model:ir.model.fields,field_description:quality.field_process_report__iatf_members_ids
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Approvers"
+msgstr "Approvers (Approvers)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__04
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__04
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__04
+msgid "April"
+msgstr "April (Avril)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__assigned_to
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__assigned_to
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Assigned To"
+msgstr "Assigned To (Attribué à)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_kanban
+msgid "Assigned to:"
+msgstr "Assigned to: (Attribué à:)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_attachment_count
+msgid "Attachment Count"
+msgstr "Attachment Count (Nombre de pièces jointes)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint__attachment_ids
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__attachment_ids
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__attachment_ids
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Attachments"
+msgstr "Attachments (Attachements)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__08
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__08
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__08
+msgid "August"
+msgstr "August (Août)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__in_process_inspection_report_line__observation_status__auto_filled
+msgid "Auto Filled"
+msgstr "Auto Filled (Rempli automatiquement)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+msgid "Basic Information"
+msgstr "Basic Information (Informations de base)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__batch_quantity
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__batch_quantity
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__batch_quantity
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__batch_quantity
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__batch_quantity
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__batch_quantity
+msgid "Batch Quantity"
+msgstr "Batch Quantity (Quantité de lot)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__process_report__confidentiality_level__business
+msgid "Business"
+msgstr "Business (Entreprise)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__state__capa
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "CAPA Applied"
+msgstr "CAPA Applied (Capa appliqué)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__capa_closing_date
+msgid "CAPA Closing Date"
+msgstr "CAPA Closing Date (Date de clôture CAPA)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__capa_complaint_id
+msgid "CAPA Complaint"
+msgstr "CAPA Complaint (Plainte capa)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "CONTINUOUS IMPROVEMENT"
+msgstr "CONTINUOUS IMPROVEMENT (Amélioration continue)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document__calibration
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document_id__calibration_sheet
+msgid "Calibration"
+msgstr "Calibration (Étalonnage)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_copy_wizard
+msgid "Cancel"
+msgstr "Cancel (Annuler)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__cause_type
+msgid "Cause Type"
+msgstr "Cause Type (Type de cause)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__symbol
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__symbol
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__symbol
+#: model:ir.model.fields,field_description:quality.field_process_operations__special_product_characteristics
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__special_characteristics
+msgid "Class"
+msgstr "Class (Classe)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Close"
+msgstr "Close (Fermer)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Close NCR"
+msgstr "Close NCR (Fermer NCR)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__state__closed
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__closed
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Closed"
+msgstr "Closed"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__color
+msgid "Color"
+msgstr "Color (Couleur)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__company_id
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__company_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__company_id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__company_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__company_id
+#: model:ir.model.fields,field_description:quality.field_process_report__company_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__company_id
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Company"
+msgstr "Company (Entreprise)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__company_name
+msgid "Company Name"
+msgstr "Company Name (Nom de l'entreprise)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__category_id
+msgid "Complaint Category"
+msgstr "Complaint Category (Catégorie des plaintes)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__complaint_description
+msgid "Complaint Description"
+msgstr "Complaint Description (Description de la plainte)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Complaint Details"
+msgstr "Complaint Details (Détails de la plainte)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__rework_completed
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__status__completed
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__status__completed
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__status__completed
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Completed"
+msgstr "Completed (Complété)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__completion_date
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__completion_date
+msgid "Completion Date"
+msgstr "Completion Date (Date d'achèvement)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__concession
+msgid "Concession"
+msgstr "Concession (Concession)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__process_report__confidentiality_level__confidential
+msgid "Confidential"
+msgstr "Confidential"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__confidentiality_level
+msgid "Confidentiality Level"
+msgstr "Confidentiality Level (Niveau de confidentialité)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__scrap_confirmed_by
+msgid "Confirmed By"
+msgstr "Confirmed By (Confirmé par)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_copy_wizard
+msgid "Copy"
+msgstr "Copy (Copie)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Copy Form"
+msgstr "Copy Form (Copier)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard__selected_record_id
+msgid "Copy From"
+msgstr "Copy From (Copier de)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_copy_wizard
+msgid "Copy Process Report"
+msgstr "Copy Process Report (Copier le rapport du processus)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_process_report_copy_wizard
+msgid "Copy Process Report Data"
+msgstr "Copy Process Report Data (Copier les données du rapport du processus)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_customer_complaint_capa_wizard
+msgid "Create CAPA Complaint"
+msgstr "Create CAPA Complaint (Créer une plainte CAPA)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Create Customer Complaint for CAPA"
+msgstr ""
+"Create Customer Complaint for CAPA (Créer une plainte client pour CAPA)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_qms_rejection_handling
+msgid "Create a new rejection record"
+msgstr ""
+"Create a new rejection record (Créer un nouvel enregistrement de rejet)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_process_report
+msgid "Create and manage process reports."
+msgstr ""
+"Create and manage process reports. (Créer et gérer les rapports de "
+"processus.)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_non_conformance
+msgid "Create your first Non-Conformance Report"
+msgstr ""
+"Create your first Non-Conformance Report (Créez votre premier rapport de "
+"non-conforme)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_production_analysis
+msgid "Create your first Production Analysis record!"
+msgstr ""
+"Create your first Production Analysis record! (Créez votre premier "
+"enregistrement d'analyse de production!)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__create_uid
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__create_uid
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__create_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__create_uid
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__create_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__create_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__create_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__create_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__create_uid
+#: model:ir.model.fields,field_description:quality.field_non_conformance__create_uid
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__create_uid
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__create_uid
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__create_uid
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__create_uid
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__create_uid
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__create_uid
+#: model:ir.model.fields,field_description:quality.field_process_operations__create_uid
+#: model:ir.model.fields,field_description:quality.field_process_report__create_uid
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard__create_uid
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__create_uid
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__create_uid
+#: model:ir.model.fields,field_description:quality.field_production_analysis__create_uid
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__create_uid
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__create_uid
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__create_uid
+msgid "Created by"
+msgstr "Created by (Créé par)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__create_date
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__create_date
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__create_date
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__create_date
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__create_date
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__create_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__create_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__create_date
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__create_date
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__create_date
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__create_date
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__create_date
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__create_date
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__create_date
+#: model:ir.model.fields,field_description:quality.field_non_conformance__create_date
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__create_date
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__create_date
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__create_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__create_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__create_date
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__create_date
+#: model:ir.model.fields,field_description:quality.field_process_operations__create_date
+#: model:ir.model.fields,field_description:quality.field_process_report__create_date
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard__create_date
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__create_date
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__create_date
+#: model:ir.model.fields,field_description:quality.field_production_analysis__create_date
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__create_date
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__create_date
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__create_date
+msgid "Created on"
+msgstr "Created on (Créé sur)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__severity__critical
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__severity__critical
+msgid "Critical"
+msgstr "Critical (Critique)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Critical Severity"
+msgstr "Critical Severity (Gravité critique)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__currency_id
+msgid "Currency"
+msgstr "Currency (Devise)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__current_detection_control
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__current_detection_control
+msgid "Current Detection Control of FC or FM"
+msgstr ""
+"Current Detection Control of FC or FM (Contrôle de détection de courant de "
+"FC ou FM)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__current_prevention_control
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__current_prevention_control
+msgid "Current Prevention Control of FC"
+msgstr ""
+"Current Prevention Control of FC (Contrôle de la prévention actuelle du FC)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard__current_record_id
+msgid "Current Report"
+msgstr "Current Report (Rapport actuel)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Custom Form"
+msgstr "Custom Form (Forme personnalisée)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_type__customer
+msgid "Customer"
+msgstr "Customer"
+
+#. module: quality
+#: model:ir.model,name:quality.model_customer_complaint
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document__complaint
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document_id__customer_complaint_handling
+msgid "Customer Complaint"
+msgstr "Customer Complaint (Plainte du client)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_customer_complaint_capa_wizard
+msgid "Customer Complaint CAPA Wizard"
+msgstr "Customer Complaint CAPA Wizard (Plainte Client Capa Wizard)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fe_customer_end
+#: model:ir.model.fields,field_description:quality.field_process_operations__fe_customer_end
+msgid "Customer End"
+msgstr "Customer End (Fin du client)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__customer_impact
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Customer Impact"
+msgstr "Customer Impact (Impact client)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__customer_impact
+msgid "Customer Impact?"
+msgstr "Customer Impact? (Impact client?)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Customer Information"
+msgstr "Customer Information (Informations sur les clients)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Customer NCR"
+msgstr "Customer NCR (Client NCR)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__customer_name
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__partner_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__partner_id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__partner_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__partner_id
+#: model:ir.model.fields,field_description:quality.field_process_report__partner_id
+msgid "Customer Name"
+msgstr "Customer Name (Nom du client)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__cus_part_name
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__customer_part_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__cus_part_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__customer_part_name
+#: model:ir.model.fields,field_description:quality.field_non_conformance__cus_part_name
+#: model:ir.model.fields,field_description:quality.field_non_conformance__customer_part_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__cus_part_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__customer_part_name
+#: model:ir.model.fields,field_description:quality.field_process_report__cus_part_name
+#: model:ir.model.fields,field_description:quality.field_process_report__customer_part_name
+msgid "Customer Part name"
+msgstr "Customer Part name (Nom de partie client)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__cus_part_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__cus_part_no
+#: model:ir.model.fields,field_description:quality.field_non_conformance__cus_part_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__cus_part_no
+#: model:ir.model.fields,field_description:quality.field_process_report__cus_part_no
+msgid "Customer Part num"
+msgstr "Customer Part num (Numéro de pièce du client)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__cus_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__cus_id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__cus_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__cus_id
+#: model:ir.model.fields,field_description:quality.field_process_report__cus_id
+msgid "Customer name"
+msgstr "Customer name (Nom du client)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_pfmea_dashboard_board
+msgid "Dashboard Board"
+msgstr "Dashboard Board (Tableau du tableau de bord)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__date
+msgid "Date"
+msgstr "Date (Date)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_non_conformance__capa_closing_date
+msgid "Date when the associated CAPA was completed"
+msgstr ""
+"Date when the associated CAPA was completed (Date à la fin de la capa "
+"associée)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_kanban
+msgid "Date:"
+msgstr "Date: (Date:)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__days_to_resolution
+msgid "Days to Resolution"
+msgstr "Days to Resolution (Jours de résolution)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__12
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__12
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__12
+msgid "December"
+msgstr "December (Décembre)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__defect_description
+msgid "Defect Description"
+msgstr "Defect Description (Description des défauts)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__defect_snapshot
+msgid "Defect Snapshot"
+msgstr "Defect Snapshot (Instantané défaut)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__defect_source
+msgid "Defect Source"
+msgstr "Defect Source (Source de défaut)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__defective_parts
+msgid "Defective Parts"
+msgstr "Defective Parts (Parties défectueuses)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__defective_qty
+msgid "Defective Quantity"
+msgstr "Defective Quantity (Quantité défectueuse)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_category__delivery
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_sub_category__delivery
+msgid "Delivery"
+msgstr "Delivery (Livraison)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__department
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Department"
+msgstr "Department (Département)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Describe the customer complaint in detail..."
+msgstr ""
+"Describe the customer complaint in detail... (Décrivez la plainte du client "
+"en détail ...)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Description"
+msgstr "Description (Description)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Detection"
+msgstr "Detection (Détection)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__detection
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__detection
+msgid "Detection (D) of FC/FM"
+msgstr "Detection (D) of FC/FM (Détection (d) de FC / FM)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__detection_action
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__detection_action
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__detection_action
+msgid "Detection Action"
+msgstr "Detection Action (Action de détection)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__detection_date
+msgid "Detection Date"
+msgstr "Detection Date (Date de détection)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__detection_level
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__detection_level
+msgid "Detection Level"
+msgstr "Detection Level (Niveau de détection)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_process_sub_operations_lines__detection
+#: model:ir.model.fields,help:quality.field_process_sub_operations_lines__detection_level
+#: model:ir.model.fields,help:quality.field_process_suggestions__detection
+#: model:ir.model.fields,help:quality.field_process_suggestions__detection_level
+msgid "Detection rating from 1-10"
+msgstr "Detection rating from 1-10 (Note de détection de 1 à 10)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Deviation"
+msgstr "Deviation (Déviation)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__deviation_approver
+msgid "Deviation Approved By"
+msgstr "Deviation Approved By (Déviation approuvée par)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__deviation_document_filename
+msgid "Deviation Document Filename"
+msgstr "Deviation Document Filename (Nom de fichier de document de déviation)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__deviation_justification
+msgid "Deviation Justification"
+msgstr "Deviation Justification (Justification déviation)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__deviation_document
+msgid "Deviation Report (PDF)"
+msgstr "Deviation Report (PDF) (Rapport de déviation (PDF))"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__dimension_des
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__dimension_des
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__dimension_des
+msgid "Dimension Description"
+msgstr "Dimension Description (Description de la dimension)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__status__discarded
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__status__discarded
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__status__discarded
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Discarded"
+msgstr "Discarded"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__display_name
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__display_name
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__display_name
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__display_name
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__display_name
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__display_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__display_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__display_name
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__display_name
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__display_name
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__display_name
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__display_name
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__display_name
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__display_name
+#: model:ir.model.fields,field_description:quality.field_non_conformance__display_name
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__display_name
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__display_name
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__display_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__display_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__display_name
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__display_name
+#: model:ir.model.fields,field_description:quality.field_process_operations__display_name
+#: model:ir.model.fields,field_description:quality.field_process_report__display_name
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard__display_name
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__display_name
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__display_name
+#: model:ir.model.fields,field_description:quality.field_production_analysis__display_name
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__display_name
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__display_name
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__display_name
+msgid "Display Name"
+msgstr "Display Name (Nom d'affichage)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Disposition"
+msgstr "Disposition (Disposition)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__disposition
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__disposition
+msgid "Disposition Decision"
+msgstr "Disposition Decision (Décision de disposition)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__doc_type
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__doc_type
+#: model:ir.model.fields,field_description:quality.field_non_conformance__doc_type
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__doc_type
+#: model:ir.model.fields,field_description:quality.field_process_report__doc_type
+msgid "Doc Type"
+msgstr "Doc Type (Type de doc)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__in_process_inspection_report_line__observation_status__draft
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__state__draft
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__draft
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Draft"
+msgstr "Draft (Brouillon)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__drawing_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__drawing_no
+#: model:ir.model.fields,field_description:quality.field_non_conformance__drawing_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__drawing_no
+#: model:ir.model.fields,field_description:quality.field_process_report__drawing_no
+msgid "Drawing No."
+msgstr "Drawing No. (N ° de dessin)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_product_product__drg_no
+#: model:ir.model.fields,field_description:quality.field_product_template__drg_no
+msgid "Drawing Number"
+msgstr "Drawing Number (Numéro de dessin)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__drawing_rev_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__drawing_rev_date
+#: model:ir.model.fields,field_description:quality.field_non_conformance__drawing_rev_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__drawing_rev_date
+#: model:ir.model.fields,field_description:quality.field_process_report__drawing_rev_date
+msgid "Drawing Rev. Date"
+msgstr "Drawing Rev. Date (Dessin de la date)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__drawing_rev_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__drawing_rev_no
+#: model:ir.model.fields,field_description:quality.field_non_conformance__drawing_rev_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__drawing_rev_no
+#: model:ir.model.fields,field_description:quality.field_process_report__drawing_rev_no
+msgid "Drawing. Rev. No."
+msgstr "Drawing. Rev. No. (Dessin.Rév. No.)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__is_editable
+msgid "Editable"
+msgstr "Editable (Modifiable)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Effects"
+msgstr "Effects (Effets)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__efficiency_gap
+msgid "Efficiency Gap (%)"
+msgstr "Efficiency Gap (%) (Écart d'efficacité (%))"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__ele_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__ele_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__ele_no
+msgid "Element No."
+msgstr "Element No. (N °)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__customer_email
+msgid "Email"
+msgstr "Email (E-mail)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fe_end_user
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fpi_end_user
+#: model:ir.model.fields,field_description:quality.field_process_operations__fe_end_user
+#: model:ir.model.fields,field_description:quality.field_process_operations__fpi_end_user
+msgid "End User"
+msgstr "End User (Utilisateur final)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__work_type__environment
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__work_type__environment
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__work_type__environment
+#: model:ir.model.fields.selection,name:quality.selection__top_ap_pfmea__work_type__environment
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Environment"
+msgstr "Environment (Environnement)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__environment_line_ids
+#: model:ir.model.fields,field_description:quality.field_process_operations__environment_line_ids
+msgid "Environment Lines"
+msgstr "Environment Lines (Lignes environnementales)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__environment_pro_id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__environment_pro_id
+msgid "Environment Process Reference"
+msgstr ""
+"Environment Process Reference (Référence du processus d'environnement)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__cost
+msgid "Estimated Cost of Non-Conformance"
+msgstr "Estimated Cost of Non-Conformance (Coût estimé de la non-conforme)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Evaluate"
+msgstr "Evaluate (Évaluer)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__state__evaluated
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Evaluated"
+msgstr "Evaluated (Évalué)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_type__external
+msgid "External"
+msgstr "External (Externe)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "External NCR"
+msgstr "External NCR (NCR externe)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__fmea_ap
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__fmea_ap
+msgid "FMEA AP"
+msgstr "FMEA AP (FMEA AP)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__fmea_ap_sort
+msgid "FMEA AP Sort Priority"
+msgstr "FMEA AP Sort Priority (FMEA AP SORT PRIORITÉ)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__failure_causes
+msgid "Failure Cause"
+msgstr "Failure Cause (Échec Cause)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__failure_causes
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__failure_causes
+msgid "Failure Causes (FC)"
+msgstr "Failure Causes (FC) (Causes de défaillance (FC))"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Failure Effects"
+msgstr "Failure Effects (Effets de l'échec)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__failure_mode
+msgid "Failure Mode"
+msgstr "Failure Mode (Mode de défaillance)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__failure_mode
+#: model:ir.model.fields,field_description:quality.field_process_operations__failure_mode
+msgid "Failure Mode (FM)"
+msgstr "Failure Mode (FM) (Mode de défaillance (FM))"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__02
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__02
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__02
+msgid "February"
+msgstr "February (Février)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__filter_code
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__filter_code
+msgid "Filter Code (Optional)"
+msgstr "Filter Code (Optional) (Code de filtre (facultatif))"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__financial_impact
+msgid "Financial Impact"
+msgstr "Financial Impact (Impact financier)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_follower_ids
+msgid "Followers"
+msgstr "Followers"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Followers (Partners) (Abonnés (partenaires))"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+"Font awesome icon e.g. fa-tasks (Icône géniale de police, par exempleFA-"
+"TASS)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_operations__func_of_process_step
+msgid "Function of Process Step"
+msgstr "Function of Process Step (Fonction de l'étape de processus)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__func_of_process_step
+msgid "Function of Process Step and Process Characteristics"
+msgstr ""
+"Function of Process Step and Process Characteristics (Fonction des "
+"caractéristiques des étapes et du processus de processus)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__function_of_process_work_element
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__function_of_process_work_element
+msgid "Function of Process Work Element and Process Characteristics"
+msgstr ""
+"Function of Process Work Element and Process Characteristics (Fonction des "
+"caractéristiques des élément de travail et des processus de processus)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__func_of_product_step
+msgid "Function of Product Step and Process Characteristics"
+msgstr ""
+"Function of Product Step and Process Characteristics (Fonction des "
+"caractéristiques des étapes et du processus du produit)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document__grn
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document_id__grn_management
+msgid "GRN"
+msgstr "GRN (Grn)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__generate_xls_file
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__generate_xls_file
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__generate_xls_file
+#: model:ir.model.fields,field_description:quality.field_process_report__generate_xls_file
+msgid "Generated File"
+msgstr "Generated File (Fichier généré)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Group By"
+msgstr "Group By (Se regrouper)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__has_message
+msgid "Has Message"
+msgstr "Has Message (A un message)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__severity__high
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__severity__high
+msgid "High"
+msgstr "High (Haut)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "High Severity"
+msgstr "High Severity (Gravité élevée)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__hca
+#: model:ir.model.fields,field_description:quality.field_process_operations__hca
+msgid "History/Change Authorization"
+msgstr "History/Change Authorization (Autorisation d'histoire / changement)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__cause_type__human_error
+msgid "Human Error"
+msgstr "Human Error (Erreur humaine)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__id
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__id
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__id
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__id
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__id
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__id
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__id
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__id
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__id
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__id
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__id
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__id
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__id
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__id
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__id
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__id
+#: model:ir.model.fields,field_description:quality.field_process_operations__id
+#: model:ir.model.fields,field_description:quality.field_process_report__id
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard__id
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__id
+#: model:ir.model.fields,field_description:quality.field_production_analysis__id
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__id
+msgid "ID"
+msgstr "ID (IDENTIFIANT)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_exception_icon
+msgid "Icon"
+msgstr "Icon (Icône)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+"Icon to indicate an exception activity. (Icône pour indiquer une activité "
+"d'exception.)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+"If checked, new messages require your attention. (S'il est vérifié, les "
+"nouveaux messages nécessitent votre attention.)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__message_has_error
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+"If checked, some messages have a delivery error. (S'il est vérifié, certains"
+" messages ont une erreur de livraison.)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_in_coming_report
+#: model:ir.ui.menu,name:quality.menu_in_coming_inspection
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+msgid "In Coming Inspection Report"
+msgstr "In Coming Inspection Report (Dans le rapport d'inspection à venir)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_in_coming_report_lines
+msgid "In Coming Inspection Report Lines"
+msgstr ""
+"In Coming Inspection Report Lines (Dans les lignes de rapport d'inspection à"
+" venir)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fe_in_plant
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fpi_in_plant
+#: model:ir.model.fields,field_description:quality.field_process_operations__fe_in_plant
+#: model:ir.model.fields,field_description:quality.field_process_operations__fpi_in_plant
+msgid "In Plant"
+msgstr "In Plant (En usine)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_in_process_report
+#: model:ir.ui.menu,name:quality.menu_in_process_inspection
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+msgid "In Process Inspection Report"
+msgstr "In Process Inspection Report (Rapport d'inspection des processus)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_in_process_report_lines
+msgid "In Process Inspection Report Lines"
+msgstr ""
+"In Process Inspection Report Lines (Dans les lignes de rapport d'inspection "
+"des processus)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_in_process_operations
+msgid "In Process Operations"
+msgstr "In Process Operations (Informations sur le processus)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__status__in_progress
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__status__in_progress
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__status__in_progress
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__in_progress
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "In Progress"
+msgstr "In Progress (En cours)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Initial Risk Action Priority"
+msgstr "Initial Risk Action Priority (Priorité initiale d'action des risques)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Initiator"
+msgstr "Initiator (Initiateur)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__inspected_by
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__inspected_by
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__inspected_by
+msgid "Inspected By"
+msgstr "Inspected By (Inspecté par)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_operation_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+msgid "Inspection Details"
+msgstr "Inspection Details (Détails d'inspection)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__inspection_frequency
+msgid "Inspection Frequency"
+msgstr "Inspection Frequency (Fréquence d'inspection)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__inspection_line_id
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__inspection_line_id
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__inspection_line_id
+msgid "Inspection Line"
+msgstr "Inspection Line (Ligne d'inspection)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_line_form
+msgid "Inspection Line Detail"
+msgstr "Inspection Line Detail (Détail de ligne d'inspection)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__line_ids
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__line_ids
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__line_ids
+msgid "Inspection Lines"
+msgstr "Inspection Lines (Lignes d'inspection)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__inspection_method
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__inspection_method
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__inspection_method
+msgid "Inspection Method"
+msgstr "Inspection Method (Méthode d'inspection)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_inspection_observation
+#: model:ir.model,name:quality.model_inspection_observation
+msgid "Inspection Observations"
+msgstr "Inspection Observations (Observations d'inspection)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__inspection_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__inspection_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__inspection_id
+msgid "Inspection Report"
+msgstr "Inspection Report (Rapport d'inspection)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.inspection_menu
+msgid "Inspection Reports"
+msgstr "Inspection Reports (Rapports d'inspection)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_type__internal
+msgid "Internal"
+msgstr "Internal (Interne)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Internal NCR"
+msgstr "Internal NCR (NCR interne)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_is_follower
+msgid "Is Follower"
+msgstr "Is Follower (Est un adepte)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__is_overdue
+msgid "Is Overdue"
+msgstr "Is Overdue (Est en retard)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__issue
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__issue
+#: model:ir.model.fields,field_description:quality.field_process_operations__issue
+msgid "Issue #"
+msgstr "Issue # (Problème #)"
+
+#. module: quality
+#: model:ir.model.constraint,message:quality.constraint_process_operations_unique_issue_process_step
+msgid "Issue number must be unique for a given Process Step!"
+msgstr ""
+"Issue number must be unique for a given Process Step! (Le numéro de problème"
+" doit être unique pour une étape de processus donnée!)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__01
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__01
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__01
+msgid "January"
+msgstr "January (Janvier)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__07
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__07
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__07
+msgid "July"
+msgstr "July (Juillet)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__06
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__06
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__06
+msgid "June"
+msgstr "June (Juin)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__justification
+msgid "Justification"
+msgstr "Justification (Justification)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__name
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__name
+msgid "Label"
+msgstr "Label (Étiquette)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__language_id
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__language_id
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__language_id
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__language_id
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__language_id
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__language_id
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__language_id
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__language_id
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__language_id
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__language_id
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__language_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__language_id
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__language_id
+#: model:ir.model.fields,field_description:quality.field_production_analysis__language_id
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__language_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__language_id
+msgid "Language"
+msgstr "Language (Langue)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard____last_update
+#: model:ir.model.fields,field_description:quality.field_dashboard_report____last_update
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler____last_update
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report____last_update
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line____last_update
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation____last_update
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report____last_update
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line____last_update
+#: model:ir.model.fields,field_description:quality.field_in_process_operations____last_update
+#: model:ir.model.fields,field_description:quality.field_inspection_observation____last_update
+#: model:ir.model.fields,field_description:quality.field_ncr_repair____last_update
+#: model:ir.model.fields,field_description:quality.field_ncr_rework____last_update
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap____last_update
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is____last_update
+#: model:ir.model.fields,field_description:quality.field_non_conformance____last_update
+#: model:ir.model.fields,field_description:quality.field_oee_analysis____last_update
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions____last_update
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis____last_update
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report____last_update
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line____last_update
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation____last_update
+#: model:ir.model.fields,field_description:quality.field_process_operations____last_update
+#: model:ir.model.fields,field_description:quality.field_process_report____last_update
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard____last_update
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines____last_update
+#: model:ir.model.fields,field_description:quality.field_process_suggestions____last_update
+#: model:ir.model.fields,field_description:quality.field_production_analysis____last_update
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling____last_update
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea____last_update
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler____last_update
+msgid "Last Modified on"
+msgstr "Last Modified on (Dernier modification sur)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__write_uid
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__write_uid
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__write_uid
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__write_uid
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__write_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__write_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__write_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__write_uid
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__write_uid
+#: model:ir.model.fields,field_description:quality.field_non_conformance__write_uid
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__write_uid
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__write_uid
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__write_uid
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__write_uid
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__write_uid
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__write_uid
+#: model:ir.model.fields,field_description:quality.field_process_operations__write_uid
+#: model:ir.model.fields,field_description:quality.field_process_report__write_uid
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard__write_uid
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__write_uid
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__write_uid
+#: model:ir.model.fields,field_description:quality.field_production_analysis__write_uid
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__write_uid
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__write_uid
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__write_uid
+msgid "Last Updated by"
+msgstr "Last Updated by (Dernière mise à jour par)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__write_date
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__write_date
+#: model:ir.model.fields,field_description:quality.field_dashboard_report_scheduler__write_date
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__write_date
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__write_date
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__write_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__write_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__write_date
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__write_date
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__write_date
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__write_date
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__write_date
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__write_date
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__write_date
+#: model:ir.model.fields,field_description:quality.field_non_conformance__write_date
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__write_date
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__write_date
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__write_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__write_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__write_date
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__write_date
+#: model:ir.model.fields,field_description:quality.field_process_operations__write_date
+#: model:ir.model.fields,field_description:quality.field_process_report__write_date
+#: model:ir.model.fields,field_description:quality.field_process_report_copy_wizard__write_date
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__write_date
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__write_date
+#: model:ir.model.fields,field_description:quality.field_production_analysis__write_date
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__write_date
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__write_date
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea_scheduler__write_date
+msgid "Last Updated on"
+msgstr "Last Updated on (Dernière mise à jour sur)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__link
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__link
+#: model:ir.model.fields,field_description:quality.field_non_conformance__link
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__link
+#: model:ir.model.fields,field_description:quality.field_process_report__link
+msgid "Link"
+msgstr "Link (Lien)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__severity__low
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__severity__low
+msgid "Low"
+msgstr "Low (Faible)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Low Severity"
+msgstr "Low Severity (Faible gravité)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__lower_limit
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__lower_limit
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__lower_limit
+msgid "Lower Limit"
+msgstr "Lower Limit (Limite inférieure)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document__msa
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document_id__msa_sheet
+msgid "MSA"
+msgstr "MSA (MSA)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__machine_id
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__work_type__machine
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__work_type__machine
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__work_type__machine
+#: model:ir.model.fields.selection,name:quality.selection__top_ap_pfmea__work_type__machine
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Machine"
+msgstr "Machine (Machine)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__cause_type__machine_failure
+msgid "Machine Failure"
+msgstr "Machine Failure (Échec de la machine)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__machine_line_ids
+#: model:ir.model.fields,field_description:quality.field_process_operations__machine_line_ids
+msgid "Machine Lines"
+msgstr "Machine Lines (Lignes de machines)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__machine_pro_id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__machine_pro_id
+msgid "Machine Process Reference"
+msgstr "Machine Process Reference (Référence du processus de machine)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Main Attachment (Attachement principal)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__work_type__man
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__work_type__man
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__work_type__man
+#: model:ir.model.fields.selection,name:quality.selection__top_ap_pfmea__work_type__man
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Man"
+msgstr "Man (Homme)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__man_line_ids
+#: model:ir.model.fields,field_description:quality.field_process_operations__man_line_ids
+msgid "Man Lines"
+msgstr "Man Lines (Lignes de l'homme)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__man_pro_id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__man_pro_id
+msgid "Man Process Reference"
+msgstr "Man Process Reference (Référence du processus de l'homme)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__in_process_inspection_report_line__observation_status__manually_edited
+msgid "Manually Edited"
+msgstr "Manually Edited (Édité manuellement)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__03
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__03
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__03
+msgid "March"
+msgstr "March (Mars)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__work_type__material
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__work_type__material
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__work_type__material
+#: model:ir.model.fields.selection,name:quality.selection__top_ap_pfmea__work_type__material
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Material"
+msgstr "Material"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__cause_type__material_defect
+msgid "Material Defect"
+msgstr "Material Defect (Défaut matériel)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__material_line_ids
+#: model:ir.model.fields,field_description:quality.field_process_operations__material_line_ids
+msgid "Material Lines"
+msgstr "Material Lines (Lignes de matériaux)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__material_pro_id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__material_pro_id
+msgid "Material Process Reference"
+msgstr "Material Process Reference (Référence du processus matériel)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__05
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__05
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__05
+msgid "May"
+msgstr "May (Peut)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__severity__medium
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__severity__medium
+msgid "Medium"
+msgstr "Medium (Moyen)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Medium Severity"
+msgstr "Medium Severity (Gravité moyenne)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__member_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__member_name
+#: model:ir.model.fields,field_description:quality.field_non_conformance__member_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__member_name
+#: model:ir.model.fields,field_description:quality.field_process_report__member_name
+msgid "Member Name"
+msgstr "Member Name (Nom de membre)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_has_error
+msgid "Message Delivery error"
+msgstr "Message Delivery error (Erreur de livraison de messages)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_ids
+msgid "Messages"
+msgstr "Messages (Messages)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__work_type__method
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__work_type__method
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__work_type__method
+#: model:ir.model.fields.selection,name:quality.selection__top_ap_pfmea__work_type__method
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Method"
+msgstr "Method (Méthode)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__method_line_ids
+#: model:ir.model.fields,field_description:quality.field_process_operations__method_line_ids
+msgid "Method Lines"
+msgstr "Method Lines (Lignes de méthode)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__method_pro_id
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__method_pro_id
+msgid "Method Process Reference"
+msgstr "Method Process Reference (Référence du processus de méthode)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__dimension_spec
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__dimension_spec
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__dimension_spec
+msgid "Method Product Spec./ Tolerance"
+msgstr "Method Product Spec./ Tolerance (Méthode Spec. / Tolérance)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__myp
+msgid "Model/Year/Platform"
+msgstr "Model/Year/Platform (Modèle / année / plate-forme)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__month
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__month
+#: model:ir.model.fields,field_description:quality.field_production_analysis__month
+#: model:ir.model.fields,field_description:quality.field_production_analysis__name
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_search
+msgid "Month"
+msgstr "Month (Mois)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_production_analysis
+msgid "Monthly Production Analysis"
+msgstr "Monthly Production Analysis (Analyse de la production mensuelle)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__quarantine
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Move to Quarantine"
+msgstr "Move to Quarantine (Passer à la quarantaine)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__scrap
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Move to Scrap"
+msgstr "Move to Scrap (Se déplacer vers la ferraille)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "My Activity Deadline (Ma date limite d'activité)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__non_conformance_id
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__non_conformance_id
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__non_conformance_id
+#: model:ir.model.fields,field_description:quality.field_ncr_useas_is__non_conformance_id
+msgid "NCR"
+msgstr "NCR (RCNP)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__name
+msgid "NCR Number"
+msgstr "NCR Number (Numéro NCR)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_ncr_repair
+msgid "NCR Repair Details"
+msgstr "NCR Repair Details (Détails de réparation de la RCN)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_ncr_rework
+msgid "NCR Rework Details"
+msgstr "NCR Rework Details (Les détails de retravail NCR)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_ncr_scrap
+msgid "NCR Scrap Details"
+msgstr "NCR Scrap Details (Détails de ferraille NCR)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "NCR Type"
+msgstr "NCR Type (Type NCR)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_ncr_useas_is
+msgid "NCR Use-As-Is Details"
+msgstr "NCR Use-As-Is Details (Détails de l'utilisation du NCR en tant que)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_flow_class__name
+msgid "Name"
+msgstr "Name (Nom)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__process_item
+msgid "Name of Process"
+msgstr "Name of Process (Nom du processus)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+"Next Activity Calendar Event (Prochain événement du calendrier d'activité)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Next Activity Deadline (Date limite d'activité suivante)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_summary
+msgid "Next Activity Summary"
+msgstr "Next Activity Summary (Résumé de l'activité suivante)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_type_id
+msgid "Next Activity Type"
+msgstr "Next Activity Type (Type d'activité suivante)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_non_conformance
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__non_conformance_id
+msgid "Non Conformance"
+msgstr "Non Conformance (Non-conformité)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__non_conformance_category
+msgid "Non Conformance Category"
+msgstr "Non Conformance Category (Catégorie de non-conformité)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__non_conformance_sub_category
+msgid "Non Conformance Sub Category"
+msgstr "Non Conformance Sub Category (Sous-catégorie de non-conformité)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__non_conformance_type
+msgid "Non Conformance Type"
+msgstr "Non Conformance Type (Type de conformité non)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__non_conformity_ids
+msgid "Non Conformity"
+msgstr "Non Conformity (Non-conformité)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__non_conformity_count
+msgid "Non Conformity Count"
+msgstr "Non Conformity Count (Compte de non-conformité)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_quality_non_conformance
+msgid "Non-Conformance"
+msgstr "Non-Conformance (Non-conforme)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_graph
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_pivot
+msgid "Non-Conformance Analysis"
+msgstr "Non-Conformance Analysis (Analyse non conforme)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_calendar
+msgid "Non-Conformance Calendar"
+msgstr "Non-Conformance Calendar (Calendrier non conforme)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Non-Conformance Details"
+msgstr "Non-Conformance Details (Détails de non-conformité)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Non-Conformance Information"
+msgstr "Non-Conformance Information (Informations non conformes)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document__ncr
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__source_document_id__non_conformance
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Non-Conformance Report"
+msgstr "Non-Conformance Report (Rapport de non-conforme)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_non_conformance
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_tree
+msgid "Non-Conformance Reports"
+msgstr "Non-Conformance Reports (Rapports de non-conformité)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__not_ok_quantity
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__not_ok_quantity
+msgid "Not OK Quantity After Rework"
+msgstr "Not OK Quantity After Rework (Pas OK Quantité après retravail)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__notes
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Notes"
+msgstr "Notes (Notes)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__11
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__11
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__11
+msgid "November"
+msgstr "November (Novembre)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Number of Actions (Nombre d'actions)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__parts_to_be_checked
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__parts_to_be_checked
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__parts_to_be_checked
+msgid "Number of Parts to be Checked"
+msgstr "Number of Parts to be Checked (Nombre de pièces à vérifier)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_has_error_counter
+msgid "Number of errors"
+msgstr "Number of errors (Nombre d'erreurs)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+"Number of messages requiring action (Nombre de messages nécessitant une "
+"action)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+"Number of messages with delivery error (Nombre de messages avec erreur de "
+"livraison)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_oee_analysis
+msgid "OEE (Overall Equipment Effectiveness) Analysis"
+msgstr ""
+"OEE (Overall Equipment Effectiveness) Analysis (Analyse OEE (Efficacité "
+"globale de l'équipement))"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_oee_analysis
+#: model:ir.ui.menu,name:quality.menu_oee_analysis
+msgid "OEE Analysis"
+msgstr "OEE Analysis (Analyse OEE)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_oee_analysis_graph
+msgid "OEE Comparison"
+msgstr "OEE Comparison (Comparaison OEE)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_oee_root
+msgid "OEE Reports"
+msgstr "OEE Reports (Rapports OEE)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__observation_value
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__observation_value
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__observation_value
+msgid "Observation"
+msgstr "Observation (Observation)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__observation_number
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__observation_number
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__observation_number
+msgid "Observation No."
+msgstr "Observation No. (N ° d'observation)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__observation_status
+msgid "Observation Status"
+msgstr "Observation Status (Statut d'observation)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__observations
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__observations
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__observations
+msgid "Observations"
+msgstr "Observations (Observations)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Occurrence"
+msgstr "Occurrence (Occurrence)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__occurrence
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__occurrence
+msgid "Occurrence (O) of FC"
+msgstr "Occurrence (O) of FC (Occurrence (o) de FC)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__occurrence_level
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__occurrence_level
+msgid "Occurrence Level"
+msgstr "Occurrence Level (Niveau d'occurrence)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_process_sub_operations_lines__occurrence
+#: model:ir.model.fields,help:quality.field_process_sub_operations_lines__occurrence_level
+#: model:ir.model.fields,help:quality.field_process_suggestions__occurrence
+#: model:ir.model.fields,help:quality.field_process_suggestions__occurrence_level
+msgid "Occurrence rating from 1-10"
+msgstr "Occurrence rating from 1-10 (Note d'occurrence de 1 à 10)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__10
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__10
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__10
+msgid "October"
+msgstr "October (Octobre)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__ok_quantity_after
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__ok_quantity_after
+msgid "Ok Quantity After Rework"
+msgstr "Ok Quantity After Rework (OK Quantité après retravail)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__op_ids
+msgid "Operation Lines"
+msgstr "Operation Lines (Lignes opérationnelles)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__op_name
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__op_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__op_name
+msgid "Operation Name"
+msgstr "Operation Name (Nom de l'opération)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__op_no
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__op_no
+#: model:ir.model.fields,field_description:quality.field_in_process_operations__operation_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__op_no
+msgid "Operation No."
+msgstr "Operation No. (N ° d'exploitation)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__report_ids
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_operation_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Operations"
+msgstr "Operations (Opérations)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_process_operations
+msgid "Operations of in process inspection"
+msgstr ""
+"Operations of in process inspection (Opérations de l'inspection des "
+"processus)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Operator"
+msgstr "Operator"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__operator
+msgid "Operator / Responsible Person"
+msgstr "Operator / Responsible Person (Opérateur / personne responsable)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_sub_operations_lines_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_form
+msgid "Optimization"
+msgstr "Optimization (Optimisation)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_opt_ap_graph
+msgid "Optimization AP"
+msgstr "Optimization AP (Optimisation ap)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__pfmea_ap
+#: model_terms:ir.ui.view,arch_db:quality.board_top_ap_pfmea_form
+#: model_terms:ir.ui.view,arch_db:quality.view_top_ap_pfmea_opt_graph
+msgid "Optimization Action Priority"
+msgstr "Optimization Action Priority (Priorité d'action d'optimisation)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Optimized Action Priority"
+msgstr "Optimized Action Priority (Priorité d'action optimisée)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_category__other
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_sub_category__other
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__other
+msgid "Other"
+msgstr "Other (Autre)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Overdue"
+msgstr "Overdue (En retard)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__pfmea_aid_no
+msgid "PFMEA AID Number"
+msgstr "PFMEA AID Number (Numéro d'aide PFMEA)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__pfmea_ap
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__pfmea_ap
+msgid "PFMEA AP"
+msgstr "PFMEA AP (Pfmea ap)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_pivot
+msgid "PFMEA Analysis"
+msgstr "PFMEA Analysis (Analyse PFMEA)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_dashboard_report
+#: model:ir.model,name:quality.model_dashboard_report
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+#: model_terms:ir.ui.view,arch_db:quality.dashboard_report_tree
+msgid "PFMEA Dashboard"
+msgstr "PFMEA Dashboard (Tableau de bord PFMEA)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_board_pfmea_dashboard
+msgid "PFMEA Dashboard Board"
+msgstr "PFMEA Dashboard Board (PFMEA Toard Dashboard Board)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_form
+msgid "PFMEA Dashboard Item"
+msgstr "PFMEA Dashboard Item (Élément de tableau de bord PFMEA)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_dashboard_report_scheduler
+msgid "PFMEA Dashboard Scheduler"
+msgstr "PFMEA Dashboard Scheduler (PFMEA Tableau de tableau de bord)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "PFMEA Dashboard Search"
+msgstr "PFMEA Dashboard Search (Recherche de tableau de bord PFMEA)"
+
+#. module: quality
+#: model:ir.actions.server,name:quality.ir_cron_refresh_pfmea_dashboard_ir_actions_server
+#: model:ir.cron,cron_name:quality.ir_cron_refresh_pfmea_dashboard
+msgid "PFMEA Dashboard: Auto Refresh"
+msgstr ""
+"PFMEA Dashboard: Auto Refresh (Tableau de bord PFMEA: rafraîchissement "
+"automatique)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__pfmea_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__pfmea_id
+msgid "PFMEA Report"
+msgstr "PFMEA Report (Rapport PFMEA)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__pfmea_revision_date
+msgid "PFMEA Revision Date"
+msgstr "PFMEA Revision Date (Date de révision PFMEA)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__pfmea_start_date
+msgid "PFMEA Start Date"
+msgstr "PFMEA Start Date (Date de début PFMEA)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_graph
+msgid "PFMEA Status"
+msgstr "PFMEA Status (Statut PFMEA)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "PFMEA Status Overview"
+msgstr "PFMEA Status Overview (Aperçu du statut PFMEA)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_pfmea_suggestions
+#: model:ir.ui.menu,name:quality.menu_pfmea_suggestions
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_tree
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_form
+msgid "PFMEA Suggestions"
+msgstr "PFMEA Suggestions (Suggestions PFMEA)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.process_fmea_menu
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "PFMEA-VDA-AIAG"
+msgstr "PFMEA-VDA-AIAG (Pfmea-vda-aiag)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_process_report
+msgid "PFMEA-VDA_AIAG"
+msgstr "PFMEA-VDA_AIAG (Pfmea-vda_aiag)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_ppm_analysis
+msgid "PPM (Parts Per Million) Analysis"
+msgstr "PPM (Parts Per Million) Analysis (Analyse PPM (pièces par million))"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_ppm_analysis
+#: model:ir.ui.menu,name:quality.menu_ppm_analysis
+msgid "PPM Analysis"
+msgstr "PPM Analysis (Analyse PPM)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__ppm_level
+msgid "PPM Level"
+msgstr "PPM Level (Niveau PPM)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_ppm_analysis_graph
+msgid "PPM Level Over Time"
+msgstr "PPM Level Over Time (Niveau PPM dans le temps)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__page_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__page_no
+msgid "Page No."
+msgstr "Page No. (Page n °)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__part_id
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__part_id
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__part_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__part_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__part_id
+#: model:ir.model.fields,field_description:quality.field_process_report__part_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__part_id
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Part"
+msgstr "Part (Partie)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__part_description
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__part_description
+#: model:ir.model.fields,field_description:quality.field_non_conformance__part_description
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__part_description
+#: model:ir.model.fields,field_description:quality.field_process_report__part_description
+msgid "Part Description"
+msgstr "Part Description (Description des pièces)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__part_name
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__part_name
+#: model:ir.model.fields,field_description:quality.field_non_conformance__part_name
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__part_name
+#: model:ir.model.fields,field_description:quality.field_process_report__part_name
+msgid "Part Name"
+msgstr "Part Name (Nom de pièce)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__part_number
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__part_number
+#: model:ir.model.fields,field_description:quality.field_non_conformance__part_id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__part_number
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__part_number
+#: model:ir.model.fields,field_description:quality.field_process_report__part_number
+msgid "Part Number"
+msgstr "Part Number (Numéro de pièce)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_pfmea_suggestions
+msgid "Pfmea Suggestions"
+msgstr "Pfmea Suggestions (Suggestions PFMEA)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint_capa_wizard__customer_phone
+msgid "Phone"
+msgstr "Phone (Téléphone)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__planned_efficiency
+msgid "Planned Efficiency (%)"
+msgstr "Planned Efficiency (%) (Efficacité planifiée (%))"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_production_analysis__planned_production
+msgid "Planned Production"
+msgstr "Planned Production (Production prévue)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_graph
+msgid "Planned vs Actual Production"
+msgstr "Planned vs Actual Production (Production planifiée vs réelle)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__plant_location
+msgid "Plant Location"
+msgstr "Plant Location (Emplacement de l'usine)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_pre_inspection_observation
+msgid "Pre Dispatch Inspection Observations"
+msgstr ""
+"Pre Dispatch Inspection Observations (Observations d'inspection des pré-"
+"expéditions)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_pre_dispatch_report
+#: model:ir.ui.menu,name:quality.menu_pre_dispatch_inspection
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+msgid "Pre Dispatch Inspection Report"
+msgstr ""
+"Pre Dispatch Inspection Report (Rapport d'inspection de pré-répartition)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_pre_dispatch_report_lines
+msgid "Pre Dispatch Inspection Report Lines"
+msgstr ""
+"Pre Dispatch Inspection Report Lines (Lignes de rapport d'inspection de pré-"
+"répartition)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Prediction of Failure Cause Occurring"
+msgstr ""
+"Prediction of Failure Cause Occurring (Prédiction de l'échec Cause se "
+"produisant)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__prevention_action
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__prevention_action
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__prevention_action
+msgid "Prevention Action"
+msgstr "Prevention Action (Action de prévention)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Print Report"
+msgstr "Print Report (Rapport d'impression)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__problem_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__problem_id
+msgid "Problem ID"
+msgstr "Problem ID (ID de problème)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_line_form
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+msgid "Process Details"
+msgstr "Process Details (Détails du processus)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_process_report
+#: model:ir.ui.menu,name:quality.menu_process_report_main
+msgid "Process Failure Mode and Effect Analysis"
+msgstr ""
+"Process Failure Mode and Effect Analysis (Mode de défaillance du processus "
+"et analyse des effets)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_process_flow_class
+msgid "Process Flow Class"
+msgstr "Process Flow Class (Classe de flux de processus)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__cause_type__process_issue
+msgid "Process Issue"
+msgstr "Process Issue (Problème de traitement)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fpi_process_item
+#: model:ir.model.fields,field_description:quality.field_process_operations__fpi_process_item
+msgid "Process Item"
+msgstr "Process Item (Élément de traitement)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Process Item - Function - Failure"
+msgstr ""
+"Process Item - Function - Failure (Élément de processus - Fonction - Échec)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+msgid "Process Item Function"
+msgstr "Process Item Function (Fonction de l'élément de traitement)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__process_line_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__process_line_id
+msgid "Process Line"
+msgstr "Process Line (Ligne de processus)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__process_operation_id
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__process_operation_id
+msgid "Process Operation"
+msgstr "Process Operation (Opération de processus)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_process_operations
+#: model:ir.model,name:quality.model_process_operations
+msgid "Process Operations"
+msgstr "Process Operations (Opérations de traitement)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_operations__operations_id
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Process Report"
+msgstr "Process Report (Rapport de processus)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_process_report
+msgid "Process Reports"
+msgstr "Process Reports (Rapports de processus)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_report__process_responsibility
+msgid "Process Responsibility"
+msgstr "Process Responsibility (Traiter la responsabilité)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__process_step_name
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__process_step
+#: model:ir.model.fields,field_description:quality.field_process_operations__process_step
+#: model:ir.model.fields,field_description:quality.field_process_operations__process_step_name
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__process_step_name
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_pfmea_suggestions_form
+msgid "Process Step"
+msgstr "Process Step (Étape de traitement)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_operations_form
+msgid "Process Step - Function - Failure"
+msgstr ""
+"Process Step - Function - Failure (Étape de processus - fonction - échec)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_operations__process_item
+msgid "Process Step Station No. and Name of Process Step"
+msgstr ""
+"Process Step Station No. and Name of Process Step (Étape de procédure de "
+"procédé n ° et nom de l'étape de processus)"
+
+#. module: quality
+#: model:ir.model.constraint,message:quality.constraint_pfmea_suggestions_process_step_issue_uniq
+msgid "Process Step and Issue combination must be unique!"
+msgstr ""
+"Process Step and Issue combination must be unique! (La combinaison de pas et"
+" de problèmes doit être unique!)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_process_sub_operations_lines
+msgid "Process Sub Operations Lines"
+msgstr "Process Sub Operations Lines (Traiter les lignes de sous-opérations)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_process_suggestions
+#: model:ir.model,name:quality.model_process_suggestions
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_tree
+msgid "Process Suggestions"
+msgstr "Process Suggestions (Processus de suggestions)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__process_work_element
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__process_work_element
+msgid "Process Work Element"
+msgstr "Process Work Element (Élément de travail de traitement)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_sub_operations_lines_form
+msgid "Process Work Element - Function - Failure"
+msgstr ""
+"Process Work Element - Function - Failure (Élément de travail de processus -"
+" fonction - échec)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_form
+msgid "Process Work Element - Function -Failure"
+msgstr ""
+"Process Work Element - Function -Failure (Élément de travail de processus - "
+"fonction - Failure)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_product_template
+msgid "Product"
+msgstr "Product (Produit)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_operations__func_of_product_step
+msgid "Product Characteristics"
+msgstr "Product Characteristics (Caractéristiques du produit)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_production_analysis
+#: model:ir.ui.menu,name:quality.menu_production_analysis_root
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_form
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_search
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_tree
+msgid "Production Analysis"
+msgstr "Production Analysis (Analyse de production)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_production_analysis
+msgid "Production Overview"
+msgstr "Production Overview (Aperçu de la production)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__project_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__project_id
+#: model:ir.model.fields,field_description:quality.field_non_conformance__project_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__project_id
+#: model:ir.model.fields,field_description:quality.field_process_report__project_id
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "Project Name"
+msgstr "Project Name (Nom du projet)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__process_report__confidentiality_level__proprietary
+msgid "Proprietary"
+msgstr "Proprietary (Propriétaire)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_qms_rejection_handling
+msgid "QMS Rejection Handling"
+msgstr "QMS Rejection Handling (Manipulation du rejet du QMS)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_category__quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_sub_category__quality
+msgid "Quality"
+msgstr "Quality (Qualité)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_quality_management
+msgid "Quality Management"
+msgstr "Quality Management (Gestion de la qualité)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_ppm_root
+msgid "Quality Metrics"
+msgstr "Quality Metrics (Mesures de qualité)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__quantity_affected
+msgid "Quantity Affected"
+msgstr "Quantity Affected (Quantité affectée)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__quarantine_location
+msgid "Quarantine Location"
+msgstr "Quarantine Location (En quarantaine)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__quarantined
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Quarantined"
+msgstr "Quarantined (Quarantaine)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Recommended Action for AP Items"
+msgstr ""
+"Recommended Action for AP Items (Action recommandée pour les articles AP)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__name
+msgid "Reference"
+msgstr "Reference (Référence)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Refresh"
+msgstr "Refresh (Rafraîchir)"
+
+#. module: quality
+#: model:ir.actions.server,name:quality.action_refresh_dashboard
+msgid "Refresh PFMEA Dashboard"
+msgstr "Refresh PFMEA Dashboard (Refreindre le tableau de bord PFMEA)"
+
+#. module: quality
+#: model:ir.actions.server,name:quality.action_refresh_top_ap
+msgid "Refresh Top AP Data"
+msgstr "Refresh Top AP Data (Actualiser les données AP TOP)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__rejected_by
+msgid "Rejected By"
+msgstr "Rejected By (Rejeté par)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.menu_qms_rejection_handling
+msgid "Rejection Analysis"
+msgstr "Rejection Analysis (Analyse de rejet)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__rejection_date
+msgid "Rejection Date"
+msgstr "Rejection Date (Date de rejet)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Rejection Details"
+msgstr "Rejection Details (Détails de rejet)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_qms_rejection_handling
+#: model:ir.ui.menu,name:quality.menu_qms_rejection_handling_root
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_calendar
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_tree
+msgid "Rejection Handling"
+msgstr "Rejection Handling (Manipulation du rejet)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__rejection_reason
+msgid "Rejection Reason"
+msgstr "Rejection Reason (Raison de rejet)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_customer_complaint__non_conformance_id
+msgid "Related NCR"
+msgstr "Related NCR (NCR connexe)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__remarks
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__remarks
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__remarks
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__remarks
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__remarks
+msgid "Remarks"
+msgstr "Remarks (Remarques)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__disposition__repair
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__repair
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Repair"
+msgstr "Repair (Réparation)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__repair_date
+msgid "Repair Date"
+msgstr "Repair Date (Date de réparation)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__repair_details
+#: model:ir.model.fields,field_description:quality.field_non_conformance__repair_ids
+msgid "Repair Details"
+msgstr "Repair Details (Détails de réparation)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+msgid "Report of In Coming inspection"
+msgstr "Report of In Coming inspection (Rapport de l'inspection à venir)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+msgid "Report of In process inspection"
+msgstr ""
+"Report of In process inspection (Rapport de l'inspection des processus)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_coming_inspection_report
+msgid "Report of Incoming Inspection"
+msgstr "Report of Incoming Inspection (Rapport de l'inspection entrante)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_coming_inspection_report_line
+msgid "Report of Incoming Inspection Line"
+msgstr ""
+"Report of Incoming Inspection Line (Rapport de la ligne d'inspection "
+"entrante)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+msgid "Report of Pre Dispatch inspection"
+msgstr ""
+"Report of Pre Dispatch inspection (Rapport de l'inspection des pré-dépêtres)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_process_inspection_report
+msgid "Report of in process inspection"
+msgstr ""
+"Report of in process inspection (Rapport de l'inspection des processus)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_in_process_inspection_report_line
+msgid "Report of in process inspection line"
+msgstr ""
+"Report of in process inspection line (Rapport de la ligne d'inspection des "
+"processus)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_pre_dispatch_inspection_report
+msgid "Report of pre dispatch inspection"
+msgstr ""
+"Report of pre dispatch inspection (Rapport de l'inspection des pré-dépêtres)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_pre_dispatch_inspection_report_line
+msgid "Report of pre dispatch inspection line"
+msgstr ""
+"Report of pre dispatch inspection line (Rapport de la ligne d'inspection des"
+" pré-dépêches)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Reset to Draft"
+msgstr "Reset to Draft (Réinitialiser avec le projet)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__resolution_date
+msgid "Resolution Date"
+msgstr "Resolution Date (Date de résolution)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+msgid "Resolve"
+msgstr "Resolve (Résoudre)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__resolved
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Resolved"
+msgstr "Resolved"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Responsible"
+msgstr "Responsible (Responsable)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__department_id
+msgid "Responsible Department"
+msgstr "Responsible Department (Département responsable)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__responsible_person_name
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__responsible_person
+msgid "Responsible Person"
+msgstr "Responsible Person (Responsable)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__responsible_person_name
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__responsible_person_name
+msgid "Responsible Person Name"
+msgstr "Responsible Person Name (Nom de la personne responsable)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__activity_user_id
+msgid "Responsible User"
+msgstr "Responsible User (Utilisateur responsable)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__return_to_supplier
+msgid "Return to Supplier"
+msgstr "Return to Supplier (Retour au fournisseur)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__return_supplier_details
+msgid "Return to Supplier Details"
+msgstr "Return to Supplier Details (Retour aux détails du fournisseur)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__rev_date
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__rev_date
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__rev_date
+msgid "Rev. Date"
+msgstr "Rev. Date (Rév. Date)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__rev_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__rev_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__rev_no
+msgid "Rev. No."
+msgstr "Rev. No. (Rév. No.)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__revision_history_ids
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__revision_history_ids
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__revision_history_ids
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+msgid "Revision History"
+msgstr "Revision History (Historique de révision)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__disposition__rework
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__rework
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Rework"
+msgstr "Rework (Reprise)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__rework_action
+msgid "Rework Action"
+msgstr "Rework Action (Action de retravail)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_rework__rework_deadline
+msgid "Rework Deadline"
+msgstr "Rework Deadline (Date limite de retravaille)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__rework_ids
+msgid "Rework Details"
+msgstr "Rework Details (Retravailler les détails)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__rework_instructions
+msgid "Rework Instructions"
+msgstr "Rework Instructions (Instructions de retravail)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_my_custom_view
+#: model:ir.ui.menu,name:quality.menu_my_custom_menu
+#: model_terms:ir.ui.view,arch_db:quality.view_process_sub_operations_lines_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_suggestions_form
+msgid "Risk Analysis"
+msgstr "Risk Analysis (Analyse des risques)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_risk_ap_graph
+msgid "Risk Analysis AP"
+msgstr "Risk Analysis AP (Analyse des risques AP)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_top_ap_pfmea__fmea_ap
+#: model_terms:ir.ui.view,arch_db:quality.board_top_ap_pfmea_form
+#: model_terms:ir.ui.view,arch_db:quality.view_top_ap_pfmea_risk_graph
+msgid "Risk Analysis Action Priority"
+msgstr ""
+"Risk Analysis Action Priority (Priorité d'action d'analyse des risques)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "SMS Delivery error (Erreur de livraison SMS)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__disposition__scrap
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Scrap"
+msgstr "Scrap (Ferraille)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__scrap_date
+msgid "Scrap Date"
+msgstr "Scrap Date (Date de ferraille)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__scrap_ids
+msgid "Scrap Details"
+msgstr "Scrap Details (Détails de la ferraille)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__reason
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__scrap_reason
+msgid "Scrap Reason"
+msgstr "Scrap Reason (Scrap Raison)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__scrapped
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Scrapped"
+msgstr "Scrapped (Mis au rebut)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_scrap__scrap_quantity
+msgid "Scrapped Quantity"
+msgstr "Scrapped Quantity (Quantité supprimée)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Search Non-Conformances"
+msgstr "Search Non-Conformances (Rechercher des non-conformes)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Search Rejection Handling"
+msgstr "Search Rejection Handling (Manipulation de rejet de recherche)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_customer_complaint_capa_wizard__language_id
+#: model:ir.model.fields,help:quality.field_dashboard_report__language_id
+#: model:ir.model.fields,help:quality.field_in_coming_inspection_report_line__language_id
+#: model:ir.model.fields,help:quality.field_in_inspection_observation__language_id
+#: model:ir.model.fields,help:quality.field_inspection_observation__language_id
+#: model:ir.model.fields,help:quality.field_ncr_repair__language_id
+#: model:ir.model.fields,help:quality.field_ncr_rework__language_id
+#: model:ir.model.fields,help:quality.field_ncr_scrap__language_id
+#: model:ir.model.fields,help:quality.field_ncr_useas_is__language_id
+#: model:ir.model.fields,help:quality.field_oee_analysis__language_id
+#: model:ir.model.fields,help:quality.field_ppm_analysis__language_id
+#: model:ir.model.fields,help:quality.field_pre_dispatch_inspection_report_line__language_id
+#: model:ir.model.fields,help:quality.field_pre_inspection_observation__language_id
+#: model:ir.model.fields,help:quality.field_production_analysis__language_id
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__language_id
+#: model:ir.model.fields,help:quality.field_top_ap_pfmea__language_id
+msgid "Select the language used to translate field values."
+msgstr ""
+"Select the language used to translate field values. (Sélectionnez le langage"
+" utilisé pour traduire les valeurs de champ.)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__oee_analysis__month__09
+#: model:ir.model.fields.selection,name:quality.selection__ppm_analysis__month__09
+#: model:ir.model.fields.selection,name:quality.selection__production_analysis__month__09
+msgid "September"
+msgstr "September (Septembre)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__sequence
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__sequence
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__sequence
+msgid "Sequence"
+msgstr "Sequence (Séquence)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_category__service
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_sub_category__service
+msgid "Service"
+msgstr "Service (Service)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+#: model_terms:ir.ui.view,arch_db:quality.view_risk_analysis
+msgid "Severity"
+msgstr "Severity (Gravité)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__severity
+#: model:ir.model.fields,field_description:quality.field_process_operations__severity
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__severity
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__severity
+msgid "Severity (S) of FE"
+msgstr "Severity (S) of FE (Gravité (s) de Fe)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__severity
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__severity_level
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__severity_level
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__severity
+msgid "Severity Level"
+msgstr "Severity Level (Niveau de gravité)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_process_sub_operations_lines__severity_level
+#: model:ir.model.fields,help:quality.field_process_suggestions__severity_level
+msgid "Severity rating from 1-10"
+msgstr "Severity rating from 1-10 (Cote de gravité de 1 à 10)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__shift
+#: model:ir.model.fields,field_description:quality.field_non_conformance__shift
+msgid "Shift"
+msgstr "Shift (Changement)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__fpi_ship_to_plant
+#: model:ir.model.fields,field_description:quality.field_process_operations__fpi_ship_to_plant
+msgid "Ship to Plant"
+msgstr "Ship to Plant (Navire pour planter)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__show_buttons
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__show_buttons
+#: model:ir.model.fields,field_description:quality.field_non_conformance__show_buttons
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__show_buttons
+#: model:ir.model.fields,field_description:quality.field_process_report__show_buttons
+msgid "Show Buttons"
+msgstr "Show Buttons (Afficher les boutons)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__source_document
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Source Document"
+msgstr "Source Document (Document source)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__source_document_id
+msgid "Source Document Reference"
+msgstr "Source Document Reference (Référence du document source)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__special_characteristics
+msgid "Special Characteristics"
+msgstr "Special Characteristics (Caractéristiques spéciales)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__special_product_characteristics
+msgid "Special Product Characteristics"
+msgstr ""
+"Special Product Characteristics (Caractéristiques spéciales du produit)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__sr_no
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__sr_no
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__sr_no
+msgid "Sr. No./Balloon No"
+msgstr "Sr. No./Balloon No (Sr. Non.)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "State"
+msgstr "State (État)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_pfmea_suggestions__station_no
+#: model:ir.model.fields,field_description:quality.field_process_operations__station_no
+msgid "Station No."
+msgstr "Station No. (N ° de station)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__status
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__final_status
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__state
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__final_status
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__state
+#: model:ir.model.fields,field_description:quality.field_non_conformance__final_status
+#: model:ir.model.fields,field_description:quality.field_non_conformance__state
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__final_status
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__state
+#: model:ir.model.fields,field_description:quality.field_process_report__final_status
+#: model:ir.model.fields,field_description:quality.field_process_report__state
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__status
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__status
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__state
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Status"
+msgstr "Status (Statut)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities. (Statut basé sur les activités\n"
+"En retard: la date d'échéance est déjà adoptée\n"
+"Aujourd'hui: la date d'activité est aujourd'hui\n"
+"Planifié: activités futures.)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Status by Process"
+msgstr "Status by Process (Statut par processus)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_customer_complaint_capa_wizard_form
+msgid "Submit Complaint"
+msgstr "Submit Complaint (Soumettre une plainte)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__non_conformance_type__supplier
+msgid "Supplier"
+msgstr "Supplier"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_search
+msgid "Supplier NCR"
+msgstr "Supplier NCR (NCR du fournisseur)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__suspected_qty
+msgid "Suspected Quantity"
+msgstr "Suspected Quantity (Quantité suspectée)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_process_flow_class__symbol
+msgid "Symbol"
+msgstr "Symbol (Symbole)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_dashboard_report__target_completion_date
+#: model:ir.model.fields,field_description:quality.field_process_sub_operations_lines__target_completion_date
+#: model:ir.model.fields,field_description:quality.field_process_suggestions__target_completion_date
+msgid "Target Completion Date"
+msgstr "Target Completion Date (Date d'achèvement cible)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_calendar
+msgid "Target Completion Dates"
+msgstr "Target Completion Dates (Dates d'achèvement cible)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Target Date"
+msgstr "Target Date (Date cible)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ncr_repair__technician
+msgid "Technician"
+msgstr "Technician"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_search
+msgid "This Year"
+msgstr "This Year (Cette année)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_inspection_observation__time_date_inspection
+#: model:ir.model.fields,field_description:quality.field_inspection_observation__time_date_inspection
+#: model:ir.model.fields,field_description:quality.field_pre_inspection_observation__time_date_inspection
+msgid "Time & Date of Inspection"
+msgstr "Time & Date of Inspection (Heure et date d'inspection)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_top_ap_pfmea_pivot
+msgid "Top AP Analysis"
+msgstr "Top AP Analysis (Top AP Analyse)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_board_top_ap_pfmea
+#: model_terms:ir.ui.view,arch_db:quality.board_top_ap_pfmea_form
+msgid "Top AP Dashboard"
+msgstr "Top AP Dashboard (Tableau de bord AP TOP)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_top_ap_pfmea_form
+msgid "Top AP Items"
+msgstr "Top AP Items (Top AP)"
+
+#. module: quality
+#: model:ir.actions.act_window,name:quality.action_top_ap_pfmea
+#: model:ir.model,name:quality.model_top_ap_pfmea
+#: model_terms:ir.ui.view,arch_db:quality.top_ap_pfmea_tree
+msgid "Top AP for PFMEA"
+msgstr "Top AP for PFMEA (Top AP pour PFMEA)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_top_ap_pfmea_form
+msgid "Top AP for PFMEA Item"
+msgstr "Top AP for PFMEA Item (Top AP pour l'article PFMEA)"
+
+#. module: quality
+#: model:ir.model,name:quality.model_top_ap_pfmea_scheduler
+msgid "Top AP for PFMEA Scheduler"
+msgstr "Top AP for PFMEA Scheduler (Top AP pour PFMEA Scheduler)"
+
+#. module: quality
+#: model:ir.actions.server,name:quality.ir_cron_refresh_top_ap_ir_actions_server
+#: model:ir.cron,cron_name:quality.ir_cron_refresh_top_ap
+msgid "Top AP for PFMEA: Auto Refresh"
+msgstr ""
+"Top AP for PFMEA: Auto Refresh (Top AP pour PFMEA: rafraîchissement "
+"automatique)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Top Optimized AP Items"
+msgstr "Top Optimized AP Items (Éléments AP optimisés)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_tree
+msgid "Total Affected"
+msgstr "Total Affected (Total affecté)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__total_parts
+msgid "Total Parts Produced"
+msgstr "Total Parts Produced (Total des pièces produites)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_production_analysis
+msgid "Track and compare your planned vs actual production figures."
+msgstr ""
+"Track and compare your planned vs actual production figures. (Suivez et "
+"comparez vos chiffres de production prévus vs réels.)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_non_conformance
+msgid "Track and manage non-conformities in your quality management system."
+msgstr ""
+"Track and manage non-conformities in your quality management system. (Suivi "
+"et gérer les non-conformités dans votre système de gestion de la qualité.)"
+
+#. module: quality
+#: model_terms:ir.actions.act_window,help:quality.action_qms_rejection_handling
+msgid ""
+"Track and manage rejection cases from various sources\n"
+"                like GRN, Calibration, MSA, Customer Complaints, and NCRs."
+msgstr ""
+"Track and manage rejection cases from various sources\n"
+"                like GRN, Calibration, MSA, Customer Complaints, and NCRs. (Suivre et gérer les cas de rejet à partir de diverses sources\n"
+"Comme GRN, Calibration, MSA, plaintes des clients et NCRS.)"
+
+#. module: quality
+#: model:ir.ui.menu,name:quality.tracking_sheet_menu
+msgid "Tracking Sheet"
+msgstr "Tracking Sheet (Feuille de suivi)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+"Type of the exception activity on record. (Type de l'activité d'exception "
+"enregistrée.)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__status__under_consideration
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__status__under_consideration
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__status__under_consideration
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Under Consideration"
+msgstr "Under Consideration (À l'étude)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__state__under_review
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_form
+#: model_terms:ir.ui.view,arch_db:quality.view_qms_rejection_handling_search
+msgid "Under Review"
+msgstr "Under Review (En cours d'examen)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__uom_id
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__uom_id
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__uom_id
+msgid "Unit of Measure"
+msgstr "Unit of Measure (Unité de mesure)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__dashboard_report__status__untouched
+#: model:ir.model.fields.selection,name:quality.selection__process_sub_operations_lines__status__untouched
+#: model:ir.model.fields.selection,name:quality.selection__process_suggestions__status__untouched
+#: model_terms:ir.ui.view,arch_db:quality.view_dashboard_report_search
+msgid "Untouched"
+msgstr "Untouched"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.board_pfmea_dashboard_form
+msgid "Upcoming Target Dates"
+msgstr "Upcoming Target Dates (Dates cibles à venir)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_line_form
+msgid "Update Observations"
+msgstr "Update Observations (Mettre à jour les observations)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__attachment
+msgid "Upload Image/Doc"
+msgstr "Upload Image/Doc (Télécharger l'image / Doc)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report_line__upper_limit
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report_line__upper_limit
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report_line__upper_limit
+msgid "Upper Limit"
+msgstr "Upper Limit (Limite supérieure)"
+
+#. module: quality
+#: model:ir.model.fields.selection,name:quality.selection__non_conformance__disposition__use_as_is
+#: model:ir.model.fields.selection,name:quality.selection__qms_rejection_handling__disposition__use_as_is
+#: model_terms:ir.ui.view,arch_db:quality.view_non_conformance_form
+msgid "Use As-Is"
+msgstr "Use As-Is (Utiliser tel quel)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_non_conformance__useas_is_ids
+msgid "Use-As-Is Details"
+msgstr "Use-As-Is Details (Les détails de l'utilisation est-ce)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_in_coming_inspection_report__user_has_access_to_approve
+#: model:ir.model.fields,field_description:quality.field_in_process_inspection_report__user_has_access_to_approve
+#: model:ir.model.fields,field_description:quality.field_non_conformance__user_has_access_to_approve
+#: model:ir.model.fields,field_description:quality.field_pre_dispatch_inspection_report__user_has_access_to_approve
+#: model:ir.model.fields,field_description:quality.field_process_report__user_has_access_to_approve
+msgid "User Has Access"
+msgstr "User Has Access (L'utilisateur a accès)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__verification_date
+msgid "Verification Date"
+msgstr "Verification Date (Date de vérification)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__verified_by
+msgid "Verified By"
+msgstr "Verified By (Vérifié par)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_qms_rejection_handling__website_message_ids
+msgid "Website Messages"
+msgstr "Website Messages (Messages du site Web)"
+
+#. module: quality
+#: model:ir.model.fields,help:quality.field_qms_rejection_handling__website_message_ids
+msgid "Website communication history"
+msgstr ""
+"Website communication history (Historique de communication du site Web)"
+
+#. module: quality
+#: model:ir.model.fields,field_description:quality.field_oee_analysis__year
+#: model:ir.model.fields,field_description:quality.field_ppm_analysis__year
+#: model:ir.model.fields,field_description:quality.field_production_analysis__year
+#: model_terms:ir.ui.view,arch_db:quality.view_production_analysis_search
+msgid "Year"
+msgstr "Year (Année)"
+
+#. module: quality
+#: model_terms:ir.ui.view,arch_db:quality.incoming_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.inprocess_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.predispatch_inspection_report_form
+#: model_terms:ir.ui.view,arch_db:quality.view_process_report_form
+msgid "e.g. Compressor Shaft"
+msgstr "e.g. Compressor Shaft (par exempleArbre du compresseur)"

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="ProcessFlowClassSymbols1" model="process.flow.class">
+            <field name="name">Special Characteristics as per Drawing Given by Customer</field>
+            <field name="symbol">✪</field>
+        </record>
+        <record id="ProcessFlowClassSymbols2" model="process.flow.class">
+            <field name="name">Special characteristic defined internally</field>
+            <field name="symbol">★</field>
+        </record>
+        <record id="ProcessFlowClassSymbols3" model="process.flow.class">
+            <field name="name">Special Characteristics for Safe</field>
+            <field name="symbol">◙</field>
+        </record>
+    </data>
+
+</odoo>

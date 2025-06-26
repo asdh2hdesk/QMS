@@ -1,0 +1,103 @@
+<odoo>
+    <!-- Form View -->
+    <record id="view_customer_satisfaction_form" model="ir.ui.view">
+        <field name="name">customer.satisfaction.evaluation.form</field>
+        <field name="model">customer.satisfaction.evaluation</field>
+        <field name="arch" type="xml">
+            <form string="Customer Satisfaction Evaluation">
+                <header>
+                    <button name="generate_xlsx_report" string="Print Report" type="object" class="oe_highlight"/>
+                    
+                </header>
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            CUSTOMER SATISFACTION / EXPECTATION EVALUATION FORM
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <group>
+                        
+                    
+                        <group>
+                            <field name="customer_name"/>
+                            <field name="period_from"/>
+                            <field name="period_to"/>
+                        </group>
+                        <group>
+                            
+                        </group>
+                    </group>
+
+                    <field name="perception_lines">
+                        <tree editable="bottom">
+                            <field name="perception_criteria"/>
+                            <field name="rating"/>
+                            <field name="nmpl_need_to_achieve"/>
+                            <field name="benchmark"/>
+                        </tree>
+                    </field>
+                    <group>
+                    
+                        <group>
+                            <field name="consider_other_products"/>
+                            <field name="recommend_nmml"/>
+                            <field name="requirements_unfulfilled"/>
+                            <field name="unfulfilled_details"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+
+                    <group>
+                        <group string="Initiated by NMPL">
+                            <field name="initiated_by_name"/>
+                            <field name="initiated_by_designation"/>
+                            <field name="initiated_by_signature"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+
+                    <group>
+                        <group string="Responded by Customer">
+                            <field name="responded_by_name"/>
+                            <field name="responded_by_designation"/>
+                            <field name="responded_by_signature"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_customer_satisfaction_tree" model="ir.ui.view">
+        <field name="name">customer.satisfaction.evaluation.tree</field>
+        <field name="model">customer.satisfaction.evaluation</field>
+        <field name="arch" type="xml">
+            <tree string="Customer Satisfaction Evaluations">
+                <field name="customer_name"/>
+                <field name="period_from"/>
+                <field name="period_to"/>
+                <field name="consider_other_products"/>
+                <field name="recommend_nmml"/>
+                <field name="requirements_unfulfilled"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_customer_satisfaction" model="ir.actions.act_window">
+        <field name="name">Customer Satisfaction</field>
+        <field name="res_model">customer.satisfaction.evaluation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu -->
+<!--    <menuitem id="menu_customer_satisfaction_root" name="Customer Feedback"/>-->
+    <menuitem id="menu_customer_satisfaction_form" name="Evaluation Forms" parent="iatf.iatf_menu_marketing" action="action_customer_satisfaction"/>
+</odoo>

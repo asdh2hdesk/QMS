@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_emergency_mock_drill_form" model="ir.ui.view">
+        <field name="name">emergency.mock.drill.form</field>
+        <field name="model">emergency.mock.drill</field>
+        <field name="arch" type="xml">
+            <form string="Emergency Mock Drill">
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            EMERGENCY MOCK DRILL PLAN
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <group>
+                        <group>
+                            <field name="emergency_type"/>
+                                
+                        </group>
+                        <group>
+                        
+                            <field name="shift"/>
+                        </group>
+                    </group>
+                    <group string="Schedule">
+                        <group>
+                            <field name="jan"/>
+                            <field name="feb"/>
+                            <field name="mar"/>
+                            <field name="apr"/>
+                            <field name="may"/>
+                            <field name="jun"/>
+                        </group>
+                        <group>
+                            <field name="jul"/>
+                            <field name="aug"/>
+                            <field name="sep"/>
+                            <field name="oct"/>
+                            <field name="nov"/>
+                            <field name="dec"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_emergency_mock_drill_tree" model="ir.ui.view">
+        <field name="name">emergency.mock.drill.tree</field>
+        <field name="model">emergency.mock.drill</field>
+        <field name="arch" type="xml">
+            <tree string="Emergency Mock Drills">
+                <field name="emergency_type"/>
+                <field name="shift"/>
+                <field name="jan"/>
+                <field name="feb"/>
+                <field name="mar"/>
+                <field name="apr"/>
+                <field name="may"/>
+                <field name="jun"/>
+                <field name="jul"/>
+                <field name="aug"/>
+                <field name="sep"/>
+                <field name="oct"/>
+                <field name="nov"/>
+                <field name="dec"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_emergency_mock_drill" model="ir.actions.act_window">
+        <field name="name">Emergency Mock Drills</field>
+        <field name="res_model">emergency.mock.drill</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_emergency_mock_drill" parent="menu_ohs_root"
+              action="action_emergency_mock_drill" name="Mock Drills"/>
+</odoo>

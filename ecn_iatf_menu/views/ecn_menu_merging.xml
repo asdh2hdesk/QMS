@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem id="iatf_menu_ecn_ppap" name="ECN and PPAP" parent="iatf.iatf_menu_root" sequence="9"/>
+
+    <menuitem id="menu_asd_ecn_iatf" name="ECN/ECR" parent="iatf_menu_ecn_ppap" action="ecn.action_asd_ecn" sequence="10"/>
+    
+
+    <menuitem id="menu_ppap_action_points_iatf"
+              name="PPAP Action Points"
+              parent="menu_asd_ecn_iatf"
+              action="ecn.action_ppap_action_points"
+              sequence="20"/>
+</odoo>

@@ -1,0 +1,36 @@
+ <template id="report_feasibility_review">
+            <!-- Define the report content using HTML and placeholders -->
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page">
+                        <!-- Report content goes here -->
+                        <h1>Feasibility Review</h1>
+                        <!-- Insert placeholders for dynamic data -->
+                        <p>Customer: <span t-field="doc.customer"/></p>
+                        <!-- Add more placeholders for other fields -->
+                        
+                        <!-- Sign-off section -->
+                        <div class="sign-off-section">
+                            <p>Sign-off:</p>
+                            <p>Team Member: <span t-field="doc.sign_off_team_member"/></p>
+                            <p>Title: <span t-field="doc.sign_off_title"/></p>
+                            <p>Date: <span t-field="doc.sign_off_date"/></p>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+         <template id="report_feasibility_review">
+            <!-- Define the report content using HTML and placeholders -->
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page">
+                        <!-- Report content goes here -->
+                        <h1>Feasibility Review</h1>
+                        <!-- Insert placeholders for dynamic data -->
+                        <p>Customer: <span t-field="doc.customer"/></p>
+                        <!-- Add more placeholders for other fields -->
+                    </div>
+                </t>
+            </t>
+        </template>

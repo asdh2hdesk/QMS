@@ -1,0 +1,81 @@
+<odoo>
+    <record id="view_health_checkup_tree" model="ir.ui.view">
+        <field name="name">health.checkup.tree</field>
+        <field name="model">health.checkup</field>
+        <field name="arch" type="xml">
+            <tree string="Health Checkups">
+                <field name="type"/>
+                <field name="shift"/>
+                <field name="date"/>
+                <field name="year"/>
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_health_checkup_form" model="ir.ui.view">
+        <field name="name">health.checkup.form</field>
+        <field name="model">health.checkup</field>
+        <field name="arch" type="xml">
+            <form string="Health Checkup">
+            <sheet>
+                <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            EMERGENCY MOCK DRILL PLAN
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <group>
+                        <group>
+                            <field name="type"/>
+                            <field name="shift"/>
+                        </group>
+                        <group>
+                            <field name="year"/>
+                            <field name="date"/>
+                            
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Quarterly Schedule">
+                            <group>
+                                <group string = "Q1">
+                                    <field name="jan"/>
+                                    <field name="feb"/>
+                                    <field name="mar"/>
+                                    <field name="apr"/>
+                                    <field name="may"/>
+                                    <field name="jun"/>
+                                </group>
+                                <group string = "Q2">
+                                    <field name="july"/>
+                                    <field name="aug"/>
+                                    <field name="sep"/>
+                                    <field name="oct"/>
+                                    <field name="nov"/>
+                                    <field name="dec"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_health_checkup" model="ir.actions.act_window">
+        <field name="name">Health Checkups</field>
+        <field name="res_model">health.checkup</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_health_checkup_main" name="Health Checkups" parent="menu_ohs_root" action="action_health_checkup"/>
+</odoo>
+
+
+
+
+
+

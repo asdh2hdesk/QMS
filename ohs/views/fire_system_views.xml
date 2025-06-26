@@ -1,0 +1,77 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="view_fire_system_tree" model="ir.ui.view">
+        <field name="name">fire.system.tree</field>
+        <field name="model">fire.system</field>
+        <field name="arch" type="xml">
+            <tree string="Fire Systems">
+                <field name="particular"/>
+                <field name="Frequency"/>
+                <field name="date"/>
+                <field name="year"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_fire_system_form" model="ir.ui.view">
+        <field name="name">fire.system.form</field>
+        <field name="model">fire.system</field>
+        <field name="arch" type="xml">
+            <form string="Fire System">
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid  #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            FIRE SYSTEM INSPECTION PLAN
+                        </h1>
+                    </div>
+                    <br/>
+                    <group>
+                        <group>
+                            <field name="particular"/>
+                            <field name="Frequency"/>
+                        </group>
+                        <group>
+                            <field name="year"/>
+                            <field name="date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Schedule">
+                            <group>
+                                <group>
+                                    <field name="jan"/>
+                                    <field name="feb"/>
+                                    <field name="mar"/>
+                                    <field name="apr"/>
+                                    <field name="may"/>
+                                    <field name="jun"/>
+                                </group>
+                                <group >
+                                    <field name="jul"/>
+                                    <field name="aug"/>
+                                    <field name="sep"/>
+                                    <field name="oct"/>
+                                    <field name="nov"/>
+                                    <field name="dec"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_fire_system" model="ir.actions.act_window">
+        <field name="name">Fire Systems</field>
+        <field name="res_model">fire.system</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Items -->
+  
+
+    <menuitem id="menu_fire_system_main" name="Fire System Inspection" parent="menu_ohs_root" action="action_fire_system"/>
+</odoo>

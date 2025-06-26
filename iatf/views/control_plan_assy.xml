@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_control_plan_assy_form" model="ir.ui.view">
+        <field name="name">control.plan.assy.form</field>
+        <field name="model">control.plan.assy</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    <button name="action_generate_excel_report" string="Download Report" type="object"
+                            class="btn btn-primary"/>
+                    <button name='send_for_approval' string='Confirm' type='object' class='oe_highlight'
+                            attrs="{'invisible' : [('state', '=', 'confirm')]}"/>
+                    <button name='approve_document' string='APPROVE' type='object' class='btn btn-success'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='revise_document' string='REVISE' type='object' class='btn btn-info'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='reject_document' string='REJECT' type='object' class='btn btn-danger'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <div>
+                            <h1 class="text-center">Control Plan New</h1>
+                        </div>
+                        <label for="project_id" string="Project Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="type" widget="radio" options="{'horizontal': false}"/>
+                            <field name="assy_no"/>
+                            <field name="operation_no"/>
+                            <field name="effective_date"/>
+                            <field name="document"/>
+                            <!--                                <field name="prepared_by"/>-->
+                            <!--                                <field name="checked_by"/>-->
+                            <!--                                <field name="production"/>-->
+                            <!--                                <field name="quality"/>-->
+
+                        </group>
+                        <group>
+                            <field name="final_status" invisible="1"/>
+                            <field name="user_has_access_to_approve" invisible="1"/>
+                            <field name="rev_date"/>
+                            <field name="rev_level"/>
+                            <field name="rev_no"/>
+                            <field name="rev_details"/>
+                            <field name="revised_by"/>
+                        </group>
+                    </group>
+                    <field name="procedure_line_ids">
+                        <tree string="Control Procedure Line">
+                            <field name="procedure_step"/>
+                            <field name="procedure"/>
+                            <field name="procedure_image" widget="image"/>
+                            <field name="material_line_ids"/>
+                        </tree>
+                        <form string="Control Procedure Line">
+                            <group>
+                                <field name="procedure_step"/>
+                                <field name="procedure"/>
+                                <field name="procedure_image" widget="image"/>
+
+                                <field name="material_line_ids">
+                                    <tree string="Material Line" editable="bottom">
+                                        <field name="bom"/>
+                                        <field name="qty"/>
+                                        <field name="part"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </form>
+                    </field>
+                    <group>
+                        <field name="extra_care" editable="bottom"/>
+                        <field name="jigs_fixture_tools" widget="many2many_tags"/>
+                        <field name="consumable_required" widget="many2many_tags"/>
+                    </group>
+                    <separator string="Product/Process Characteristics"/>
+                    <field name="product_char_ids">
+                        <tree editable="bottom">
+                            <field name="sl_no"/>
+                            <field name="vital_assy_parameters"/>
+                            <field name="poka_yoke"/>
+                            <field name="m_product_specification"/>
+                            <field name="m_process_specification"/>
+                            <field name="m_technique"/>
+                            <field name="i_assembler"/>
+                            <field name="i_quality_inspector"/>
+                            <field name="control_method"/>
+                            <field name="reaction_action"/>
+                            <field name="reaction_owner_responsible"/>
+                        </tree>
+                    </field>
+
+                    <group string="Initiator">
+                        <group>
+                            <field name="create_uid"/>
+                        </group>
+                        <group>
+                            <field name="create_date"/>
+                        </group>
+                    </group>
+                    <separator string="Approvers"/>
+                    <field name="iatf_members_ids" widget="many2many_tree"
+                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                           string="Approvers">
+                        <tree>
+                            <field name="approver_id"/>
+                            <field name="department_id"/>
+                            <field name="comment"/>
+                            <field name="date_approved_rejected"/>
+                            <field name="approval_status" widget="badge"
+                                   decoration-danger="approval_status == 'rejected'"
+                                   decoration-info="approval_status == 'revision'"
+                                   decoration-success="approval_status == 'approved'"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_control_plan_assy_tree" model="ir.ui.view">
+        <field name="name">control.plan.assy.tree</field>
+        <field name="model">control.plan.assy</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="assy_no"/>
+                <field name="operation_no"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_control_plan_assy" model="ir.actions.act_window">
+        <field name="name">Control Plan Assy</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">control.plan.assy</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_control_plan_assy"
+              parent="iatf_menu_engg"
+              name="Control Plan - 2"
+              action="action_control_plan_assy"
+              sequence="10"/>
+
+</odoo>

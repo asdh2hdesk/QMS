@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_health_checkup_register_tree" model="ir.ui.view">
+        <field name="name">health.checkup.register.tree</field>
+        <field name="model">health.checkup.register</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_health_checkup_register_form" model="ir.ui.view">
+        <field name="name">health.checkup.register.form</field>
+        <field name="model">health.checkup.register</field>
+        <field name="arch" type="xml">
+            <form string="Health Checkup Register">
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #090d54 ; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            List of Employee Health Checkups
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+<!--                        <field name="name"/>-->
+                        <field name="checkup_line_ids">
+                            <tree editable="bottom">
+                                <field name="serial_no"/>
+                                <field name="emp_no"/>
+                                <field name="employee_id"/>
+                                <field name="department"/>
+                                <field name="remarks"/>
+                                <field name="category"/>
+                                <field name="test_to_be_done"/>
+                            </tree>
+                        </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_health_checkup_register" model="ir.actions.act_window">
+        <field name="name">Health Checkup Register</field>
+        <field name="res_model">health.checkup.register</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_health_checkup_register" name="List of Employee Health Checkups"
+              parent="menu_ohs_root"
+              action="action_health_checkup_register"/>
+</odoo>

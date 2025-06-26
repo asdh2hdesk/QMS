@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Form View -->
+    <record id="view_first_aid_box_form" model="ir.ui.view">
+        <field name="name">first.aid.box.form</field>
+        <field name="model">first.aid.box</field>
+        <field name="arch" type="xml">
+            <form string="First Aid Box">
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            CHECK LIST FOR FIRST AID BOX
+                        </h1>
+                    </div>
+                    <br/>
+                    <br/>
+                    
+                    <group>
+                        <group>
+                            <field name="location"/>
+                            <field name="year"/>
+                            <field name ="month" />
+                            <field name="date" />
+                        </group>
+                    </group>
+                    
+                    <!-- Content Table -->
+                    <notebook>
+                        <page string="Check List For First Aid Box">
+                            <field name="item_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="availability_display" readonly="1"/>
+                                    <field name="availability"/>
+                                    <!-- January -->
+                                    <field name="w1"/>
+                                    <field name="w2"/>
+                                    <field name="w3"/>
+                                    <field name="w4"/>
+                                    <!-- Continue for other months -->
+                                </tree>
+                            </field>
+                            
+                            
+                            <div class="alert alert-info" role="alert">
+                                <strong>Legend:</strong> A - Available, √ - Yes (if yes, ensure medicines are within expiry date), X - No, W - Week.
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_first_aid_box_tree" model="ir.ui.view">
+        <field name="name">first.aid.box.tree</field>
+        <field name="model">first.aid.box</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="location"/>
+                <field name="month"/>
+                
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_first_aid_box_search" model="ir.ui.view">
+        <field name="name">first.aid.box.search</field>
+        <field name="model">first.aid.box</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="location"/>
+                <field name="year"/>
+                <field name="box_no"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_location" string="Location" context="{'group_by': 'location'}"/>
+                    <filter name="group_by_year" string="Year" context="{'group_by': 'year'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Monthly Checklist Report Form -->
+    <record id="view_first_aid_monthly_checklist_form" model="ir.ui.view">
+        <field name="name">first.aid.box.monthly.checklist</field>
+        <field name="model">first.aid.box</field>
+        <field name="arch" type="xml">
+            <form string="Monthly Checklist Report">
+                <sheet>
+                    <h1 class="text-center">CHECK LIST FOR FIRST AID BOX</h1>
+                    <group>
+                        <field name="year"/>
+                    </group>
+                    
+                    <field name="item_ids" nolabel="1">
+                        <tree>
+                            <field name="box_id"/>
+                            <field name="name"/>
+                            <field name="availability"/>
+                            <!-- Display all weeks for all months in a grid format -->
+                            <!-- This would be expanded in a real implementation -->
+                        </tree>
+                    </field>
+                    
+                    <group>
+                        <field name="signature"/>
+                        <field name="date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_first_aid_box" model="ir.actions.act_window">
+        <field name="name">First Aid Boxes</field>
+        <field name="res_model">first.aid.box</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first First Aid Box Checklist
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Items -->
+    <menuitem id="menu_first_aid_box" name="First Aid Boxes" parent="menu_ohs_root" action="action_first_aid_box"/>
+</odoo>

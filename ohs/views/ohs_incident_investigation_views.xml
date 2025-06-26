@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Tree View for OHS Incident Investigation -->
+        <record id="view_ohs_incident_investigation_tree" model="ir.ui.view">
+            <field name="name">ohs.incident.investigation.tree</field>
+            <field name="model">ohs.incident.investigation</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="report_no"/>
+                    <field name="date_incident"/>
+                    <field name="date_investigation"/>
+                    <field name="company"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View for OHS Incident Investigation -->
+        <record id="view_ohs_incident_investigation_form" model="ir.ui.view">
+            <field name="name">ohs.incident.investigation.form</field>
+            <field name="model">ohs.incident.investigation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div style="font-size:24px; text-align:center; border: 2px solid #4492bd;margin-bottom: 10px; padding: 10px; border-radius: 10px;">
+                            <h1 style="color:#4492bd;">OHS INCIDENT INVESTIGATION</h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="company"/>
+                                <field name="report_no" help="As mentioned in OHS Incident Report"/>
+                                <field name="nature_type_injury"/>
+                            </group>
+                            <group>
+
+                                <field name="date_incident"/>
+                                <field name="date_investigation"/>
+                            </group>
+
+                        </group>
+                        <notebook>
+                            <page string="Team Involved in Investigation">
+                                <field name="team_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="designation"/>
+                                        <field name="signature" widget="binary"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+
+                        <group string="Detail of Incident">
+                            <field name="detail_incident" />
+                        </group>
+                        <group>
+                            <group>
+                                <field name="unsafe_condition"/>
+                                <field name="unsafe_action"/>
+                                <field name="past_history"/>
+
+                            </group>
+                            <group>
+
+                                <field name="malfunction_equipment"/>
+                                <field name="property_loss"/>
+                                <field name="injury_extent"/>
+                            </group>
+
+                        </group>
+
+                        <group string="Conclusion and Actions">
+                            <group>
+                                <field name="conclusion"/>
+                                <field name="corrective_action"/>
+                                <field name="root_cause"/>
+                                <field name="preventive_action"/>
+
+                            </group>
+                            <group>
+                                <field name="measure_effectiveness"/>
+                                <field name="learnings"/>
+                                <field name="horizontal_deployment"/>
+
+                            </group>
+
+
+                        </group>
+                        <group string="Signatures">
+                            <group>
+                                <field name="she_incharge_signature"/>
+                                <field name="she_incharge_date"/>
+
+                            </group>
+                            <group>
+                                <field name="plant_head_signature"/>
+                                <field name="plant_head_date"/>
+
+                            </group>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action to Open List View -->
+        <record id="action_ohs_incident_investigation" model="ir.actions.act_window">
+            <field name="name">OHS Incident Investigation</field>
+            <field name="res_model">ohs.incident.investigation</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No incident investigations found. Create a new investigation record.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu Item -->
+        <menuitem id="menu_ohs_incident_investigation_root"
+                  name="OHS Incident Investigation"
+                  parent="menu_ohs_root"
+                  action="action_ohs_incident_investigation"
+                  sequence="7"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_control_plan_form" model="ir.ui.view">
+        <field name="name">control.plan.form</field>
+        <field name="model">control.plan</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    <button name="action_open_copy_wizard" string="Copy Form" type="object" class="btn-primary"/>
+                    <button name="action_generate_excel_report" string="Download Report" type="object"
+                            class="btn btn-primary"/>
+                    <button name="action_update_process_matrix" type="object" string="Update Process Matrix"
+                            class="btn-info" icon="fa-arrow-left"/>
+                    <button name="action_update_process_flow" type="object" string="Update Process Flow"
+                            class="btn-info" icon="fa-arrow-left"/>
+                    <button name="action_update_equipment_fixture_tool" type="object"
+                            string="Update Equipment, Fixture and Tool Sheets"
+                            class="btn-info" icon="fa-arrow-left"/>
+                    <button name='send_for_approval' string='Confirm' type='object' class='oe_highlight'
+                            attrs="{'invisible' : [('state', '=', 'confirm')]}"/>
+                    <button name='approve_document' string='APPROVE' type='object' class='btn btn-success'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='revise_document' string='REVISE' type='object' class='btn btn-info'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='reject_document' string='REJECT' type='object' class='btn btn-danger'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Approved" bg_color="bg-success"
+                            attrs="{'invisible':[('final_status', '!=', 'approved')]}"/>
+                    <widget name="web_ribbon" title="Rejected" bg_color="bg-danger"
+                            attrs="{'invisible':[('final_status', '!=', 'rejected')]}"/>
+                    <widget name="web_ribbon" title="Revision Required" bg_color="bg-info"
+                            attrs="{'invisible':[('final_status', '!=', 'revision')]}"/>
+                    <widget name="web_ribbon" title="In progress" bg_color="bg-warning"
+                            attrs="{'invisible':[('final_status', '!=', 'pending')]}"/>
+                    <widget name="web_ribbon" title="Draft" bg_color="bg-info"
+                            attrs="{'invisible':[('final_status', '!=', 'draft')]}"/>
+                    <div class="oe_title">
+                        <div>
+                            <h1 class="text-center">Control Plan</h1>
+                        </div>
+                        <label for="project_id" string="Project Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
+                            </div>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="final_status" invisible="1"/>
+                            <field name="user_has_access_to_approve" invisible="1"/>
+                            <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
+                            <field name="part_id"/>
+                            <field name="part_name"/>
+                            <field name="part_number"/>
+                            <field name="assy_name"/>
+                            <field name="assy_no"/>
+                            <field name="doc_no"/>
+                        </group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="supplier_ids" widget="many2many_tags"/>
+<!--                            <field name="supplier_code"/>-->
+                            <field name="vehicle_model"/>
+                            <field name="date_origin"/>
+                            <field name="rev_no"/>
+                            <field name="rev_date"/>
+                            <field name="key_contact" widget="many2many_tags"/>
+                            <field name="telephone"/>
+                        </group>
+                    </group>
+<!--                    <button name="action_duplicate_process_lines" type="object" string="Duplicate Lines"-->
+<!--                            class="btn-primary"/>-->
+                    <field name="process_line_ids" widget="one2many_list">
+                        <tree string="Control Plan Process">
+                            <field name="sequence_handle" widget="handle"/>
+                            <field name="process_step"/>
+                            <field name="process_name"/>
+                            <field name="char_class" optional="show"/>
+                            <!--                            <field name="mc_jig_tool"/>-->
+                        </tree>
+                    </field>
+                    <group string="Initiator">
+                        <group>
+                            <field name="create_uid"/>
+                        </group>
+                        <group>
+                            <field name="create_date"/>
+                        </group>
+                    </group>
+                    <separator string="Approvers"/>
+                    <field name="iatf_members_ids" widget="many2many_tree"
+                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                           string="Approvers">
+                        <tree>
+                            <field name="approver_id"/>
+                            <field name="department_id"/>
+                            <field name="comment"/>
+                            <field name="date_approved_rejected"/>
+                            <field name="approval_status" widget="badge"
+                                   decoration-danger="approval_status == 'rejected'"
+                                   decoration-info="approval_status == 'revision'"
+                                   decoration-success="approval_status == 'approved'"/>
+                        </tree>
+                    </field>
+                    <separator string="Revision History"/>
+                    <field name="revision_history_ids" widget="many2many_tree"
+                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1">
+                        <tree>
+                            <field name="rev_no"/>
+                            <field name="rev_date"/>
+                            <field name="revised_by"/>
+                            <field name="revision_details"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="control_process_plan_form" model="ir.ui.view">
+        <field name="name">control.process.line</field>
+        <field name="model">control.plan.process</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="process_step"/>
+                        <field name="process_name"/>
+                        <field name="char_class"/>
+                    </group>
+                    <separator string="Characteristics"/>
+                    <field name="process_char_ids" widget="one2many_list">
+                        <tree>
+                            <field name="mc_jig_tool"/>
+                            <field name="mc_jig_tool_num"/>
+                            <field name="char_no" optional="show"/>
+                            <field name="char_product" optional="hide"/>
+                            <field name="char_process" optional="hide"/>
+                            <field name="method_description" optional="hide"/>
+                            <field name="method_product_display" optional="show"/>
+                            <field name="method_evaluation" optional="hide"/>
+                            <field name="method_sample_size" optional="hide"/>
+                            <field name="method_sample_freq" optional="hide"/>
+                            <field name="method_rec_yn" optional="hide"/>
+                            <field name="method_rec_size" optional="hide"/>
+                            <field name="method_inspected_by" optional="hide"/>
+                            <field name="method_error_proofing_name" optional="hide"/>
+                            <field name="method_error_proofing_num" optional="hide"/>
+                            <field name="method_control" optional="show"/>
+                            <field name="reaction_plan_action" optional="show"/>
+                            <field name="reaction_plan_res" optional="show"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_process_char_lines_form" model="ir.ui.view">
+        <field name="name">control.chara.line.form</field>
+        <field name="model">control.chara.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="char_no"/>
+                            <field name="char_product"/>
+                            <field name="operation" invisible="1 "/>
+                        </group>
+                        <group>
+                            <field name="char_process"/>
+                            <field name="mc_jig_tool" widget="many2many_tags"/>
+                            <field name="mc_jig_tool_num"/>
+                        </group>
+                    </group>
+                    <separator string="Method"/>
+                    <group>
+                        <group>
+                            <field name="method_description" invisible="0"/>
+                            <field name="lower_limit"/>
+                            <field name="upper_limit"/>
+                            <field name="uom_id"/>
+                            <field name="method_product_display" readonly="1"/>
+                            <field name="method_evaluation"/>
+
+                            <field name="method_sample_size"/>
+                            <field name="method_sample_freq"/>
+                        </group>
+                        <group>
+                            <field name="method_rec_yn"/>
+                            <field name="method_rec_size"/>
+                            <field name="method_inspected_by"/>
+                            <field name="method_error_proofing_name" widget="many2many_tags"/>
+                            <field name="method_error_proofing_num"/>
+                        </group>
+                    </group>
+                    <separator string=""/>
+                    <group>
+                        <field name="method_control"/>
+                        <field name="reaction_plan_action"/>
+                        <field name="reaction_plan_res"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Copy Control Plan Wizard -->
+    <record id="view_control_plan_copy_wizard_form" model="ir.ui.view">
+        <field name="name">control.plan.copy.wizard.form</field>
+        <field name="model">control.plan.copy.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Copy Control Plan">
+                <group>
+                    <field name="current_record_id" invisible="1"/>
+                    <field name="selected_record_id" widget="many2one" domain="[('id', '!=', current_record_id)]"
+                           required="1" options="{'no_quick_create': True, 'no_create_edit': True}"
+                           context="{'search_default_group_by_project_id': 1}"/>
+                </group>
+                <footer>
+                    <button name="action_copy_data" string="Copy" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_control_plan_tree" model="ir.ui.view">
+        <field name="name">control.plan.tree</field>
+        <field name="model">control.plan</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="state == 'draft'"
+                  decoration-success="state == 'confirm'">
+                <field name="partner_id" optional="show"/>
+                <field name="supplier_ids" optional="hide"/>
+<!--                <field name="supplier_code" optional="hide"/>-->
+                <field name="vehicle_model" optional="hide"/>
+                <field name="doc_no" optional="hide"/>
+                <field name="part_name" optional="show"/>
+                <field name="part_number" optional="show"/>
+                <field name="assy_name" optional="show"/>
+                <field name="assy_no" optional="show"/>
+
+                <field name="state" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_control_plan" model="ir.actions.act_window">
+        <field name="name">Control Plan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">control.plan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_pfmea"
+              name="Control Plan - 1"
+              parent="iatf_menu_engg"
+              action="action_control_plan"
+              sequence="9"/>
+
+</odoo>

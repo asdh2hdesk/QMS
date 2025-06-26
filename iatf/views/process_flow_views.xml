@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="process_flow_tree_view" model="ir.ui.view">
+        <field name="name">process.flow.tree</field>
+        <field name="model">process.flow</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="state == 'draft'"
+                  decoration-success="state == 'confirm'">
+                <field name="part_id"/>
+                <field name="part_name"/>
+                <field name="part_number"/>
+                <field name="drawing_no"/>
+                <field name="document_no"/>
+                <field name="cft_team"/>
+                <!--                <field name="customer"/>-->
+                <field name="rev_no"/>
+                            <field name="rev_date"/>
+                <field name="document_revision_date"/>
+                <field name="effective_date"/>
+
+                <field name="state" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+    <record id="process_flow_form_view" model="ir.ui.view">
+        <field name="name">process.flow.form</field>
+        <field name="model">process.flow</field>
+        <field name="arch" type="xml">
+            <form string="Process Flow">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    <!--                    <button name="action_print_risk_assessment_sheet" string="Download Report" type="object"-->
+                    <!--                            class="btn btn-primary"/>-->
+                    <button name="action_generate_excel_report" string="Download Report" type="object"
+                            class="btn btn-primary"/>
+                    <button name="action_update_process_matrix" type="object" string="Update Process Matrix"
+                            class="btn-info" icon="fa-arrow-left"/>
+                    <button name="update_pfmea" type="object" string="Update PFMEA" class="btn-success"
+                            icon="fa-arrow-right"/>
+                    <button name="update_pfmea_2" type="object" string="Update PFMEA-2" class="btn-success"
+                            icon="fa-arrow-right"/>
+                    <button name="update_control_plan" type="object" string="Control Plan" class="btn-success"
+                            icon="fa-arrow-right"/>
+
+                    <button name='send_for_approval' string='Confirm' type='object' class='oe_highlight'
+                            attrs="{'invisible' : [('state', '=', 'confirm')]}"/>
+                    <button name='approve_document' string='APPROVE' type='object' class='btn btn-success'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='revise_document' string='REVISE' type='object' class='btn btn-info'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='reject_document' string='REJECT' type='object' class='btn btn-danger'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                </header>
+                <!-- Copy from here to  -->
+                <sheet>
+                    <widget name="web_ribbon" title="Approved" bg_color="bg-success"
+                            attrs="{'invisible':[('final_status', '!=', 'approved')]}"/>
+                    <widget name="web_ribbon" title="Rejected" bg_color="bg-danger"
+                            attrs="{'invisible':[('final_status', '!=', 'rejected')]}"/>
+                    <widget name="web_ribbon" title="Revision Required" bg_color="bg-info"
+                            attrs="{'invisible':[('final_status', '!=', 'revision')]}"/>
+                    <widget name="web_ribbon" title="In progress" bg_color="bg-warning"
+                            attrs="{'invisible':[('final_status', '!=', 'pending')]}"/>
+                    <widget name="web_ribbon" title="Draft" bg_color="bg-info"
+                            attrs="{'invisible':[('final_status', '!=', 'draft')]}"/>
+                    <div class="oe_title">
+                        <div>
+                            <h1 class="text-center">Process Flow Diagram</h1>
+                        </div>
+                        <label for="project_id" string="Project Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
+                            </div>
+                        </h1>
+                    </div>
+
+
+                    <group>
+                        <group>
+                            <field name="user_has_access_to_approve" invisible="1"/><!-- Copy this too  -->
+                            <field name="final_status" invisible="1"/><!-- Copy this too  -->
+                            <field name="__last_update" invisible="1"/>
+                            <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
+                            <field name="part_id"/>
+                            <field name="part_name"/>
+                            <field name="part_number"/>
+                            <field name="drawing_no"/>
+                            <field name="drawing_rev_no"/>
+                            <field name="drawing_rev_date"/>
+                        </group>
+                        <group>
+                            <field name="partner_id"/>
+                            <!--                            <field name="drawing_revision_date"/>-->
+                            <field name="document_no"/>
+                            <field name="document_revision_date"/>
+                            <field name="effective_date"/>
+                        </group>
+                    </group>
+                    <field name="process_flow_line_ids" widget="one2many_list">
+                        <tree string="Process Flow Lines">
+                            <field name="sequence_num" widget="handle"/>
+                            <field name="step" optional="show"/>
+                            <field name="stage"/>
+                            <field name="class_f" optional="show"/>
+                            <field name="desc_of_operation" optional="show"/>
+                        </tree>
+                    </field>
+                    <group string="Initiator">
+                        <group>
+                            <field name="create_uid"/>
+                        </group>
+                        <group>
+                            <field name="create_date"/>
+                        </group>
+                    </group>
+                    <separator string="Approvers"/>
+                    <field name="iatf_members_ids" widget="many2many_tree"
+                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                           string="Approvers">
+                        <tree>
+                            <field name="approver_id"/>
+                            <field name="department_id"/>
+                            <field name="comment"/>
+                            <field name="date_approved_rejected"/>
+                            <field name="approval_status" widget="badge"
+                                   decoration-danger="approval_status == 'rejected'"
+                                   decoration-info="approval_status == 'revision'"
+                                   decoration-success="approval_status == 'approved'"/>
+                        </tree>
+                    </field>
+                     <separator string="Revision History"/>
+                    <field name="revision_history_ids" widget="many2many_tree"
+                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1">
+                        <tree>
+                            <field name="rev_no"/>
+                            <field name="rev_date"/>
+                            <field name="revised_by"/>
+                            <field name="revision_details"/>
+                        </tree>
+                    </field>
+                    <!-- copy till here -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_process_flow_form" model="ir.ui.view">
+        <field name="name">process.flow.form</field>
+        <field name="model">process.flow.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="step"/>
+                            <field name="stage"/>
+                        </group>
+                        <group>
+                            <field name="class_f"/>
+                            <field name="desc_of_operation"/>
+                            <field name="cumulative_cy_time"/>
+
+                        </group>
+                    </group>
+                    <field name="process_op_lines_ids" widget="one2many_list">
+                        <tree>
+                            <field name="sq_handle" widget="handle"/>
+                            <field name="element_no"/>
+                            <field name="product_characteristics"/>
+                            <field name="process_characteristics"/>
+                            <field name="control_method"/>
+                            <field name="part_no"/>
+                            <field name="work_center_id"/>
+                            <field name="machine_id"/>
+                            <field name="cycle_time_in_min"/>
+                            <field name="remarks"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_process_dia_lines_form" model="ir.ui.view">
+        <field name="name">process.operations.line.form</field>
+        <field name="model">process.flow.operations.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="element_no"/>
+                            <field name="op" invisible="1"/>
+                            <field name="element_desc"/>
+                            <field name="product_characteristics"/>
+                            <field name="process_characteristics"/>
+                            <field name="control_method"/>
+                            <field name="part_no"/>
+                        </group>
+                        <group>
+                            <field name="work_center_id"/>
+                            <field name="machine_id"/>
+                            <field name="cycle_time_in_min"/>
+                            <field name="remarks"/>
+                            <field name="equip_fixture_ids" widget="many2many_tags"/>
+                            <field name="tools_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_process_flow_view" model="ir.actions.act_window">
+        <field name="name">process.flow</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">process.flow</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Process Flow Diagram" id="process_flow_menu" parent="iatf_menu_engg"
+              action="action_process_flow_view"
+              sequence="5"/>
+</odoo>

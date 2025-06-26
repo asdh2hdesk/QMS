@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Standard Operating Procedure Views -->
+
+    <!-- Tree View -->
+    <record id="view_standard_operating_procedure_tree" model="ir.ui.view">
+        <field name="name">standard.operating.procedure.tree</field>
+        <field name="model">standard.operating.procedure</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sop_no"/>
+                <field name="sop_description"/>
+                <field name="model_name"/>
+                <field name="stage"/>
+                <field name="issued_on"/>
+                <field name="rev_date"/>
+                <field name="revised_by"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_standard_operating_procedure_form" model="ir.ui.view">
+        <field name="name">standard.operating.procedure.form</field>
+        <field name="model">standard.operating.procedure</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                        <h1 style="color:#4492bd;">
+                            Standard Operating Procedure
+                        </h1>
+                    </div>
+                    <div class="oe_title">
+                        <label for="project_id" string="Project Name"/>
+                        <h1>
+                            <div class="d-flex">
+                                <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
+                            </div>
+                        </h1>
+                    </div>
+
+
+                    <group>
+                        <group>
+                            <field name="sop_no" readonly="1"/>
+                            <field name="doc_type" widget="radio" options="{'horizontal': true}"/>
+                            <field name="part_id" string="Part Reference"/>
+                            <field name="part_name"/>
+                            <field name="part_number"/>
+
+                            <field name="sop_description"/>
+                            <field name="prn_number"/>
+                            <field name="model_name"/>
+                            <field name="stage"/>
+
+                        </group>
+                        <group>
+                            <field name="shop"/>
+                            <field name="doc_no"/>
+                            <field name="page_no"/>
+                            <field name="issued_on"/>
+                            <field name="rev_date"/>
+                            <field name="rev_no"/>
+                            <field name="rev_details"/>
+                            <field name="revised_by"/>
+
+
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Process and Tooling">
+                            <field name="process_and_tooling_ids">
+                                <tree>
+                                    <field name="sr_no"/>
+                                    <field name="process_details"/>
+                                    <field name="control_point"/>
+                                    <field name="spec_torque"/>
+                                    <field name="tools"/>
+                                    <field name="bom_ids"/>
+
+                                </tree>
+                            </field>
+                        </page>
+
+
+                        <page string="Settings &amp; Safety">
+                            <group>
+                                <group string="Settings">
+                                    <field name="settings_ids" widget="many2many_tags"/>
+                                </group>
+                                <group string="Safety Information">
+                                    <field name="safety_ids" widget="many2many_tags"/>
+                                </group>
+                                <group string="Extra Care Alerts">
+                                    <field name="extra_care" widget="many2many_tags"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                    <group string="Initiator">
+                            <group>
+                                <field name="create_uid"/>
+                            </group>
+                            <group>
+                                <field name="create_date"/>
+                            </group>
+                        </group>
+                        <separator string="Approvers"/>
+                        <field name="iatf_members_ids" widget="many2many_tree"
+                               options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                               string="Approvers">
+                            <tree>
+                                <field name="approver_id"/>
+                                <field name="department_id"/>
+                                <field name="comment"/>
+                                <field name="date_approved_rejected"/>
+                                <field name="approval_status" widget="badge"
+                                       decoration-danger="approval_status == 'rejected'"
+                                       decoration-info="approval_status == 'revision'"
+                                       decoration-success="approval_status == 'approved'"/>
+                            </tree>
+                        </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_standard_operating_procedure_search" model="ir.ui.view">
+        <field name="name">standard.operating.procedure.search</field>
+        <field name="model">standard.operating.procedure</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="sop_no"/>
+                <field name="sop_description"/>
+                <field name="model_name"/>
+                <field name="stage"/>
+                <field name="shop"/>
+                <field name="revised_by"/>
+                <filter string="Recent" name="recent"
+                        domain="[('issued_on', '>=', (context_today() - datetime.timedelta(days=30)).strftime('%Y-%m-%d'))]"/>
+                <filter string="Revised" name="revised" domain="[('rev_date', '!=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Model" name="group_model" context="{'group_by': 'model_name'}"/>
+                    <filter string="Stage" name="group_stage" context="{'group_by': 'stage'}"/>
+                    <filter string="Shop" name="group_shop" context="{'group_by': 'shop'}"/>
+                    <filter string="Revised By" name="group_revised_by" context="{'group_by': 'revised_by'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Process and Tooling Views -->
+
+    <!-- Tree View -->
+    <record id="view_process_and_tooling_tree" model="ir.ui.view">
+        <field name="name">process.and.tooling.tree</field>
+        <field name="model">process.and.tooling</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sop_id"/>
+                <field name="sr_no"/>
+                <field name="process_details"/>
+                <field name="control_point"/>
+                <field name="spec_torque"/>
+                <field name="tools" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_process_and_tooling_form" model="ir.ui.view">
+        <field name="name">process.and.tooling.form</field>
+        <field name="model">process.and.tooling</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+
+                            <field name="sr_no"/>
+                            <field name="process_details"/>
+                            <field name="control_point"/>
+                        </group>
+                        <group>
+
+
+                            <field name="spec_torque"/>
+                            <field name="tools" widget="many2many_tags"/>
+                            <field name="procedure_image" widget="image"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Bill of Materials">
+                            <field name="bom_ids">
+                                <tree editable="bottom">
+                                    <field name="item_code"/>
+                                    <field name="description"/>
+                                    <field name="quantity"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Bill of Materials Views -->
+
+    <!-- Tree View -->
+    <record id="view_bill_of_materials_tree" model="ir.ui.view">
+        <field name="name">bill.of.materials.tree</field>
+        <field name="model">bill.of.materials</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="material_id"/>
+                <field name="item_code"/>
+                <field name="description"/>
+                <field name="quantity"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_bill_of_materials_form" model="ir.ui.view">
+        <field name="name">bill.of.materials.form</field>
+        <field name="model">bill.of.materials</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="material_id"/>
+                        <field name="item_code"/>
+                        <field name="description"/>
+                        <field name="quantity"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Standard Operating Procedure Action -->
+    <record id="action_standard_operating_procedure" model="ir.actions.act_window">
+        <field name="name">Standard Operating Procedures</field>
+        <field name="res_model">standard.operating.procedure</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Standard Operating Procedure
+            </p>
+            <p>
+                Manage and track Standard Operating Procedures for your organization.
+            </p>
+        </field>
+    </record>
+
+    <!-- Process and Tooling Action -->
+    <record id="action_process_and_tooling" model="ir.actions.act_window">
+        <field name="name">Process and Tooling</field>
+        <field name="res_model">process.and.tooling</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Process and Tooling record
+            </p>
+            <p>
+                Define process details, control points, and required tools.
+            </p>
+        </field>
+    </record>
+    <record id="seq_standard_operating_procedure" model="ir.sequence">
+        <field name="name">Standard Operating Procedure</field>
+        <field name="code">standard.operating.procedure</field>
+        <field name="prefix">SOP/</field>
+        <field name="padding">4</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+    </record>
+    <!-- Main Menu -->
+    <menuitem id="menu_sop_root"
+              name="SOP Management"
+              parent="iatf.iatf_menu_production"
+              sequence="10"/>
+
+
+    <!-- Standard Operating Procedures Menu -->
+    <menuitem id="menu_standard_operating_procedure"
+              name="Standard Operating Procedures"
+              parent="menu_sop_root"
+              action="action_standard_operating_procedure"
+              sequence="10"/>
+
+
+</odoo>
