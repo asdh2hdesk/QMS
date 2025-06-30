@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_esg_emission_activity" model="ir.actions.act_window">
+        <field name="name">Emission Activities</field>
+        <field name="res_model">esg.emission.activity</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_emission_activity" name="Emission Activities" parent="menu_esg_config" action="action_esg_emission_activity" sequence="20"/>
+
+    <!-- Tree View -->
+    <record id="view_esg_emission_activity_tree" model="ir.ui.view">
+        <field name="name">esg.emission.activity.tree</field>
+        <field name="model">esg.emission.activity</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="activity_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_esg_emission_activity_form" model="ir.ui.view">
+        <field name="name">esg.emission.activity.form</field>
+        <field name="model">esg.emission.activity</field>
+        <field name="arch" type="xml">
+            <form string="Emission Activity">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="activity_type"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_esg_metric" model="ir.actions.act_window">
+        <field name="name">ESG Metrics</field>
+        <field name="res_model">esg.metric</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_esg_metrics" name="Metrics" parent="menu_esg_records" action="action_esg_metric" sequence="40"/>
+
+    <!-- Tree View -->
+    <record id="view_esg_metric_tree" model="ir.ui.view">
+        <field name="name">esg.metric.tree</field>
+        <field name="model">esg.metric</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="goal_id"/>
+                <field name="type"/>
+                <field name="frequency"/>
+                <field name="data_owner_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_esg_metric_form" model="ir.ui.view">
+        <field name="name">esg.metric.form</field>
+        <field name="model">esg.metric</field>
+        <field name="arch" type="xml">
+            <form string="ESG Metric">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="goal_id"/>
+                        <field name="type"/>
+                        <field name="frequency"/>
+                        <field name="data_owner_id"/>
+                        <field name="method"/>
+                        <field name="calculation_formula"/>
+                        <field name="framework_id"/>
+                        <field name="company_id" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

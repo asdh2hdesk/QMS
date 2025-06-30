@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_esg_framework" model="ir.actions.act_window">
+        <field name="name">ESG Frameworks</field>
+        <field name="res_model">esg.framework</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_esg_root" name="ESG Management" sequence="10"/>
+    <menuitem id="menu_esg_config" name="ESG Configuration" parent="menu_esg_root" sequence="10"/>
+    <menuitem id="menu_esg_framework" name="Frameworks" parent="menu_esg_config" action="action_esg_framework" sequence="10"/>
+
+    <!-- Tree View -->
+    <record id="view_esg_framework_tree" model="ir.ui.view">
+        <field name="name">esg.framework.tree</field>
+        <field name="model">esg.framework</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_esg_framework_form" model="ir.ui.view">
+        <field name="name">esg.framework.form</field>
+        <field name="model">esg.framework</field>
+        <field name="arch" type="xml">
+            <form string="ESG Framework">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

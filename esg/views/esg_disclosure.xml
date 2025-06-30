@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_esg_disclosure" model="ir.actions.act_window">
+        <field name="name">Disclosures</field>
+        <field name="res_model">esg.disclosure</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_disclosure" name="Disclosures" parent="menu_esg_records" action="action_esg_disclosure" sequence="60"/>
+
+    <!-- Tree View -->
+    <record id="view_esg_disclosure_tree" model="ir.ui.view">
+        <field name="name">esg.disclosure.tree</field>
+        <field name="model">esg.disclosure</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="disclosure_type"/>
+                <field name="reporting_year"/>
+                <field name="is_approved"/>
+                <field name="approved_by"/>
+                <field name="approval_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_esg_disclosure_form" model="ir.ui.view">
+        <field name="name">esg.disclosure.form</field>
+        <field name="model">esg.disclosure</field>
+        <field name="arch" type="xml">
+            <form string="ESG Disclosure">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="disclosure_type"/>
+                        <field name="reporting_year"/>
+                        <field name="metric_ids" widget="many2many_tags"/>
+                        <field name="is_approved"/>
+                        <field name="approved_by"/>
+                        <field name="approval_date"/>
+                        <field name="company_id" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

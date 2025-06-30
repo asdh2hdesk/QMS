@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_esg_emission_factor" model="ir.actions.act_window">
+        <field name="name">Emission Factors</field>
+        <field name="res_model">esg.emission.factor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_emission_factor" name="Emission Factors" parent="menu_esg_config" action="action_esg_emission_factor" sequence="30"/>
+
+    <!-- Tree View -->
+    <record id="view_esg_emission_factor_tree" model="ir.ui.view">
+        <field name="name">esg.emission.factor.tree</field>
+        <field name="model">esg.emission.factor</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="activity_id"/>
+                <field name="original_unit"/>
+                <field name="target_unit"/>
+                <field name="conversion_rate"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_esg_emission_factor_form" model="ir.ui.view">
+        <field name="name">esg.emission.factor.form</field>
+        <field name="model">esg.emission.factor</field>
+        <field name="arch" type="xml">
+            <form string="Emission Factor">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="activity_id"/>
+                        <field name="original_unit"/>
+                        <field name="target_unit"/>
+                        <field name="conversion_rate"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
