@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <tree decoration-info="state == 'draft'"
                   decoration-success="state == 'confirm'">
-                 <field name="partner_id"/>
+                <field name="partner_id"/>
                 <field name="part_name"/>
                 <field name="part_number"/>
                 <field name="date_of_creation"/>
@@ -26,12 +26,31 @@
         <field name="arch" type="xml">
             <form string="Tools Tracking Sheet">
                 <header>
-                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
-                    <button name="generate_xls_report" type="object" string="Print Report" class="oe_highlight" icon="fa-print"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    <button name="generate_xls_report" type="object" string="Print Report" class="oe_highlight"
+                            icon="fa-print"/>
                     <button name="action_update_control_plan" type="object" string="Update Control Plan"
                             class="btn-info" icon="fa-arrow-left"/>
+                    <button name='send_for_approval' string='Confirm' type='object' class='oe_highlight'
+                            attrs="{'invisible' : [('state', '=', 'confirm')]}"/>
+                    <button name='approve_document' string='APPROVE' type='object' class='btn btn-success'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='revise_document' string='REVISE' type='object' class='btn btn-info'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='reject_document' string='REJECT' type='object' class='btn btn-danger'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
                 </header>
                 <sheet>
+                    <widget name="web_ribbon" title="Approved" bg_color="bg-success"
+                            attrs="{'invisible':[('final_status', '!=', 'approved')]}"/>
+                    <widget name="web_ribbon" title="Rejected" bg_color="bg-danger"
+                            attrs="{'invisible':[('final_status', '!=', 'rejected')]}"/>
+                    <widget name="web_ribbon" title="Revision Required" bg_color="bg-info"
+                            attrs="{'invisible':[('final_status', '!=', 'revision')]}"/>
+                    <widget name="web_ribbon" title="In progress" bg_color="bg-warning"
+                            attrs="{'invisible':[('final_status', '!=', 'pending')]}"/>
+                    <widget name="web_ribbon" title="Draft" bg_color="bg-info"
+                            attrs="{'invisible':[('final_status', '!=', 'draft')]}"/>
                     <div class="oe_title text-center mb-5">
                         <h1>Tools Tracking Sheet</h1>
                     </div>
@@ -45,7 +64,9 @@
                     </div>
                     <group>
                         <group>
-                             <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
+                            <field name="final_status" invisible="1"/>
+                            <field name="user_has_access_to_approve" invisible="1"/>
+                            <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
                             <field name="part_id"/>
                             <field name="part_name"/>
                             <field name="part_number"/>
@@ -59,17 +80,25 @@
                             <field name="rev_no"/>
                             <field name="total_planned_cost"/>
                         </group>
+                        <group>
+                            <field name="plan_start_date"/>
+                            <field name="plan_end_date"/>
+                        </group>
+                        <group>
+                            <field name="actual_start_date"/>
+                            <field name="actual_end_date"/>
+                        </group>
                     </group>
                     <notebook>
                         <page string="Tools Tracking">
                             <field name="line_ids">
                                 <tree>
-                                    
+
                                     <field name="tool_name"/>
                                     <field name="tool_no"/>
                                     <field name="operation_no"/>
                                     <field name="description"/>
-                                    <field name="availability" />
+                                    <field name="availability"/>
                                 </tree>
                             </field>
                         </page>
@@ -83,16 +112,21 @@
                         </group>
                     </group>
                     <separator string="Approvers"/>
-                    <field name="iatf_members_ids" widget="many2many_tree" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1" string="Approvers">
+                    <field name="iatf_members_ids" widget="many2many_tree"
+                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                           string="Approvers">
                         <tree>
                             <field name="approver_id"/>
                             <field name="department_id"/>
                             <field name="comment"/>
                             <field name="date_approved_rejected"/>
-                            <field name="approval_status" widget="badge" decoration-danger="approval_status == 'rejected'" decoration-info="approval_status == 'revision'" decoration-success="approval_status == 'approved'"/>
+                            <field name="approval_status" widget="badge"
+                                   decoration-danger="approval_status == 'rejected'"
+                                   decoration-info="approval_status == 'revision'"
+                                   decoration-success="approval_status == 'approved'"/>
                         </tree>
                     </field>
-                     <separator string="Revision History"/>
+                    <separator string="Revision History"/>
                     <field name="revision_history_ids" widget="many2many_tree"
                            options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1">
                         <tree>
@@ -113,12 +147,12 @@
         <field name="model">tools.trackingsheet.line</field>
         <field name="arch" type="xml">
             <tree>
-                
+
                 <field name="tool_name"/>
                 <field name="tool_no"/>
                 <field name="operation_no"/>
                 <field name="description"/>
-                <field name="availability" />
+                <field name="availability"/>
             </tree>
         </field>
     </record>
@@ -176,5 +210,6 @@
     </record>
 
     <!-- Menu Items -->
-    <menuitem id="menu_tools_tracking" name="Tools Tracking" parent="iatf.iatf_menu_engg" sequence="30" action="action_tools_tracking_sheet"/>
+    <menuitem id="menu_tools_tracking" name="Tools Tracking" parent="iatf.iatf_menu_engg" sequence="30"
+              action="action_tools_tracking_sheet"/>
 </odoo>

@@ -43,7 +43,7 @@
                     <widget name="web_ribbon" title="Draft" bg_color="bg-info"
                             attrs="{'invisible':[('final_status', '!=', 'draft')]}"/>
                     <div class="oe_title">
-                                <label for="project_id" string="Project Name"/>
+                        <label for="project_id" string="Project Name"/>
                         <h1>
                             <div class="d-flex">
                                 <field class="text-break" name="project_id" placeholder="e.g. Compressor Shaft"/>
@@ -52,12 +52,12 @@
                     </div>
                     <group>
                         <group>
-                            <field name="user_has_access_to_approve" invisible="1"/>
                             <field name="final_status" invisible="1"/>
+                            <field name="user_has_access_to_approve" invisible="1"/>
                             <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
-                            <field name="part_id" />
-                            <field name="part_name" />
-                            <field name="part_number" />
+                            <field name="part_id"/>
+                            <field name="part_name"/>
+                            <field name="part_number"/>
                             <field name="partner_id"/>
                             <field name="revision"/>
                             <field name="team_id"/>
@@ -70,35 +70,14 @@
                             <field name="second_disposition_date"/>
                             <field name="third_disposition_date"/>
                             <field name="fourth_disposition_date"/>
-
-<!--                            <field name="create_uid"/>-->
-<!--                            <field name="create_date"/>-->
-<!--                            &lt;!&ndash;                            &lt;!&ndash;                            <field name="document_name" readonly='1'/>&ndash;&gt;&ndash;&gt;-->
-                            <!--                                                        <field name="approve_department_ids" readonly='1' widget='many2many_tags'/>-->
-                            <!--                                                        <field name="manager_ids" readonly='1' widget='many2many_tags'/>-->
-                            <!--                                                        <field name="approve_by_department_ids" readonly='1' widget='many2many_tags'/>-->
-<!--                            <field name="approvaed_manager_ids" readonly='1' widget='many2many_tags'/>-->
-
-                            <!--                            <field name="hr_approval_date" readonly='1'-->
-                            <!--                                   attrs="{'invisible' : [('hr_approval_date', '=', False)]}"/>-->
-                            <!--                            <field name="design_approval_date" readonly='1'-->
-                            <!--                                   attrs="{'invisible' : [('design_approval_date', '=', False)]}"/>-->
-                            <!--                            <field name="eng_approval_date" readonly='1'-->
-                            <!--                                   attrs="{'invisible' : [('eng_approval_date', '=', False)]}"/>-->
-                            <!--                            <field name="manu_approval_date" readonly='1'-->
-                            <!--                                   attrs="{'invisible' : [('manu_approval_date', '=', False)]}"/>-->
-                            <!--                            <field name="sale_approval_date" readonly='1'-->
-                            <!--                                   attrs="{'invisible' : [('sale_approval_date', '=', False)]}"/>-->
-                            <!--                            <field name="qc_approval_date" readonly='1'-->
-                            <!--                                   attrs="{'invisible' : [('qc_approval_date', '=', False)]}"/>-->
-                            <!--                            <field name="main_approval_date" readonly='1'-->
-                            <!--                                   attrs="{'invisible' : [('main_approval_date', '=', False)]}"/>-->
-                            <!--                            <field name="mark_approval_date" readonly='1'-->
-                            <!--                                   attrs="{'invisible' : [('mark_approval_date', '=', False)]}"/>-->
-                            <!--                            <field name="pm_approval_date" readonly='1'-->
-                            <!--                                   attrs="{'invisible' : [('pm_approval_date', '=', False)]}"/>-->
-                            <!--                            <field name="maneg_approval_date" readonly='1'-->
-                            <!--                                   attrs="{'invisible' : [('maneg_approval_date', '=', False)]}"/>-->
+                        </group>
+                        <group>
+                            <field name="plan_start_date"/>
+                            <field name="plan_end_date"/>
+                        </group>
+                        <group>
+                            <field name="actual_start_date"/>
+                            <field name="actual_end_date"/>
                         </group>
                     </group>
                     <field name="quary_list_line_ids" widget="one2many_list">
@@ -122,19 +101,19 @@
                     </group>
                     <separator string="Approvers"/>
                     <field name="iatf_members_ids" widget="many2many_tree"
-                               options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
-                               string="Approvers">
-                            <tree>
-                                <field name="approver_id"/>
-                                <field name="department_id"/>
-                                <field name="comment"/>
-                                <field name="date_approved_rejected"/>
-                                <field name="approval_status" widget="badge"
-                                       decoration-danger="approval_status == 'rejected'"
-                                       decoration-info="approval_status == 'revision'"
-                                       decoration-success="approval_status == 'approved'"/>
-                            </tree>
-                        </field>
+                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                           string="Approvers">
+                        <tree>
+                            <field name="approver_id"/>
+                            <field name="department_id"/>
+                            <field name="comment"/>
+                            <field name="date_approved_rejected"/>
+                            <field name="approval_status" widget="badge"
+                                   decoration-danger="approval_status == 'rejected'"
+                                   decoration-info="approval_status == 'revision'"
+                                   decoration-success="approval_status == 'approved'"/>
+                        </tree>
+                    </field>
                     <!-- copy till here -->
                 </sheet>
             </form>
@@ -147,5 +126,6 @@
         <field name="binding_view_types">form</field>
         <field name="view_mode">tree,form</field>
     </record>
-    <menuitem name="Query List" id="quary_list_menu" parent="iatf_menu_engg" action="action_quary_list_view" sequence="4"/>
+    <menuitem name="Query List" id="quary_list_menu" parent="iatf_menu_engg" action="action_quary_list_view"
+              sequence="4"/>
 </odoo>

@@ -85,6 +85,10 @@
                                     <tree editable="bottom" default_order="serial_no asc">
                                         <field name="serial_no" required='0' optional="hide"/>
                                         <field name="sr_no" required='0' width="250px" style="text-align: center;"/>
+                                        <field name="plan_start_date" optional="show"/>
+                                        <field name="plan_end_date" optional="show"/>
+                                        <field name="actual_start_date" optional="show"/>
+                                        <field name="actual_end_date" optional="show"/>
                                         <field name="used_in_project_type_ids" widget='many2many_tags' readonly='1'
                                                optional="hide"/>
                                         <field name="formate" required='1'/>

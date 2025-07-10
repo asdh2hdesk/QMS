@@ -51,12 +51,22 @@
                         </h1>
                     </div>
                     <group>
+                        <field name="final_status" invisible="1"/>
+                        <field name="user_has_access_to_approve" invisible="1"/>
                         <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
                         <field name="part_id"/>
                         <field name="partner_id"/>
                         <field name="user_has_access_to_approve" invisible="1"/>
                         <field name="final_status" invisible="1"/>
                     </group>
+                        <group>
+                            <field name="plan_start_date"/>
+                            <field name="plan_end_date"/>
+                        </group>
+                        <group>
+                            <field name="actual_start_date"/>
+                            <field name="actual_end_date"/>
+                        </group>
                     <div class="table-responsive p-0 m-0">
                         <notebook>
                             <page string="Poka Yoke">

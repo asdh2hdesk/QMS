@@ -32,8 +32,26 @@
                             icon="fa-print"/>
                     <button name="action_update_control_plan" type="object" string="Update Control Plan"
                             class="btn-info" icon="fa-arrow-left"/>
+                    <button name='send_for_approval' string='Confirm' type='object' class='oe_highlight'
+                            attrs="{'invisible' : [('state', '=', 'confirm')]}"/>
+                    <button name='approve_document' string='APPROVE' type='object' class='btn btn-success'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='revise_document' string='REVISE' type='object' class='btn btn-info'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
+                    <button name='reject_document' string='REJECT' type='object' class='btn btn-danger'
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'confirm'), ('final_status', '!=', 'pending'), ('user_has_access_to_approve', '=', False)]}"/>
                 </header>
                 <sheet>
+                    <widget name="web_ribbon" title="Approved" bg_color="bg-success"
+                            attrs="{'invisible':[('final_status', '!=', 'approved')]}"/>
+                    <widget name="web_ribbon" title="Rejected" bg_color="bg-danger"
+                            attrs="{'invisible':[('final_status', '!=', 'rejected')]}"/>
+                    <widget name="web_ribbon" title="Revision Required" bg_color="bg-info"
+                            attrs="{'invisible':[('final_status', '!=', 'revision')]}"/>
+                    <widget name="web_ribbon" title="In progress" bg_color="bg-warning"
+                            attrs="{'invisible':[('final_status', '!=', 'pending')]}"/>
+                    <widget name="web_ribbon" title="Draft" bg_color="bg-info"
+                            attrs="{'invisible':[('final_status', '!=', 'draft')]}"/>
                     <div class="oe_title text-center mb-5">
                         <h1>Equipment Tracking Sheet</h1>
                     </div>
@@ -47,6 +65,8 @@
                     </div>
                     <group>
                         <group>
+                            <field name="user_has_access_to_approve" invisible="1"/>
+                            <field name="final_status" invisible="1"/>
                             <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
                             <field name="part_id"/>
                             <field name="part_name"/>
@@ -60,7 +80,14 @@
                             <field name="rev_date"/>
                             <field name="rev_no"/>
                             <field name="total_planned_cost"/>
-
+                        </group>
+                        <group>
+                            <field name="plan_start_date"/>
+                            <field name="plan_end_date"/>
+                        </group>
+                        <group>
+                            <field name="actual_start_date"/>
+                            <field name="actual_end_date"/>
                         </group>
                     </group>
                     <notebook>

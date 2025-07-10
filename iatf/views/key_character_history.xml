@@ -56,36 +56,27 @@
                         <group>
                             <field name="user_has_access_to_approve" invisible="1"/><!-- Copy this too  -->
                             <field name="final_status" invisible="1"/>
-                             <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
+                             <field name="final_status" invisible="1"/>
+<field name="user_has_access_to_approve" invisible="1"/>
+<field name="doc_type" widget="radio" options="{'horizontal': false}"/>
                             <field name="part_id" />
                             <field name="part_name" />
                             <field name="part_number" /><!-- Copy this too  -->
-
                         </group>
                         <group>
                              <field name="partner_id" />
                             <field name='address'/>
                             <field name='mobile'/>
                             <field name='email'/>
-
-<!--                            <field name="create_uid"/>-->
-<!--                            <field name="create_date"/>-->
                             <field name="document_name" readonly='1'/>
-<!--                            <field name="approve_department_ids" readonly='1' widget='many2many_tags'/>-->
-<!--                            <field name="manager_ids" readonly='1' widget='many2many_tags'/>-->
-<!--                            <field name="approve_by_department_ids" readonly='1' widget='many2many_tags'/>-->
-<!--                            <field name="approvaed_manager_ids" readonly='1' widget='many2many_tags'/>-->
-
-<!--                            <field name="hr_approval_date" readonly='1' attrs="{'invisible' : [('hr_approval_date', '=', False)]}"/>-->
-<!--                            <field name="design_approval_date" readonly='1' attrs="{'invisible' : [('design_approval_date', '=', False)]}"/>-->
-<!--                            <field name="eng_approval_date" readonly='1' attrs="{'invisible' : [('eng_approval_date', '=', False)]}"/>-->
-<!--                            <field name="manu_approval_date" readonly='1' attrs="{'invisible' : [('manu_approval_date', '=', False)]}"/>-->
-<!--                            <field name="sale_approval_date" readonly='1' attrs="{'invisible' : [('sale_approval_date', '=', False)]}"/>-->
-<!--                            <field name="qc_approval_date" readonly='1' attrs="{'invisible' : [('qc_approval_date', '=', False)]}"/>-->
-<!--                            <field name="main_approval_date" readonly='1' attrs="{'invisible' : [('main_approval_date', '=', False)]}"/>-->
-<!--                            <field name="mark_approval_date" readonly='1' attrs="{'invisible' : [('mark_approval_date', '=', False)]}"/>-->
-<!--                            <field name="pm_approval_date" readonly='1' attrs="{'invisible' : [('pm_approval_date', '=', False)]}"/>-->
-<!--                            <field name="maneg_approval_date" readonly='1' attrs="{'invisible' : [('maneg_approval_date', '=', False)]}"/>-->
+                        </group>
+                        <group>
+                            <field name="plan_start_date"/>
+                            <field name="plan_end_date"/>
+                        </group>
+                        <group>
+                            <field name="actual_start_date"/>
+                            <field name="actual_end_date"/>
                         </group>
                     </group>
                     <field name="key_character_line_ids" widget="one2many_list">

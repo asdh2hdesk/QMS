@@ -39,6 +39,8 @@
                     </div>
                     <group>
                         <group>
+                            <field name="final_status" invisible="1"/>
+                            <field name="user_has_access_to_approve" invisible="1"/>
                             <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
                             <field name="part_id"/>
                             <field name="drawing_rev_no"/>
@@ -52,6 +54,14 @@
                             <field name="pfmea_revision_date"/>
                             <field name="process_responsibility"/>
                             <field name="confidentiality_level"/>
+                        </group>
+                        <group>
+                            <field name="plan_start_date"/>
+                            <field name="plan_end_date"/>
+                        </group>
+                        <group>
+                            <field name="actual_start_date"/>
+                            <field name="actual_end_date"/>
                         </group>
                     </group>
                     <notebook>

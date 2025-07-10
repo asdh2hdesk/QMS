@@ -59,6 +59,11 @@ class IATFSignOffMembers(models.AbstractModel):
     cus_part_name = fields.Char("Customer Part name", related='cus_id.customer_part_name')
     cus_part_no = fields.Char("Customer Part num", related='cus_id.customer_part_no')
 
+    plan_start_date = fields.Date("Plan Start Date")
+    plan_end_date = fields.Date("Plan End Date")
+    actual_start_date = fields.Date("Actual Start Date")
+    actual_end_date = fields.Date("Actual End Date")
+
     member_name = fields.Char("Member Name")
 
     @api.depends('iatf_members_ids')

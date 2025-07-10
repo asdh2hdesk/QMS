@@ -55,6 +55,7 @@
                         <group>
                             <field name="user_has_access_to_approve" invisible="1"/><!-- Copy this too  -->
                             <field name="final_status" invisible="1"/><!-- Copy this too  -->
+                            <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
                             <field name="partner_id"/>
                             <field name="product_id"/>
                             <field name="default_code"/>
@@ -62,6 +63,14 @@
                         <group>
                             <field name="rev_no"/>
                             <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="plan_start_date"/>
+                            <field name="plan_end_date"/>
+                        </group>
+                        <group>
+                            <field name="actual_start_date"/>
+                            <field name="actual_end_date"/>
                         </group>
                     </group>
                     <field name="ppap_checklist_line_ids" widget="one2many_list">
@@ -83,19 +92,19 @@
                     </group>
                     <separator string="Approvers"/>
                     <field name="iatf_members_ids" widget="many2many_tree"
-                               options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
-                               string="Approvers">
-                            <tree>
-                                <field name="approver_id"/>
-                                <field name="department_id"/>
-                                <field name="comment"/>
-                                <field name="date_approved_rejected"/>
-                                <field name="approval_status" widget="badge"
-                                       decoration-danger="approval_status == 'rejected'"
-                                       decoration-info="approval_status == 'revision'"
-                                       decoration-success="approval_status == 'approved'"/>
-                            </tree>
-                        </field>
+                           options="{'no_create': True, 'no_create_edit': True, 'no_open': True}" readonly="1"
+                           string="Approvers">
+                        <tree>
+                            <field name="approver_id"/>
+                            <field name="department_id"/>
+                            <field name="comment"/>
+                            <field name="date_approved_rejected"/>
+                            <field name="approval_status" widget="badge"
+                                   decoration-danger="approval_status == 'rejected'"
+                                   decoration-info="approval_status == 'revision'"
+                                   decoration-success="approval_status == 'approved'"/>
+                        </tree>
+                    </field>
                 </sheet>
             </form>
         </field>
@@ -107,5 +116,6 @@
         <field name="binding_view_types">form</field>
         <field name="view_mode">tree,form</field>
     </record>
-    <menuitem name="PPAP Checklist" id="ppap_checklist_menu" parent="iatf_menu_engg" action="action_ppap_checklist_view"/>
+    <menuitem name="PPAP Checklist" id="ppap_checklist_menu" parent="iatf_menu_engg"
+              action="action_ppap_checklist_view"/>
 </odoo>

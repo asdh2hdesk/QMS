@@ -63,6 +63,15 @@
                             <field name="team_id"/>
                             <field name="update_date"/>
                         </group>
+
+                        <group>
+                            <field name="plan_start_date"/>
+                            <field name="plan_end_date"/>
+                        </group>
+                        <group>
+                            <field name="actual_start_date"/>
+                            <field name="actual_end_date"/>
+                        </group>
                     </group>
                     <field name="apq_line_ids" widget="one2many_list">
                         <tree string="APQ Lines" editable="bottom">

@@ -77,11 +77,8 @@
                         </div>
                         <group>
                             <group>
-                                <!--                                <field name="format_id" required="1"/>-->
                                 <field name="user_has_access_to_approve" invisible="1"/>
-                                <!--                                <field name="user_has_access_to_approve" invisible="1"/>-->
                                 <field name="final_status" invisible="1"/>
-                                <!--                                <field name="cust_id"/>-->
                                 <field name="doc_type" widget="radio" options="{'horizontal': false}"/>
                                 <field name="part_id"/>
                                 <field name="part_name"/>
@@ -96,6 +93,14 @@
                                 <field name="cust_drawing_num"/>
                                 <field name="date_"/>
                                 <field name="comment"/>
+                            </group>
+                            <group>
+                                <field name="plan_start_date"/>
+                                <field name="plan_end_date"/>
+                            </group>
+                            <group>
+                                <field name="actual_start_date"/>
+                                <field name="actual_end_date"/>
                             </group>
                         </group>
                         <field name="risk_assessment_line_ids" widget="one2many_list"

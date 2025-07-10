@@ -59,6 +59,8 @@
                             <field name="assy_name"/>
                             <field name="assy_no"/>
                             <field name="doc_no"/>
+                            <field name="rev_no"/>
+                            <field name="rev_date"/>
                         </group>
                         <group>
                             <field name="partner_id"/>
@@ -66,10 +68,12 @@
 <!--                            <field name="supplier_code"/>-->
                             <field name="vehicle_model"/>
                             <field name="date_origin"/>
-                            <field name="rev_no"/>
-                            <field name="rev_date"/>
                             <field name="key_contact" widget="many2many_tags"/>
                             <field name="telephone"/>
+                            <field name="plan_start_date"/>
+                            <field name="plan_end_date"/>
+                            <field name="actual_start_date"/>
+                            <field name="actual_end_date"/>
                         </group>
                     </group>
 <!--                    <button name="action_duplicate_process_lines" type="object" string="Duplicate Lines"-->

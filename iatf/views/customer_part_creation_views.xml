@@ -98,26 +98,6 @@
                             </div>
                         </h1>
                     </div>
-                    <!-- Copy till here  -->
-                    <!-- <header>
-                        <button name="button_send_approval" string="Send Approval" type="object" states="draft"
-                                class="btn-primary"/>
-                        <button name="button_hr_approval" string="HR Approval" type="object" states="hr_approve"
-                                class="btn-primary"/>
-                        <button name="button_design" string="Design" type="object" states="design" class="btn-primary"/>
-                        <button name="button_engineering" string="Engineering" type="object" states="engineering"
-                                class="btn-primary"/>
-                        <button name="button_manufacturing" string="Manufacturing" type="object" states="manufacturing"
-                                class="btn-primary"/>
-                        <button name="button_quality_test_done" string="Quality Test" type="object" states="quality"
-                                class="btn-primary"/>
-                        <button name="button_top_managment_final_approved" string="TOP Management" type="object"
-                                states="top" class="btn-primary"/>
-                        <button name="generate_excel_report" string="Print Report" type="object"
-                                 class="btn-primary"/>
-                        <field name="state" widget="statusbar"
-                               statusbar_visible="draft,hr_approve,design,engineering,manufacturing,quality,top,final_approved"/>
-                    </header> -->
                     <separator string="Part/Customer Information "/>
 
                     <group>
@@ -132,39 +112,6 @@
                         <field name="cust_part_desc"/>
                         <field name="customer_drawing_upload"/>
                     </group>
-                    <!--                        commemt from here-->
-                    <!--                        <group>-->
-                    <!--                            <field name="no_of_cust"/>-->
-                    <!--                            <field name="partner_id"/>-->
-                    <!--                            <field name="create_uid"/>-->
-                    <!--                            <field name="create_date"/>-->
-                    <!--&lt;!&ndash;                            <field name="document_name" readonly='1'/>&ndash;&gt;-->
-                    <!--&lt;!&ndash;                            <field name="approve_department_ids" readonly='1' widget='many2many_tags'/>&ndash;&gt;-->
-                    <!--&lt;!&ndash;                            <field name="manager_ids" readonly='1' widget='many2many_tags'/>&ndash;&gt;-->
-                    <!--&lt;!&ndash;                            <field name="approve_by_department_ids" readonly='1' widget='many2many_tags'/>&ndash;&gt;-->
-                    <!--&lt;!&ndash;                            <field name="approvaed_manager_ids" readonly='1' widget='many2many_tags'/>&ndash;&gt;-->
-
-                    <!--                            <field name="hr_approval_date" readonly='1'-->
-                    <!--                                   attrs="{'invisible' : [('hr_approval_date', '=', False)]}"/>-->
-                    <!--                            <field name="design_approval_date" readonly='1'-->
-                    <!--                                   attrs="{'invisible' : [('design_approval_date', '=', False)]}"/>-->
-                    <!--                            <field name="eng_approval_date" readonly='1'-->
-                    <!--                                   attrs="{'invisible' : [('eng_approval_date', '=', False)]}"/>-->
-                    <!--                            <field name="manu_approval_date" readonly='1'-->
-                    <!--                                   attrs="{'invisible' : [('manu_approval_date', '=', False)]}"/>-->
-                    <!--                            <field name="sale_approval_date" readonly='1'-->
-                    <!--                                   attrs="{'invisible' : [('sale_approval_date', '=', False)]}"/>-->
-                    <!--                            <field name="qc_approval_date" readonly='1'-->
-                    <!--                                   attrs="{'invisible' : [('qc_approval_date', '=', False)]}"/>-->
-                    <!--                            <field name="main_approval_date" readonly='1'-->
-                    <!--                                   attrs="{'invisible' : [('main_approval_date', '=', False)]}"/>-->
-                    <!--                            <field name="mark_approval_date" readonly='1'-->
-                    <!--                                   attrs="{'invisible' : [('mark_approval_date', '=', False)]}"/>-->
-                    <!--                            <field name="pm_approval_date" readonly='1'-->
-                    <!--                                   attrs="{'invisible' : [('pm_approval_date', '=', False)]}"/>-->
-                    <!--                            <field name="maneg_approval_date" readonly='1'-->
-                    <!--                                   attrs="{'invisible' : [('maneg_approval_date', '=', False)]}"/>-->
-                    <!--                        </group>-->
                     <separator string="Revisions &amp; Modifications"/>
                     <group>
                         <field name="date_creation" invisible="1"/>
