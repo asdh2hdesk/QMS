@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+esg.access_esg_framework,access_esg_framework,esg.model_esg_framework,base.group_user,1,1,1,1
+esg.access_esg_emission_activity,access_esg_emission_activity,esg.model_esg_emission_activity,base.group_user,1,1,1,1
+esg.access_esg_material_topic,access_esg_material_topic,esg.model_esg_material_topic,base.group_user,1,1,1,1
+esg.access_esg_metric,access_esg_metric,esg.model_esg_metric,base.group_user,1,1,1,1
+esg.access_esg_disclosure,access_esg_disclosure,esg.model_esg_disclosure,base.group_user,1,1,1,1
+esg.access_esg_goal,access_esg_goal,esg.model_esg_goal,base.group_user,1,1,1,1
+esg.access_esg_target,access_esg_target,esg.model_esg_target,base.group_user,1,1,1,1
+esg.access_esg_data_entry,access_esg_data_entry,esg.model_esg_data_entry,base.group_user,1,1,1,1
+esg.access_esg_emission_factor,access_esg_emission_factor,esg.model_esg_emission_factor,base.group_user,1,1,1,1

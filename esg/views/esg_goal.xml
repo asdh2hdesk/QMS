@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_esg_goal" model="ir.actions.act_window">
+        <field name="name">ESG Goals</field>
+        <field name="res_model">esg.goal</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_esg_goals" name="Goals" parent="menu_esg_records" action="action_esg_goal" sequence="20"/>
+
+    <!-- Tree View -->
+    <record id="view_esg_goal_tree" model="ir.ui.view">
+        <field name="name">esg.goal.tree</field>
+        <field name="model">esg.goal</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="material_topic_id"/>
+                <field name="owner_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_esg_goal_form" model="ir.ui.view">
+        <field name="name">esg.goal.form</field>
+        <field name="model">esg.goal</field>
+        <field name="arch" type="xml">
+            <form string="ESG Goal">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="material_topic_id"/>
+                        <field name="description"/>
+                        <field name="owner_id"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="state"/>
+                        <field name="company_id" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

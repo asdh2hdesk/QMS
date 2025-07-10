@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_esg_data_entry" model="ir.actions.act_window">
+        <field name="name">Data Entries</field>
+        <field name="res_model">esg.data.entry</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_esg_data_entry" name="Data Entries" parent="menu_esg_records" action="action_esg_data_entry" sequence="50"/>
+
+    <!-- Tree View -->
+    <record id="view_esg_data_entry_tree" model="ir.ui.view">
+        <field name="name">esg.data.entry.tree</field>
+        <field name="model">esg.data.entry</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="metric_id"/>
+                <field name="entry_date"/>
+                <field name="value"/>
+                <field name="submitted_by"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_esg_data_entry_form" model="ir.ui.view">
+        <field name="name">esg.data.entry.form</field>
+        <field name="model">esg.data.entry</field>
+        <field name="arch" type="xml">
+            <form string="Data Entry">
+                <sheet>
+                    <group>
+                        <field name="metric_id"/>
+                        <field name="entry_date"/>
+                        <field name="value"/>
+                        <field name="submitted_by" readonly="1"/>
+                        <field name="supporting_document" filename="document_name"/>
+                        <field name="document_name"/>
+                        <field name="company_id" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
