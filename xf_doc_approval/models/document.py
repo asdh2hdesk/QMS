@@ -909,6 +909,8 @@ class DocumentApproval(models.Model):
             current_record = self.env[rec.formate.table].search([('id', '=', rec.formate_id)])
             if current_record:
                 rec.status = current_record.final_status
+                rec.actual_start_date = current_record.actual_start_date
+                rec.actual_end_date = current_record.actual_end_date
             else:
                 rec.status = 'pending'
 
@@ -933,11 +935,17 @@ class DocumentApproval(models.Model):
     def create_formate(self):
         # Ensure the document_package_id is set and valid
         if not self.document_package_id:
-            raise ValueError("document_package_id must be set")
+            raise ValidationError("document_package_id must be set")
 
         # Ensure manager_ids are valid
         if not self.manager_ids:
-            raise ValueError("Please configure Approvers for the Document")
+            raise ValidationError("Please configure Approvers for the Document")
+
+        if not self.plan_start_date or not self.plan_end_date:
+            raise ValidationError("Please configure both Plan Start Date and Plan End Date")
+
+        if self.plan_start_date > self.plan_end_date:
+            raise ValidationError("Start date cannot be after end date.")
 
         iatf_member_data_ids = []
         for manager in self.manager_ids:
@@ -947,12 +955,16 @@ class DocumentApproval(models.Model):
             })
             iatf_member_data_ids.append(iatf_member_data.id)
 
+        print(self.plan_end_date)
         vals = {
         'project_id' : self.document_package_id.id,
         'iatf_members_ids' : [(6, 0, iatf_member_data_ids)],
         'doc_type' : self.document_package_id.doc_type,
         'part_id' : self.document_package_id.part_id.id,
         'partner_id' : self.document_package_id.partner_id.id,
+        'plan_start_date' : self.plan_start_date,
+        'plan_end_date' : self.plan_end_date,
+        'actual_start_date': fields.Date.context_today(self),
         }
         formate_id = self.env[self.formate.table].sudo().create(vals)
         self.formate_id = formate_id.id

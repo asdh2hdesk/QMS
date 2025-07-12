@@ -61,8 +61,8 @@ class IATFSignOffMembers(models.AbstractModel):
 
     plan_start_date = fields.Date("Plan Start Date")
     plan_end_date = fields.Date("Plan End Date")
-    actual_start_date = fields.Date("Actual Start Date")
-    actual_end_date = fields.Date("Actual End Date")
+    actual_start_date = fields.Date("Actual Start Date", readonly=True)
+    actual_end_date = fields.Date("Actual End Date", readonly=True)
 
     member_name = fields.Char("Member Name")
 
@@ -85,6 +85,7 @@ class IATFSignOffMembers(models.AbstractModel):
             if record.state != 'draft':
                 if total_records == statuses.count('approved'):
                     record.final_status = 'approved'
+                    record.actual_end_date = fields.Date.context_today(self)
                 elif 'rejected' in statuses:
                     record.final_status = 'rejected'
                 elif 'revision' in statuses:
