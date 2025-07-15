@@ -51,8 +51,6 @@ access_health_checkup_user,access.health.checkup.user,model_health_checkup,base.
 access_fire_system_user,access.fire.system.user,model_fire_system,base.group_user,1,1,1,1
 access_environment_plan_user,access.environment.plan.user,model_environment_plan,base.group_user,1,1,1,1
 access_emergency_contact_user,access.emergency.contact.user,model_emergency_contact,base.group_user,1,1,1,1
-access_custom_employee_user,access_custom_employee_user,model_custom_employee,base.group_user,1,1,1,1
-access_custom_company_user,access_custom_company_user,model_custom_company,base.group_user,1,1,1,1
 access_canteen_committee_user,canteen.committee user,model_canteen_committee,base.group_user,1,1,1,1
 access_canteen_department_user,canteen.department user,model_canteen_department,base.group_user,1,1,1,1
 access_canteen_meeting_user,canteen.meeting.user,model_canteen_meeting,base.group_user,1,1,1,1

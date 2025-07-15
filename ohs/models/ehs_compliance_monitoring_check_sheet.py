@@ -5,7 +5,7 @@ class EhsParent(models.Model):
     _name = 'ehs.parent'
     _description = 'EHS Compliance Monitoring Check Sheet Parent'
 
-    company = fields.Many2one('custom.company', string='Company')
+    company = fields.Many2one('res.company', string='Company')
     lines_ids = fields.One2many('ehs.compliance.monitoring.check.sheet', 'line_id', string='Lines')
 
 
