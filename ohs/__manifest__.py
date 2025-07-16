@@ -41,9 +41,6 @@
         'views/canteen_meeting_views.xml',
         'views/first_aid_views.xml',
     ],
-    'external_dependencies': {
-        'python': ['qrcode'],
-    },
     'installable': True,
     'auto_install': False,
     'application': True,

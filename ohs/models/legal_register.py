@@ -4,7 +4,7 @@ class LegalRegisterMatrix(models.Model):
     _name = 'legal.register.matrix'
     _description = 'Legal Register Compliance Matrix'
 
-    company = fields.Many2one('res.company', string='Company')
+    # company = fields.Many2one('res.company', string='Company')
     legal_ids = fields.One2many('legal.register', 'matrix_id', string='Legal Descriptions')
 
 

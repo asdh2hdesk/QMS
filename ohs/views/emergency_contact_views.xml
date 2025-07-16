@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <tree string="Emergency Contacts">
                 <field name="department_id"/>
-                <field name="location_id"/>
+<!--                <field name="location_id"/>-->
                 <field name="contact"/>
             </tree>
         </field>
@@ -28,7 +28,7 @@
                     <br/>
                     <group>
                         <field name="department_id"/>
-                        <field name="location_id"/>
+<!--                        <field name="location_id"/>-->
                         <field name="contact"/>
                     </group>
                 </sheet>

@@ -6,7 +6,7 @@ class FireExtinguisherChecklist(models.Model):
     _description = 'Fire Extinguisher Checklist'
 
     date = fields.Date(string='Date', required=True, default=fields.Date.today)
-    company = fields.Many2one('res.company', string='Company')
+    # company = fields.Many2one('res.company', string='Company')
     prepared_by = fields.Many2one('res.users', string='Prepared By')
     approved_by = fields.Many2one('res.users', string='Approved By', default=lambda self: self.env.user)
     checklist_details_ids = fields.One2many('fire.extinguisher.details', 'checklist_id', string='Checklist Details')

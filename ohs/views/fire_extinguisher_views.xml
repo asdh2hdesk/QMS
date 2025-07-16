@@ -9,7 +9,7 @@
                 <tree>
 
                     <field name="date"/>
-                    <field name="company"/>
+<!--                    <field name="company"/>-->
                     <field name="prepared_by"/>
                     <field name="approved_by"/>
                 </tree>
@@ -33,7 +33,7 @@
                     <br/>
                         <group>
                             <field name="date"/>
-                            <field name="company"/>
+<!--                            <field name="company"/>-->
                             <field name="prepared_by"/>
                             <field name="approved_by"/>
                         </group>

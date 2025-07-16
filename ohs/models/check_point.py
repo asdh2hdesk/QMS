@@ -6,7 +6,7 @@ class CheckPointMaster(models.Model):
 
 
     date = fields.Date(string='Date', default=fields.Date.today)
-    company = fields.Many2one('res.company', string='Company')
+    # company = fields.Many2one('res.company', string='Company')
     check_point_ids = fields.One2many('check.point', 'master_id', string='Check Points')
 
 class CheckPoint(models.Model):

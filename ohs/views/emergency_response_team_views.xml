@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <tree>
 
-                    <field name="company"/>
+<!--                    <field name="company"/>-->
                 </tree>
             </field>
         </record>
@@ -29,7 +29,7 @@
                         <br/>
                         <group>
 
-                            <field name="company"/>
+<!--                            <field name="company"/>-->
                         </group>
                         <notebook>
                             <page string="Team Members">

@@ -7,7 +7,7 @@
             <field name="model">legal.register.matrix</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="company"/>
+<!--                    <field name="company"/>-->
                 </tree>
             </field>
         </record>
@@ -23,7 +23,7 @@
                             <h1 style="color:#4492bd;">Legal Register Compliance Matrix</h1>
                         </div>
                         <group>
-                            <field name="company"/>
+<!--                            <field name="company"/>-->
                         </group>
                         <notebook>
                             <page string="Legal Descriptions">

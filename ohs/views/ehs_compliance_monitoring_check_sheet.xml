@@ -14,7 +14,7 @@
                     <br/>
                     <br/>
                     <group>
-                        <field name="company"/>
+<!--                        <field name="company"/>-->
                     </group>
 
                         <field name="lines_ids">
@@ -38,8 +38,8 @@
         <field name="model">ehs.parent</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="id"/>
-                <field name="company"/>
+<!--                <field name="id"/>-->
+<!--                <field name="company"/>-->
 
             </tree>
         </field>

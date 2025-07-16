@@ -4,7 +4,7 @@ class EmergencyResponseMaster(models.Model):
     _name = 'emergency.response.master'
     _description = 'Emergency Response Master'
 
-    company = fields.Many2one('res.company', string='Company')
+    # company = fields.Many2one('res.company', string='Company')
     team_member_ids = fields.One2many('emergency.response.team', 'master_id', string='Team Members')
 
 class EmergencyResponseTeam(models.Model):

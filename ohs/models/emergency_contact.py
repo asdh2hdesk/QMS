@@ -5,5 +5,5 @@ class EmergencyContact(models.Model):
     _description = 'Emergency Contact'
 
     department_id = fields.Many2one('hr.employee', string='Department', required=True)
-    location_id = fields.Many2one('res.company', string='Location', required=True)
+    # location_id = fields.Many2one('res.company', string='Location', required=True)
     contact = fields.Integer(string='Contact Number', required=True)
