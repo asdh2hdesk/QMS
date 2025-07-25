@@ -374,49 +374,49 @@
     
     
 
-    <record id="board_calibration" model="ir.ui.view">
-        <field name="name">board.MSA.sheet.form</field>
-        <field name="model">board.board</field>
-        <field name="arch" type="xml">
-            <form string="Dashboard">
-                <board style="2-1">
-                    <column>
-                        <!-- Risk AP Chart -->
-                        <action name="%(action_calibration_generate)d" string="MSA Schedule "
-                                view_mode="graph" decoration="height: 1000px; width: 100%;"/>
-                        <!-- Optimization AP Chart -->
-                        <action name="%(action_calibration_schedule)d" string="MSA Schedule" view_mode="list"/>
-                    </column>
-                    <column>
-                        <!-- Main Table -->
-                        <action name="%(action_calibration_schedule)d" string="Bar Chart of MSA Schudule"
-                                view_mode="graph"/>
-                        <!-- Daily MSA with Explicit Domain -->
-                        <action
-                                name="%(action_calibration_generate_daily_graph)d"
-                                string="Pie Chart of Daily MSA Schedule"
-                                domain="[('cal_freq', '=', 'daily')]"
-                                view_mode="graph"/>
+<!--    <record id="board_calibration" model="ir.ui.view">-->
+<!--        <field name="name">board.MSA.sheet.form</field>-->
+<!--        <field name="model">board.board</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form string="Dashboard">-->
+<!--                <board style="2-1">-->
+<!--                    <column>-->
+<!--                        &lt;!&ndash; Risk AP Chart &ndash;&gt;-->
+<!--                        <action name="%(action_calibration_generate)d" string="MSA Schedule "-->
+<!--                                view_mode="graph" decoration="height: 1000px; width: 100%;"/>-->
+<!--                        &lt;!&ndash; Optimization AP Chart &ndash;&gt;-->
+<!--                        <action name="%(action_calibration_schedule)d" string="MSA Schedule" view_mode="list"/>-->
+<!--                    </column>-->
+<!--                    <column>-->
+<!--                        &lt;!&ndash; Main Table &ndash;&gt;-->
+<!--                        <action name="%(action_calibration_schedule)d" string="Bar Chart of MSA Schudule"-->
+<!--                                view_mode="graph"/>-->
+<!--                        &lt;!&ndash; Daily MSA with Explicit Domain &ndash;&gt;-->
+<!--                        <action-->
+<!--                                name="%(action_calibration_generate_daily_graph)d"-->
+<!--                                string="Pie Chart of Daily MSA Schedule"-->
+<!--                                domain="[('cal_freq', '=', 'daily')]"-->
+<!--                                view_mode="graph"/>-->
 
-                        <!-- Weekly MSA with Explicit Domain -->
-                        <action
-                                name="%(action_calibration_generate_weekly_graph)d"
-                                string="Pie Chart of Weekly MSA Schedule"
-                                domain="[('cal_freq', '=', 'weekly')]"
-                                view_mode="graph"/>
+<!--                        &lt;!&ndash; Weekly MSA with Explicit Domain &ndash;&gt;-->
+<!--                        <action-->
+<!--                                name="%(action_calibration_generate_weekly_graph)d"-->
+<!--                                string="Pie Chart of Weekly MSA Schedule"-->
+<!--                                domain="[('cal_freq', '=', 'weekly')]"-->
+<!--                                view_mode="graph"/>-->
 
-                        <!-- Monthly MSA with Explicit Domain -->
-                        <action
-                                name="%(action_calibration_generate_monthly_graph)d"
-                                string="Pie Chart of Monthly MSA Schedule"
-                                domain="[('cal_freq', '=', 'monthly')]"
-                                view_mode="graph"/>
-                    </column>
-                </board>
-            </form>
-        </field>
-    </record>
-    
+<!--                        &lt;!&ndash; Monthly MSA with Explicit Domain &ndash;&gt;-->
+<!--                        <action-->
+<!--                                name="%(action_calibration_generate_monthly_graph)d"-->
+<!--                                string="Pie Chart of Monthly MSA Schedule"-->
+<!--                                domain="[('cal_freq', '=', 'monthly')]"-->
+<!--                                view_mode="graph"/>-->
+<!--                    </column>-->
+<!--                </board>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+
       
     <record id="custom_maintenance_equipment_form" model="ir.ui.view">
         <field name="name">maintenance.hr_equipment_view_form.inherit</field>
@@ -439,13 +439,13 @@
         </field>
     </record>
 
-    <record id="action_board_dashboard" model="ir.actions.act_window">
-        <field name="name">DashBoard</field>
-        <field name="res_model">board.board</field>
-        <field name="view_mode">tree,form</field>
-        <field name="usage">menu</field>
-        <field name="view_id" ref="board_calibration"/>
-    </record>
+<!--    <record id="action_board_dashboard" model="ir.actions.act_window">-->
+<!--        <field name="name">DashBoard</field>-->
+<!--        <field name="res_model">board.board</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--        <field name="usage">menu</field>-->
+<!--        <field name="view_id" ref="board_calibration"/>-->
+<!--    </record>-->
 
     
     
@@ -455,8 +455,8 @@
     <menuitem id="menu_calibration_sheet" name="MSA Work Sheets"
               parent="menu_gauge_rnr_root" action="action_calibration" sequence="20"/>
     
-    <menuitem id="menu_calibration" name="DashBoard"
-              parent="menu_gauge_rnr_root" action="action_board_dashboard" sequence="10"/>
+<!--    <menuitem id="menu_calibration" name="DashBoard"-->
+<!--              parent="menu_gauge_rnr_root" action="action_board_dashboard" sequence="10"/>-->
  
 
 

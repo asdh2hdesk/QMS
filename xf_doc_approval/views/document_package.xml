@@ -83,8 +83,8 @@
                                 <field name="document_approval_ids">
                                     <!-- <tree editable="bottom" delete='false' create='false'> -->
                                     <tree editable="bottom" default_order="serial_no asc">
-                                        <field name="serial_no" required='0' optional="hide"/>
-                                        <field name="sr_no" required='0' width="250px" style="text-align: center;"/>
+                                        <field name="serial_no" required='0' optional="show"/>
+                                        <field name="sr_no" required='0' width="250px" style="text-align: center;"  optional="hide"/>
                                         <field name="plan_start_date" optional="show"/>
                                         <field name="plan_end_date" optional="show"/>
                                         <field name="actual_start_date" optional="show"/>

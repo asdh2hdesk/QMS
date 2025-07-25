@@ -10,12 +10,6 @@ _editable_states = {
     'draft': [('readonly', False)],
 }
 
-#
-# class Mom(models.Model):
-#     _inherit = 'mom'
-#
-#     document_pro_id = fields.Many2one("xf.doc.approval.document.package", string="Document #")
-#
 
 class HrDeptType(models.Model):
     _name = 'hr.dept.type'
@@ -171,52 +165,6 @@ class DocApprovalDocumentPackage(models.Model):
     # customer_part_name = fields.Char("Customer Part name")
 
     _sql_constraints = [('xf_document_project_name_unique', 'unique(name)', 'A project with this name already exists.')]
-    # def write(self, vals):
-    #     res = super().write(vals)
-    #     for rec in self:
-    #         approved_total = rec.document_approval_ids.filtered(lambda l: l.status != 'Draft')
-    #         if 'document_approval_ids' in vals and rec.project_start_date == False and approved_total:
-    #             rec.project_start_date = date.today()
-    #     return res
-
-    # def open_copy_wizard(self):
-    #     return {
-    #         'type': 'ir.actions.act_window',
-    #         'name': 'Copy Form',
-    #         'res_model': 'copy.form.wizard',
-    #         'view_mode': 'form',
-    #         'target': 'new',
-    #         'context': {
-    #             'default_original_id': self.id,
-    #         }
-    #     }
-
-
-    # def copy(self, default=None):
-    #     self.ensure_one()
-    #     default = dict(default or {})
-    #
-    #     # Provide a new name if not given
-    #     if 'name' not in default:
-    #         default['name'] = _("%s (Copy)") % (self.name or '')
-    #
-    #     # Now copy the main project
-    #     new_project = super(DocApprovalDocumentPackage, self).copy(default)
-    #
-    #     # Copy document_ids
-    #     for document in self.document_ids:
-    #         document.copy({
-    #             'document_package_id': new_project.id
-    #         })
-    #
-    #     # Copy document_approval_ids
-    #     for approval in self.document_approval_ids:
-    #         approval.copy({
-    #             'document_package_id': new_project.id
-    #         })
-    #
-    #     return new_project
-
     def _get_date_diff(self):
         for rec in self:
             start_diff = " 0"
