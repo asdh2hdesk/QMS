@@ -33,8 +33,8 @@
                         <widget name="web_ribbon" title="Draft" bg_color="bg-info"
                                 attrs="{'invisible':[('final_status', '!=', 'draft')]}"/>
                         <div class="oe_title">
-                            <div>
-                                <h1 class="text-center">Team Feasibility</h1>
+                            <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                                <h1 style="color:#4492bd;">Team Feasibility</h1>
                             </div>
                             <label for="project_id" string="Project Name"/>
                             <h1>

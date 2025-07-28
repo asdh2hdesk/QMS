@@ -179,34 +179,36 @@ class DocApprovalDocumentPackage(models.Model):
 
     def _compute_date(self):
         for rec in self:
+            # Default to existing values
             project_start_date = rec.project_start_date
             project_end_date = rec.project_end_date
-            approved_total = rec.document_approval_ids.filtered(lambda l: l.status != 'Draft')
-            approved_total2 = rec.document_approval_ids.filtered(lambda l: l.status not in ['Draft', 'Approval Inprogress'])
-            # if project_start_date == False and approved_total:
-            #     rec.project_start_date = date.today()
-            # else:
-            #     rec.project_start_date = project_start_date
 
-            if project_end_date == False and len(approved_total2) == len(rec.document_approval_ids):
+            # Safely filter on status
+            approved_total = rec.document_approval_ids.filtered(
+                lambda l: 'status' in l._fields and l.status != 'Draft'
+            )
+            approved_total2 = rec.document_approval_ids.filtered(
+                lambda l: hasattr(l, 'status') and l.status not in ['Draft', 'Approval Inprogress']
+            )
+
+            if not project_end_date and len(approved_total2) == len(rec.document_approval_ids):
                 rec.project_end_date = date.today()
-                # rec.project_start_date = rec.create_date
             else:
                 rec.project_end_date = project_end_date
-                # rec.project_start_date = rec.create_date
 
     def _compute_state(self):
         for rec in self:
             current_staus_of_record = rec.document_approval_ids
             total = len(current_staus_of_record)
-            revised = len(current_staus_of_record.filtered(lambda a: a.status == 'revision'))
-            approved = len(current_staus_of_record.filtered(lambda a: a.status == 'approved'))
+            revised = len(current_staus_of_record.filtered(lambda a: 'status' in a._fields and a.status == 'revision'))
+            approved = len(current_staus_of_record.filtered(lambda a: 'status' in a._fields and a.status == 'approved'))
 
-            if len(current_staus_of_record) == len(current_staus_of_record.filtered(lambda a: a.status == 'draft')):
+            if len(current_staus_of_record) == len(
+                    current_staus_of_record.filtered(lambda a: 'status' in a._fields and a.status == 'draft')):
                 rec.state = 'draft'
             elif total == approved or approved + revised == total:
                 rec.state = 'approved'
-            elif len(current_staus_of_record.filtered(lambda a: a.status == 'rejected')):
+            elif len(current_staus_of_record.filtered(lambda a: 'status' in a._fields and a.status == 'rejected')):
                 rec.state = 'rejected'
             else:
                 rec.state = 'inprogress'
@@ -214,12 +216,12 @@ class DocApprovalDocumentPackage(models.Model):
     def _compute_line_status(self):
         for rec in self:
             total = len(rec.document_approval_ids)
-            approved_total = len(rec.document_approval_ids.filtered(lambda l: l.status not in ['pending', 'draft']))
+            approved_total = len(rec.document_approval_ids.filtered(lambda l: 'status' in l._fields and l.status not in ['pending', 'draft']))
             rec.line_status = str(approved_total) + '/' + str(total)
 
     def _check_sequence(self):
         for rec in self:
-            all_lines = rec.document_approval_ids.filtered(lambda l: l.status != 'approved').ids
+            all_lines = rec.document_approval_ids.filtered(lambda l: 'status' in l._fields and l.status != 'approved').ids
             all_lines = self.env['document.approval'].search([('id', 'in', all_lines)], order='sr_no asc')
             if all_lines:
                 all_lines = self.env['document.approval'].search([('id', 'in', all_lines.ids),('sr_no', '=', all_lines[0].mapped('sr_no'))])
@@ -291,18 +293,18 @@ class DocApprovalDocumentPackage(models.Model):
         for rec in self:
             current_staus_of_record = rec.document_approval_ids
             total = len(current_staus_of_record)
-            revised = len(current_staus_of_record.filtered(lambda a: a.status == 'revision'))
-            approved = len(current_staus_of_record.filtered(lambda a: a.status == 'approved'))
+            revised = len(current_staus_of_record.filtered(lambda a: 'status' in a._fields and a.status == 'revision'))
+            approved = len(current_staus_of_record.filtered(lambda a: 'status' in a._fields and a.status == 'approved'))
 
-            if len(current_staus_of_record) == len(current_staus_of_record.filtered(lambda a: a.status == 'draft')):
+            if len(current_staus_of_record) == len(
+                    current_staus_of_record.filtered(lambda a: 'status' in a._fields and a.status == 'draft')):
                 rec.approval_state = 'Draft'
             elif total == approved or approved + revised == total:
                 rec.approval_state = 'Approved'
-            elif len(current_staus_of_record.filtered(lambda a: a.status == 'rejected')):
+            elif len(current_staus_of_record.filtered(lambda a: 'status' in a._fields and a.status == 'rejected')):
                 rec.approval_state = 'Rejected'
             else:
                 rec.approval_state = 'Approval Inprogress'
-
 
     @api.depends('approver_ids.state', 'approver_ids.step')
     def _compute_approval_step(self):
@@ -839,6 +841,7 @@ class DocumentApproval(models.Model):
     used_in_project_type_ids = fields.Many2many(string='Used in Project type', comodel_name='doc.project.type')
     check_create_emp = fields.Boolean(compute='_check_create_employee')
     check_sequence = fields.Boolean('Check Sequence')
+    include_vals = fields.Boolean(string="Include Values", default=True)
 
     # def _compute_approval_status(self):
     #     for rec in self:
@@ -852,15 +855,33 @@ class DocumentApproval(models.Model):
     #             rec.status = 'Draft'
 
     def _compute_approval_status(self):
-        # :TODO: Add functionality to fetch the current_approval_status of the format
         for rec in self:
-            current_record = self.env[rec.formate.table].search([('id', '=', rec.formate_id)])
-            if current_record:
-                rec.status = current_record.final_status
+            rec.status = 'pending'
+            rec.actual_start_date = False
+            rec.actual_end_date = False
+
+            # Skip if it's an independent document
+            if not rec.include_vals or not rec.formate_id or not rec.formate or not rec.formate.table:
+                continue
+
+            model = self.env[rec.formate.table]
+
+            try:
+                formate_id_int = int(rec.formate_id)
+            except (ValueError, TypeError):
+                continue
+
+            current_record = model.browse(formate_id_int)
+            if not current_record.exists():
+                continue
+
+            if 'final_status' in current_record._fields:
+                rec.status = current_record.final_status or 'pending'
+            if 'actual_start_date' in current_record._fields:
                 rec.actual_start_date = current_record.actual_start_date
+            if 'actual_end_date' in current_record._fields:
                 rec.actual_end_date = current_record.actual_end_date
-            else:
-                rec.status = 'pending'
+
 
     @api.depends('control_emp_ids', 'manager_ids')
     def _compute_approval_departments(self):
@@ -881,41 +902,61 @@ class DocumentApproval(models.Model):
     #     self.formate_id = formate_id.id
 
     def create_formate(self):
-        # Ensure the document_package_id is set and valid
-        if not self.document_package_id:
-            raise ValidationError("document_package_id must be set")
+        vals = {}
 
-        # Ensure manager_ids are valid
-        if not self.manager_ids:
-            raise ValidationError("Please configure Approvers for the Document")
+        if self.include_vals:
+            if not self.document_package_id:
+                raise ValidationError("Document Package must be set.")
+            if not self.manager_ids:
+                raise ValidationError("Please configure Approvers for the Document")
+            if not self.plan_start_date or not self.plan_end_date:
+                raise ValidationError("Please configure both Plan Start Date and Plan End Date")
+            if self.plan_start_date > self.plan_end_date:
+                raise ValidationError("Start date cannot be after end date.")
 
-        if not self.plan_start_date or not self.plan_end_date:
-            raise ValidationError("Please configure both Plan Start Date and Plan End Date")
+            iatf_member_data_ids = []
+            for manager in self.manager_ids:
+                iatf_member_data = self.env['iatf.members.data'].create({
+                    'approver_id': manager.id,
+                    'approval_status': 'pending',
+                })
+                iatf_member_data_ids.append(iatf_member_data.id)
 
-        if self.plan_start_date > self.plan_end_date:
-            raise ValidationError("Start date cannot be after end date.")
-
-        iatf_member_data_ids = []
-        for manager in self.manager_ids:
-            iatf_member_data = self.env['iatf.members.data'].create({
-                'approver_id': manager.id,
-                'approval_status': 'pending',
+            vals.update({
+                'project_id': self.document_package_id.id,
+                'doc_type': self.document_package_id.doc_type,
+                'part_id': self.document_package_id.part_id.id,
+                'partner_id': self.document_package_id.partner_id.id,
+                'plan_start_date': self.plan_start_date,
+                'plan_end_date': self.plan_end_date,
+                'iatf_members_ids': [(6, 0, iatf_member_data_ids)],
+                'actual_start_date': fields.Date.context_today(self),
             })
-            iatf_member_data_ids.append(iatf_member_data.id)
 
-        print(self.plan_end_date)
-        vals = {
-        'project_id' : self.document_package_id.id,
-        'iatf_members_ids' : [(6, 0, iatf_member_data_ids)],
-        'doc_type' : self.document_package_id.doc_type,
-        'part_id' : self.document_package_id.part_id.id,
-        'partner_id' : self.document_package_id.partner_id.id,
-        'plan_start_date' : self.plan_start_date,
-        'plan_end_date' : self.plan_end_date,
-        'actual_start_date': fields.Date.context_today(self),
-        }
-        formate_id = self.env[self.formate.table].sudo().create(vals)
-        self.formate_id = formate_id.id
+            # Create format with values (with required fields already satisfied)
+            formate_id = self.env[self.formate.table].sudo().create(vals)
+            self.formate_id = formate_id.id
+
+            return {
+                'type': 'ir.actions.act_window',
+                'name': self.formate.name,
+                'view_mode': 'form',
+                'res_model': self.formate.table,
+                'res_id': formate_id.id,
+                'target': 'current',
+                'context': {'create': False}
+            }
+
+        else:
+            # Independent: Open form view without creating record
+            return {
+                'type': 'ir.actions.act_window',
+                'name': self.formate.name,
+                'view_mode': 'form',
+                'res_model': self.formate.table,
+                'target': 'current',
+                'context': {'default_formate_id': self.id}  # optional, for back-reference
+            }
 
     @api.onchange('formate')
     def _onchage_department_id(self):
@@ -947,7 +988,7 @@ class DocumentApproval(models.Model):
 
     def write(self, vals):
         res = super().write(vals)
-        if 'manager_ids' in vals:
+        if 'manager_ids' in vals and self.include_vals:
             if self.status == "approved":
                 raise ValidationError(_("Cannot Change Approver of approved document"))
             else:
@@ -959,9 +1000,8 @@ class DocumentApproval(models.Model):
                     })
                     iatf_member_data_ids.append(iatf_member_data.id)
                 formate_id = self.env[self.formate.table].sudo().search([('id', '=', self.formate_id)])
-                formate_id.iatf_members_ids = [(6, 0, iatf_member_data_ids)]
-                # formate_id.approve_department_ids = [(6, 0, self.department_ids.ids)]
-                # formate_id.sent_for_approval()
+                if formate_id and 'iatf_members_ids' in formate_id._fields:
+                    formate_id.iatf_members_ids = [(6, 0, iatf_member_data_ids)]
 
         return res
 

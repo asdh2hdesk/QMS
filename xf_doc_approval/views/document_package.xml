@@ -110,6 +110,7 @@
                                                 attrs="{'invisible' : ['|','|',('check_sequence', '=', False),('check_create_emp', '=', False),('formate_id', '!=', False)]}"/>
                                         <button string="Open Format" name="open_formate" type="object"
                                                 attrs="{'invisible' : [('formate_id', '=', False)]}"/>
+                                        <field name="include_vals" optional="show" help="Check to create with approvers and linked values. Uncheck to create an independent document."/>
 
                                         <field name='check_create_emp' optional='hide' invisible='1'/>
                                     </tree>

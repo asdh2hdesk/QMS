@@ -1,5 +1,23 @@
 from datetime import date, datetime
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
+from datetime import date
+import openpyxl
+from io import BytesIO
+import io
+from openpyxl import Workbook
+import openpyxl
+import base64
+from bs4 import BeautifulSoup
+from openpyxl.styles import Alignment, Font, Border, Side, DEFAULT_FONT, PatternFill
+from openpyxl.drawing.image import Image
+from openpyxl.worksheet.properties import WorksheetProperties, PageSetupProperties
+import copy
+import datetime
+from PIL import ImageOps
+from PIL import Image as PILImage
+from bs4 import BeautifulSoup
+
 
 
 class SpecialCharacterMatrix(models.Model):
@@ -18,422 +36,180 @@ class SpecialCharacterMatrix(models.Model):
         inverse_name='special_id',
         string="NPD Line"
     )
-    # state = fields.Selection([
-    #     ('draft', 'Draft'),
-    #     ('hr_approve', 'HR Approval'),
-    #     ('design', 'Design'),
-    #     ('engineering', 'Engineering'),
-    #     ('manufacturing', 'Manufacturing'),
-    #     ('quality', 'Quality'),
-    #     ('top', 'Top Management'),
-    #     ('final_approved', 'Final Approved')
-    # ], string='Status', default='draft')
-    hr = fields.Many2one('res.users', 'HR')  # HR APPROVED
-    design_eng = fields.Many2one('res.users', 'Design Engineering')  # DESIGN
-    manf_eng = fields.Many2one('res.users', 'Manufacturing Engineering')  # Engineering
-    production = fields.Many2one('res.users', 'Production')  # Manufacturing
-    quality = fields.Many2one('res.users', 'Quality')  # Qulity
-    top_management_id = fields.Many2one('res.users', 'Top Management')  # Final Approved
-    part_development_id = fields.Many2one("part.development.process")
 
-    # state = fields.Selection([
-    #                         ('draft', 'Draft'),
-    #                         ('confirm', 'Confirmed'),
-    #                         ], string='Status', default='draft')
-    document_name = fields.Char(string='Document #')
-    # approve_department_id = fields.Many2one('hr.department', string='Departments Approvals')
-    # # document_pro_id = fields.Many2one("xf.doc.approval.document.package", string="Document #")
-    # approve_department_ids = fields.Many2many('hr.department', 'tx5', string='Departments Approvals')
-    # approve_by_department_ids = fields.Many2many('hr.department', string='Departments Approved By')
-    # manager_id = fields.Many2one('hr.employee', string='Approval Manager')
-    # manager_ids = fields.Many2many('hr.employee', 'tx6', string='Approval Managers')
-    # approvaed_manager_ids = fields.Many2many('hr.employee', string='Managers Approved By')
+    generate_xls_file = fields.Binary(string="Generated file")  # do not comment this
 
-    # is_hr_approved = fields.Boolean()
-    # is_design_approved = fields.Boolean()
-    # is_eng_approved = fields.Boolean()
-    # is_manu_approved = fields.Boolean()
-    # is_sales_approved = fields.Boolean()
-    # is_qc_approved = fields.Boolean()
-    # is_maintenance_approved = fields.Boolean()
-    # is_marketing_approved = fields.Boolean()
-    # is_pm_approved = fields.Boolean()
-    # is_management_approved = fields.Boolean()
-    # is_approved_approved = fields.Boolean()
-    #
-    # hr_check_department = fields.Boolean(compute='_check_department')
-    # des_check_department = fields.Boolean(compute='_check_department')
-    # eng_check_department = fields.Boolean(compute='_check_department')
-    # manu_check_department = fields.Boolean(compute='_check_department')
-    # sale_check_department = fields.Boolean(compute='_check_department')
-    # qc_check_department = fields.Boolean(compute='_check_department')
-    # mainte_check_department = fields.Boolean(compute='_check_department')
-    # marketing_check_department = fields.Boolean(compute='_check_department')
-    # pm_check_department = fields.Boolean(compute='_check_department')
-    # managment_check_department = fields.Boolean(compute='_check_department')
-    #
-    # link = fields.Char()
-    #
-    # def actipn_confirmed(self):
-    #     self.sent_for_approval()
-    #     self.state = 'confirm'
+    def action_generate_excel_report(self):
+        output = BytesIO()
+        wb = Workbook()
+        ws = wb.active
 
-    # def sent_for_approval(self):
-    #     mail_template = self.env.ref('iatf.mom_document_approval_mail_template')
-    #     model_id = self.env['ir.model'].sudo().search([('model', '=', self._name)])
-    #     mail_template.write({'model_id' : model_id.id})
-    #
-    #     web_base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
-    #     action_id = self.env.ref('iatf.action_special_characteristics_matrix_view', raise_if_not_found=False)
-    #     link = """{}/web#id={}&view_type=form&model=self._name&action={}""".format(web_base_url,self.id,action_id.id)
-    #     self.link = link
-    #
-    #     user_ids = self.env['hr.employee'].sudo().search([('department_id', 'in', self.approve_department_ids.ids)]).mapped('user_id')
-    #     all_admin = ''
-    #     for user in user_ids:
-    #         if all_admin:
-    #             all_admin += ',' + str(user.login)
-    #         else:
-    #             all_admin = str(user.login)
-    #     mail_template.write({
-    #             'email_to': all_admin,
-    #     })
-    #     mail_template.send_mail(self.id, force_send=True)
+        if self.env.user.company_id.logo:
+            max_width = 300  # Set your desired maximum width
+            max_height = 80  # Set your desired maximum height
+            image_data = base64.b64decode(self.env.user.company_id.logo)
 
-    # def _check_department(self):
-    #     for rec in self:
-    #         if self.env.user.employee_id.department_id.id in rec.approve_department_ids.ids and self.env.user.employee_id.department_id.department_type == 'hr':
-    #             if rec.state != 'draft':
-    #                 rec.hr_check_department = True
-    #             else:
-    #                 rec.hr_check_department = False
-    #         else:
-    #             rec.hr_check_department = False
-    #         if self.env.user.employee_id.department_id.id in rec.approve_department_ids.ids and self.env.user.employee_id.department_id.department_type == 'design':
-    #             if rec.state != 'draft':
-    #                 rec.des_check_department = True
-    #             else:
-    #                 rec.des_check_department = False
-    #         else:
-    #             rec.des_check_department = False
-    #         if self.env.user.employee_id.department_id.id in rec.approve_department_ids.ids and self.env.user.employee_id.department_id.department_type == 'eng':
-    #             if rec.state != 'draft':
-    #                 rec.eng_check_department = True
-    #             else:
-    #                 rec.eng_check_department = False
-    #         else:
-    #             rec.eng_check_department = False
-    #         if self.env.user.employee_id.department_id.id in rec.approve_department_ids.ids and self.env.user.employee_id.department_id.department_type == 'manu':
-    #             if rec.state != 'draft':
-    #                 rec.manu_check_department = True
-    #             else:
-    #                 rec.manu_check_department = False
-    #         else:
-    #             rec.manu_check_department = False
-    #         if self.env.user.employee_id.department_id.id in rec.approve_department_ids.ids and self.env.user.employee_id.department_id.department_type == 'sales':
-    #             if rec.state != 'draft':
-    #                 rec.sale_check_department = True
-    #             else:
-    #                 rec.sale_check_department = False
-    #         else:
-    #             rec.sale_check_department = False
-    #         if self.env.user.employee_id.department_id.id in rec.approve_department_ids.ids and self.env.user.employee_id.department_id.department_type == 'qc':
-    #             if rec.state != 'draft':
-    #                 rec.qc_check_department = True
-    #             else:
-    #                 rec.qc_check_department = False
-    #         else:
-    #             rec.qc_check_department = False
-    #         if self.env.user.employee_id.department_id.id in rec.approve_department_ids.ids and self.env.user.employee_id.department_id.department_type == 'maintenance':
-    #             if rec.state != 'draft':
-    #                 rec.mainte_check_department = True
-    #             else:
-    #                 rec.mainte_check_department = False
-    #         else:
-    #             rec.mainte_check_department = False
-    #         if self.env.user.employee_id.department_id.id in rec.approve_department_ids.ids and self.env.user.employee_id.department_id.department_type == 'marketing':
-    #             if rec.state != 'draft':
-    #                 rec.marketing_check_department = True
-    #             else:
-    #                 rec.marketing_check_department = False
-    #         else:
-    #             rec.marketing_check_department = False
-    #         if self.env.user.employee_id.department_id.id in rec.approve_department_ids.ids and self.env.user.employee_id.department_id.department_type == 'pm':
-    #             if rec.state != 'draft':
-    #                 rec.pm_check_department = True
-    #             else:
-    #                 rec.pm_check_department = False
-    #         else:
-    #             rec.pm_check_department = False
-    #         if self.env.user.employee_id.department_id.id in rec.approve_department_ids.ids and self.env.user.employee_id.department_id.department_type == 'management':
-    #             if rec.state != 'draft':
-    #                 rec.managment_check_department = True
-    #             else:
-    #                 rec.managment_check_department = False
-    #         else:
-    #             rec.managment_check_department = False
-    #
-    #
-    # hr_approval_date = fields.Datetime('Hr Approval Date')
-    # design_approval_date = fields.Datetime('Design Approval Date')
-    # eng_approval_date = fields.Datetime('Eng. Approval Date')
-    # manu_approval_date = fields.Datetime('Production Approval Date')
-    # sale_approval_date = fields.Datetime('Sales Approval Date')
-    # qc_approval_date = fields.Datetime('QC Approval Date')
-    # main_approval_date = fields.Datetime('Maintenance Approval Date')
-    # mark_approval_date = fields.Datetime('Marketing Approval Date')
-    # pm_approval_date = fields.Datetime('Program Management Approval Date')
-    # maneg_approval_date = fields.Datetime('Top Management Approval Date')
-    #
-    # def hr_approval(self):
-    #     self.hr_approval_date = datetime.now()
-    #     self.is_hr_approved = True
-    #     self.approve_by_department_ids = [(4, self.env.user.employee_id.department_id.id)]
-    #     self.approvaed_manager_ids = [(4, self.env.user.employee_id.department_id.manager_id.id)]
-    # def design_approval(self):
-    #     self.design_approval_date = datetime.now()
-    #     self.is_design_approved = True
-    #     self.approve_by_department_ids = [(4, self.env.user.employee_id.department_id.id)]
-    #     self.approvaed_manager_ids = [(4, self.env.user.employee_id.department_id.manager_id.id)]
-    # def eng_approval(self):
-    #     self.eng_approval_date = datetime.now()
-    #     self.is_eng_approved = True
-    #     self.approve_by_department_ids = [(4, self.env.user.employee_id.department_id.id)]
-    #     self.approvaed_manager_ids = [(4, self.env.user.employee_id.department_id.manager_id.id)]
-    # def manu_approval(self):
-    #     self.manu_approval_date = datetime.now()
-    #     self.is_manu_approved = True
-    #     self.approve_by_department_ids = [(4, self.env.user.employee_id.department_id.id)]
-    #     self.approvaed_manager_ids = [(4, self.env.user.employee_id.department_id.manager_id.id)]
-    # def sales_approval(self):
-    #     self.sale_approval_date = datetime.now()
-    #     self.is_sales_approved = True
-    #     self.approve_by_department_ids = [(4, self.env.user.employee_id.department_id.id)]
-    #     self.approvaed_manager_ids = [(4, self.env.user.employee_id.department_id.manager_id.id)]
-    # def qc_approval(self):
-    #     self.qc_approval_date = datetime.now()
-    #     self.is_qc_approved = True
-    #     self.approve_by_department_ids = [(4, self.env.user.employee_id.department_id.id)]
-    #     self.approvaed_manager_ids = [(4, self.env.user.employee_id.department_id.manager_id.id)]
-    # def mainte_approval(self):
-    #     self.main_approval_date = datetime.now()
-    #     self.is_maintenance_approved = True
-    #     self.approve_by_department_ids = [(4, self.env.user.employee_id.department_id.id)]
-    #     self.approvaed_manager_ids = [(4, self.env.user.employee_id.department_id.manager_id.id)]
-    # def marketing_approval(self):
-    #     self.mark_approval_date = datetime.now()
-    #     self.is_marketing_approved = True
-    #     self.approve_by_department_ids = [(4, self.env.user.employee_id.department_id.id)]
-    #     self.approvaed_manager_ids = [(4, self.env.user.employee_id.department_id.manager_id.id)]
-    # def pm_approval(self):
-    #     self.pm_approval_date = datetime.now()
-    #     self.is_pm_approved = True
-    #     self.approve_by_department_ids = [(4, self.env.user.employee_id.department_id.id)]
-    #     self.approvaed_manager_ids = [(4, self.env.user.employee_id.department_id.manager_id.id)]
-    # def managment_approval(self):
-    #     self.maneg_approval_date = datetime.now()
-    #     self.is_management_approved = True
-    #     self.approve_by_department_ids = [(4, self.env.user.employee_id.department_id.id)]
-    #     self.approvaed_manager_ids = [(4, self.env.user.employee_id.department_id.manager_id.id)]
-    #
-    #
-    # def button_send_approval(self):
-    #     for rec in self:
-    #         if rec.hr:
-    #             user_email = rec.hr.login
-    #             mail_temp = self.env.ref('iatf.sending_mail_template_risk_assessment')
-    #             if mail_temp:
-    #                 format_name = rec.format_id.name
-    #                 cust_name = rec.cust_id.name
-    #                 subject = f" Request for approving Risk Assessment {format_name} for {cust_name}"
-    #                 if user_email:
-    #                     body = """
-    #                     <div>
-    #                         <p>Dear Recipient  """ + str(user_email) + """,
-    #                             <br/><br/>
-    #                             Please, kindly Request To accept and approved Sending Approval for the Special Chracterhistics Matrix.
-    #                         <br></br>
-    #                         Thank you.
-    #                     <br/>
-    #                     <br/>
-    #                     <div>"""
-    #                     mail_temp.send_mail(self.id, email_values={
-    #                         'email_from': self.env.user.login,
-    #                         'email_to': user_email,
-    #                         'subject': subject,
-    #                         'body_html': body,
-    #                     }, force_send=True)
-    #
-    #         rec.write({'state': 'hr_approve'})
-    #         rec.part_development_id.cft_id = rec.id
-    #
-    # def button_hr_approval(self):
-    #     for rec in self:
-    #         if rec.hr:
-    #             user_email = rec.hr.login
-    #             mail_temp = self.env.ref('iatf.sending_mail_template_risk_assessment')
-    #             if mail_temp:
-    #                 format_name = rec.format_id.name
-    #                 cust_name = rec.cust_id.name
-    #                 subject = f" Request for approving Risk Assessment {format_name} for {cust_name}"
-    #                 if user_email:
-    #                     body = """
-    #                     <div>
-    #                         <p>Dear Recipient  """ + str(user_email) + """,
-    #                             <br/><br/>
-    #                             Please, kindly Request To accept and approved Sending Approval for the Special Chracterhistics Matrix.
-    #                         <br></br>
-    #                         Thank you.
-    #                     <br/>
-    #                     <br/>
-    #                     <div>"""
-    #                     mail_temp.send_mail(self.id, email_values={
-    #                         'email_from': self.env.user.login,
-    #                         'email_to': user_email,
-    #                         'subject': subject,
-    #                         'body_html': body,
-    #                     }, force_send=True)
-    #         rec.write({'state': 'design'})
-    #
-    # def button_design(self):
-    #     for rec in self:
-    #         if rec.design_eng:
-    #             user_email = rec.design_eng.login
-    #             mail_temp = self.env.ref('iatf.sending_mail_template_risk_assessment')
-    #             if mail_temp:
-    #                 format_name = rec.format_id.name
-    #                 cust_name = rec.cust_id.name
-    #                 subject = f" Request for approving Risk Assessment {format_name} for {cust_name}"
-    #                 if user_email:
-    #                     body = """
-    #                     <div>
-    #                         <p>Dear Recipient  """ + str(user_email) + """,
-    #                             <br/><br/>
-    #                             Please, kindly Request To accept and approved Sending Approval for the Special Chracterhistics Matrix.
-    #                         <br></br>
-    #                         Thank you.
-    #                     <br/>
-    #                     <br/>
-    #                     <div>"""
-    #                     mail_temp.send_mail(self.id, email_values={
-    #                         'email_from': self.env.user.login,
-    #                         'email_to': user_email,
-    #                         'subject': subject,
-    #                         'body_html': body,
-    #                     }, force_send=True)
-    #         rec.write({'state': 'engineering'})
-    #
-    # def button_engineering(self):
-    #     for rec in self:
-    #         if rec.manf_eng:
-    #             user_email = rec.manf_eng.login
-    #             mail_temp = self.env.ref('iatf.sending_mail_template_risk_assessment')
-    #             if mail_temp:
-    #                 format_name = rec.format_id.name
-    #                 cust_name = rec.cust_id.name
-    #                 subject = f" Request for approving Risk Assessment {format_name} for {cust_name}"
-    #                 if user_email:
-    #                     body = """
-    #                     <div>
-    #                         <p>Dear Recipient  """ + str(user_email) + """,
-    #                             <br/><br/>
-    #                             Please, kindly Request To accept and approved Sending Approval for the Special Chracterhistics Matrix.
-    #                         <br></br>
-    #                         Thank you.
-    #                     <br/>
-    #                     <br/>
-    #                     <div>"""
-    #                     mail_temp.send_mail(self.id, email_values={
-    #                         'email_from': self.env.user.login,
-    #                         'email_to': user_email,
-    #                         'subject': subject,
-    #                         'body_html': body,
-    #                     }, force_send=True)
-    #         rec.write({'state': 'manufacturing'})
-    #
-    # def button_manufacturing(self):
-    #     for rec in self:
-    #         if rec.production:
-    #             user_email = rec.production.login
-    #             mail_temp = self.env.ref('iatf.sending_mail_template_risk_assessment')
-    #             if mail_temp:
-    #                 format_name = rec.format_id.name
-    #                 cust_name = rec.cust_id.name
-    #                 subject = f" Request for approving Risk Assessment {format_name} for {cust_name}"
-    #                 if user_email:
-    #                     body = """
-    #                     <div>
-    #                         <p>Dear Recipient  """ + str(user_email) + """,
-    #                             <br/><br/>
-    #                             Please, kindly Request To accept and approved Sending Approval for the Special Chracterhistics Matrix.
-    #                         <br></br>
-    #                         Thank you.
-    #                     <br/>
-    #                     <br/>
-    #                     <div>"""
-    #                     mail_temp.send_mail(self.id, email_values={
-    #                         'email_from': self.env.user.login,
-    #                         'email_to': user_email,
-    #                         'subject': subject,
-    #                         'body_html': body,
-    #                     }, force_send=True)
-    #         rec.write({'state': 'quality'})
-    #
-    # def button_quality_test_done(self):
-    #     for rec in self:
-    #         if rec.quality:
-    #             user_email = rec.quality.login
-    #             mail_temp = self.env.ref('iatf.sending_mail_template_risk_assessment')
-    #             if mail_temp:
-    #                 format_name = rec.format_id.name
-    #                 cust_name = rec.cust_id.name
-    #                 subject = f" Request for approving Risk Assessment {format_name} for {cust_name}"
-    #                 if user_email:
-    #                     body = """
-    #                     <div>
-    #                         <p>Dear Recipient  """ + str(user_email) + """,
-    #                             <br/><br/>
-    #                             Please, kindly Request To accept and approved Sending Approval for the Special Chracterhistics Matrix.
-    #                         <br></br>
-    #                         Thank you.
-    #                     <br/>
-    #                     <br/>
-    #                     <div>"""
-    #                     mail_temp.send_mail(self.id, email_values={
-    #                         'email_from': self.env.user.login,
-    #                         'email_to': user_email,
-    #                         'subject': subject,
-    #                         'body_html': body,
-    #                     }, force_send=True)
-    #         rec.write({'state': 'top'})
-    #
-    # def button_top_managment_final_approved(self):
-    #     for rec in self:
-    #         if rec.top_management_id:
-    #             user_email = rec.top_management_id.login
-    #             mail_temp = self.env.ref('iatf.sending_mail_template_risk_assessment')
-    #             if mail_temp:
-    #                 format_name = rec.format_id.name
-    #                 cust_name = rec.cust_id.name
-    #                 subject = f" Request for approving Risk Assessment {format_name} for {cust_name}"
-    #                 if user_email:
-    #                     body = """
-    #                     <div>
-    #                         <p>Dear Recipient  """ + str(user_email) + """,
-    #                             <br/><br/>
-    #                             Please, kindly Request To accept and approved Sending Approval for the Special Chracterhistics Matrix.
-    #                         <br></br>
-    #                         Thank you.
-    #                     <br/>
-    #                     <br/>
-    #                     <div>"""
-    #                     mail_temp.send_mail(self.id, email_values={
-    #                         'email_from': self.env.user.login,
-    #                         'email_to': user_email,
-    #                         'subject': subject,
-    #                         'body_html': body,
-    #                     }, force_send=True)
-    #         rec.write({'state': 'final_approved'})
+            # Open the image using PIL
+            image = PILImage.open(io.BytesIO(image_data))
+            width, height = image.size
+            aspect_ratio = width / height
+
+            if width > max_width:
+                width = max_width
+                height = int(width / aspect_ratio)
+
+            if height > max_height:
+                height = max_height
+                width = int(height * aspect_ratio)
+
+            # Resize the image using PIL
+            # Add space on the top and left side of the image
+            padding_top = 10  # Adjust as needed
+            padding_left = 10  # Adjust as needed
+
+            resized_image = image.resize((width, height), PILImage.LANCZOS)
+            ImageOps.expand(resized_image, border=(padding_left, padding_top, 0, 0), fill='rgba(0,0,0,0)')
+            img_bytes = io.BytesIO()
+            resized_image.save(img_bytes, format='PNG')
+            img_bytes.seek(0)
+            logo_image = Image(img_bytes)
+            # logo_image = Image(self.env.user.company_id.logo)
+            ws.add_image(logo_image, 'A1')
+
+        border = Border(top=Side(style='thin'), left=Side(style='thin'), right=Side(style='thin'),
+                        bottom=Side(style='thin'))
+        align_center = Alignment(vertical='center', horizontal='center', wrapText=True)
+        align_left = Alignment(vertical='center', horizontal='left')
+        font_header = Font(name='Arial', size=12, bold=True)
+        font_all = Font(name='Times New Roman', size=11, bold=False)
+        grey_fill = PatternFill(start_color='D3D3D3', end_color='D3D3D3', fill_type='solid')
+        blue_fill = PatternFill(start_color='5B9BD5', end_color='5B9BD5', fill_type='solid')
+
+        data = {
+            'C1': 'SPECIAL CHARACTERISTICS MATRIX',
+            'I1': 'EQP-01',
+            'H2': 'REV. LEVEL :',
+            'H3': 'REV. DATE :',
+            'A4': 'CUSTOMER :',
+            'A5': 'CUSTOMER PART NO:',
+            'A6': 'CUSTOMER PART NAME:',
+            'A7': 'FAL PART CODE :',
+            'A8': 'FOR CUSTOMER PRINT REVISION LEVEL AND DATE REFER EQP-02',
+            'A9': 'Sl. No.',
+            'B9': 'PRODUCT   CHARACTERISTICS',
+            'B10': 'PARAMETER',
+            'D10': 'SYMBOL DESIGNATED',
+            'E10': 'SPECIFICATION',
+            'F9': 'CLASSIFICATION PRODUCT/PROCESS',
+            'G9': 'BASIS (FIT/FUNCTION/SAFETY/ GOVT/REGULATIONS/PERFORMANCE/CUSTOMER DESIGNATED)',
+            'H9': 'RELEVANT PROCESS CHARACTERISTICS',
+            'A24': 'SIGN OFF',
+            'B24': 'TEAM MEMBERS',
+            'B25': 'ENGINEERING',
+            'B26': 'QUALITY',
+            'B27': 'PRDUCTION',
+            'B28': 'MATERIALS',
+            'B29': 'PPC',
+            'A32': 'PREPARED BY :',
+            'A33': 'DATE :',
+            'E32': 'APPROVED BY :',
+            'E33': 'DATE :',
+            'F34': 'FM-80717 REV NO.00 DATE: 19.01.2018'
+
+        }
+        for cell, value in data.items():
+            ws[cell] = value
+
+        for rows in ws.iter_rows(min_row=1, max_row=33, min_col=1, max_col=9):
+            for cell in rows:
+                cell.alignment = align_center
+                cell.border = border
+                cell.font = font_header
+
+        ws.merge_cells('A1:B1')
+        ws.merge_cells('C1:H1')
+        ws.merge_cells('A2:G3')
+
+        ws.merge_cells('A4:B4')
+        ws.merge_cells('C4:I4')
+        ws.merge_cells('A5:B5')
+        ws.merge_cells('C5:I5')
+        ws.merge_cells('A6:B6')
+        ws.merge_cells('C6:I6')
+        ws.merge_cells('A7:B7')
+        ws.merge_cells('C7:I7')
+        ws.merge_cells('A8:I8')
+        ws.merge_cells('B9:E9')
+        ws.merge_cells('A9:A10')
+        ws.merge_cells('F9:F10')
+        ws.merge_cells('G9:G10')
+        ws.merge_cells('C32:D32')
+
+        ws.merge_cells('B10:C10')
+
+        ws.merge_cells('H9:I10')
+        ws.merge_cells('B24:D24')
+        ws.merge_cells('H24:I24')
+        ws.merge_cells('A30:I30')
+        ws.merge_cells('A31:I31')
+        ws.merge_cells('A32:B32')
+        ws.merge_cells('A33:B33')
+        ws.merge_cells('C33:D33')
+        ws.merge_cells('F32:I32')
+        ws.merge_cells('F33:I33')
+        ws.merge_cells('F34:I34')
+
+        for row in range(25, 30):
+            ws.merge_cells(f'C{row}:D{row}')
+
+        for row in range(11, 24):
+            ws.merge_cells(f'B{row}:C{row}')
+
+        for row in range(11, 30):
+            ws.merge_cells(f'H{row}:I{row}')
+
+        ws['C1'].font = Font(bold=True, size=22, name='Times New Roman')
+
+        ws.column_dimensions['A'].width = 15
+        ws.column_dimensions['B'].width = 20
+        ws.column_dimensions['C'].width = 21
+        ws.column_dimensions['D'].width = 17
+        ws.column_dimensions['E'].width = 27
+        ws.column_dimensions['F'].width = 23
+        ws.column_dimensions['G'].width = 30
+        ws.column_dimensions['H'].width = 16
+        ws.column_dimensions['I'].width = 11
+
+        ws.row_dimensions[1].height = 33
+        ws.row_dimensions[2].height = 21
+        ws.row_dimensions[3].height = 21
+        ws.row_dimensions[4].height = 31
+        ws.row_dimensions[5].height = 27
+        ws.row_dimensions[6].height = 29
+        ws.row_dimensions[7].height = 27
+        ws.row_dimensions[8].height = 28
+        ws.row_dimensions[9].height = 42
+        ws.row_dimensions[10].height = 36
+        for i in range(11, 30):
+            ws.row_dimensions[i].height = 18
+        ws.row_dimensions[30].height = 36
+        ws.row_dimensions[31].height = 18
+        ws.row_dimensions[32].height = 24
+        ws.row_dimensions[33].height = 24
+        ws.row_dimensions[34].height = 19
+
+        wb.save(output)
+        output.seek(0)
+        self.generate_xls_file = base64.b64encode(output.getvalue()).decode('utf-8')
+        # endregion
+
+        return {
+            "type": "ir.actions.act_url",
+            "target": "self",
+            "url": "/web/content?model=special.characteristics.matrix&download=true&field=generate_xls_file&filename={filename}.xlsx&id={pid}".format(
+                filename="Special Characteristics Matrix", pid=self[0].id),
+        }
+
 
 class SpecialCharacterMatrixLine(models.Model):
     _name = 'special.characteristics.matrix.line'

@@ -39,10 +39,10 @@
                             attrs="{'invisible':[('final_status', '!=', 'pending')]}"/>
                     <widget name="web_ribbon" title="Draft" bg_color="bg-info"
                             attrs="{'invisible':[('final_status', '!=', 'draft')]}"/>
-                    <div class="oe_title text-center mb-5">
-                        <h1>LIST OF POKA-YOKE AND THEIR EFFECTIVENESS MONITORING PLAN</h1>
-                    </div>
-                    <div class="oe_title">
+                    <div class="oe_title ">
+                        <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
+                            <h1 style="color:#4492bd;">LIST OF POKA-YOKE AND THEIR EFFECTIVENESS MONITORING PLAN</h1>
+                        </div>
                         <label for="project_id" string="Project Name"/>
                         <h1>
                             <div class="d-flex">
@@ -59,14 +59,14 @@
                         <field name="user_has_access_to_approve" invisible="1"/>
                         <field name="final_status" invisible="1"/>
                     </group>
-                        <group>
-                            <field name="plan_start_date"/>
-                            <field name="plan_end_date"/>
-                        </group>
-                        <group>
-                            <field name="actual_start_date"/>
-                            <field name="actual_end_date"/>
-                        </group>
+                    <group>
+                        <field name="plan_start_date"/>
+                        <field name="plan_end_date"/>
+                    </group>
+                    <group>
+                        <field name="actual_start_date"/>
+                        <field name="actual_end_date"/>
+                    </group>
                     <div class="table-responsive p-0 m-0">
                         <notebook>
                             <page string="Poka Yoke">
