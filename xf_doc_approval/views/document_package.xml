@@ -98,7 +98,7 @@
                                                optional="hide"/>
                                         <field name="department_ids" readonly='1' widget='many2many_tags'/>
                                         <field name="manager_ids" readonly='0' widget='many2many_tags'/>
-                                        <field name="formate_id" readonly='0' invisible='1'/>
+                                        <field name="formate_id" readonly='0' invisible='0'/>
                                         <field name="check_sequence" readonly='0' invisible='1'/>
 
                                         <field name="status" readonly='0' widget="badge"
