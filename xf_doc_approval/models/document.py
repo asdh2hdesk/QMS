@@ -857,8 +857,8 @@ class DocumentApproval(models.Model):
     def _compute_approval_status(self):
         for rec in self:
             rec.status = 'pending'
-            rec.actual_start_date = False
-            rec.actual_end_date = False
+            # rec.actual_start_date = False
+            # rec.actual_end_date = False
 
             # Skip if it's an independent document
             if not rec.include_vals or not rec.formate_id or not rec.formate or not rec.formate.table:
@@ -902,7 +902,8 @@ class DocumentApproval(models.Model):
     #     self.formate_id = formate_id.id
 
     def create_formate(self):
-        vals = {}
+        if not self.formate or not self.formate.table:
+            raise ValidationError("Format or format table is not set.")
 
         if self.include_vals:
             if not self.document_package_id:
@@ -922,7 +923,7 @@ class DocumentApproval(models.Model):
                 })
                 iatf_member_data_ids.append(iatf_member_data.id)
 
-            vals.update({
+            vals = {
                 'project_id': self.document_package_id.id,
                 'doc_type': self.document_package_id.doc_type,
                 'part_id': self.document_package_id.part_id.id,
@@ -931,11 +932,11 @@ class DocumentApproval(models.Model):
                 'plan_end_date': self.plan_end_date,
                 'iatf_members_ids': [(6, 0, iatf_member_data_ids)],
                 'actual_start_date': fields.Date.context_today(self),
-            })
+            }
 
-            # Create format with values (with required fields already satisfied)
+            # Create format record for non-independent documents
             formate_id = self.env[self.formate.table].sudo().create(vals)
-            self.formate_id = formate_id.id
+            self.formate_id = str(formate_id.id)  # Ensure string type for Char field
 
             return {
                 'type': 'ir.actions.act_window',
@@ -944,18 +945,21 @@ class DocumentApproval(models.Model):
                 'res_model': self.formate.table,
                 'res_id': formate_id.id,
                 'target': 'current',
-                'context': {'create': False}
+                'context': {'create': False, 'default_formate_id': self.id}
             }
-
         else:
-            # Independent: Open form view without creating record
+            # For independent documents, create a minimal record just to establish the link
+            formate_id = self.env[self.formate.table].sudo().create({})
+            self.formate_id = str(formate_id.id)
+
             return {
                 'type': 'ir.actions.act_window',
                 'name': self.formate.name,
                 'view_mode': 'form',
                 'res_model': self.formate.table,
-                'target': 'current',
-                'context': {'default_formate_id': self.id}  # optional, for back-reference
+                'res_id': formate_id.id,
+                'target': 'new',
+                'context': {'default_formate_id': self.id}
             }
 
     @api.onchange('formate')
