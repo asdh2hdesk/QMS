@@ -762,6 +762,7 @@ class ProcessFlowLine(models.Model):
     _name = 'process.flow.line'
     _description = 'Process Flow Line'
     _inherit = "translation.mixin"
+    _rec_name = 'step'
 
     process_flow_id = fields.Many2one(
         comodel_name='process.flow',
