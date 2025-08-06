@@ -10,6 +10,7 @@ class ResUsers(models.Model):
     _inherit = 'res.users'
 
     onesignal_player_id = fields.Char('OneSignal Player ID')
+    onesignal_device_info = fields.Text('Device Info')
 
     def update_onesignal_player_id(self, player_id):
         """Update the current user's OneSignal Player ID"""
