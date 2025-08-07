@@ -46,7 +46,10 @@ class MailMessage(models.Model):
             from odoo.tools import html2plaintext
             clean_body = html2plaintext(body)[:100]  # Limit to 100 chars
 
-            title = f"New message from {author_name}"
+            if author_name == 'OdooBot':
+                title = f"New message from {'ASD'}"
+            else:
+                title = f"New message from {author_name}"
             content = f"{subject}: {clean_body}"
 
             # Additional data for the notification
