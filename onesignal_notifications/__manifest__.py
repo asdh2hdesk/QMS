@@ -1,19 +1,22 @@
 {
     'name': 'OneSignal Notifications',
-    'version': '1.0',
-    'category': 'Extra Tools',
-    'summary': 'OneSignal Push Notifications Integration',
+    'version': '16.0.1.0.0',
+    'category': 'Tools',
+    'summary': 'Send notifications to Flutter app via OneSignal',
     'description': '''
-        This module integrates OneSignal push notifications with Odoo.
-        It sends notifications for:
-        - New chat messages
-        - New emails
-        - Approval requests
+        This module integrates Odoo with OneSignal to send push notifications
+        for chat messages, alerts, and emails to your Flutter mobile application.
     ''',
-    'depends': ['base', 'mail'],
+    'author': 'Your Company',
+    'website': 'https://www.yourcompany.com',
+    'depends': ['base', 'mail', 'web'],
     'data': [
-        'data/ir_config_parameter.xml',
+        'security/ir.model.access.csv',
+        'views/onesignal_config_views.xml',
+        'views/menu_views.xml',
+        'data/ir_cron.xml',
     ],
     'installable': True,
     'auto_install': False,
+    'application': True,
 }

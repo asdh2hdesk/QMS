@@ -9,64 +9,116 @@ class MailMessage(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
+        """Override create to send OneSignal notifications for new messages"""
         messages = super().create(vals_list)
 
-        for message in messages:
-            self._send_notification_for_message(message)
+        try:
+            config = self.env['onesignal.config'].get_active_config()
+
+            for message in messages:
+                # Send notification for chat messages
+                if (config.send_chat_notifications and
+                        message.message_type == 'comment' and
+                        not message.is_internal):
+
+                    self._send_chat_notification(message)
+
+                # Send notification for emails
+                elif (config.send_email_notifications and
+                      message.message_type == 'email'):
+
+                    self._send_email_notification(message)
+
+        except Exception as e:
+            _logger.error(f"Error sending OneSignal notification: {str(e)}")
 
         return messages
 
-    def _send_notification_for_message(self, message):
-        """Send OneSignal notification for new messages"""
+    def _send_chat_notification(self, message):
+        """Send OneSignal notification for chat messages"""
         try:
-            # Skip system messages
-            if message.message_type == 'notification':
-                return
+            # Get message details
+            author_name = message.author_id.name if message.author_id else 'User'
+            subject = message.subject or 'New Message'
+            body = message.body or ''
 
-            # Handle different message types
-            if message.message_type == 'email':
-                self._handle_email_notification(message)
-            elif message.message_type == 'comment':
-                self._handle_chat_notification(message)
+            # Clean HTML from body
+            from odoo.tools import html2plaintext
+            clean_body = html2plaintext(body)[:100]  # Limit to 100 chars
+
+            title = f"New message from {author_name}"
+            content = f"{subject}: {clean_body}"
+
+            # Additional data for the notification
+            data = {
+                'type': 'chat',
+                'message_id': message.id,
+                'author_id': message.author_id.id if message.author_id else None,
+                'model': message.model,
+                'res_id': message.res_id,
+            }
+
+            self.env['onesignal.notification'].send_notification(
+                title=title,
+                message=content,
+                notification_type='chat',
+                data=data
+            )
 
         except Exception as e:
-            _logger.error(f"Error handling message notification: {e}")
+            _logger.error(f"Error sending chat notification: {str(e)}")
 
-    def _handle_email_notification(self, message):
-        """Handle email notifications"""
-        if message.partner_ids:
-            for partner in message.partner_ids:
-                if partner.user_ids:
-                    user = partner.user_ids[0]
-                    title = "New Email"
-                    content = f"From: {message.author_id.name}\nSubject: {message.subject or 'No Subject'}"
+    def _send_email_notification(self, message):
+        """Send OneSignal notification for email messages"""
+        try:
+            author_name = message.author_id.name if message.author_id else 'Unknown Sender'
+            subject = message.subject or 'New Email'
 
-                    user.send_onesignal_notification(
-                        title,
-                        content,
-                        data={
-                            'type': 'mail',
-                            'message_id': message.id,
-                            'model': message.model,
-                            'res_id': message.res_id
-                        }
-                    )
+            title = f"New email from {author_name}"
+            content = f"Subject: {subject}"
 
-    def _handle_chat_notification(self, message):
-        """Handle chat notifications"""
-        if message.partner_ids:
-            for partner in message.partner_ids:
-                if partner.user_ids and message.author_id.id != partner.id:
-                    user = partner.user_ids[0]
-                    title = f"New message from {message.author_id.name}"
-                    content = message.body or "New message received"
+            data = {
+                'type': 'email',
+                'message_id': message.id,
+                'author_id': message.author_id.id if message.author_id else None,
+            }
 
-                    user.send_onesignal_notification(
-                        title,
-                        content,
-                        data={
-                            'type': 'chat',
-                            'message_id': message.id,
-                            'author_id': message.author_id.id
-                        }
-                    )
+            self.env['onesignal.notification'].send_notification(
+                title=title,
+                message=content,
+                notification_type='email',
+                data=data
+            )
+
+        except Exception as e:
+            _logger.error(f"Error sending email notification: {str(e)}")
+
+
+# Helper class for custom notifications
+class OneSignalHelper(models.TransientModel):
+    _name = 'onesignal.helper'
+    _description = 'OneSignal Helper Methods'
+
+    @api.model
+    def send_alert(self, title, message, data=None):
+        """Send alert notification"""
+        return self.env['onesignal.notification'].send_notification(
+            title=title,
+            message=message,
+            notification_type='alert',
+            data=data
+        )
+
+    @api.model
+    def send_custom_notification(self, title, message, recipient_ids=None,
+                                 segments=None, data=None, url=None):
+        """Send custom notification"""
+        return self.env['onesignal.notification'].send_notification(
+            title=title,
+            message=message,
+            notification_type='custom',
+            recipient_ids=recipient_ids,
+            segments=segments,
+            data=data,
+            url=url
+        )

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_onesignal_main"
+              name="OneSignal"
+              sequence="100"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_onesignal_config"
+              name="Configuration"
+              parent="menu_onesignal_main"
+              action="action_onesignal_config"
+              sequence="10"/>
+
+    <!-- Notifications Menu -->
+    <menuitem id="menu_onesignal_notifications"
+              name="Notifications"
+              parent="menu_onesignal_main"
+              action="action_onesignal_notification"
+              sequence="20"/>
+</odoo>
