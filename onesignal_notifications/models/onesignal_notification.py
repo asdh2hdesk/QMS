@@ -45,6 +45,7 @@ class OneSignalNotification(models.Model):
                           data=None, url=None, large_icon=None, big_picture=None):
         """Send notification via OneSignal API"""
 
+        notification = None
         try:
             config = self.env['onesignal.config'].get_active_config()
 
@@ -89,11 +90,10 @@ class OneSignalNotification(models.Model):
             if big_picture:
                 payload['big_picture'] = big_picture
 
-            # Send notification
+            # Send notification - THIS WAS THE BUG!
             headers = {
-                'Authorization': self.rest_api_key,
-                'Content-Type': 'application/json; charset=utf-8',
-                'Accept': 'application/json'
+                'Authorization': f'Basic {config.rest_api_key}',  # Fixed: was self.rest_api_key
+                'Content-Type': 'application/json'
             }
 
             response = requests.post(
@@ -123,7 +123,7 @@ class OneSignalNotification(models.Model):
         except Exception as e:
             error_msg = f"Failed to send OneSignal notification: {str(e)}"
             _logger.error(error_msg)
-            if 'notification' in locals():
+            if notification:
                 notification.write({
                     'status': 'failed',
                     'error_message': error_msg
