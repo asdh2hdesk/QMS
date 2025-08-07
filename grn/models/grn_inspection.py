@@ -614,12 +614,6 @@ class IncomingIRLine(models.Model):
 class InspectionObservation(models.Model):
     _name = 'grn.inspection.observation'
     _description = 'Inspection Observations'
-    _inherit = "translation.mixin"
-
-
-
-
-
 
 
     inspection_line_id = fields.Many2one(
@@ -632,7 +626,7 @@ class InspectionObservation(models.Model):
     observation_number = fields.Integer(string="Sr.No.", required=True)
     part_sample_no = fields.Char(string="Part Sample No.")
 
-    observation_value = fields.Char(string="Observation",translate=True)
+    observation_value = fields.Char(string="Observation")
 
     # # time_date_inspection = fields.Datetime(string="Time & Date of Inspection")
     # attachment_1 = fields.Binary(string="Attachment 1")

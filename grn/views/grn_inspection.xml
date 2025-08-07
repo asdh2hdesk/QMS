@@ -296,26 +296,26 @@
 
 
         <!-- Inspection Observations Form View -->
-        <record id="view_inspection_observation_form" model="ir.ui.view">
-            <field name="name">grn.inspection.observation.form</field>
-            <field name="model">grn.inspection.observation</field>
-            <field name="arch" type="xml">
-                <form string="Inspection Observation">
-                    <sheet>
-                        <group>
+<!--        <record id="view_inspection_observation_form" model="ir.ui.view">-->
+<!--            <field name="name">grn.inspection.observation.form</field>-->
+<!--            <field name="model">grn.inspection.observation</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form string="Inspection Observation">-->
+<!--                    <sheet>-->
+<!--                        <group>-->
 
-                            <field name="observation_number"/>
-                            <!--                            <field name="part_sample_no"/>-->
-                            <field name="observation_value"/>
+<!--                            <field name="observation_number"/>-->
+<!--                            &lt;!&ndash;                            <field name="part_sample_no"/>&ndash;&gt;-->
+<!--                            <field name="observation_value"/>-->
 
-                            <!--                            <field name="time_date_inspection"/>-->
-                        </group>
+<!--                            &lt;!&ndash;                            <field name="time_date_inspection"/>&ndash;&gt;-->
+<!--                        </group>-->
 
 
-                    </sheet>
-                </form>
-            </field>
-        </record>
+<!--                    </sheet>-->
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
         <!-- Inspection Report Menu -->
         <!--        <menuitem id="menu_grn_inspection_root" name="GRN Inspection"/>-->
         <menuitem id="menu_grn_inspection" name="Inspection Reports" parent="menu_grn_management_root"
