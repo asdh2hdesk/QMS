@@ -91,12 +91,12 @@ class ProcessFlow(models.Model):
         return records
 
     def update_pfmea(self):
-        pfmea_records = self.env["his.pfmea"].search([('project_id', '=', self.project_id.id)])
+        pfmea_records = self.env["asd.pfmea.one"].search([('project_id', '=', self.project_id.id)])
 
         for pfmea in pfmea_records:
             for operation in self.process_flow_line_ids.sorted(key="step"):
                 # Find existing PFMEA operation
-                pfmea_operation = self.env['his.pfmea.operations'].search([
+                pfmea_operation = self.env['asd.pfmea.one.operations'].search([
                     ('pfmea_id', '=', pfmea.id),
                     ('operation', '=', operation.step),
                 ], limit=1)
@@ -110,7 +110,7 @@ class ProcessFlow(models.Model):
                     })
                 else:
                     # Create new PFMEA operation
-                    pfmea_operation = self.env['his.pfmea.operations'].create({
+                    pfmea_operation = self.env['asd.pfmea.one.operations'].create({
                         'pfmea_id': pfmea.id,
                         'operation': operation.step,
                         'stage_pfmea': operation.stage.id,
@@ -119,7 +119,7 @@ class ProcessFlow(models.Model):
 
                 for i in operation.process_op_lines_ids:
                     # Find existing PFMEA operation line
-                    pfmea_operation_line = self.env['his.pfmea.operations.line'].search([
+                    pfmea_operation_line = self.env['asd.pfmea.one.operations.line'].search([
                         ('pfmea_operation_id', '=', pfmea_operation.id),
                         ('process_step', '=', i.element_no)
                     ], limit=1)
@@ -132,7 +132,7 @@ class ProcessFlow(models.Model):
                         })
                     else:
                         # Create new PFMEA operation line
-                        self.env['his.pfmea.operations.line'].create({
+                        self.env['asd.pfmea.one.operations.line'].create({
                             'pfmea_operation_id': pfmea_operation.id,
                             'process_step': i.element_no,
                             'process_desc': i.element_desc,
