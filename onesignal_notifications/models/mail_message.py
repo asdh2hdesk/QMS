@@ -80,6 +80,7 @@ class MailMessage(models.Model):
         except Exception as e:
             _logger.error(f"Error sending chat notification: {str(e)}")
 
+    # In _get_target_users_for_message method, fix the user filtering
     def _get_target_users_for_message(self, message):
         """Determine which users should receive the notification"""
         target_users = self.env['res.users']
@@ -87,66 +88,38 @@ class MailMessage(models.Model):
         try:
             # Method 1: Check partner_ids (direct recipients)
             if message.partner_ids:
-                partner_users = message.partner_ids.mapped('user_ids').filtered('onesignal_player_id')
-                target_users |= partner_users
-                _logger.info(f"Found {len(partner_users)} users from partner_ids")
+                for partner in message.partner_ids:
+                    # Get the user associated with this partner
+                    user = self.env['res.users'].search([('partner_id', '=', partner.id)], limit=1)
+                    if user and user.onesignal_player_id:
+                        target_users |= user
+                        _logger.info(f"Found user from partner: {user.login}")
 
-            # Method 2: Check followers of the record
-            if message.model and message.res_id:
-                try:
-                    record = self.env[message.model].browse(message.res_id)
-                    if hasattr(record, 'message_follower_ids'):
-                        follower_partners = record.message_follower_ids.mapped('partner_id')
-                        follower_users = follower_partners.mapped('user_ids').filtered('onesignal_player_id')
-                        target_users |= follower_users
-                        _logger.info(f"Found {len(follower_users)} follower users")
-                except Exception as e:
-                    _logger.warning(f"Could not get followers for {message.model}: {str(e)}")
-
-            # Method 3: Check if it's a direct message (private channel)
-            if message.model == 'mail.channel':
+            # Method 2: For mail.channel (chat messages)
+            if message.model == 'mail.channel' and message.res_id:
                 try:
                     channel = self.env['mail.channel'].browse(message.res_id)
-                    if channel and hasattr(channel, 'channel_member_ids'):
-                        member_partners = channel.channel_member_ids.mapped('partner_id')
-                        member_users = member_partners.mapped('user_ids').filtered('onesignal_player_id')
-                        target_users |= member_users
-                        _logger.info(f"Found {len(member_users)} channel member users")
+                    if channel:
+                        # Get all channel members
+                        for member in channel.channel_member_ids:
+                            user = self.env['res.users'].search([('partner_id', '=', member.partner_id.id)], limit=1)
+                            if user and user.onesignal_player_id:
+                                target_users |= user
+                                _logger.info(f"Found channel member: {user.login}")
                 except Exception as e:
                     _logger.warning(f"Could not get channel members: {str(e)}")
 
-            # Method 4: For specific models, add custom logic
-            if message.model == 'project.task':
-                try:
-                    task = self.env['project.task'].browse(message.res_id)
-                    if task:
-                        # Notify assigned users
-                        assigned_users = task.user_ids.filtered('onesignal_player_id')
-                        target_users |= assigned_users
-                        _logger.info(f"Found {len(assigned_users)} assigned task users")
-                except Exception as e:
-                    _logger.warning(f"Could not get task users: {str(e)}")
+            # IMPORTANT: Remove the message author from receiving notification
+            if message.author_id:
+                author_user = self.env['res.users'].search([('partner_id', '=', message.author_id.id)], limit=1)
+                if author_user:
+                    target_users -= author_user
+                    _logger.info(f"Excluded author {author_user.login} from notifications")
 
-            # Method 5: For sale orders, notify salesperson
-            elif message.model == 'sale.order':
-                try:
-                    sale_order = self.env['sale.order'].browse(message.res_id)
-                    if sale_order and sale_order.user_id and sale_order.user_id.onesignal_player_id:
-                        target_users |= sale_order.user_id
-                        _logger.info(f"Added sale order user: {sale_order.user_id.login}")
-                except Exception as e:
-                    _logger.warning(f"Could not get sale order user: {str(e)}")
-
-            # Exclude the author from receiving their own message notification
-            if message.author_id and message.author_id.user_ids:
-                author_users = message.author_id.user_ids
-                target_users -= author_users
-                _logger.info(f"Excluded author {message.author_id.name} from notifications")
-
-            # Remove duplicates and filter active users
+            # Final filtering
             target_users = target_users.filtered(lambda u: u.active and u.onesignal_player_id)
 
-            _logger.info(f"Final target users for notification: {[u.login for u in target_users]}")
+            _logger.info(f"Final target users: {[u.login for u in target_users]}")
             return target_users
 
         except Exception as e:
