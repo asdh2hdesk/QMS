@@ -9,7 +9,7 @@
     ''',
     'author': 'Your Company',
     'website': 'https://www.yourcompany.com',
-    'depends': ['base', 'mail', 'web'],
+    'depends': ['base', 'mail', 'web', 'project', 'sale'],
     'data': [
         'security/ir.model.access.csv',
         'views/onesignal_config_views.xml',
