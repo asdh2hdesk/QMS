@@ -31,35 +31,27 @@ class OneSignalConfig(models.Model):
         return config
 
     def test_connection(self):
-        """Test OneSignal API connection with better error handling"""
+        """Test OneSignal API connection"""
         try:
-            # Test by sending a simple notification to verify credentials
-            url = "https://onesignal.com/api/v1/notifications"
+            # Test by getting app details
+            url = f"https://onesignal.com/api/v1/apps/{self.app_id}"
 
             headers = {
                 'Authorization': f'Basic {self.rest_api_key}',
                 'Content-Type': 'application/json'
             }
 
-            # Send test notification to a dummy player ID to test credentials
-            payload = {
-                'app_id': self.app_id,
-                'include_player_ids': ['00000000-0000-0000-0000-000000000000'],  # Dummy ID
-                'headings': {'en': 'Test Connection'},
-                'contents': {'en': 'Testing OneSignal connection'},
-            }
-
-            response = requests.post(url, headers=headers, json=payload, timeout=10)
-
-            _logger.info(f"OneSignal test response: {response.status_code} - {response.text}")
+            response = requests.get(url, headers=headers, timeout=10)
 
             if response.status_code == 200:
+                app_data = response.json()
+                app_name = app_data.get('name', 'Unknown App')
                 return {
                     'type': 'ir.actions.client',
                     'tag': 'display_notification',
                     'params': {
                         'title': 'Success!',
-                        'message': 'OneSignal credentials are valid!',
+                        'message': f'OneSignal connection successful! App: {app_name}',
                         'type': 'success',
                     }
                 }
@@ -75,7 +67,6 @@ class OneSignalConfig(models.Model):
                 }
 
         except Exception as e:
-            _logger.error(f"OneSignal connection test failed: {str(e)}")
             return {
                 'type': 'ir.actions.client',
                 'tag': 'display_notification',
