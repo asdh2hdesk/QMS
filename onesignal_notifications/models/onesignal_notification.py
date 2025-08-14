@@ -110,6 +110,9 @@ class OneSignalNotification(models.Model):
                     'onesignal_id': result.get('id')
                 })
                 _logger.info(f"OneSignal notification sent successfully: {result.get('id')}")
+                # _logger.info(f"OneSignal notification sent successfully: {result.get('recipient_ids')}")
+                _logger.debug(f"Full OneSignal response: {json.dumps(result, indent=2)}")
+
                 return notification
             else:
                 error_msg = f"OneSignal API error: {response.status_code} - {response.text}"
