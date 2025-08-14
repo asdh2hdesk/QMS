@@ -35,6 +35,7 @@ class MailMessage(models.Model):
 
         return messages
 
+
     def _send_chat_notification(self, message):
         """Send OneSignal notification for chat messages"""
         try:

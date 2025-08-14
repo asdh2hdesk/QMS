@@ -17,6 +17,7 @@ class OneSignalConfig(models.Model):
     user_auth_key = fields.Char('User Auth Key', help='Your OneSignal User Auth Key (optional)')
     active = fields.Boolean('Active', default=True)
 
+
     # Notification settings
     send_chat_notifications = fields.Boolean('Send Chat Notifications', default=True)
     send_email_notifications = fields.Boolean('Send Email Notifications', default=True)
