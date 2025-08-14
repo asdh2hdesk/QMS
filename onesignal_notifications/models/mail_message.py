@@ -214,7 +214,7 @@ class OneSignalNotification(models.Model):
 # ISSUE 3: Add debugging method to test notifications
 
 class OneSignalHelper(models.TransientModel):
-    _inherit = 'onesignal.helper'
+    _name = 'onesignal.helper'
 
     @api.model
     def debug_user_notifications(self, user_id=None):
