@@ -8,19 +8,25 @@ _logger = logging.getLogger(__name__)
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
+    device_ids = fields.One2many(
+        "res.users.device",
+        "user_id",
+        string="Devices"
+    )
+
     # OneSignal Player ID field
-    onesignal_player_id = fields.Char(
-        'OneSignal Player ID',
-        help="OneSignal Player ID for push notifications"
-    )
-    onesignal_device_info = fields.Text(
-        'Device Info',
-        help="Device information for OneSignal"
-    )
-    onesignal_last_updated = fields.Datetime(
-        'OneSignal Last Updated',
-        default=fields.Datetime.now
-    )
+    # onesignal_player_id = fields.Char(
+    #     'OneSignal Player ID',
+    #     help="OneSignal Player ID for push notifications"
+    # )
+    # onesignal_device_info = fields.Text(
+    #     'Device Info',
+    #     help="Device information for OneSignal"
+    # )
+    # onesignal_last_updated = fields.Datetime(
+    #     'OneSignal Last Updated',
+    #     default=fields.Datetime.now
+    # )
 
     def update_onesignal_player_id(self, player_id, device_info=None):
         """Update OneSignal Player ID for current user"""
@@ -34,23 +40,24 @@ class ResUsers(models.Model):
         return True
 
     def send_notification_to_user(self, title, message, notification_type='custom', data=None):
-        """Send notification to this specific user"""
-        if not self.onesignal_player_id:
-            _logger.warning(f"No OneSignal Player ID found for user {self.login}")
+        """Send notification to all active devices of this user"""
+        devices = self.device_ids.filtered(lambda d: d.active)
+        if not devices:
             return False
 
-        try:
-            # Use the existing OneSignal notification system but target specific user
-            return self.env['onesignal.notification'].send_notification(
-                title=title,
-                message=message,
-                notification_type=notification_type,
-                recipient_ids=[self.onesignal_player_id],  # Send only to this user
-                data=data
-            )
-        except Exception as e:
-            _logger.error(f"Error sending notification to user {self.login}: {str(e)}")
-            return False
+        player_ids = devices.mapped("player_id")
+
+        return self.env["onesignal.notification"].send_notification(
+            title=title,
+            message=message,
+            notification_type=notification_type,
+            recipient_ids=player_ids,
+            data=data
+        )
+        #
+        # except Exception as e:
+        #     _logger.error(f"Error sending notification to user {self.login}: {str(e)}")
+        #     return False
 
     def send_chat_notification(self, sender_name, message, channel_id=None):
         """Send chat notification to this user"""

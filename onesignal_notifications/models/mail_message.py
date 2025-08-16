@@ -36,23 +36,16 @@ class MailMessage(models.Model):
 
         return messages
 
-
     def _send_chat_notification(self, message):
-        """Send OneSignal notification for chat messages"""
         try:
-            # Get message details
             author_name = message.author_id.name if message.author_id else 'User'
             subject = message.subject or 'New Message'
             body = message.body or ''
 
-            # Clean HTML from body
             from odoo.tools import html2plaintext
-            clean_body = html2plaintext(body)[:100]  # Limit to 100 chars
+            clean_body = html2plaintext(body)[:100]
 
-            if author_name == 'OdooBot':
-                title = f"New message from {'ASD'}"
-            else:
-                title = f"New message from {author_name}"
+            title = f"New message from {'ASD' if author_name == 'OdooBot' else author_name}"
             content = f"{subject}: {clean_body}"
 
             # Additional data for the notification
@@ -64,18 +57,24 @@ class MailMessage(models.Model):
                 'res_id': message.res_id,
             }
 
+            # 👇 Collect active device player_ids
             recipient_ids = []
             for partner in message.partner_ids:
                 for user in partner.user_ids:
-                    if user.onesignal_player_id:
-                        recipient_ids.append(user.onesignal_player_id)
+                    devices = self.env['res.users.device'].search([
+                        ('user_id', '=', user.id),
+                        ('active', '=', True)
+                    ])
+                    recipient_ids += devices.mapped('player_id')
 
-            self.env['onesignal.notification'].send_notification(
-                title=title,
-                message=content,
-                notification_type='chat',
-                data=data
-            )
+            if recipient_ids:
+                self.env['onesignal.notification'].send_notification(
+                    title=title,
+                    message=content,
+                    notification_type='chat',
+                    recipient_ids=recipient_ids,
+                    data=data
+                )
 
         except Exception as e:
             _logger.error(f"Error sending chat notification: {str(e)}")
