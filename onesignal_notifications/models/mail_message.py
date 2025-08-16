@@ -1,6 +1,7 @@
 from odoo import models, api
 import tools
 import logging
+import json
 
 _logger = logging.getLogger(__name__)
 
@@ -63,6 +64,12 @@ class MailMessage(models.Model):
                 'res_id': message.res_id,
             }
 
+            recipient_ids = []
+            for partner in message.partner_ids:
+                for user in partner.user_ids:
+                    if user.onesignal_player_id:
+                        recipient_ids.append(user.onesignal_player_id)
+
             self.env['onesignal.notification'].send_notification(
                 title=title,
                 message=content,
@@ -87,6 +94,12 @@ class MailMessage(models.Model):
                 'message_id': message.id,
                 'author_id': message.author_id.id if message.author_id else None,
             }
+
+            recipient_ids = []
+            for partner in message.partner_ids:
+                for user in partner.user_ids:
+                    if user.onesignal_player_id:
+                        recipient_ids.append(user.onesignal_player_id)
 
             self.env['onesignal.notification'].send_notification(
                 title=title,

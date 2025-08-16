@@ -111,7 +111,7 @@ class OneSignalNotification(models.Model):
                 })
                 _logger.info(f"OneSignal notification sent successfully: {result.get('id')}")
                 # _logger.info(f"OneSignal notification sent successfully: {result.get('recipient_ids')}")
-                _logger.debug(f"Full OneSignal response: {json.dumps(result, indent=2)}")
+                _logger.info(f"Full OneSignal response: {json.dumps(result, indent=2)}")
 
                 return notification
             else:
@@ -145,3 +145,16 @@ class OneSignalNotification(models.Model):
         old_notifications.unlink()
         _logger.info(f"Cleaned {count} old OneSignal notifications")
         return count
+
+    def action_send_custom(self):
+        for rec in self:
+            self.env['onesignal.helper'].send_custom_notification(
+                title=rec.name,
+                message=rec.message,
+                recipient_ids=json.loads(rec.recipient_ids) if rec.recipient_ids else None,
+                segments=json.loads(rec.segments) if rec.segments else None,
+                data=json.loads(rec.data) if rec.data else None,
+                url=rec.url
+            )
+            rec.write({'status': 'sent'})
+        return True
