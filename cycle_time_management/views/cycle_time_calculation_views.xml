@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ========= Configuration Action ========= -->
+    <record id="action_cycle_time_configuration" model="ir.actions.act_window">
+        <field name="name">Formula Configuration</field>
+        <field name="res_model">cycle.time.configuration</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Formula Configuration!
+            </p>
+            <p>
+                Configure all calculation formulas used in cycle time calculations.
+            </p>
+        </field>
+    </record>
+
+    <!-- ========= Main Calculation Action ========= -->
+    <record id="action_cycle_time_calculation" model="ir.actions.act_window">
+        <field name="name">Cycle Time Calculations</field>
+        <field name="res_model">cycle.time.calculation</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Cycle Time Calculation!
+            </p>
+            <p>
+                Define Part Numbers, Operations, and Shift-wise cycle times to analyze manufacturing capacity.
+            </p>
+        </field>
+    </record>
+
+    <!-- ========= Menu Structure ========= -->
+    <menuitem id="menu_cycle_time_root"
+              name="Cycle Time Management"
+              sequence="10"/>
+
+    <menuitem id="menu_cycle_time_calculation"
+              name="Cycle Time Calculations"
+              parent="menu_cycle_time_root"
+              action="action_cycle_time_calculation"
+              sequence="1"/>
+
+    <menuitem id="menu_cycle_time_configuration"
+              name="Formula Configuration"
+              parent="menu_cycle_time_root"
+              action="action_cycle_time_configuration"
+              sequence="2"/>
+
+    <!-- ========= Configuration Views ========= -->
+    <record id="view_cycle_time_configuration_tree" model="ir.ui.view">
+        <field name="name">cycle.time.configuration.tree</field>
+        <field name="model">cycle.time.configuration</field>
+        <field name="arch" type="xml">
+            <tree string="Formula Configurations">
+                <field name="name"/>
+                <field name="active"/>
+                <field name="working_days_per_month"/>
+                <field name="shifts_per_day"/>
+                <button name="action_apply_to_all_calculations"
+                        string="Apply to All"
+                        type="object"
+                        class="btn-secondary"
+                        icon="fa-refresh"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_cycle_time_configuration_form" model="ir.ui.view">
+        <field name="name">cycle.time.configuration.form</field>
+        <field name="model">cycle.time.configuration</field>
+        <field name="arch" type="xml">
+            <form string="Formula Configuration">
+                <header>
+                    <button name="action_apply_to_all_calculations"
+                            string="Apply to All Calculations"
+                            type="object"
+                            class="btn-primary"
+                            icon="fa-refresh"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Configuration Name"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="active"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Basic Calculations">
+                            <group string="Time Conversions">
+                                <field name="shift_minutes_formula" widget="text"/>
+                                <field name="shift_seconds_formula" widget="text"/>
+                            </group>
+
+                            <group string="Volume Breakdown">
+                                <field name="volume_per_day_formula" widget="text"/>
+                                <field name="volume_per_shift_formula" widget="text"/>
+                                <field name="volume_per_hour_formula" widget="text"/>
+                                <field name="takt_time_seconds_formula" widget="text"/>
+                            </group>
+                        </page>
+
+                        <page string="Output Calculations">
+                            <group string="Standard Output">
+                                <field name="output_per_hour_formula" widget="text"/>
+                                <field name="output_per_shift_formula" widget="text"/>
+                                <field name="output_per_day_formula" widget="text"/>
+                                <field name="output_per_month_formula" widget="text"/>
+                                <field name="days_required_formula" widget="text"/>
+                            </group>
+                        </page>
+
+                        <page string="Efficiency Calculations">
+                            <group string="Actual Takt Time">
+                                <field name="actual_takt_time_base_formula" widget="text"/>
+                                <field name="actual_takt_time_seconds_eff_formula" widget="text"/>
+                                <field name="actual_takt_time_seconds_formula" widget="text"/>
+                            </group>
+
+                            <group string="Efficiency Output">
+                                <field name="efficiency_output_per_hour_formula" widget="text"/>
+                                <field name="efficiency_output_per_shift_formula" widget="text"/>
+                                <field name="efficiency_output_per_day_formula" widget="text"/>
+                                <field name="efficiency_output_per_month_formula" widget="text"/>
+                                <field name="efficiency_days_required_formula" widget="text"/>
+                            </group>
+                        </page>
+
+                        <page string="Available Variables">
+                            <div class="alert alert-info">
+                                <h4>Available Variables in Formulas:</h4>
+                                <ul>
+                                    <li><strong>shift_hours</strong> - Shift Hours</li>
+                                    <li><strong>cycle_time_minutes</strong> - Cycle Time in Minutes</li>
+                                    <li><strong>volume_per_month</strong> - Volume per Month</li>
+                                    <li><strong>plant_efficiency</strong> - Plant Efficiency %</li>
+                                    <li><strong>working_days_per_month</strong> - Working Days per Month</li>
+                                    <li><strong>shifts_per_day</strong> - Shifts per Day</li>
+                                    <li><strong>hours_per_day</strong> - Hours per Day</li>
+                                    <li><strong>seconds_per_day</strong> - Seconds per Day</li>
+                                </ul>
+                                <h4>Calculated Variables (available in later formulas):</h4>
+                                <ul>
+                                    <li><strong>shift_minutes</strong>, <strong>shift_seconds</strong></li>
+                                    <li><strong>volume_per_day</strong>, <strong>volume_per_shift</strong>, <strong>volume_per_hour</strong></li>
+                                    <li><strong>takt_time_seconds</strong>, <strong>cycle_time_seconds</strong></li>
+                                    <li><strong>output_per_hour</strong>, <strong>output_per_shift</strong>, <strong>output_per_day</strong>, <strong>output_per_month</strong></li>
+                                    <li><strong>days_required</strong>, <strong>actual_takt_time_base</strong></li>
+                                    <li><strong>actual_takt_time_seconds_eff</strong>, <strong>actual_takt_time_seconds</strong></li>
+                                    <li><strong>efficiency_output_per_hour</strong>, <strong>efficiency_output_per_shift</strong>, etc.</li>
+                                </ul>
+                                <h4>Example Formulas:</h4>
+                                <ul>
+                                    <li><code>shift_hours * 60</code></li>
+                                    <li><code>volume_per_month / working_days_per_month</code></li>
+                                    <li><code>((100 - plant_efficiency) / 100) * cycle_time_minutes + cycle_time_minutes</code></li>
+                                </ul>
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ========= Search Views ========= -->
+    <record id="view_cycle_time_configuration_search" model="ir.ui.view">
+        <field name="name">cycle.time.configuration.search</field>
+        <field name="model">cycle.time.configuration</field>
+        <field name="arch" type="xml">
+            <search string="Search Formula Configurations">
+                <field name="name"/>
+                <filter name="active" string="Active" domain="[('active', '=', True)]"/>
+                <filter name="inactive" string="Inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_cycle_time_calculation_search" model="ir.ui.view">
+        <field name="name">cycle.time.calculation.search</field>
+        <field name="model">cycle.time.calculation</field>
+        <field name="arch" type="xml">
+            <search string="Search Cycle Time Calculations">
+                <field name="sr_no"/>
+                <field name="part_number"/>
+                <field name="part_name"/>
+                <field name="configuration_id"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ========= Tree View ========= -->
+    <record id="view_cycle_time_calculation_tree" model="ir.ui.view">
+        <field name="name">cycle.time.calculation.tree</field>
+        <field name="model">cycle.time.calculation</field>
+        <field name="arch" type="xml">
+            <tree string="Cycle Time Calculations">
+                <field name="sr_no"/>
+                <field name="part_number"/>
+                <field name="part_name"/>
+                <field name="configuration_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ========= Kanban View ========= -->
+    <record id="view_cycle_time_calculation_kanban" model="ir.ui.view">
+        <field name="name">cycle.time.calculation.kanban</field>
+        <field name="model">cycle.time.calculation</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_record_top mb16">
+                                <strong class="o_kanban_record_title">
+                                    <field name="part_name"/>
+                                </strong>
+                                <div class="o_kanban_record_body">
+                                    <span>Sr. No: <field name="sr_no"/></span><br/>
+                                    <span>Operations: <field name="operation_shift_ids" widget="statinfo"/></span><br/>
+                                    <span>Config: <field name="configuration_id"/></span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ========= Form View ========= -->
+    <record id="view_cycle_time_calculation_form" model="ir.ui.view">
+        <field name="name">cycle.time.calculation.form</field>
+        <field name="model">cycle.time.calculation</field>
+        <field name="arch" type="xml">
+            <form string="Cycle Time Calculation">
+                <header>
+                    <button name="action_show_calculation_details"
+                            string="Show Details"
+                            type="object"
+                            class="btn-secondary"
+                            icon="fa-info"
+                            attrs="{'invisible': [('id', '=', False)]}"/>
+                    <button name="action_calculate_all"
+                            string="Recalculate All"
+                            type="object"
+                            class="btn-secondary"
+                            icon="fa-refresh"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="sr_no"/>
+                            <field name="part_number"/>
+                            <field name="part_name" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="configuration_id" options="{'no_create': True}"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Operations and Shifts">
+                            <field name="operation_shift_ids">
+                                <tree editable="bottom">
+                                    <field name="s_no" string="Sr. No." readonly="1"/>
+                                    <field name="operation_pfd_id"/>
+                                    <field name="operation_name"/>
+                                    <field name="equipment_id"/>
+                                    <field name="cycle_time_minutes"/>
+                                    <field name="volume_per_month"/>
+                                    <field name="plant_efficiency"/>
+                                    <field name="efficiency_days_required" readonly="1"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <group>
+                                                <field name="operation_pfd_id"/>
+                                                <field name="operation_name"/>
+                                                <field name="equipment_id"/>
+                                            </group>
+                                            <group>
+                                                <field name="available_shift_working"/>
+                                                <field name="shift_hours"/>
+                                                <field name="cycle_time_minutes"/>
+                                                <field name="volume_per_month"/>
+                                                <field name="plant_efficiency"/>
+                                                <field name="efficiency_days_required" readonly="1"/>
+                                            </group>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ========= Updated Calculation Wizard Form View ========= -->
+    <record id="view_cycle_time_calculation_wizard_form" model="ir.ui.view">
+        <field name="name">cycle.time.calculation.wizard.form</field>
+        <field name="model">cycle.time.calculation.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Calculation Details">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Complete Calculation Details</h1>
+                        <h3><field name="calculation_id" readonly="1"/></h3>
+                    </div>
+
+                    <!-- HTML Table displaying all calculation details -->
+                    <notebook>
+                        <page string="Calculation Table">
+                            <field name="calculation_table_html" readonly="1" nolabel="1"/>
+                        </page>
+                    </notebook>
+
+                </sheet>
+                <footer>
+                    <button name="action_export_to_excel"
+                            string="Export to Excel"
+                            type="object"
+                            class="btn-secondary"
+                            icon="fa-download"/>
+                    <button string="Close" class="btn-primary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>
