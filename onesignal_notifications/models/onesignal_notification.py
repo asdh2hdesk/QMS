@@ -2,6 +2,7 @@ from odoo import models, fields, api
 import requests
 import json
 import logging
+import ast
 
 _logger = logging.getLogger(__name__)
 
@@ -148,13 +149,46 @@ class OneSignalNotification(models.Model):
 
     def action_send_custom(self):
         for rec in self:
+            recipient_ids = None
+            segments = None
+            data = None
+
+            # Handle recipient_ids
+            if rec.recipient_ids:
+                try:
+                    recipient_ids = json.loads(rec.recipient_ids)
+                except Exception:
+                    # fallback: try parsing as Python literal or wrap in list
+                    try:
+                        recipient_ids = ast.literal_eval(rec.recipient_ids)
+                    except Exception:
+                        recipient_ids = [rec.recipient_ids]
+
+            # Handle segments
+            if rec.segments:
+                try:
+                    segments = json.loads(rec.segments)
+                except Exception:
+                    try:
+                        segments = ast.literal_eval(rec.segments)
+                    except Exception:
+                        segments = [rec.segments]
+
+            # Handle data
+            if rec.data:
+                try:
+                    data = json.loads(rec.data)
+                except Exception:
+                    data = {"raw": rec.data}
+
             self.env['onesignal.helper'].send_custom_notification(
                 title=rec.name,
                 message=rec.message,
-                recipient_ids=json.loads(rec.recipient_ids) if rec.recipient_ids else None,
-                segments=json.loads(rec.segments) if rec.segments else None,
-                data=json.loads(rec.data) if rec.data else None,
+                recipient_ids=recipient_ids,
+                segments=segments,
+                data=data,
                 url=rec.url
             )
+
             rec.write({'status': 'sent'})
         return True
