@@ -1,7 +1,6 @@
 from odoo import models, api
-import tools
 import logging
-import json
+from odoo.tools import html2plaintext
 
 _logger = logging.getLogger(__name__)
 
@@ -22,13 +21,11 @@ class MailMessage(models.Model):
                 if (config.send_chat_notifications and
                         message.message_type == 'comment' and
                         not message.is_internal):
-
                     self._send_chat_notification(message)
 
                 # Send notification for emails
                 elif (config.send_email_notifications and
                       message.message_type == 'email'):
-
                     self._send_email_notification(message)
 
         except Exception as e:
@@ -42,11 +39,10 @@ class MailMessage(models.Model):
             subject = message.subject or 'New Message'
             body = message.body or ''
 
-            from odoo.tools import html2plaintext
-            clean_body = html2plaintext(body)[:100]
+            clean_body = html2plaintext(body)[:100] if body else ''
 
             title = f"New message from {'ASD' if author_name == 'OdooBot' else author_name}"
-            content = f"{subject}: {clean_body}"
+            content = f"{subject}: {clean_body}" if clean_body else subject
 
             # Additional data for the notification
             data = {
@@ -57,24 +53,56 @@ class MailMessage(models.Model):
                 'res_id': message.res_id,
             }
 
-            # 👇 Collect active device player_ids
+            # Collect recipient devices - IMPROVED LOGIC
             recipient_ids = []
-            for partner in message.partner_ids:
+
+            # Get partners from the message
+            partners = message.partner_ids
+
+            # For discuss/mail channels, also get followers if no specific partners
+            if not partners and message.model:
+                try:
+                    record = self.env[message.model].browse(message.res_id)
+                    if hasattr(record, 'message_partner_ids'):
+                        partners = record.message_partner_ids
+                    elif hasattr(record, 'partner_ids'):
+                        partners = record.partner_ids
+                except:
+                    pass
+
+            # Exclude the message author from notifications
+            if message.author_id and message.author_id.partner_id:
+                partners = partners.filtered(lambda p: p.id != message.author_id.partner_id.id)
+
+            # Get active devices for all recipient partners
+            for partner in partners:
                 for user in partner.user_ids:
                     devices = self.env['res.users.device'].search([
                         ('user_id', '=', user.id),
-                        ('active', '=', True)
+                        ('active', '=', True),
+                        ('push_enabled', '=', True)  # Also check if push is enabled
                     ])
-                    recipient_ids += devices.mapped('player_id')
+                    recipient_ids.extend(devices.mapped('player_id'))
+
+            # Remove duplicates
+            recipient_ids = list(set(recipient_ids))
+
+            _logger.info(f"Sending chat notification to {len(recipient_ids)} devices")
 
             if recipient_ids:
-                self.env['onesignal.notification'].send_notification(
+                result = self.env['onesignal.notification'].send_notification(
                     title=title,
                     message=content,
                     notification_type='chat',
                     recipient_ids=recipient_ids,
                     data=data
                 )
+                if result:
+                    _logger.info(f"Chat notification sent successfully: {result.onesignal_id}")
+                else:
+                    _logger.warning("Chat notification failed to send")
+            else:
+                _logger.warning(f"No active devices found for message {message.id}")
 
         except Exception as e:
             _logger.error(f"Error sending chat notification: {str(e)}")
@@ -97,15 +125,21 @@ class MailMessage(models.Model):
             recipient_ids = []
             for partner in message.partner_ids:
                 for user in partner.user_ids:
-                    if user.onesignal_player_id:
-                        recipient_ids.append(user.onesignal_player_id)
+                    devices = self.env['res.users.device'].search([
+                        ('user_id', '=', user.id),
+                        ('active', '=', True),
+                        ('push_enabled', '=', True)
+                    ])
+                    recipient_ids.extend(devices.mapped('player_id'))
 
-            self.env['onesignal.notification'].send_notification(
-                title=title,
-                message=content,
-                notification_type='email',
-                data=data
-            )
+            if recipient_ids:
+                self.env['onesignal.notification'].send_notification(
+                    title=title,
+                    message=content,
+                    notification_type='email',
+                    recipient_ids=recipient_ids,
+                    data=data
+                )
 
         except Exception as e:
             _logger.error(f"Error sending email notification: {str(e)}")

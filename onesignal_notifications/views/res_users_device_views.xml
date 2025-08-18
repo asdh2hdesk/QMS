@@ -6,12 +6,18 @@
         <field name="name">res.users.device.tree</field>
         <field name="model">res.users.device</field>
         <field name="arch" type="xml">
-            <tree string="User Devices">
+            <tree string="User Devices" decoration-muted="not active" decoration-success="is_online">
                 <field name="user_id"/>
+                <field name="device_display_name"/>
+                <field name="device_type"/>
                 <field name="player_id"/>
-                <field name="device_name"/>
+                <field name="platform"/>
                 <field name="last_seen"/>
-                <field name="active"/>
+                <field name="days_since_seen"/>
+                <field name="is_online" widget="boolean_toggle"/>
+                <field name="push_enabled" widget="boolean_toggle"/>
+                <field name="active" widget="boolean_toggle"/>
+                <field name="created_at"/>
             </tree>
         </field>
     </record>
@@ -22,16 +28,170 @@
         <field name="model">res.users.device</field>
         <field name="arch" type="xml">
             <form string="User Device">
+                <header>
+                    <button name="toggle_push_notifications"
+                            string="Toggle Push Notifications"
+                            type="object"
+                            class="btn-secondary"/>
+                </header>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_push_notifications"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-bell"
+                                attrs="{'invisible': [('push_enabled', '=', False)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Push Enabled</span>
+                            </div>
+                        </button>
+                        <button name="toggle_push_notifications"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-bell-slash"
+                                attrs="{'invisible': [('push_enabled', '=', True)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Push Disabled</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <widget name="web_ribbon" title="Online" bg_color="bg-success"
+                            attrs="{'invisible': [('is_online', '=', False)]}"/>
+                    <widget name="web_ribbon" title="Offline" bg_color="bg-danger"
+                            attrs="{'invisible': [('is_online', '=', True)]}"/>
+
                     <group>
-                        <field name="user_id"/>
-                        <field name="player_id"/>
-                        <field name="device_name"/>
-                        <field name="last_seen"/>
-                        <field name="active"/>
+                        <group name="device_info" string="Device Information">
+                            <field name="user_id"/>
+                            <field name="device_display_name"/>
+                            <field name="device_name"/>
+                            <field name="device_type"/>
+                            <field name="platform"/>
+                        </group>
+                        <group name="technical_info" string="Technical Details">
+                            <field name="player_id" readonly="1"/>
+                            <field name="app_version"/>
+                            <field name="os_version"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <group name="status_info" string="Status">
+                            <field name="active"/>
+                            <field name="push_enabled"/>
+                            <field name="is_online"/>
+                            <field name="days_since_seen"/>
+                        </group>
+                        <group name="timestamps" string="Timestamps">
+                            <field name="created_at"/>
+                            <field name="last_seen"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <!-- Device Search View -->
+    <record id="view_res_users_device_search" model="ir.ui.view">
+        <field name="name">res.users.device.search</field>
+        <field name="model">res.users.device</field>
+        <field name="arch" type="xml">
+            <search string="Search User Devices">
+                <field name="user_id"/>
+                <field name="device_name"/>
+                <field name="player_id"/>
+                <field name="device_type"/>
+                <field name="platform"/>
+                <field name="last_seen"/>
+                <field name="created_at"/>
+
+                <filter name="active_devices" string="Active Devices"
+                        domain="[('active', '=', True)]"/>
+                <filter name="inactive_devices" string="Inactive Devices"
+                        domain="[('active', '=', False)]"/>
+                <filter name="push_enabled" string="Push Enabled"
+                        domain="[('push_enabled', '=', True)]"/>
+                <filter name="push_disabled" string="Push Disabled"
+                        domain="[('push_enabled', '=', False)]"/>
+
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_user" string="User"
+                            context="{'group_by': 'user_id'}"/>
+                    <filter name="group_by_device_type" string="Device Type"
+                            context="{'group_by': 'device_type'}"/>
+                    <filter name="group_by_platform" string="Platform"
+                            context="{'group_by': 'platform'}"/>
+                    <filter name="group_by_active" string="Status"
+                            context="{'group_by': 'active'}"/>
+                    <filter name="group_by_push_enabled" string="Push Status"
+                            context="{'group_by': 'push_enabled'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Kanban View for Devices -->
+    <record id="view_res_users_device_kanban" model="ir.ui.view">
+        <field name="name">res.users.device.kanban</field>
+        <field name="model">res.users.device</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="user_id"/>
+                <field name="device_display_name"/>
+                <field name="device_type"/>
+                <field name="last_seen"/>
+                <field name="is_online"/>
+                <field name="push_enabled"/>
+                <field name="active"/>
+                <field name="days_since_seen"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="device_display_name"/>
+                                    </strong>
+                                    <small class="o_kanban_record_subtitle text-muted">
+                                        <field name="user_id"/>
+                                    </small>
+                                </div>
+                                <div class="o_kanban_manage_button_section">
+                                    <a class="o_kanban_manage_toggle_button" href="#">
+                                        <i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="o_kanban_record_body">
+                                <div class="o_kanban_tags_section">
+                                    <span t-if="record.is_online.raw_value"
+                                          class="badge badge-success">Online</span>
+                                    <span t-else="" class="badge badge-secondary">Offline</span>
+
+                                    <span t-if="record.push_enabled.raw_value"
+                                          class="badge badge-info">Push Enabled</span>
+                                    <span t-else="" class="badge badge-warning">Push Disabled</span>
+
+                                    <span t-if="not record.active.raw_value"
+                                          class="badge badge-danger">Inactive</span>
+                                </div>
+
+                                <div class="mt8">
+                                    <i class="fa fa-mobile"/> <field name="device_type"/>
+                                    <br/>
+                                    <i class="fa fa-clock-o"/>
+                                    Last seen: <field name="days_since_seen"/> days ago
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
         </field>
     </record>
 
@@ -39,7 +199,34 @@
     <record id="action_res_users_device" model="ir.actions.act_window">
         <field name="name">User Devices</field>
         <field name="res_model">res.users.device</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'search_default_active_devices': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No devices registered yet!
+            </p>
+            <p>
+                Devices will appear here when users register for push notifications.
+                Make sure OneSignal is properly configured and integrated in your frontend.
+            </p>
+        </field>
+    </record>
+
+    <!-- Action for Active Devices Only -->
+    <record id="action_res_users_device_active" model="ir.actions.act_window">
+        <field name="name">Active Devices</field>
+        <field name="res_model">res.users.device</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('active', '=', True)]</field>
+        <field name="context">{'search_default_push_enabled': 1}</field>
+    </record>
+
+    <!-- Action for Online Devices -->
+    <record id="action_res_users_device_online" model="ir.actions.act_window">
+        <field name="name">Online Devices</field>
+        <field name="res_model">res.users.device</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('is_online', '=', True)]</field>
     </record>
 
     <!-- Device Menu -->
@@ -48,4 +235,18 @@
               parent="menu_onesignal_main"
               action="action_res_users_device"
               sequence="30"/>
+
+    <!-- Sub-menus for different device views -->
+    <menuitem id="menu_onesignal_devices_active"
+              name="Active Devices"
+              parent="menu_onesignal_devices"
+              action="action_res_users_device_active"
+              sequence="30"/>
+
+    <menuitem id="menu_onesignal_devices_online"
+              name="Online Devices"
+              parent="menu_onesignal_devices"
+              action="action_res_users_device_online"
+              sequence="40"/>
+
 </odoo>
