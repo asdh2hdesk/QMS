@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Device Tree View -->
+    <record id="view_res_users_device_tree" model="ir.ui.view">
+        <field name="name">res.users.device.tree</field>
+        <field name="model">res.users.device</field>
+        <field name="arch" type="xml">
+            <tree string="User Devices">
+                <field name="user_id"/>
+                <field name="player_id"/>
+                <field name="device_name"/>
+                <field name="last_seen"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Device Form View -->
+    <record id="view_res_users_device_form" model="ir.ui.view">
+        <field name="name">res.users.device.form</field>
+        <field name="model">res.users.device</field>
+        <field name="arch" type="xml">
+            <form string="User Device">
+                <sheet>
+                    <group>
+                        <field name="user_id"/>
+                        <field name="player_id"/>
+                        <field name="device_name"/>
+                        <field name="last_seen"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_res_users_device" model="ir.actions.act_window">
+        <field name="name">User Devices</field>
+        <field name="res_model">res.users.device</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Device Menu -->
+    <menuitem id="menu_onesignal_devices"
+              name="User Devices"
+              parent="menu_onesignal_main"
+              action="action_res_users_device"
+              sequence="30"/>
+</odoo>

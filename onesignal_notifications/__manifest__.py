@@ -14,6 +14,7 @@
         'security/ir.model.access.csv',
         'views/onesignal_config_views.xml',
         'views/menu_views.xml',
+        'views/res_users_device_views.xml',
         'data/ir_cron.xml',
     ],
     'installable': True,
