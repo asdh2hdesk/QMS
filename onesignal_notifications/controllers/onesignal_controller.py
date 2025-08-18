@@ -12,14 +12,15 @@ class OneSignalController(http.Controller):
     def register_device(self, **kwargs):
         """Register device with OneSignal Player ID"""
         try:
-            # Get data from request
-            data = request.get_json_data()
-            player_id = data.get('player_id') or kwargs.get('player_id')
-            device_name = data.get('device_name', 'Unknown Device') or kwargs.get('device_name', 'Unknown Device')
-            device_type = data.get('device_type', 'other') or kwargs.get('device_type', 'other')
-            platform = data.get('platform') or kwargs.get('platform')
-            app_version = data.get('app_version') or kwargs.get('app_version')
-            os_version = data.get('os_version') or kwargs.get('os_version')
+            # FIXED: For JSON-RPC routes, parameters come directly as kwargs, not from request.get_json_data()
+            player_id = kwargs.get('player_id')
+            device_name = kwargs.get('device_name', 'Unknown Device')
+            device_type = kwargs.get('device_type', 'other')
+            platform = kwargs.get('platform')
+            app_version = kwargs.get('app_version')
+            os_version = kwargs.get('os_version')
+
+            _logger.info(f"[DEBUG] Received parameters: player_id={player_id}, device_name={device_name}, device_type={device_type}")
 
             if not player_id:
                 return {
@@ -96,8 +97,8 @@ class OneSignalController(http.Controller):
     def unregister_device(self, **kwargs):
         """Unregister device"""
         try:
-            data = request.get_json_data()
-            player_id = data.get('player_id') or kwargs.get('player_id')
+            # FIXED: Use kwargs directly for JSON-RPC routes
+            player_id = kwargs.get('player_id')
 
             if not player_id:
                 return {
@@ -124,8 +125,8 @@ class OneSignalController(http.Controller):
     def update_last_seen(self, **kwargs):
         """Update device last seen timestamp"""
         try:
-            data = request.get_json_data()
-            player_id = data.get('player_id') or kwargs.get('player_id')
+            # FIXED: Use kwargs directly for JSON-RPC routes
+            player_id = kwargs.get('player_id')
 
             if not player_id:
                 return {
@@ -176,7 +177,6 @@ class OneSignalController(http.Controller):
                 "message": str(e)
             }
 
-    # Add a simple test route to verify the controller is working
     @http.route('/onesignal/test', type='json', auth='user', methods=['GET', 'POST'], csrf=False)
     def test_endpoint(self, **kwargs):
         """Test endpoint to verify controller is working"""
