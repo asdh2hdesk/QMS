@@ -1,0 +1,5 @@
+<odoo>
+    <menuitem id="menu_production_root" name="Production"/>
+    <menuitem id="menu_production_order" name="Production Orders" parent="menu_production_root" action="action_production_order"/>
+<!--    <menuitem id="menu_production_bom" name="Bill of Materials" parent="menu_production_root" action="action_production_bom"/>-->
+</odoo>

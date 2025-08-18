@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_production_order,production.order,model_production_order,,1,1,1,1
+access_production_order_line,production.order.line,model_production_order_line,,1,1,1,1
+access_production_bom,production.bom,model_production_bom,,1,1,1,1
+access_production_bom_line,production.bom.line,model_production_bom_line,,1,1,1,1
+access_production_lot,production.lot,model_production_lot,,1,1,1,1
