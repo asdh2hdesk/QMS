@@ -56,9 +56,6 @@ class MailMessage(models.Model):
             # Collect recipient devices - IMPROVED LOGIC
             recipient_ids = []
 
-            _logger.info(f"[DEBUG] Message {message.id} partner_ids: {message.partner_ids.ids}")
-
-            # Get partners from the message
             # Get partners from the message
             partners = message.partner_ids
 
@@ -85,20 +82,19 @@ class MailMessage(models.Model):
 
             # Exclude the message author from notifications
             if message.author_id:
-                partners = partners.filtered(lambda p: p.id != message.author_id.partner_id.id)
+                partners = partners.filtered(lambda p: p.id != message.author_id.id)
 
             _logger.info(f"[DEBUG] Final recipient partners for message {message.id}: {partners.ids}")
 
             # Get active devices for all recipient partners
             for partner in partners:
-                _logger.info(f"[DEBUG] Checking partner {partner.id} ({partner.name})")
                 for user in partner.user_ids:
                     devices = self.env['res.users.device'].search([
                         ('user_id', '=', user.id),
                         ('active', '=', True),
-                        ('push_enabled', '=', True)  # Also check if push is enabled
+                        ('push_enabled', '=', True)
                     ])
-                    _logger.info(f"[DEBUG]   User {user.id} -> Devices: {devices.mapped('player_id')}")
+                    _logger.info(f"[DEBUG] Partner {partner.id} ({partner.name}) → User {user.id} → Devices {devices.ids} → Player IDs {devices.mapped('player_id')}")
                     recipient_ids.extend(devices.mapped('player_id'))
 
             # Remove duplicates
@@ -147,6 +143,7 @@ class MailMessage(models.Model):
                         ('active', '=', True),
                         ('push_enabled', '=', True)
                     ])
+                    _logger.info(f"[DEBUG][EMAIL] Partner {partner.id} → User {user.id} → Devices {devices.ids} → Player IDs {devices.mapped('player_id')}")
                     recipient_ids.extend(devices.mapped('player_id'))
 
             if recipient_ids:
