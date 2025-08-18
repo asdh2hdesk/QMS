@@ -39,6 +39,10 @@ class OneSignalController(http.Controller):
 
             _logger.info(f"Registering device: {player_id[:8]}... for user {request.env.user.login}")
 
+            # TEMPORARY DEBUG: Let's see what register_device is receiving
+            _logger.info(
+                f"[DEBUG] About to call register_device with player_id='{player_id}' (type: {type(player_id)})")
+
             # Register the device
             device_id = request.env['res.users.device'].sudo().register_device(
                 player_id=player_id,
