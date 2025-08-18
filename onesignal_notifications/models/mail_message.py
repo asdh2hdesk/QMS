@@ -56,6 +56,8 @@ class MailMessage(models.Model):
             # Collect recipient devices - IMPROVED LOGIC
             recipient_ids = []
 
+            _logger.info(f"[DEBUG] Message {message.id} partner_ids: {message.partner_ids.ids}")
+
             # Get partners from the message
             partners = message.partner_ids
 
@@ -67,21 +69,25 @@ class MailMessage(models.Model):
                         partners = record.message_partner_ids
                     elif hasattr(record, 'partner_ids'):
                         partners = record.partner_ids
-                except:
-                    pass
+                except Exception as e:
+                    _logger.warning(f"[DEBUG] Could not fetch partners from model {message.model}: {e}")
 
             # Exclude the message author from notifications
             if message.author_id:
                 partners = partners.filtered(lambda p: p.id != message.author_id.partner_id.id)
 
+            _logger.info(f"[DEBUG] Final recipient partners for message {message.id}: {partners.ids}")
+
             # Get active devices for all recipient partners
             for partner in partners:
+                _logger.info(f"[DEBUG] Checking partner {partner.id} ({partner.name})")
                 for user in partner.user_ids:
                     devices = self.env['res.users.device'].search([
                         ('user_id', '=', user.id),
                         ('active', '=', True),
                         ('push_enabled', '=', True)  # Also check if push is enabled
                     ])
+                    _logger.info(f"[DEBUG]   User {user.id} -> Devices: {devices.mapped('player_id')}")
                     recipient_ids.extend(devices.mapped('player_id'))
 
             # Remove duplicates
