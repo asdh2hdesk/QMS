@@ -35,6 +35,10 @@ iatf.access_alternate_method,access_alternate_method,iatf.model_alternate_method
 
 iatf.access_iatf_packaging_standard,access_iatf_packaging_standard,iatf.model_iatf_packaging_standard,base.group_user,1,1,1,1
 
+iatf.access_asd_pfmea_one,access_asd_pfmea_one,iatf.model_asd_pfmea_one,base.group_user,1,1,1,1
+iatf.access_asd_pfmea_one_operations,access_asd_pfmea_one_operations,iatf.model_asd_pfmea_one_operations,base.group_user,1,1,1,1
+iatf.access_asd_pfmea_one_operations_line,access_asd_pfmea_one_operations_line,iatf.model_asd_pfmea_one_operations_line,base.group_user,1,1,1,1
+
 iatf.access_feasibility_commitment,access_feasibility_commitment,iatf.model_feasibility_commitment,base.group_user,1,1,1,1
 iatf.access_feasibility_consideration,access_feasibility_consideration,iatf.model_feasibility_consideration,base.group_user,1,1,1,1
 iatf.access_feasibility_conclusion,access_feasibility_conclusion,iatf.model_feasibility_conclusion,base.group_user,1,1,1,1

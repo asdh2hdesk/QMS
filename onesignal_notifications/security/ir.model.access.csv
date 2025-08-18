@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_onesignal_config_admin,onesignal.config.admin,model_onesignal_config,base.group_system,1,1,1,1
+access_onesignal_config_user,onesignal.config.user,model_onesignal_config,base.group_user,1,0,0,0
+access_onesignal_notification_admin,onesignal.notification.admin,model_onesignal_notification,base.group_system,1,1,1,1
+access_onesignal_notification_user,onesignal.notification.user,model_onesignal_notification,base.group_user,1,0,1,0
+access_onesignal_helper,onesignal.helper,model_onesignal_helper,base.group_user,1,1,1,1
+access_res_users_device,res.users.device,model_res_users_device,base.group_user,1,1,1,1

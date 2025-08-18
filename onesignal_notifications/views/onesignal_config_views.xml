@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- OneSignal Config Form View -->
+    <record id="view_onesignal_config_form" model="ir.ui.view">
+        <field name="name">onesignal.config.form</field>
+        <field name="model">onesignal.config</field>
+        <field name="arch" type="xml">
+            <form string="OneSignal Configuration">
+                <header>
+                    <button name="test_connection" string="Test Connection"
+                            type="object" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Configuration Name"/>
+                        </h1>
+                    </div>
+                    <div class="alert alert-info">
+                        <h4>How to get OneSignal credentials:</h4>
+                        <ol>
+                            <li><strong>App ID:</strong> Go to OneSignal Dashboard → Your App → Settings → Keys &amp; IDs</li>
+                            <li><strong>REST API Key:</strong> Same location - copy the "REST API Key"</li>
+                            <li><strong>User Auth Key:</strong> Go to Account &amp; API Keys → REST API Key (optional)</li>
+                        </ol>
+                        <p><strong>Note:</strong> Make sure your OneSignal app is properly configured for your platform (Android/iOS).</p>
+                    </div>
+                    <group>
+                        <group string="API Configuration">
+                            <field name="app_id" placeholder="e.g., 12345678-1234-1234-1234-123456789012"/>
+                            <field name="rest_api_key" password="True" placeholder="Your OneSignal REST API Key"/>
+                            <field name="user_auth_key" password="True" placeholder="Optional - User Auth Key"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Notification Settings">
+                            <field name="send_chat_notifications"/>
+                            <field name="send_email_notifications"/>
+                            <field name="send_alert_notifications"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- OneSignal Config Tree View -->
+    <record id="view_onesignal_config_tree" model="ir.ui.view">
+        <field name="name">onesignal.config.tree</field>
+        <field name="model">onesignal.config</field>
+        <field name="arch" type="xml">
+            <tree string="OneSignal Configurations">
+                <field name="name"/>
+                <field name="app_id"/>
+                <field name="active"/>
+                <field name="send_chat_notifications"/>
+                <field name="send_email_notifications"/>
+                <field name="send_alert_notifications"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- OneSignal Notification Form View -->
+    <record id="view_onesignal_notification_form" model="ir.ui.view">
+        <field name="name">onesignal.notification.form</field>
+        <field name="model">onesignal.notification</field>
+        <field name="arch" type="xml">
+            <form string="OneSignal Notification">
+                <header>
+                    <button name="action_send_custom" string="Send Custom Notification" type="object" class="btn-primary"/>
+                    <field name="status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Notification Details">
+                            <field name="name"/>
+                            <field name="notification_type"/>
+                            <field name="message" widget="text"/>
+                        </group>
+                        <group string="Recipients">
+                            <field name="send_to_all"/>
+                            <field name="recipient_ids" attrs="{'invisible': [('send_to_all', '=', True)]}"/>
+                            <field name="segments" attrs="{'invisible': [('send_to_all', '=', True)]}"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Additional Options">
+                            <field name="url"/>
+                            <field name="large_icon"/>
+                            <field name="big_picture"/>
+                            <field name="data" widget="text"/>
+                        </group>
+                        <group string="Status">
+                            <field name="onesignal_id"/>
+                            <field name="error_message" attrs="{'invisible': [('status', '!=', 'failed')]}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- OneSignal Notification Tree View -->
+    <record id="view_onesignal_notification_tree" model="ir.ui.view">
+        <field name="name">onesignal.notification.tree</field>
+        <field name="model">onesignal.notification</field>
+        <field name="arch" type="xml">
+            <tree string="OneSignal Notifications">
+                <field name="create_date"/>
+                <field name="name"/>
+                <field name="notification_type"/>
+                <field name="status"/>
+                <field name="onesignal_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_onesignal_config" model="ir.actions.act_window">
+        <field name="name">OneSignal Configuration</field>
+        <field name="res_model">onesignal.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_onesignal_notification" model="ir.actions.act_window">
+        <field name="name">OneSignal Notifications</field>
+        <field name="res_model">onesignal.notification</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

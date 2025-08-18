@@ -838,7 +838,19 @@ class ControlCharLine(models.Model):
     method_sample_freq = fields.Char("Sample Freq.",translate=True)
     method_rec_yn = fields.Char("Recording Y/N",translate=True)
     method_rec_size = fields.Char("Recording Size",translate=True)
-    method_inspected_by = fields.Many2one('res.users', "Inspected By",required=True)
+    method_inspected_by = fields.Many2one('res.users', "Inspected By")
+
+
+    @api.constrains('method_inspected_by')
+    def _check_method_inspected_by(self):
+        missing = self.filtered(lambda rec: not rec.method_inspected_by)
+        if missing:
+            char_nos = ', '.join(filter(None, missing.mapped('char_no')))
+            msg = _("The field 'Inspected By' must be filled.")
+            if char_nos:
+                msg += _(" (Char No: %s)") % char_nos
+            raise ValidationError(msg)
+
 
     method_error_proofing_name = fields.Many2many('poka.yoka.line', string="Error Proofing Name",
                                                   domain="[('operation', '=', operation)]")

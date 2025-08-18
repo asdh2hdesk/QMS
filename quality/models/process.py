@@ -544,7 +544,7 @@ class ProcessOperations(models.Model):
     operations_id = fields.Many2one('process.report', string='Process Report', ondelete='cascade')
     issue = fields.Char(string='Issue #')
     hca = fields.Char(string='History/Change Authorization',translate=True)
-    process_item = fields.Char(string='Process Step Station No. and Name of Process Step',translate=True)
+    process_item = fields.Char(string='Part Element',translate=True)
     
      # Function of the Process Item
     fpi_process_item = fields.Char(string='Process Item',translate=True)
