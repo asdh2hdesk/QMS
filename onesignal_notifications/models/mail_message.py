@@ -71,7 +71,7 @@ class MailMessage(models.Model):
                     pass
 
             # Exclude the message author from notifications
-            if message.author_id and message.author_id.partner_id:
+            if message.author_id:
                 partners = partners.filtered(lambda p: p.id != message.author_id.partner_id.id)
 
             # Get active devices for all recipient partners
