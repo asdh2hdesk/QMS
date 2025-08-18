@@ -59,10 +59,21 @@ class MailMessage(models.Model):
             _logger.info(f"[DEBUG] Message {message.id} partner_ids: {message.partner_ids.ids}")
 
             # Get partners from the message
+            # Get partners from the message
             partners = message.partner_ids
 
-            # For discuss/mail channels, also get followers if no specific partners
-            if not partners and message.model:
+            # For discuss/mail channels
+            if message.model == 'mail.channel' and message.res_id:
+                try:
+                    channel = self.env['mail.channel'].browse(message.res_id)
+                    if channel.exists():
+                        partners |= channel.channel_partner_ids
+                        _logger.info(f"[DEBUG] Channel {channel.id} members: {channel.channel_partner_ids.ids}")
+                except Exception as e:
+                    _logger.warning(f"[DEBUG] Could not fetch channel partners: {e}")
+
+            # For other models, also try followers
+            elif not partners and message.model:
                 try:
                     record = self.env[message.model].browse(message.res_id)
                     if hasattr(record, 'message_partner_ids'):
