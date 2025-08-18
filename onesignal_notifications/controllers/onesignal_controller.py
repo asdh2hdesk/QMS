@@ -1,6 +1,7 @@
 from odoo import http
 from odoo.http import request
 import logging
+import json
 
 _logger = logging.getLogger(__name__)
 
@@ -8,12 +9,27 @@ _logger = logging.getLogger(__name__)
 class OneSignalController(http.Controller):
 
     @http.route('/onesignal/register', type='json', auth='user', methods=['POST'], csrf=False)
-    def register_device(self, player_id, device_name=None, device_type='web',
-                        platform=None, app_version=None, os_version=None, **kwargs):
-        """Register device with enhanced parameters"""
+    def register_device(self, **kwargs):
+        """Register device with OneSignal Player ID"""
         try:
+            # Get data from request
+            data = request.get_json_data()
+            player_id = data.get('player_id') or kwargs.get('player_id')
+            device_name = data.get('device_name', 'Unknown Device') or kwargs.get('device_name', 'Unknown Device')
+            device_type = data.get('device_type', 'other') or kwargs.get('device_type', 'other')
+            platform = data.get('platform') or kwargs.get('platform')
+            app_version = data.get('app_version') or kwargs.get('app_version')
+            os_version = data.get('os_version') or kwargs.get('os_version')
+
+            if not player_id:
+                return {
+                    "status": "error",
+                    "message": "Player ID is required"
+                }
+
             _logger.info(f"Registering device: {player_id[:8]}... for user {request.env.user.login}")
 
+            # Register the device
             device_id = request.env['res.users.device'].sudo().register_device(
                 player_id=player_id,
                 device_name=device_name,
@@ -23,11 +39,14 @@ class OneSignalController(http.Controller):
                 os_version=os_version
             )
 
+            _logger.info(f"Device registered successfully with ID: {device_id}")
+
             return {
                 "status": "success",
                 "message": "Device registered successfully",
                 "device_id": device_id
             }
+
         except Exception as e:
             _logger.error(f"Error registering device: {str(e)}")
             return {
@@ -35,10 +54,57 @@ class OneSignalController(http.Controller):
                 "message": str(e)
             }
 
+    @http.route('/onesignal/test_notification', type='json', auth='user', methods=['POST'], csrf=False)
+    def test_notification(self, **kwargs):
+        """Send a test notification to current user"""
+        try:
+            user = request.env.user
+            _logger.info(f"Sending test notification to user: {user.login}")
+
+            result = user.sudo().send_notification_to_user(
+                title="Test Notification from Odoo",
+                message="This is a test notification to verify your setup!",
+                notification_type='custom',
+                data={
+                    'test': True,
+                    'type': 'test',
+                    'timestamp': str(request.env.cr.now())
+                }
+            )
+
+            if result:
+                _logger.info("Test notification sent successfully")
+                return {
+                    "status": "success",
+                    "message": "Test notification sent successfully!"
+                }
+            else:
+                _logger.warning("No active devices found for test notification")
+                return {
+                    "status": "warning",
+                    "message": "No active devices found. Please register your device first."
+                }
+
+        except Exception as e:
+            _logger.error(f"Error sending test notification: {str(e)}")
+            return {
+                "status": "error",
+                "message": f"Error: {str(e)}"
+            }
+
     @http.route('/onesignal/unregister', type='json', auth='user', methods=['POST'], csrf=False)
-    def unregister_device(self, player_id, **kwargs):
+    def unregister_device(self, **kwargs):
         """Unregister device"""
         try:
+            data = request.get_json_data()
+            player_id = data.get('player_id') or kwargs.get('player_id')
+
+            if not player_id:
+                return {
+                    "status": "error",
+                    "message": "Player ID is required"
+                }
+
             _logger.info(f"Unregistering device: {player_id[:8]}...")
 
             success = request.env['res.users.device'].sudo().unregister_device(player_id)
@@ -55,9 +121,18 @@ class OneSignalController(http.Controller):
             }
 
     @http.route('/onesignal/update_last_seen', type='json', auth='user', methods=['POST'], csrf=False)
-    def update_last_seen(self, player_id, **kwargs):
+    def update_last_seen(self, **kwargs):
         """Update device last seen timestamp"""
         try:
+            data = request.get_json_data()
+            player_id = data.get('player_id') or kwargs.get('player_id')
+
+            if not player_id:
+                return {
+                    "status": "error",
+                    "message": "Player ID is required"
+                }
+
             success = request.env['res.users.device'].sudo().update_last_seen(player_id)
             return {
                 "status": "success" if success else "warning",
@@ -70,30 +145,7 @@ class OneSignalController(http.Controller):
                 "message": str(e)
             }
 
-    @http.route('/onesignal/test_notification', type='json', auth='user', methods=['POST'], csrf=False)
-    def test_notification(self, **kwargs):
-        """Send a test notification to current user"""
-        try:
-            user = request.env.user
-            result = user.sudo().send_notification_to_user(
-                title="Test Notification",
-                message="This is a test notification from Odoo!",
-                notification_type='custom',
-                data={'test': True}
-            )
-
-            return {
-                "status": "success" if result else "warning",
-                "message": "Test notification sent" if result else "No active devices found"
-            }
-        except Exception as e:
-            _logger.error(f"Error sending test notification: {str(e)}")
-            return {
-                "status": "error",
-                "message": str(e)
-            }
-
-    @http.route('/onesignal/user_devices', type='json', auth='user', methods=['GET'], csrf=False)
+    @http.route('/onesignal/user_devices', type='json', auth='user', methods=['GET', 'POST'], csrf=False)
     def get_user_devices(self, **kwargs):
         """Get current user's devices"""
         try:
@@ -114,11 +166,31 @@ class OneSignalController(http.Controller):
 
             return {
                 "status": "success",
-                "devices": device_data
+                "devices": device_data,
+                "count": len(device_data)
             }
         except Exception as e:
             _logger.error(f"Error getting user devices: {str(e)}")
             return {
                 "status": "error",
                 "message": str(e)
+            }
+
+    # Add a simple test route to verify the controller is working
+    @http.route('/onesignal/test', type='json', auth='user', methods=['GET', 'POST'], csrf=False)
+    def test_endpoint(self, **kwargs):
+        """Test endpoint to verify controller is working"""
+        try:
+            return {
+                "status": "success",
+                "message": "OneSignal controller is working perfectly!",
+                "user": request.env.user.name,
+                "user_id": request.env.user.id,
+                "timestamp": str(request.env.cr.now()),
+                "session_info": "Active"
+            }
+        except Exception as e:
+            return {
+                "status": "error",
+                "message": f"Controller error: {str(e)}"
             }
