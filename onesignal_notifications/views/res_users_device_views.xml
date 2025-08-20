@@ -241,12 +241,12 @@
               name="Active Devices"
               parent="menu_onesignal_devices"
               action="action_res_users_device_active"
-              sequence="30"/>
+              sequence="10"/>
 
     <menuitem id="menu_onesignal_devices_online"
               name="Online Devices"
               parent="menu_onesignal_devices"
               action="action_res_users_device_online"
-              sequence="40"/>
+              sequence="20"/>
 
 </odoo>

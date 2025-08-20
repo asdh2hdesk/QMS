@@ -1,7 +1,6 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 from datetime import timedelta
-
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -43,40 +42,65 @@ class ResUsersDevice(models.Model):
     @api.depends('device_name', 'device_type', 'player_id')
     def _compute_device_display_name(self):
         for record in self:
-            if record.device_name:
-                record.device_display_name = f"{record.device_name} ({record.device_type})"
-            else:
-                record.device_display_name = f"{record.device_type.title()} Device - {record.player_id[:8]}..."
+            try:
+                if record.device_name:
+                    # Get the display value for selection field
+                    device_type_display = dict(record._fields['device_type'].selection).get(record.device_type,
+                                                                                            'Unknown')
+                    record.device_display_name = f"{record.device_name} ({device_type_display})"
+                else:
+                    device_type_display = dict(record._fields['device_type'].selection).get(record.device_type,
+                                                                                            'Unknown')
+                    player_id_short = record.player_id[:8] + '...' if record.player_id and len(
+                        record.player_id) > 8 else (record.player_id or 'Unknown')
+                    record.device_display_name = f"{device_type_display} Device - {player_id_short}"
+            except Exception as e:
+                _logger.error(f"Error computing device display name: {e}")
+                record.device_display_name = f"Device - {record.player_id[:8] if record.player_id else 'Unknown'}"
 
     @api.depends('last_seen')
     def _compute_days_since_seen(self):
         for record in self:
             if record.last_seen:
-                delta = fields.Datetime.now() - record.last_seen
-                record.days_since_seen = delta.days
+                try:
+                    delta = fields.Datetime.now() - record.last_seen
+                    record.days_since_seen = delta.days
+                except:
+                    record.days_since_seen = 999
             else:
                 record.days_since_seen = 999
 
     @api.depends('last_seen')
     def _compute_is_online(self):
         """Consider device online if seen within last 5 minutes"""
-        threshold = fields.Datetime.now() - timedelta(minutes=5)
-        for record in self:
-            record.is_online = record.last_seen and record.last_seen >= threshold
+        try:
+            threshold = fields.Datetime.now() - timedelta(minutes=5)
+            for record in self:
+                record.is_online = bool(record.last_seen and record.last_seen >= threshold)
+        except Exception as e:
+            _logger.error(f"Error computing is_online: {e}")
+            for record in self:
+                record.is_online = False
 
     @api.model
     def register_device(self, player_id, device_name=None, device_type='other',
                         platform=None, app_version=None, os_version=None):
         """Register or update a device for the current logged-in user"""
-        if not player_id or len(player_id) < 10:
-            raise ValidationError("Invalid Player ID provided")
+        # FIXED: Add debug logging and validation
+        _logger.info(f"[DEBUG] register_device called with: player_id={player_id} (type: {type(player_id)})")
+        _logger.info(f"[DEBUG] Other params: device_name={device_name}, device_type={device_type}")
+
+        if not player_id or len(str(player_id)) < 10:
+            raise ValidationError(f"Invalid Player ID provided: '{player_id}'")
 
         user = self.env.user
         device = self.search([('player_id', '=', player_id)], limit=1)
 
+        # FIXED: Include player_id in the values dictionary
         values = {
             'user_id': user.id,
-            'device_name': device_name,
+            'player_id': player_id,  # THIS WAS MISSING!
+            'device_name': device_name or 'Unknown Device',
             'device_type': device_type,
             'platform': platform,
             'app_version': app_version,
@@ -86,14 +110,16 @@ class ResUsersDevice(models.Model):
             'push_enabled': True
         }
 
+        _logger.info(f"[DEBUG] Values to write/create: {values}")
+
         if device:
-            # Update existing device
-            device.write(values)
+            # Update existing device - don't update player_id for existing records
+            update_values = {k: v for k, v in values.items() if k != 'player_id'}
+            device.write(update_values)
             _logger.info(f"Updated device {player_id[:8]}... for user {user.login}")
             return device.id
         else:
-            # Create new device
-            values['device_name'] = device_name or 'Unknown Device'
+            # Create new device - include player_id
             device = self.create(values)
             _logger.info(f"Registered new device {player_id[:8]}... for user {user.login}")
             return device.id
@@ -167,6 +193,9 @@ class ResUsersDevice(models.Model):
         """Custom name display for devices"""
         result = []
         for record in self:
-            name = record.device_display_name or record.player_id
+            try:
+                name = record.device_display_name or record.player_id or f"Device {record.id}"
+            except:
+                name = f"Device {record.id}"
             result.append((record.id, name))
         return result
