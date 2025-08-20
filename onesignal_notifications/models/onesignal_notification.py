@@ -16,7 +16,7 @@ class OneSignalNotification(models.Model):
     message = fields.Text('Message Content', required=True)
     notification_type = fields.Selection([
         ('chat', 'Chat Message'),
-        ('email', 'Email'),
+        ('mail', 'Email'),
         ('alert', 'Alert'),
         ('custom', 'Custom')
     ], string='Type', required=True, default='custom')

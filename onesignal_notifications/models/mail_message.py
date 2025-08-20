@@ -12,6 +12,10 @@ class MailMessage(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         """Override create to send OneSignal notifications for new messages"""
+        for vals in vals_list:
+            _logger.info(f"[EMAIL_DEBUG] Creating message: type={vals.get('message_type')}, "
+                         f"model={vals.get('model')}, email_from={vals.get('email_from')}, "
+                         f"subject={vals.get('subject')}")
         messages = super().create(vals_list)
 
         try:
@@ -30,7 +34,7 @@ class MailMessage(models.Model):
                         not message.is_internal):
                     self._send_chat_notification(message)
 
-                # IMPROVED: Better email detection
+                # IMPROVED: Better mail detection
                 elif config.send_email_notifications and self._is_email_message(message):
                     self._send_email_notification(message)
 
@@ -40,20 +44,20 @@ class MailMessage(models.Model):
         return messages
 
     def _is_email_message(self, message):
-        """Improved email message detection"""
+        """Improved mail message detection"""
         # Check message type
-        if message.message_type in ['email', 'email_outgoing']:
+        if message.message_type in ['mail', 'email_outgoing']:
             return True
 
-        # Check if it has email-specific fields
+        # Check if it has mail-specific fields
         if hasattr(message, 'email_from') and message.email_from:
             return True
 
-        # Check if it's a notification (often email-related)
+        # Check if it's a notification (often mail-related)
         if message.message_type == 'notification':
             return True
 
-        # Check if it has email headers
+        # Check if it has mail headers
         if hasattr(message, 'reply_to') and message.reply_to:
             return True
 
@@ -144,14 +148,14 @@ class MailMessage(models.Model):
             _logger.error(f"Error sending chat notification: {str(e)}")
 
     def _send_email_notification(self, message):
-        """COMPLETELY REWRITTEN email notification handler"""
+        """COMPLETELY REWRITTEN mail notification handler"""
         try:
-            _logger.info(f"[DEBUG][EMAIL] Processing email message {message.id}")
+            _logger.info(f"[DEBUG][EMAIL] Processing mail message {message.id}")
 
             author_name = message.author_id.name if message.author_id else message.email_from or 'Unknown Sender'
             subject = message.subject or 'New Email'
 
-            title = f"New email from {author_name}"
+            title = f"New mail from {author_name}"
             content = f"Subject: {subject}"
 
             data = {
@@ -217,31 +221,31 @@ class MailMessage(models.Model):
                 except Exception as e:
                     _logger.warning(f"[DEBUG][EMAIL] Method 2 error: {e}")
 
-            # METHOD 3: Extract recipients from email fields
+            # METHOD 3: Extract recipients from mail fields
             email_addresses = set()
 
             # From email_to field
             if hasattr(message, 'email_to') and message.email_to:
-                email_addresses.update([email.strip() for email in message.email_to.split(',')])
+                email_addresses.update([mail.strip() for mail in message.email_to.split(',')])
 
             # From email_cc field
             if hasattr(message, 'email_cc') and message.email_cc:
-                email_addresses.update([email.strip() for email in message.email_cc.split(',')])
+                email_addresses.update([mail.strip() for mail in message.email_cc.split(',')])
 
             # From recipient_ids (if available)
             if hasattr(message, 'recipient_ids') and message.recipient_ids:
                 partners |= message.recipient_ids
                 _logger.info(f"[DEBUG][EMAIL] Found recipient_ids: {message.recipient_ids.ids}")
 
-            # Find partners by email addresses
-            for email in email_addresses:
-                if email:
-                    partner = self.env['res.partner'].search([('email', '=', email)], limit=1)
+            # Find partners by mail addresses
+            for mail in email_addresses:
+                if mail:
+                    partner = self.env['res.partner'].search([('mail', '=', mail)], limit=1)
                     if partner:
                         partners |= partner
-                        _logger.info(f"[DEBUG][EMAIL] Found partner by email {email}: {partner.id}")
+                        _logger.info(f"[DEBUG][EMAIL] Found partner by mail {mail}: {partner.id}")
 
-            # METHOD 4: If still no partners and it's an incoming email, try to find internal recipients
+            # METHOD 4: If still no partners and it's an incoming mail, try to find internal recipients
             if not partners:
                 _logger.warning(f"[DEBUG][EMAIL] No partners found by previous methods for message {message.id}")
 
@@ -281,7 +285,7 @@ class MailMessage(models.Model):
             recipient_ids = list(set(filter(None, recipient_ids)))  # Filter out None values
 
             _logger.info(
-                f"[DEBUG][EMAIL] Sending email notification to {len(recipient_ids)} unique devices from {device_count} total devices")
+                f"[DEBUG][EMAIL] Sending mail notification to {len(recipient_ids)} unique devices from {device_count} total devices")
 
             if recipient_ids:
                 result = self.env['onesignal.notification'].send_notification(
@@ -297,28 +301,25 @@ class MailMessage(models.Model):
                 else:
                     _logger.warning("[ERROR][EMAIL] Email notification failed to send")
             else:
-                _logger.warning(f"[WARNING][EMAIL] No active devices found for email message {message.id}")
+                _logger.warning(f"[WARNING][EMAIL] No active devices found for mail message {message.id}")
 
         except Exception as e:
-            _logger.error(f"[ERROR][EMAIL] Error sending email notification: {str(e)}", exc_info=True)
+            _logger.error(f"[ERROR][EMAIL] Error sending mail notification: {str(e)}", exc_info=True)
 
         return False
 
     def _get_record_name(self, message):
         """Helper method to get the name of the related record"""
         try:
-            if message.model and message.res_id:
-                record = self.env[message.model].browse(message.res_id)
-                if record.exists():
-                    if hasattr(record, 'name') and record.name:
-                        return record.name
-                    elif hasattr(record, 'display_name'):
-                        return record.display_name
-                    else:
-                        return f"{message.model} #{message.res_id}"
+            if not getattr(message, 'model', None) or not getattr(message, 'res_id', None):
+                return None
+            record = self.env[message.model].browse(message.res_id)
+            if record.exists():
+                return getattr(record, 'display_name', getattr(record, 'name', f"{message.model} #{message.res_id}"))
         except Exception as e:
-            _logger.warning(f"Could not get record name: {e}")
+            _logger.warning(f"Could not get record name for message {getattr(message, 'id', 'N/A')}: {e}")
         return None
+
 
 
 # ENHANCED Helper class for testing and custom notifications
@@ -352,7 +353,7 @@ class OneSignalHelper(models.TransientModel):
 
     @api.model
     def test_email_notification(self):
-        """Enhanced test method to simulate email notification"""
+        """Enhanced test method to simulate mail notification"""
         try:
             current_user = self.env.user
             devices = self.env['res.users.device'].search([
@@ -372,7 +373,7 @@ class OneSignalHelper(models.TransientModel):
 
                 result = self.env['onesignal.notification'].send_notification(
                     title="Test Email Notification",
-                    message="This is a test email notification from OneSignal Helper",
+                    message="This is a test mail notification from OneSignal Helper",
                     notification_type='mail',
                     recipient_ids=devices.mapped('player_id'),
                     data=data
@@ -381,7 +382,7 @@ class OneSignalHelper(models.TransientModel):
                 if result:
                     return {
                         'status': 'success',
-                        'message': f'Test email sent to {len(devices)} devices',
+                        'message': f'Test mail sent to {len(devices)} devices',
                         'onesignal_id': result.onesignal_id if hasattr(result, 'onesignal_id') else 'N/A'
                     }
                 else:
@@ -390,7 +391,7 @@ class OneSignalHelper(models.TransientModel):
                 return {'status': 'error', 'message': 'No active devices found for current user'}
 
         except Exception as e:
-            _logger.error(f"Error in test email notification: {str(e)}")
+            _logger.error(f"Error in test mail notification: {str(e)}")
             return {'status': 'error', 'message': str(e)}
 
     @api.model
