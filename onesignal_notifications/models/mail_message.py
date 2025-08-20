@@ -1,6 +1,7 @@
 from odoo import models, api
 import logging
 from odoo.tools import html2plaintext
+import re
 
 _logger = logging.getLogger(__name__)
 
@@ -15,23 +16,48 @@ class MailMessage(models.Model):
 
         try:
             config = self.env['onesignal.config'].get_active_config()
+            if not config:
+                _logger.warning("No active OneSignal config found")
+                return messages
 
             for message in messages:
+                _logger.info(
+                    f"[DEBUG] Processing message {message.id}: type={message.message_type}, model={message.model}, author={message.author_id.name if message.author_id else 'None'}")
+
                 # Send notification for chat messages
                 if (config.send_chat_notifications and
                         message.message_type == 'comment' and
                         not message.is_internal):
                     self._send_chat_notification(message)
 
-                # Send notification for emails - FIXED CONDITION
-                elif (config.send_email_notifications and
-                      message.message_type in ['email', 'email_outgoing']):  # Added email_outgoing
+                # IMPROVED: Better email detection
+                elif config.send_email_notifications and self._is_email_message(message):
                     self._send_email_notification(message)
 
         except Exception as e:
             _logger.error(f"Error sending OneSignal notification: {str(e)}")
 
         return messages
+
+    def _is_email_message(self, message):
+        """Improved email message detection"""
+        # Check message type
+        if message.message_type in ['email', 'email_outgoing']:
+            return True
+
+        # Check if it has email-specific fields
+        if hasattr(message, 'email_from') and message.email_from:
+            return True
+
+        # Check if it's a notification (often email-related)
+        if message.message_type == 'notification':
+            return True
+
+        # Check if it has email headers
+        if hasattr(message, 'reply_to') and message.reply_to:
+            return True
+
+        return False
 
     def _send_chat_notification(self, message):
         try:
@@ -44,9 +70,8 @@ class MailMessage(models.Model):
             title = f"New message from {'ASD' if author_name == 'OdooBot' else author_name}"
             content = f"{subject}: {clean_body}" if clean_body else subject
 
-            # Additional data for the notification - IMPROVED
             data = {
-                'type': 'chat',  # Keep as 'chat'
+                'type': 'chat',
                 'message_id': message.id,
                 'author_id': message.author_id.id if message.author_id else None,
                 'model': message.model,
@@ -55,10 +80,7 @@ class MailMessage(models.Model):
                 'partner_id': message.author_id.id if message.author_id else None,
             }
 
-            # Collect recipient devices - IMPROVED LOGIC
             recipient_ids = []
-
-            # Get partners from the message
             partners = message.partner_ids
 
             # For discuss/mail channels
@@ -97,11 +119,8 @@ class MailMessage(models.Model):
                         ('active', '=', True),
                         ('push_enabled', '=', True)
                     ])
-                    _logger.info(
-                        f"[DEBUG] Partner {partner.id} ({partner.name}) → User {user.id} → Devices {devices.ids} → Player IDs {devices.mapped('player_id')}")
                     recipient_ids.extend(devices.mapped('player_id'))
 
-            # Remove duplicates
             recipient_ids = list(set(recipient_ids))
 
             _logger.info(f"Sending chat notification to {len(recipient_ids)} devices")
@@ -125,17 +144,18 @@ class MailMessage(models.Model):
             _logger.error(f"Error sending chat notification: {str(e)}")
 
     def _send_email_notification(self, message):
-        """Send OneSignal notification for email messages - COMPLETELY REWRITTEN"""
+        """COMPLETELY REWRITTEN email notification handler"""
         try:
-            author_name = message.author_id.name if message.author_id else 'Unknown Sender'
+            _logger.info(f"[DEBUG][EMAIL] Processing email message {message.id}")
+
+            author_name = message.author_id.name if message.author_id else message.email_from or 'Unknown Sender'
             subject = message.subject or 'New Email'
 
             title = f"New email from {author_name}"
             content = f"Subject: {subject}"
 
-            # FIXED: Use 'mail' type instead of 'email'
             data = {
-                'type': 'mail',  # Changed from 'email' to 'mail'
+                'type': 'mail',
                 'message_id': message.id,
                 'author_id': message.author_id.id if message.author_id else None,
                 'model': message.model,
@@ -144,37 +164,32 @@ class MailMessage(models.Model):
                 'document_name': self._get_record_name(message),
             }
 
-            # IMPROVED: Better recipient detection for emails
+            # MAIN FIX: Comprehensive recipient detection
             recipient_ids = []
             partners = self.env['res.partner']
 
-            # Method 1: Direct partner_ids
+            _logger.info(
+                f"[DEBUG][EMAIL] Message details - Model: {message.model}, Res_ID: {message.res_id}, Partner_IDs: {message.partner_ids.ids}, Email_From: {getattr(message, 'email_from', 'N/A')}")
+
+            # METHOD 1: Direct partner_ids (highest priority)
             if message.partner_ids:
                 partners |= message.partner_ids
-                _logger.info(f"[DEBUG][EMAIL] Found direct partners: {message.partner_ids.ids}")
+                _logger.info(f"[DEBUG][EMAIL] Method 1 - Direct partners: {message.partner_ids.ids}")
 
-            # Method 2: Extract from email_to if available
-            if hasattr(message, 'email_to') and message.email_to:
-                email_addresses = message.email_to.split(',')
-                for email in email_addresses:
-                    email = email.strip()
-                    partner = self.env['res.partner'].search([('email', '=', email)], limit=1)
-                    if partner:
-                        partners |= partner
-                        _logger.info(f"[DEBUG][EMAIL] Found partner by email {email}: {partner.id}")
-
-            # Method 3: If it's related to a record, get followers/partners
+            # METHOD 2: For record-based emails, get all related partners
             if message.model and message.res_id:
                 try:
                     record = self.env[message.model].browse(message.res_id)
                     if record.exists():
-                        # Try to get followers first
+                        _logger.info(f"[DEBUG][EMAIL] Method 2 - Processing record {record.display_name}")
+
+                        # Get followers (most important for emails)
                         if hasattr(record, 'message_follower_ids'):
                             follower_partners = record.message_follower_ids.mapped('partner_id')
                             partners |= follower_partners
                             _logger.info(f"[DEBUG][EMAIL] Found followers: {follower_partners.ids}")
 
-                        # Try other partner fields
+                        # Get direct partners from the record
                         if hasattr(record, 'partner_id') and record.partner_id:
                             partners |= record.partner_id
                             _logger.info(f"[DEBUG][EMAIL] Found record partner: {record.partner_id.id}")
@@ -183,59 +198,111 @@ class MailMessage(models.Model):
                             partners |= record.partner_ids
                             _logger.info(f"[DEBUG][EMAIL] Found record partners: {record.partner_ids.ids}")
 
+                        # For specific models, add more logic
+                        if message.model == 'res.partner':
+                            # If it's about a partner, notify that partner
+                            partners |= record
+                            # Also notify users of that partner
+                            if record.user_ids:
+                                user_partners = record.user_ids.mapped('partner_id')
+                                partners |= user_partners
+
+                        elif message.model in ['sale.order', 'purchase.order', 'account.move']:
+                            # For business documents, notify the customer/vendor and assigned users
+                            if hasattr(record, 'user_id') and record.user_id:
+                                partners |= record.user_id.partner_id
+                            if hasattr(record, 'partner_id') and record.partner_id:
+                                partners |= record.partner_id
+
                 except Exception as e:
-                    _logger.warning(f"[DEBUG][EMAIL] Could not fetch record partners: {e}")
+                    _logger.warning(f"[DEBUG][EMAIL] Method 2 error: {e}")
 
-            # Method 4: If still no partners, try to find by email domain or other methods
-            if not partners and message.email_from:
-                partner = self.env['res.partner'].search([('email', '=', message.email_from)], limit=1)
-                if partner:
-                    # Find users associated with this partner's company or similar
-                    company_partners = self.env['res.partner'].search([
-                        ('parent_id', '=', partner.parent_id.id if partner.parent_id else partner.id)
-                    ])
-                    partners |= company_partners
+            # METHOD 3: Extract recipients from email fields
+            email_addresses = set()
 
-            # Exclude the message author from notifications
+            # From email_to field
+            if hasattr(message, 'email_to') and message.email_to:
+                email_addresses.update([email.strip() for email in message.email_to.split(',')])
+
+            # From email_cc field
+            if hasattr(message, 'email_cc') and message.email_cc:
+                email_addresses.update([email.strip() for email in message.email_cc.split(',')])
+
+            # From recipient_ids (if available)
+            if hasattr(message, 'recipient_ids') and message.recipient_ids:
+                partners |= message.recipient_ids
+                _logger.info(f"[DEBUG][EMAIL] Found recipient_ids: {message.recipient_ids.ids}")
+
+            # Find partners by email addresses
+            for email in email_addresses:
+                if email:
+                    partner = self.env['res.partner'].search([('email', '=', email)], limit=1)
+                    if partner:
+                        partners |= partner
+                        _logger.info(f"[DEBUG][EMAIL] Found partner by email {email}: {partner.id}")
+
+            # METHOD 4: If still no partners and it's an incoming email, try to find internal recipients
+            if not partners:
+                _logger.warning(f"[DEBUG][EMAIL] No partners found by previous methods for message {message.id}")
+
+                # Try to find all internal users (as fallback)
+                internal_users = self.env['res.users'].search([
+                    ('active', '=', True),
+                    ('share', '=', False)  # Internal users only
+                ])
+
+                if internal_users:
+                    partners |= internal_users.mapped('partner_id')
+                    _logger.info(f"[DEBUG][EMAIL] Fallback - Notifying all internal users: {partners.ids}")
+
+            # EXCLUDE the message author from notifications
             if message.author_id:
                 partners = partners.filtered(lambda p: p.id != message.author_id.id)
 
             _logger.info(f"[DEBUG][EMAIL] Final recipient partners for message {message.id}: {partners.ids}")
 
             # Get active devices for all recipient partners
+            device_count = 0
             for partner in partners:
-                for user in partner.user_ids:
-                    devices = self.env['res.users.device'].search([
-                        ('user_id', '=', user.id),
-                        ('active', '=', True),
-                        ('push_enabled', '=', True)
-                    ])
-                    _logger.info(
-                        f"[DEBUG][EMAIL] Partner {partner.id} ({partner.name}) → User {user.id} → Devices {devices.ids} → Player IDs {devices.mapped('player_id')}")
-                    recipient_ids.extend(devices.mapped('player_id'))
+                if partner.user_ids:  # Only if partner has associated users
+                    for user in partner.user_ids.filtered('active'):
+                        devices = self.env['res.users.device'].search([
+                            ('user_id', '=', user.id),
+                            ('active', '=', True),
+                            ('push_enabled', '=', True)
+                        ])
+                        if devices:
+                            device_count += len(devices)
+                            recipient_ids.extend(devices.mapped('player_id'))
+                            _logger.info(
+                                f"[DEBUG][EMAIL] Partner {partner.id} ({partner.name}) → User {user.id} → {len(devices)} devices")
 
             # Remove duplicates
-            recipient_ids = list(set(recipient_ids))
+            recipient_ids = list(set(filter(None, recipient_ids)))  # Filter out None values
 
-            _logger.info(f"Sending email notification to {len(recipient_ids)} devices")
+            _logger.info(
+                f"[DEBUG][EMAIL] Sending email notification to {len(recipient_ids)} unique devices from {device_count} total devices")
 
             if recipient_ids:
                 result = self.env['onesignal.notification'].send_notification(
                     title=title,
                     message=content,
-                    notification_type='mail',  # Changed from 'email' to 'mail'
+                    notification_type='mail',
                     recipient_ids=recipient_ids,
                     data=data
                 )
                 if result:
-                    _logger.info(f"Email notification sent successfully: {result.onesignal_id}")
+                    _logger.info(f"[SUCCESS][EMAIL] Email notification sent successfully: {result.onesignal_id}")
+                    return True
                 else:
-                    _logger.warning("Email notification failed to send")
+                    _logger.warning("[ERROR][EMAIL] Email notification failed to send")
             else:
-                _logger.warning(f"No active devices found for email message {message.id}")
+                _logger.warning(f"[WARNING][EMAIL] No active devices found for email message {message.id}")
 
         except Exception as e:
-            _logger.error(f"Error sending email notification: {str(e)}")
+            _logger.error(f"[ERROR][EMAIL] Error sending email notification: {str(e)}", exc_info=True)
+
+        return False
 
     def _get_record_name(self, message):
         """Helper method to get the name of the related record"""
@@ -243,7 +310,7 @@ class MailMessage(models.Model):
             if message.model and message.res_id:
                 record = self.env[message.model].browse(message.res_id)
                 if record.exists():
-                    if hasattr(record, 'name'):
+                    if hasattr(record, 'name') and record.name:
                         return record.name
                     elif hasattr(record, 'display_name'):
                         return record.display_name
@@ -254,7 +321,7 @@ class MailMessage(models.Model):
         return None
 
 
-# Helper class for custom notifications
+# ENHANCED Helper class for testing and custom notifications
 class OneSignalHelper(models.TransientModel):
     _name = 'onesignal.helper'
     _description = 'OneSignal Helper Methods'
@@ -285,7 +352,7 @@ class OneSignalHelper(models.TransientModel):
 
     @api.model
     def test_email_notification(self):
-        """Test method to send a sample email notification"""
+        """Enhanced test method to simulate email notification"""
         try:
             current_user = self.env.user
             devices = self.env['res.users.device'].search([
@@ -297,23 +364,71 @@ class OneSignalHelper(models.TransientModel):
             if devices:
                 data = {
                     'type': 'mail',
-                    'message_id': 'test',
+                    'message_id': 'test_email',
                     'model': 'test.model',
-                    'res_id': 1
+                    'res_id': 1,
+                    'author_id': current_user.id,
                 }
 
                 result = self.env['onesignal.notification'].send_notification(
                     title="Test Email Notification",
-                    message="This is a test email notification",
+                    message="This is a test email notification from OneSignal Helper",
                     notification_type='mail',
                     recipient_ids=devices.mapped('player_id'),
                     data=data
                 )
 
-                return {'status': 'success', 'message': f'Test sent to {len(devices)} devices'}
+                if result:
+                    return {
+                        'status': 'success',
+                        'message': f'Test email sent to {len(devices)} devices',
+                        'onesignal_id': result.onesignal_id if hasattr(result, 'onesignal_id') else 'N/A'
+                    }
+                else:
+                    return {'status': 'error', 'message': 'Failed to send test notification'}
             else:
-                return {'status': 'error', 'message': 'No active devices found'}
+                return {'status': 'error', 'message': 'No active devices found for current user'}
 
         except Exception as e:
             _logger.error(f"Error in test email notification: {str(e)}")
             return {'status': 'error', 'message': str(e)}
+
+    @api.model
+    def debug_message_info(self, message_id):
+        """Debug method to analyze a message"""
+        try:
+            message = self.env['mail.message'].browse(message_id)
+            if not message.exists():
+                return {'error': 'Message not found'}
+
+            info = {
+                'id': message.id,
+                'message_type': message.message_type,
+                'model': message.model,
+                'res_id': message.res_id,
+                'author_id': message.author_id.id if message.author_id else None,
+                'author_name': message.author_id.name if message.author_id else None,
+                'partner_ids': message.partner_ids.ids,
+                'subject': message.subject,
+                'email_from': getattr(message, 'email_from', 'N/A'),
+                'email_to': getattr(message, 'email_to', 'N/A'),
+                'is_email': self.env['mail.message']._is_email_message(message),
+            }
+
+            # Get related record info
+            if message.model and message.res_id:
+                try:
+                    record = self.env[message.model].browse(message.res_id)
+                    if record.exists():
+                        info['record_name'] = getattr(record, 'name', getattr(record, 'display_name', 'N/A'))
+
+                        # Get followers if available
+                        if hasattr(record, 'message_follower_ids'):
+                            info['followers'] = record.message_follower_ids.mapped('partner_id').ids
+                except:
+                    info['record_error'] = 'Could not fetch record'
+
+            return info
+
+        except Exception as e:
+            return {'error': str(e)}
