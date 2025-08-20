@@ -344,7 +344,7 @@ class OneSignalHelper(models.TransientModel):
         return self.env['onesignal.notification'].send_notification(
             title=title,
             message=message,
-            notification_type='custom',
+            notification_type='mail',
             recipient_ids=recipient_ids,
             segments=segments,
             data=data,
