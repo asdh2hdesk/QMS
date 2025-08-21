@@ -278,7 +278,14 @@ class MailMessage(models.Model):
 
             # Exclude the message author from notifications
             if message.author_id:
-                all_partners = all_partners.filtered(lambda p: p.id != message.author_id.id)
+                # Only exclude author if there are other recipients
+                partners_excluding_author = all_partners.filtered(
+                    lambda p: p.id != message.author_id.id) if message.author_id else all_partners
+
+                if not partners_excluding_author and all_partners:
+                    final_partners = all_partners  # Keep author as recipient
+                else:
+                    final_partners = partners_excluding_author  # Exclude author
 
             _logger.info(f"[DEBUG][EMAIL] All recipient partners: {all_partners.ids}")
             _logger.info(
