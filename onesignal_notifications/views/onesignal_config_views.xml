@@ -74,7 +74,8 @@
                         <group string="Notification Details">
                             <field name="name"/>
                             <field name="notification_type"/>
-                            <field name="message" widget="text"/>
+                            <field name="message" widget="text" options="{'resizable': true}"
+                                       style="min-height: 100px !important; height: auto !important;"/>
                         </group>
                         <group string="Recipients">
                             <field name="send_to_all"/>
