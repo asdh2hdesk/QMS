@@ -177,7 +177,7 @@
                                           class="badge badge-info">Push Enabled</span>
                                     <span t-else="" class="badge badge-warning">Push Disabled</span>
 
-                                    <span t-if="not record.active.raw_value"
+                                    <span t-if="!record.active.raw_value"
                                           class="badge badge-danger">Inactive</span>
                                 </div>
 
