@@ -5,6 +5,7 @@ import re
 
 _logger = logging.getLogger(__name__)
 
+
 class MailMessage(models.Model):
     _inherit = 'mail.message'
 
@@ -229,6 +230,23 @@ class MailMessage(models.Model):
                             all_partners |= model_partners
                             _logger.info(f"[DEBUG][EMAIL] Found model partners: {model_partners.ids}")
 
+                        # NEW: Try to find responsible/assigned users
+                        responsible_partners = self.env['res.partner']
+                        if hasattr(record, 'user_id') and record.user_id:
+                            responsible_partners |= record.user_id.partner_id
+                            _logger.info(f"[DEBUG][EMAIL] Found responsible user: {record.user_id.name}")
+
+                        if hasattr(record, 'create_uid') and record.create_uid:
+                            responsible_partners |= record.create_uid.partner_id
+                            _logger.info(f"[DEBUG][EMAIL] Found creator: {record.create_uid.name}")
+
+                        if hasattr(record, 'write_uid') and record.write_uid:
+                            responsible_partners |= record.write_uid.partner_id
+                            _logger.info(f"[DEBUG][EMAIL] Found last editor: {record.write_uid.name}")
+
+                        all_partners |= responsible_partners
+                        _logger.info(f"[DEBUG][EMAIL] Added responsible partners: {responsible_partners.ids}")
+
                 except Exception as e:
                     _logger.warning(f"[DEBUG][EMAIL] Could not fetch partners from model {message.model}: {e}")
 
@@ -237,6 +255,26 @@ class MailMessage(models.Model):
                 notification_partners = message.notification_ids.mapped('res_partner_id')
                 all_partners |= notification_partners
                 _logger.info(f"[DEBUG][EMAIL] Found notification partners: {notification_partners.ids}")
+
+            # Method 4: FALLBACK - If still no partners, get admin/superuser for critical notifications
+            if not all_partners:
+                _logger.warning(f"[DEBUG][EMAIL] No recipients found, applying fallback logic")
+
+                # Try to get admin user (uid=1) or users with admin rights
+                admin_users = self.env['res.users'].search([
+                    '|',
+                    ('id', '=', 1),  # Admin user
+                    ('groups_id', 'in', self.env.ref('base.group_system').id)  # System admin group
+                ], limit=3)  # Limit to avoid spam
+
+                if admin_users:
+                    fallback_partners = admin_users.mapped('partner_id')
+                    all_partners |= fallback_partners
+                    _logger.info(
+                        f"[DEBUG][EMAIL] Applied fallback - notifying admins: {fallback_partners.mapped('name')}")
+
+                    # Add a flag to the notification data to indicate this is a fallback
+                    data['fallback_notification'] = True
 
             # Exclude the message author from notifications
             if message.author_id:
@@ -383,6 +421,48 @@ class OneSignalHelper(models.TransientModel):
 
         except Exception as e:
             _logger.error(f"Error in test mail notification: {str(e)}")
+            return {'status': 'error', 'message': str(e)}
+
+    @api.model
+    def add_follower_to_record(self, model_name, res_id, partner_id=None, user_id=None):
+        """Helper method to add followers to records"""
+        try:
+            if not partner_id and user_id:
+                partner_id = self.env['res.users'].browse(user_id).partner_id.id
+            elif not partner_id:
+                partner_id = self.env.user.partner_id.id
+
+            record = self.env[model_name].browse(res_id)
+            if record.exists() and hasattr(record, 'message_subscribe'):
+                record.message_subscribe([partner_id])
+                return {'status': 'success', 'message': f'Added follower to {record.display_name}'}
+            else:
+                return {'status': 'error', 'message': 'Record not found or does not support followers'}
+        except Exception as e:
+            return {'status': 'error', 'message': str(e)}
+
+    @api.model
+    def setup_default_followers_for_model(self, model_name, user_ids=None):
+        """Setup default followers for all records of a specific model"""
+        try:
+            if not user_ids:
+                # Default to admin users
+                user_ids = self.env['res.users'].search([('groups_id', 'in', self.env.ref('base.group_system').id)]).ids
+
+            partner_ids = self.env['res.users'].browse(user_ids).mapped('partner_id').ids
+
+            records = self.env[model_name].search([])
+            count = 0
+            for record in records:
+                if hasattr(record, 'message_subscribe'):
+                    record.message_subscribe(partner_ids)
+                    count += 1
+
+            return {
+                'status': 'success',
+                'message': f'Added {len(partner_ids)} followers to {count} records of {model_name}'
+            }
+        except Exception as e:
             return {'status': 'error', 'message': str(e)}
 
     @api.model
