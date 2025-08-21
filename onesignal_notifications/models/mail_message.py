@@ -196,79 +196,102 @@ class MailMessage(models.Model):
             }
 
             recipient_ids = []
-            all_partners = self.env['res.partner']
+            partners = message.partner_ids
 
-            _logger.info(f"[DEBUG][EMAIL] Processing email from {author_name} - Subject: {subject}")
+            _logger.info(f"[DEBUG][EMAIL] Initial partners from message: {partners.ids}")
 
-            # PRIORITY 1: Get direct message recipients (the most important)
-            if message.partner_ids:
-                all_partners |= message.partner_ids
-                _logger.info(f"[DEBUG][EMAIL] Found direct recipients: {message.partner_ids.mapped('name')}")
+            # IMPROVED: Multiple methods to find recipients
+            # Method 1: Direct partners from message
+            all_partners = partners
 
-            # PRIORITY 2: Get recipients from notification records
-            if hasattr(message, 'notification_ids') and message.notification_ids:
-                notification_partners = message.notification_ids.mapped('res_partner_id')
-                all_partners |= notification_partners
-                _logger.info(f"[DEBUG][EMAIL] Found notification recipients: {notification_partners.mapped('name')}")
-
-            # PRIORITY 3: If this is related to a record, get followers and related partners
+            # Method 2: Try followers from the related record
             if message.model and message.res_id:
                 try:
                     record = self.env[message.model].browse(message.res_id)
                     if record.exists():
                         _logger.info(f"[DEBUG][EMAIL] Processing record: {record.display_name}")
 
-                        # Get followers (people who should be notified about this record)
+                        # Get followers
                         if hasattr(record, 'message_follower_ids'):
                             follower_partners = record.message_follower_ids.mapped('partner_id')
                             all_partners |= follower_partners
                             _logger.info(
-                                f"[DEBUG][EMAIL] Found {len(follower_partners)} followers: {follower_partners.mapped('name')}")
+                                f"[DEBUG][EMAIL] Found {len(follower_partners)} follower partners: {follower_partners.ids}")
 
-                        # Get partners directly related to the record
-                        if hasattr(record, 'partner_ids') and record.partner_ids:
-                            record_partners = record.partner_ids
-                            all_partners |= record_partners
-                            _logger.info(f"[DEBUG][EMAIL] Found record partners: {record_partners.mapped('name')}")
+                        # Also try message_partner_ids if available
+                        if hasattr(record, 'message_partner_ids'):
+                            message_partners = record.message_partner_ids
+                            all_partners |= message_partners
+                            _logger.info(f"[DEBUG][EMAIL] Found message partners: {message_partners.ids}")
 
-                        # Get assigned/responsible users (but only if no other recipients found)
-                        if not all_partners:
-                            responsible_partners = self._get_responsible_partners_for_record(record)
-                            all_partners |= responsible_partners
-                            if responsible_partners:
-                                _logger.info(
-                                    f"[DEBUG][EMAIL] Added responsible partners as fallback: {responsible_partners.mapped('name')}")
+                        # For some models, try partner_ids field
+                        elif hasattr(record, 'partner_ids'):
+                            model_partners = record.partner_ids
+                            all_partners |= model_partners
+                            _logger.info(f"[DEBUG][EMAIL] Found model partners: {model_partners.ids}")
+
+                        # NEW: Try to find responsible/assigned users
+                        responsible_partners = self.env['res.partner']
+                        if hasattr(record, 'user_id') and record.user_id:
+                            responsible_partners |= record.user_id.partner_id
+                            _logger.info(f"[DEBUG][EMAIL] Found responsible user: {record.user_id.name}")
+
+                        if hasattr(record, 'create_uid') and record.create_uid:
+                            responsible_partners |= record.create_uid.partner_id
+                            _logger.info(f"[DEBUG][EMAIL] Found creator: {record.create_uid.name}")
+
+                        if hasattr(record, 'write_uid') and record.write_uid:
+                            responsible_partners |= record.write_uid.partner_id
+                            _logger.info(f"[DEBUG][EMAIL] Found last editor: {record.write_uid.name}")
+
+                        all_partners |= responsible_partners
+                        _logger.info(f"[DEBUG][EMAIL] Added responsible partners: {responsible_partners.ids}")
 
                 except Exception as e:
-                    _logger.warning(f"[DEBUG][EMAIL] Could not process record: {e}")
+                    _logger.warning(f"[DEBUG][EMAIL] Could not fetch partners from model {message.model}: {e}")
 
-            # PRIORITY 4: Parse email headers to find recipients
+            # Method 3: If still no partners, try to get from notification records
+            if not all_partners and hasattr(message, 'notification_ids'):
+                notification_partners = message.notification_ids.mapped('res_partner_id')
+                all_partners |= notification_partners
+                _logger.info(f"[DEBUG][EMAIL] Found notification partners: {notification_partners.ids}")
+
+            # Method 4: FALLBACK - If still no partners, get admin/superuser for critical notifications
             if not all_partners:
-                email_recipients = self._parse_email_recipients(message)
-                all_partners |= email_recipients
-                if email_recipients:
-                    _logger.info(f"[DEBUG][EMAIL] Found email header recipients: {email_recipients.mapped('name')}")
+                _logger.warning(f"[DEBUG][EMAIL] No recipients found, applying fallback logic")
 
-            # PRIORITY 5: Ultimate fallback - but only if we really have no recipients
-            if not all_partners:
-                _logger.warning(f"[DEBUG][EMAIL] No recipients found, applying fallback")
-                fallback_partners = self._get_fallback_partners_for_model(message.model, message)
-                all_partners |= fallback_partners
-                data['fallback_notification'] = True
+                # Try to get admin user (uid=1) or users with admin rights
+                admin_users = self.env['res.users'].search([
+                    '|',
+                    ('id', '=', 1),  # Admin user
+                    ('groups_id', 'in', self.env.ref('base.group_system').id)  # System admin group
+                ], limit=3)  # Limit to avoid spam
 
-            # CRITICAL: Always exclude the message author from notifications
-            # (The sender shouldn't get notified about their own sent email)
+                if admin_users:
+                    fallback_partners = admin_users.mapped('partner_id')
+                    all_partners |= fallback_partners
+                    _logger.info(
+                        f"[DEBUG][EMAIL] Applied fallback - notifying admins: {fallback_partners.mapped('name')}")
+
+                    # Add a flag to the notification data to indicate this is a fallback
+                    data['fallback_notification'] = True
+
+            # Exclude the message author from notifications
             if message.author_id:
-                original_count = len(all_partners)
-                all_partners = all_partners.filtered(lambda p: p.id != message.author_id.id)
-                excluded_count = original_count - len(all_partners)
-                if excluded_count > 0:
-                    _logger.info(f"[DEBUG][EMAIL] Excluded message author from {original_count} recipients")
+                # Only exclude author if there are other recipients
+                partners_excluding_author = all_partners.filtered(
+                    lambda p: p.id != message.author_id.id) if message.author_id else all_partners
 
+                if not partners_excluding_author and all_partners:
+                    final_partners = all_partners  # Keep author as recipient
+                else:
+                    final_partners = partners_excluding_author  # Exclude author
+
+            _logger.info(f"[DEBUG][EMAIL] All recipient partners: {all_partners.ids}")
             _logger.info(
-                f"[DEBUG][EMAIL] Final recipient partners: {all_partners.mapped('name')} (IDs: {all_partners.ids})")
+                f"[DEBUG][EMAIL] Message details - Model: {message.model}, Res_ID: {message.res_id}, Email_From: {message.email_from}")
 
-            # Find users and devices for final recipients
+            # Find users for all partners
             if all_partners:
                 user_ids = self.env['res.users'].search([
                     ('partner_id', 'in', all_partners.ids),
@@ -279,7 +302,8 @@ class MailMessage(models.Model):
 
             _logger.info(f"[DEBUG][EMAIL] Found users for partners: {user_ids}")
 
-            # Get active devices
+            # Get active devices for these users
+            devices = self.env['res.users.device']
             if user_ids:
                 devices = self.env['res.users.device'].search([
                     ('user_id', 'in', user_ids),
@@ -290,12 +314,10 @@ class MailMessage(models.Model):
             else:
                 recipient_ids = []
 
-            recipient_ids = list(set(recipient_ids))  # Remove duplicates
+            recipient_ids = list(set(recipient_ids))  # Deduplicate
             total_devices = len(recipient_ids)
+            _logger.info(f"[DEBUG][EMAIL] Found {total_devices} unique devices from {len(devices)} total devices")
 
-            _logger.info(f"[DEBUG][EMAIL] Found {total_devices} devices for {len(all_partners)} partners")
-
-            # Send notification if we have recipients
             if total_devices > 0:
                 record_name = self._get_record_name(message)
                 if record_name:
@@ -311,72 +333,17 @@ class MailMessage(models.Model):
                 )
 
                 if result:
-                    _logger.info(f"[DEBUG][EMAIL] Email notification sent successfully to {total_devices} devices")
-                    return True
+                    _logger.info(
+                        f"[DEBUG][EMAIL] Email notification sent successfully to {total_devices} devices: {result.onesignal_id if hasattr(result, 'onesignal_id') else 'N/A'}")
                 else:
                     _logger.error(f"[DEBUG][EMAIL] Failed to send email notification")
             else:
-                _logger.warning(f"[WARNING][EMAIL] No active devices found for email message {message.id}")
+                _logger.warning(f"[WARNING][EMAIL] No active devices found for mail message {message.id}")
 
         except Exception as e:
-            _logger.error(f"[ERROR][EMAIL] Error sending email notification: {str(e)}", exc_info=True)
+            _logger.error(f"[ERROR][EMAIL] Error sending mail notification: {str(e)}", exc_info=True)
 
         return False
-
-    def _parse_email_recipients(self, message):
-        """Parse email recipients from message headers and content"""
-        recipients = self.env['res.partner']
-
-        try:
-            # Check email_to field
-            if hasattr(message, 'email_to') and message.email_to:
-                email_addresses = self._extract_emails_from_string(message.email_to)
-                for email in email_addresses:
-                    partner = self.env['res.partner'].search([('email', '=', email)], limit=1)
-                    if partner:
-                        recipients |= partner
-                        _logger.info(f"[DEBUG][EMAIL] Found partner for email_to {email}: {partner.name}")
-
-            # Check email_cc field
-            if hasattr(message, 'email_cc') and message.email_cc:
-                email_addresses = self._extract_emails_from_string(message.email_cc)
-                for email in email_addresses:
-                    partner = self.env['res.partner'].search([('email', '=', email)], limit=1)
-                    if partner:
-                        recipients |= partner
-                        _logger.info(f"[DEBUG][EMAIL] Found partner for email_cc {email}: {partner.name}")
-
-        except Exception as e:
-            _logger.warning(f"Error parsing email recipients: {e}")
-
-        return recipients
-
-    def _extract_emails_from_string(self, email_string):
-        """Extract email addresses from a string like 'Name <email@domain.com>, other@domain.com'"""
-        import re
-        if not email_string:
-            return []
-
-        # Regular expression to find email addresses
-        email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
-        emails = re.findall(email_pattern, email_string)
-        return emails
-
-    def _get_responsible_partners_for_record(self, record):
-        """Get responsible partners for a record (only as fallback)"""
-        responsible_partners = self.env['res.partner']
-
-        # Common user fields to check
-        user_fields = ['user_id', 'responsible_id', 'assigned_to', 'manager_id', 'supervisor_id', 'owner_id']
-
-        for field in user_fields:
-            if hasattr(record, field):
-                user = getattr(record, field, None)
-                if user and hasattr(user, 'partner_id'):
-                    responsible_partners |= user.partner_id
-                    _logger.info(f"[DEBUG][EMAIL] Found {field}: {user.name}")
-
-        return responsible_partners
 
     def _get_record_name(self, message):
         """Helper method to get the name of the related record"""
