@@ -33,9 +33,12 @@ class MailMessage(models.Model):
                         not message.is_internal):
                     self._send_chat_notification(message)
 
-                # IMPROVED: Better mail detection
-                elif config.send_email_notifications and self._is_email_message(message):
-                    self._send_email_notification(message)
+                # IMPROVED: Better mail detection with more logging
+                elif config.send_email_notifications:
+                    is_email = self._is_email_message(message)
+                    _logger.info(f"[DEBUG] Message {message.id} is_email: {is_email}")
+                    if is_email:
+                        self._send_email_notification(message)
 
         except Exception as e:
             _logger.error(f"Error sending OneSignal notification: {str(e)}")
@@ -43,24 +46,51 @@ class MailMessage(models.Model):
         return messages
 
     def _is_email_message(self, message):
-        """Improved mail message detection"""
+        """Improved mail message detection with detailed logging"""
+        reasons = []
+
         # Check message type
-        if message.message_type in ['mail', 'email_outgoing']:
-            return True
+        if message.message_type in ['mail', 'email_outgoing', 'email']:
+            reasons.append(f"message_type={message.message_type}")
 
         # Check if it has mail-specific fields
         if hasattr(message, 'email_from') and message.email_from:
-            return True
+            reasons.append(f"has email_from={message.email_from}")
 
         # Check if it's a notification (often mail-related)
         if message.message_type == 'notification':
-            return True
+            reasons.append("is notification")
 
         # Check if it has mail headers
         if hasattr(message, 'reply_to') and message.reply_to:
-            return True
+            reasons.append(f"has reply_to={message.reply_to}")
 
-        return False
+        # Additional checks for email detection
+        if hasattr(message, 'email_to') and message.email_to:
+            reasons.append(f"has email_to={message.email_to}")
+
+        # Check if message has email-related subtypes
+        if message.subtype_id and message.subtype_id.name in ['Discussions', 'Note']:
+            reasons.append(f"subtype={message.subtype_id.name}")
+
+        # NEW: Check if the message is being sent to partners (likely email)
+        if message.partner_ids:
+            reasons.append(f"has partners={len(message.partner_ids)}")
+
+        # NEW: Check if message has followers (email recipients)
+        if message.model and message.res_id:
+            try:
+                record = self.env[message.model].browse(message.res_id)
+                if record.exists() and hasattr(record, 'message_follower_ids'):
+                    if record.message_follower_ids:
+                        reasons.append(f"has followers={len(record.message_follower_ids)}")
+            except:
+                pass
+
+        is_email = bool(reasons)
+        _logger.info(f"[DEBUG] _is_email_message for {message.id}: {is_email}, reasons: {reasons}")
+
+        return is_email
 
     def _send_chat_notification(self, message):
         try:
@@ -167,33 +197,68 @@ class MailMessage(models.Model):
             recipient_ids = []
             partners = message.partner_ids
 
-            # For other models, also try followers
-            if not partners and message.model:
+            _logger.info(f"[DEBUG][EMAIL] Initial partners from message: {partners.ids}")
+
+            # IMPROVED: Multiple methods to find recipients
+            # Method 1: Direct partners from message
+            all_partners = partners
+
+            # Method 2: Try followers from the related record
+            if message.model and message.res_id:
                 try:
                     record = self.env[message.model].browse(message.res_id)
-                    if hasattr(record, 'message_partner_ids'):
-                        partners = record.message_partner_ids
-                    elif hasattr(record, 'partner_ids'):
-                        partners = record.partner_ids
-                    _logger.info(f"[DEBUG][EMAIL] Method 2 - Processing record {record.display_name if record.exists() else 'N/A'}")
+                    if record.exists():
+                        _logger.info(f"[DEBUG][EMAIL] Processing record: {record.display_name}")
+
+                        # Get followers
+                        if hasattr(record, 'message_follower_ids'):
+                            follower_partners = record.message_follower_ids.mapped('partner_id')
+                            all_partners |= follower_partners
+                            _logger.info(
+                                f"[DEBUG][EMAIL] Found {len(follower_partners)} follower partners: {follower_partners.ids}")
+
+                        # Also try message_partner_ids if available
+                        if hasattr(record, 'message_partner_ids'):
+                            message_partners = record.message_partner_ids
+                            all_partners |= message_partners
+                            _logger.info(f"[DEBUG][EMAIL] Found message partners: {message_partners.ids}")
+
+                        # For some models, try partner_ids field
+                        elif hasattr(record, 'partner_ids'):
+                            model_partners = record.partner_ids
+                            all_partners |= model_partners
+                            _logger.info(f"[DEBUG][EMAIL] Found model partners: {model_partners.ids}")
+
                 except Exception as e:
                     _logger.warning(f"[DEBUG][EMAIL] Could not fetch partners from model {message.model}: {e}")
 
+            # Method 3: If still no partners, try to get from notification records
+            if not all_partners and hasattr(message, 'notification_ids'):
+                notification_partners = message.notification_ids.mapped('res_partner_id')
+                all_partners |= notification_partners
+                _logger.info(f"[DEBUG][EMAIL] Found notification partners: {notification_partners.ids}")
+
             # Exclude the message author from notifications
             if message.author_id:
-                partners = partners.filtered(lambda p: p.id != message.author_id.id)
+                all_partners = all_partners.filtered(lambda p: p.id != message.author_id.id)
 
-            _logger.info(f"[DEBUG][EMAIL] Message details - Model: {message.model}, Res_ID: {message.res_id}, Partner_IDs: {partners.ids}, Email_From: {message.email_from}")
+            _logger.info(f"[DEBUG][EMAIL] All recipient partners: {all_partners.ids}")
+            _logger.info(
+                f"[DEBUG][EMAIL] Message details - Model: {message.model}, Res_ID: {message.res_id}, Email_From: {message.email_from}")
 
-            # FIXED: Correctly find users associated with the partners
-            if partners:
-                user_ids = self.env['res.users'].search([('partner_id', 'in', partners.ids), ('active', '=', True)]).ids
+            # Find users for all partners
+            if all_partners:
+                user_ids = self.env['res.users'].search([
+                    ('partner_id', 'in', all_partners.ids),
+                    ('active', '=', True)
+                ]).ids
             else:
                 user_ids = []
 
-            _logger.info(f"[DEBUG][EMAIL] Found users for partners {partners.ids}: {user_ids}")
+            _logger.info(f"[DEBUG][EMAIL] Found users for partners: {user_ids}")
 
             # Get active devices for these users
+            devices = self.env['res.users.device']
             if user_ids:
                 devices = self.env['res.users.device'].search([
                     ('user_id', 'in', user_ids),
@@ -214,14 +279,19 @@ class MailMessage(models.Model):
                     data['record_name'] = record_name
                     content = f"{record_name}: {clean_body}" if clean_body else record_name
 
-                self.env['onesignal.notification'].send_notification(
+                result = self.env['onesignal.notification'].send_notification(
                     title=title,
                     message=content,
                     notification_type='mail',
                     recipient_ids=recipient_ids,
                     data=data
                 )
-                _logger.info(f"[DEBUG][EMAIL] Sending mail notification to {total_devices} unique devices from {len(devices)} total devices")
+
+                if result:
+                    _logger.info(
+                        f"[DEBUG][EMAIL] Email notification sent successfully to {total_devices} devices: {result.onesignal_id if hasattr(result, 'onesignal_id') else 'N/A'}")
+                else:
+                    _logger.error(f"[DEBUG][EMAIL] Failed to send email notification")
             else:
                 _logger.warning(f"[WARNING][EMAIL] No active devices found for mail message {message.id}")
 
@@ -241,6 +311,7 @@ class MailMessage(models.Model):
         except Exception as e:
             _logger.warning(f"Could not get record name for message {getattr(message, 'id', 'N/A')}: {e}")
         return None
+
 
 # ENHANCED Helper class for testing and custom notifications
 class OneSignalHelper(models.TransientModel):
@@ -334,6 +405,7 @@ class OneSignalHelper(models.TransientModel):
                 'email_from': getattr(message, 'email_from', 'N/A'),
                 'email_to': getattr(message, 'email_to', 'N/A'),
                 'is_email': self.env['mail.message']._is_email_message(message),
+                'subtype_id': message.subtype_id.name if message.subtype_id else None,
             }
 
             # Get related record info
@@ -346,8 +418,12 @@ class OneSignalHelper(models.TransientModel):
                         # Get followers if available
                         if hasattr(record, 'message_follower_ids'):
                             info['followers'] = record.message_follower_ids.mapped('partner_id').ids
-                except:
-                    info['record_error'] = 'Could not fetch record'
+
+                        # Get notification recipients
+                        if hasattr(message, 'notification_ids'):
+                            info['notifications'] = message.notification_ids.mapped('res_partner_id').ids
+                except Exception as e:
+                    info['record_error'] = str(e)
 
             return info
 
