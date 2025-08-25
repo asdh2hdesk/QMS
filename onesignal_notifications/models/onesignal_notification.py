@@ -43,12 +43,20 @@ class OneSignalNotification(models.Model):
     @api.model
     def send_notification(self, title, message, notification_type='custom',
                           recipient_ids=None, segments=None, send_to_all=False,
+                          user_ids=None,  # ADD THIS PARAMETER
                           data=None, url=None, large_icon=None, big_picture=None):
         """Send notification via OneSignal API"""
 
         notification = None
         try:
             config = self.env['onesignal.config'].get_active_config()
+
+            # If user_ids provided, get their player IDs
+            if user_ids and not recipient_ids:
+                recipient_ids = self.get_recipient_ids_for_users(user_ids)
+                if not recipient_ids:
+                    _logger.warning(f"No active devices found for users {user_ids}")
+                    return False
 
             # Create notification record
             notification = self.create({
@@ -91,11 +99,14 @@ class OneSignalNotification(models.Model):
             if big_picture:
                 payload['big_picture'] = big_picture
 
-            # Send notification - THIS WAS THE BUG!
+            # Send notification
             headers = {
-                'Authorization': f'Basic {config.rest_api_key}',  # Fixed: was self.rest_api_key
+                'Authorization': f'Basic {config.rest_api_key}',
                 'Content-Type': 'application/json'
             }
+
+            _logger.info(f"Sending notification to player IDs: {recipient_ids}")
+            _logger.info(f"Payload: {json.dumps(payload, indent=2)}")
 
             response = requests.post(
                 'https://onesignal.com/api/v1/notifications',
@@ -111,9 +122,7 @@ class OneSignalNotification(models.Model):
                     'onesignal_id': result.get('id')
                 })
                 _logger.info(f"OneSignal notification sent successfully: {result.get('id')}")
-                # _logger.info(f"OneSignal notification sent successfully: {result.get('recipient_ids')}")
                 _logger.info(f"Full OneSignal response: {json.dumps(result, indent=2)}")
-
                 return notification
             else:
                 error_msg = f"OneSignal API error: {response.status_code} - {response.text}"
@@ -192,3 +201,21 @@ class OneSignalNotification(models.Model):
 
             rec.write({'status': 'sent'})
         return True
+
+    @api.model
+    def get_recipient_ids_for_users(self, user_ids):
+        """Get all active player IDs for specific users"""
+        if not user_ids:
+            return []
+
+        # Use the res.users.device model to get active player IDs
+        device_model = self.env['res.users.device']
+        active_devices = device_model.search([
+            ('user_id', 'in', user_ids),
+            ('active', '=', True),
+            ('push_enabled', '=', True)
+        ])
+
+        player_ids = active_devices.mapped('player_id')
+        _logger.info(f"Found {len(player_ids)} active devices for users {user_ids}: {player_ids}")
+        return player_ids
