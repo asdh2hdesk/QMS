@@ -195,16 +195,19 @@ class MailMessage(models.Model):
                 'author_id': message.author_id.id if message.author_id else None,
             }
 
-            recipient_ids = []
-            partners = message.partner_ids
+            # Start with empty partner set
+            all_partners = self.env['res.partner']
 
-            _logger.info(f"[DEBUG][EMAIL] Initial partners from message: {partners.ids}")
+            _logger.info(
+                f"[DEBUG][EMAIL] Processing message {message.id} - Model: {message.model}, Author: {author_name}")
+            _logger.info(f"[DEBUG][EMAIL] Initial partners from message: {message.partner_ids.ids}")
 
-            # IMPROVED: Multiple methods to find recipients
             # Method 1: Direct partners from message
-            all_partners = partners
+            if message.partner_ids:
+                all_partners |= message.partner_ids
+                _logger.info(f"[DEBUG][EMAIL] Added message partners: {message.partner_ids.ids}")
 
-            # Method 2: Try followers from the related record
+            # Method 2: Get recipients from related record
             if message.model and message.res_id:
                 try:
                     record = self.env[message.model].browse(message.res_id)
@@ -215,108 +218,134 @@ class MailMessage(models.Model):
                         if hasattr(record, 'message_follower_ids'):
                             follower_partners = record.message_follower_ids.mapped('partner_id')
                             all_partners |= follower_partners
-                            _logger.info(
-                                f"[DEBUG][EMAIL] Found {len(follower_partners)} follower partners: {follower_partners.ids}")
+                            _logger.info(f"[DEBUG][EMAIL] Added follower partners: {follower_partners.ids}")
 
-                        # Also try message_partner_ids if available
+                        # Get message_partner_ids if available
                         if hasattr(record, 'message_partner_ids'):
                             message_partners = record.message_partner_ids
                             all_partners |= message_partners
-                            _logger.info(f"[DEBUG][EMAIL] Found message partners: {message_partners.ids}")
+                            _logger.info(f"[DEBUG][EMAIL] Added record message partners: {message_partners.ids}")
 
                         # For some models, try partner_ids field
                         elif hasattr(record, 'partner_ids'):
                             model_partners = record.partner_ids
                             all_partners |= model_partners
-                            _logger.info(f"[DEBUG][EMAIL] Found model partners: {model_partners.ids}")
+                            _logger.info(f"[DEBUG][EMAIL] Added model partners: {model_partners.ids}")
 
-                        # NEW: Try to find responsible/assigned users
+                        # Get responsible/assigned users
                         responsible_partners = self.env['res.partner']
                         if hasattr(record, 'user_id') and record.user_id:
                             responsible_partners |= record.user_id.partner_id
-                            _logger.info(f"[DEBUG][EMAIL] Found responsible user: {record.user_id.name}")
+                            _logger.info(f"[DEBUG][EMAIL] Added responsible user: {record.user_id.name}")
 
                         if hasattr(record, 'create_uid') and record.create_uid:
                             responsible_partners |= record.create_uid.partner_id
-                            _logger.info(f"[DEBUG][EMAIL] Found creator: {record.create_uid.name}")
-
-                        if hasattr(record, 'write_uid') and record.write_uid:
-                            responsible_partners |= record.write_uid.partner_id
-                            _logger.info(f"[DEBUG][EMAIL] Found last editor: {record.write_uid.name}")
+                            _logger.info(f"[DEBUG][EMAIL] Added creator: {record.create_uid.name}")
 
                         all_partners |= responsible_partners
-                        _logger.info(f"[DEBUG][EMAIL] Added responsible partners: {responsible_partners.ids}")
 
                 except Exception as e:
                     _logger.warning(f"[DEBUG][EMAIL] Could not fetch partners from model {message.model}: {e}")
 
-            # Method 3: If still no partners, try to get from notification records
-            if not all_partners and hasattr(message, 'notification_ids'):
+            # Method 3: Get from notification records
+            if hasattr(message, 'notification_ids'):
                 notification_partners = message.notification_ids.mapped('res_partner_id')
-                all_partners |= notification_partners
-                _logger.info(f"[DEBUG][EMAIL] Found notification partners: {notification_partners.ids}")
+                if notification_partners:
+                    all_partners |= notification_partners
+                    _logger.info(f"[DEBUG][EMAIL] Added notification partners: {notification_partners.ids}")
 
-            # Method 4: FALLBACK - If still no partners, get admin/superuser for critical notifications
+            # Method 4: IMPROVED FALLBACK - If no partners found, determine based on context
             if not all_partners:
-                _logger.warning(f"[DEBUG][EMAIL] No recipients found, applying fallback logic")
+                _logger.warning(
+                    f"[DEBUG][EMAIL] No recipients found for message {message.id}, applying intelligent fallback")
 
-                # Try to get admin user (uid=1) or users with admin rights
-                admin_users = self.env['res.users'].search([
-                    '|',
-                    ('id', '=', 1),  # Admin user
-                    ('groups_id', 'in', self.env.ref('base.group_system').id)  # System admin group
-                ], limit=3)  # Limit to avoid spam
+                # For messages from admin to users, try to find intended recipients
+                if message.author_id and message.author_id.has_group('base.group_system'):
+                    # If admin is sending, try to find non-admin users who should be notified
+                    target_users = self.env['res.users']
 
-                if admin_users:
-                    fallback_partners = admin_users.mapped('partner_id')
-                    all_partners |= fallback_partners
-                    _logger.info(
-                        f"[DEBUG][EMAIL] Applied fallback - notifying admins: {fallback_partners.mapped('name')}")
+                    # Check if this is related to a specific record that has an assigned user
+                    if message.model and message.res_id:
+                        try:
+                            record = self.env[message.model].browse(message.res_id)
+                            if record.exists():
+                                # Look for user assignments in common fields
+                                for field_name in ['user_id', 'assigned_user_id', 'responsible_user_id', 'partner_id']:
+                                    if hasattr(record, field_name):
+                                        field_value = getattr(record, field_name)
+                                        if field_value:
+                                            if hasattr(field_value, 'user_ids'):  # It's a partner
+                                                target_users |= field_value.user_ids
+                                            elif hasattr(field_value,
+                                                         'id') and field_value._name == 'res.users':  # It's a user
+                                                target_users |= field_value
+                                            break
+                        except Exception as e:
+                            _logger.warning(f"Could not determine target users from record: {e}")
 
-                    # Add a flag to the notification data to indicate this is a fallback
+                    # If still no target users, get recent active users (excluding admin)
+                    if not target_users:
+                        target_users = self.env['res.users'].search([
+                            ('id', '!=', message.author_id.id),  # Exclude author
+                            ('active', '=', True),
+                            ('share', '=', False),  # Internal users only
+                        ], limit=5, order='login_date desc')
+
+                    all_partners |= target_users.mapped('partner_id')
+                    _logger.info(f"[DEBUG][EMAIL] Fallback - added target users: {target_users.mapped('name')}")
+
+                    # Add fallback flag
                     data['fallback_notification'] = True
-
-            # Exclude the message author from notifications
-            if message.author_id:
-                # Only exclude author if there are other recipients
-                partners_excluding_author = all_partners.filtered(
-                    lambda p: p.id != message.author_id.id) if message.author_id else all_partners
-
-                if not partners_excluding_author and all_partners:
-                    final_partners = all_partners  # Keep author as recipient
                 else:
-                    final_partners = partners_excluding_author  # Exclude author
+                    # Non-admin sender - notify admins
+                    admin_users = self.env['res.users'].search([
+                        ('groups_id', 'in', self.env.ref('base.group_system').id)
+                    ], limit=3)
 
-            _logger.info(f"[DEBUG][EMAIL] All recipient partners: {all_partners.ids}")
-            _logger.info(
-                f"[DEBUG][EMAIL] Message details - Model: {message.model}, Res_ID: {message.res_id}, Email_From: {message.email_from}")
+                    if admin_users:
+                        all_partners |= admin_users.mapped('partner_id')
+                        _logger.info(f"[DEBUG][EMAIL] Fallback - notifying admins: {admin_users.mapped('name')}")
+                        data['fallback_notification'] = True
 
-            # Find users for all partners
-            if all_partners:
-                user_ids = self.env['res.users'].search([
-                    ('partner_id', 'in', all_partners.ids),
+            # FIXED: Proper recipient filtering
+            final_partners = all_partners
+
+            # Only exclude author if there are other recipients AND author is not the intended target
+            if message.author_id and len(all_partners) > 1:
+                partners_excluding_author = all_partners.filtered(lambda p: p.id != message.author_id.id)
+                if partners_excluding_author:
+                    final_partners = partners_excluding_author
+                    _logger.info(f"[DEBUG][EMAIL] Excluded author, final partners: {final_partners.ids}")
+                else:
+                    # Keep author if they're the only recipient (self-notification scenario)
+                    final_partners = all_partners
+                    _logger.info(f"[DEBUG][EMAIL] Keeping author as only recipient: {final_partners.ids}")
+
+            _logger.info(f"[DEBUG][EMAIL] Final recipient partners for message {message.id}: {final_partners.ids}")
+
+            # Get active devices for final partners
+            recipient_ids = []
+            if final_partners:
+                # Get users for these partners
+                users = self.env['res.users'].search([
+                    ('partner_id', 'in', final_partners.ids),
                     ('active', '=', True)
-                ]).ids
-            else:
-                user_ids = []
-
-            _logger.info(f"[DEBUG][EMAIL] Found users for partners: {user_ids}")
-
-            # Get active devices for these users
-            devices = self.env['res.users.device']
-            if user_ids:
-                devices = self.env['res.users.device'].search([
-                    ('user_id', 'in', user_ids),
-                    ('active', '=', True),
-                    ('push_enabled', '=', True)
                 ])
-                recipient_ids = devices.mapped('player_id')
-            else:
-                recipient_ids = []
 
-            recipient_ids = list(set(recipient_ids))  # Deduplicate
+                _logger.info(f"[DEBUG][EMAIL] Found users: {users.mapped('name')} (IDs: {users.ids})")
+
+                # Get their active devices
+                if users:
+                    devices = self.env['res.users.device'].search([
+                        ('user_id', 'in', users.ids),
+                        ('active', '=', True),
+                        ('push_enabled', '=', True)
+                    ])
+                    recipient_ids = list(set(devices.mapped('player_id')))
+                    _logger.info(f"[DEBUG][EMAIL] Found {len(devices)} devices with player_ids: {recipient_ids}")
+
             total_devices = len(recipient_ids)
-            _logger.info(f"[DEBUG][EMAIL] Found {total_devices} unique devices from {len(devices)} total devices")
+            _logger.info(f"[DEBUG][EMAIL] Sending to {total_devices} devices")
 
             if total_devices > 0:
                 record_name = self._get_record_name(message)
@@ -333,8 +362,8 @@ class MailMessage(models.Model):
                 )
 
                 if result:
-                    _logger.info(
-                        f"[DEBUG][EMAIL] Email notification sent successfully to {total_devices} devices: {result.onesignal_id if hasattr(result, 'onesignal_id') else 'N/A'}")
+                    _logger.info(f"[DEBUG][EMAIL] Email notification sent successfully to {total_devices} devices")
+                    return True
                 else:
                     _logger.error(f"[DEBUG][EMAIL] Failed to send email notification")
             else:
