@@ -59,7 +59,7 @@
         </field>
     </record>
 
-    <!-- OneSignal Notification Form View -->
+    <!-- FIXED: OneSignal Notification Form View with proper message display -->
     <record id="view_onesignal_notification_form" model="ir.ui.view">
         <field name="name">onesignal.notification.form</field>
         <field name="model">onesignal.notification</field>
@@ -70,12 +70,11 @@
                     <field name="status" widget="statusbar"/>
                 </header>
                 <sheet>
+                    <!-- Basic Details Section -->
                     <group>
-                        <group string="Notification Details">
+                        <group string="Notification Details" col="1">
                             <field name="name"/>
                             <field name="notification_type"/>
-                            <field name="message" widget="text" options="{'resizable': true}"
-                                       style="min-height: 100px !important; height: auto !important;"/>
                         </group>
                         <group string="Recipients">
                             <field name="send_to_all"/>
@@ -83,17 +82,44 @@
                             <field name="segments" attrs="{'invisible': [('send_to_all', '=', True)]}"/>
                         </group>
                     </group>
+
+                    <!-- Message Content - Full width for better display -->
+                    <group string="Message Content" col="1">
+                        <field name="message"
+                               widget="text"
+                               nolabel="1"
+                               placeholder="Enter your notification message here..."
+                               options="{
+                                   'resizable': true,
+                                   'no_resize': false,
+                                   'height': 150
+                               }"
+                               style="min-height: 150px !important; width: 100% !important;"/>
+                    </group>
+
+                    <!-- Additional Options and Status -->
                     <group>
                         <group string="Additional Options">
-                            <field name="url"/>
-                            <field name="large_icon"/>
-                            <field name="big_picture"/>
-                            <field name="data" widget="text"/>
+                            <field name="url" placeholder="https://example.com"/>
+                            <field name="large_icon" placeholder="URL to large icon image"/>
+                            <field name="big_picture" placeholder="URL to big picture image"/>
                         </group>
-                        <group string="Status">
-                            <field name="onesignal_id"/>
-                            <field name="error_message" attrs="{'invisible': [('status', '!=', 'failed')]}"/>
+                        <group string="Status Information">
+                            <field name="onesignal_id" readonly="1"/>
+                            <field name="error_message"
+                                   attrs="{'invisible': [('status', '!=', 'failed')]}"
+                                   widget="text"/>
                         </group>
+                    </group>
+
+                    <!-- Additional Data - Full width -->
+                    <group string="Additional Data (JSON)" col="1" attrs="{'invisible': [('data', '=', False)]}">
+                        <field name="data"
+                               widget="ace"
+                               options="{'mode': 'json'}"
+                               nolabel="1"
+                               placeholder='{"key": "value", "custom_data": "example"}'
+                               style="min-height: 100px !important;"/>
                     </group>
                 </sheet>
             </form>
@@ -109,8 +135,12 @@
                 <field name="create_date"/>
                 <field name="name"/>
                 <field name="notification_type"/>
-                <field name="status"/>
+                <field name="status" decoration-success="status == 'sent'"
+                       decoration-danger="status == 'failed'"
+                       decoration-muted="status == 'draft'"/>
                 <field name="onesignal_id"/>
+                <!-- Show truncated message content -->
+                <field name="message" string="Message Preview"/>
             </tree>
         </field>
     </record>
@@ -127,4 +157,26 @@
         <field name="res_model">onesignal.notification</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+    <!-- Optional: Custom CSS for better text area display -->
+    <template id="onesignal_notification_assets" name="OneSignal Notification Assets">
+        <style>
+            .o_field_text textarea {
+                min-height: 150px !important;
+                resize: vertical !important;
+            }
+
+            .o_field_text.o_field_widget[name="message"] textarea {
+                min-height: 150px !important;
+                max-height: 300px !important;
+                overflow-y: auto !important;
+            }
+
+            .o_field_text.o_field_widget[name="error_message"] textarea {
+                min-height: 80px !important;
+                background-color: #fff2f2 !important;
+                border-color: #ff6b6b !important;
+            }
+        </style>
+    </template>
 </odoo>
