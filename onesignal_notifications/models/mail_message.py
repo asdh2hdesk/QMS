@@ -181,11 +181,13 @@ class MailMessage(models.Model):
         try:
             author_name = message.author_id.name if message.author_id else 'User'
             subject = message.subject or 'New Email'
-            body = message.body or ''
 
-            clean_body = html2plaintext(body)[:100] if body else ''
+            # FIXED: Better message content extraction
+            body = self._extract_clean_message_body(message)
+
+            # Don't truncate here - let OneSignal handle it
             title = f"New email from {'ASD' if author_name == 'OdooBot' else author_name}"
-            content = f"{subject}: {clean_body}" if clean_body else subject
+            content = f"{subject}: {body}" if body else subject
 
             data = {
                 'type': 'mail',
@@ -193,14 +195,16 @@ class MailMessage(models.Model):
                 'model': message.model,
                 'res_id': message.res_id,
                 'author_id': message.author_id.id if message.author_id else None,
+                'full_content': body,  # Store full content in data
+                'subject': subject,
             }
 
-            # Start with empty partner set
+            # ... rest of recipient logic stays the same ...
             all_partners = self.env['res.partner']
 
             _logger.info(
                 f"[DEBUG][EMAIL] Processing message {message.id} - Model: {message.model}, Author: {author_name}")
-            _logger.info(f"[DEBUG][EMAIL] Initial partners from message: {message.partner_ids.ids}")
+            _logger.info(f"[DEBUG][EMAIL] Full message body length: {len(body) if body else 0}")
 
             # Method 1: Direct partners from message
             if message.partner_ids:
@@ -254,7 +258,7 @@ class MailMessage(models.Model):
                     all_partners |= notification_partners
                     _logger.info(f"[DEBUG][EMAIL] Added notification partners: {notification_partners.ids}")
 
-            # Method 4: IMPROVED FALLBACK - If no partners found, determine based on context
+            # Method 4: Fallback logic (same as before)
             if not all_partners:
                 _logger.warning(
                     f"[DEBUG][EMAIL] No recipients found for message {message.id}, applying intelligent fallback")
@@ -274,10 +278,9 @@ class MailMessage(models.Model):
                                     if hasattr(record, field_name):
                                         field_value = getattr(record, field_name)
                                         if field_value:
-                                            if hasattr(field_value, 'user_ids'):  # It's a partner
+                                            if hasattr(field_value, 'user_ids'):
                                                 target_users |= field_value.user_ids
-                                            elif hasattr(field_value,
-                                                         'id') and field_value._name == 'res.users':  # It's a user
+                                            elif hasattr(field_value, 'id') and field_value._name == 'res.users':
                                                 target_users |= field_value
                                             break
                         except Exception as e:
@@ -286,9 +289,9 @@ class MailMessage(models.Model):
                     # If still no target users, get recent active users (excluding admin)
                     if not target_users:
                         target_users = self.env['res.users'].search([
-                            ('id', '!=', message.author_id.id),  # Exclude author
+                            ('id', '!=', message.author_id.id),
                             ('active', '=', True),
-                            ('share', '=', False),  # Internal users only
+                            ('share', '=', False),
                         ], limit=5, order='login_date desc')
 
                     all_partners |= target_users.mapped('partner_id')
@@ -351,11 +354,12 @@ class MailMessage(models.Model):
                 record_name = self._get_record_name(message)
                 if record_name:
                     data['record_name'] = record_name
-                    content = f"{record_name}: {clean_body}" if clean_body else record_name
+                    # For display in notification, use full content
+                    content = f"{record_name}: {body}" if body else record_name
 
                 result = self.env['onesignal.notification'].send_notification(
                     title=title,
-                    message=content,
+                    message=content,  # This should contain the full message
                     notification_type='mail',
                     recipient_ids=recipient_ids,
                     data=data
@@ -363,6 +367,7 @@ class MailMessage(models.Model):
 
                 if result:
                     _logger.info(f"[DEBUG][EMAIL] Email notification sent successfully to {total_devices} devices")
+                    _logger.info(f"[DEBUG][EMAIL] Full message content was: {content[:200]}...")  # Log first 200 chars
                     return True
                 else:
                     _logger.error(f"[DEBUG][EMAIL] Failed to send email notification")
@@ -373,6 +378,41 @@ class MailMessage(models.Model):
             _logger.error(f"[ERROR][EMAIL] Error sending mail notification: {str(e)}", exc_info=True)
 
         return False
+
+    def _extract_clean_message_body(self, message):
+        """Extract and clean message body content"""
+        try:
+            body = message.body or ''
+
+            # Convert HTML to plain text
+            clean_body = html2plaintext(body).strip()
+
+            # Remove excessive whitespace
+            clean_body = re.sub(r'\s+', ' ', clean_body)
+
+            # Remove common email artifacts
+            clean_body = re.sub(r'^(On\s+.*wrote:|From:.*|Sent:.*|To:.*)', '', clean_body, flags=re.MULTILINE)
+
+            # Remove signature separators
+            clean_body = re.sub(r'^\s*--+\s*$.*', '', clean_body, flags=re.MULTILINE | re.DOTALL)
+
+            # If still empty, try to get from subject or other fields
+            if not clean_body:
+                if message.subject:
+                    clean_body = message.subject
+                elif hasattr(message, 'preview') and message.preview:
+                    clean_body = message.preview
+                else:
+                    clean_body = 'New message received'
+
+            _logger.info(f"[DEBUG] Extracted message body length: {len(clean_body)}")
+            _logger.info(f"[DEBUG] First 200 chars: {clean_body[:200]}")
+
+            return clean_body
+
+        except Exception as e:
+            _logger.error(f"Error extracting message body: {str(e)}")
+            return message.subject or 'New message'
 
     def _get_record_name(self, message):
         """Helper method to get the name of the related record"""

@@ -43,7 +43,7 @@ class OneSignalNotification(models.Model):
     @api.model
     def send_notification(self, title, message, notification_type='custom',
                           recipient_ids=None, segments=None, send_to_all=False,
-                          user_ids=None,  # ADD THIS PARAMETER
+                          user_ids=None,
                           data=None, url=None, large_icon=None, big_picture=None):
         """Send notification via OneSignal API"""
 
@@ -51,17 +51,16 @@ class OneSignalNotification(models.Model):
         try:
             config = self.env['onesignal.config'].get_active_config()
 
-            # If user_ids provided, get their player IDs
             if user_ids and not recipient_ids:
                 recipient_ids = self.get_recipient_ids_for_users(user_ids)
                 if not recipient_ids:
                     _logger.warning(f"No active devices found for users {user_ids}")
                     return False
 
-            # Create notification record
+            # FIXED: Don't truncate message content when creating the notification record
             notification = self.create({
                 'name': title,
-                'message': message,
+                'message': message,  # Store full message without truncation
                 'notification_type': notification_type,
                 'recipient_ids': json.dumps(recipient_ids) if recipient_ids else None,
                 'segments': json.dumps(segments) if segments else None,
@@ -76,7 +75,7 @@ class OneSignalNotification(models.Model):
             payload = {
                 'app_id': config.app_id,
                 'headings': {'en': title},
-                'contents': {'en': message},
+                'contents': {'en': message},  # Send full message to OneSignal
             }
 
             # Set recipients
@@ -99,6 +98,16 @@ class OneSignalNotification(models.Model):
             if big_picture:
                 payload['big_picture'] = big_picture
 
+            # IMPROVED: Add message length limits for OneSignal
+            # OneSignal has limits: title max 64 chars, message max 4000 chars
+            if len(title) > 64:
+                payload['headings']['en'] = title[:61] + '...'
+                _logger.info(f"Truncated title from {len(title)} to 64 characters")
+
+            if len(message) > 4000:
+                payload['contents']['en'] = message[:3997] + '...'
+                _logger.info(f"Truncated message from {len(message)} to 4000 characters")
+
             # Send notification
             headers = {
                 'Authorization': f'Basic {config.rest_api_key}',
@@ -106,7 +115,8 @@ class OneSignalNotification(models.Model):
             }
 
             _logger.info(f"Sending notification to player IDs: {recipient_ids}")
-            _logger.info(f"Payload: {json.dumps(payload, indent=2)}")
+            _logger.info(f"Message length: {len(message)} characters")
+            _logger.info(f"Payload contents length: {len(payload['contents']['en'])}")
 
             response = requests.post(
                 'https://onesignal.com/api/v1/notifications',
@@ -122,7 +132,7 @@ class OneSignalNotification(models.Model):
                     'onesignal_id': result.get('id')
                 })
                 _logger.info(f"OneSignal notification sent successfully: {result.get('id')}")
-                _logger.info(f"Full OneSignal response: {json.dumps(result, indent=2)}")
+                _logger.info(f"Recipients: {result.get('recipients', 'N/A')}")
                 return notification
             else:
                 error_msg = f"OneSignal API error: {response.status_code} - {response.text}"
@@ -135,7 +145,7 @@ class OneSignalNotification(models.Model):
 
         except Exception as e:
             error_msg = f"Failed to send OneSignal notification: {str(e)}"
-            _logger.error(error_msg)
+            _logger.error(error_msg, exc_info=True)
             if notification:
                 notification.write({
                     'status': 'failed',
@@ -162,18 +172,15 @@ class OneSignalNotification(models.Model):
             segments = None
             data = None
 
-            # Handle recipient_ids
             if rec.recipient_ids:
                 try:
                     recipient_ids = json.loads(rec.recipient_ids)
                 except Exception:
-                    # fallback: try parsing as Python literal or wrap in list
                     try:
                         recipient_ids = ast.literal_eval(rec.recipient_ids)
                     except Exception:
                         recipient_ids = [rec.recipient_ids]
 
-            # Handle segments
             if rec.segments:
                 try:
                     segments = json.loads(rec.segments)
@@ -183,23 +190,29 @@ class OneSignalNotification(models.Model):
                     except Exception:
                         segments = [rec.segments]
 
-            # Handle data
             if rec.data:
                 try:
                     data = json.loads(rec.data)
                 except Exception:
                     data = {"raw": rec.data}
 
-            self.env['onesignal.helper'].send_custom_notification(
+            # FIXED: Use the model's own send_notification method instead of helper
+            result = self.send_notification(
                 title=rec.name,
-                message=rec.message,
+                message=rec.message,  # Send full message
+                notification_type=rec.notification_type,
                 recipient_ids=recipient_ids,
                 segments=segments,
                 data=data,
-                url=rec.url
+                url=rec.url,
+                large_icon=rec.large_icon,
+                big_picture=rec.big_picture
             )
 
-            rec.write({'status': 'sent'})
+            if result:
+                rec.write({'status': 'sent'})
+            else:
+                rec.write({'status': 'failed'})
         return True
 
     @api.model
@@ -208,7 +221,6 @@ class OneSignalNotification(models.Model):
         if not user_ids:
             return []
 
-        # Use the res.users.device model to get active player IDs
         device_model = self.env['res.users.device']
         active_devices = device_model.search([
             ('user_id', 'in', user_ids),
