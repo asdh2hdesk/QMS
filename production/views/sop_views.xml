@@ -25,6 +25,13 @@
         <field name="model">standard.operating.procedure</field>
         <field name="arch" type="xml">
             <form>
+                <!-- 🔥 Header with Download Button -->
+                <header>
+                    <button name="generate_excel_report"
+                            string="Download Report"
+                            type="object"
+                            class="btn btn-primary"/>
+                </header>
                 <sheet>
                     <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
                         <h1 style="color:#4492bd;">

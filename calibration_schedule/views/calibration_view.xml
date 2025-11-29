@@ -18,7 +18,7 @@
     </record>
 
     <!-- Form View -->
-    <record id="view_calibration_form" model="ir.ui.view">
+    <record id="view_calibration_form" model="ir.ui.view">  
         <field name="name">calibration.sheet.form</field>
         <field name="model">calibration.sheet</field>
         <field name="arch" type="xml">
@@ -29,7 +29,7 @@
                             string="Submit for Approval"
                             class="btn-primary"
                             icon="fa-paper-plane"
-                            attrs="{'invisible': [('approval_state', '!=', 'draft')]}"/>
+                            attrs="{'invisible': [('approval_state', '!=', 'draft')]}"/>    
                     <button name="action_approve"
                             type="object"
                             string="Approve"
@@ -158,7 +158,7 @@
         <field name="model">calibration.sheet.schedule</field>
         <field name="arch" type="xml">
             <form string="Calibration Schedule">
-
+            
                 <sheet>
                     <div style="font-size:30px; text-align:center; border: 2px solid #4492bd; padding: 10px; border-radius: 10px;">
                         <h1 style="color:#4492bd;">

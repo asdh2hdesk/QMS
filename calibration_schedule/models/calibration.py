@@ -404,7 +404,9 @@ class CalibrationSchedule(models.Model):
                 elif record.cal_freq == 'yearly':
                     current_date += relativedelta(years=record.interval or 1)
 
-
+    def generate_excel_report(self):
+        pass
+                            
 
 
 

@@ -519,7 +519,7 @@ class ControlPlan(models.Model):
         for cell, value in data.items():
             ws[cell] = value
             ws[cell].font = font_header
-
+    
         max_row = 30
 
         cell_ranges_to_merge = ['A1:T1', 'A2:B2', 'C2:T2', 'A7:T7', 'A8:A10', 'B8:B10', 'C8:C10', 'E8:H8',
